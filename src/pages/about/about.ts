@@ -6,7 +6,7 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'about.html'
 })
 export class AboutPage {
-
+  myVar = false
   constructor(public navCtrl: NavController) {
 
   }
