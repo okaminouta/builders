@@ -1,0 +1,49 @@
+<ion-header>
+  <header></header>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <div col-4>
+      <img src="../assets/imgs/profile .jpg" alt="" style="height: 130px">
+    </div>
+    <ion-list col-8>
+      <ion-item>
+        <ion-label floating>Прізвище</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Ім'я</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>По батькові</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-row>
+
+  <ion-row class="border">
+
+    <h5>Місто проживання</h5>
+  </ion-row>
+
+
+  <ion-searchbar
+    margin-top
+    (ionInput)="getItems($event)"
+    placeholder="Введіть назву ..."
+    [(ngModel)]="city"
+  ></ion-searchbar>
+
+  <ion-list *ngIf="showList">
+    <ion-item *ngFor="let item of items" (click)="chooseItem(item)">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+  <ion-item no-padding>
+    <ion-label floating>Номер телефону</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+</ion-content>

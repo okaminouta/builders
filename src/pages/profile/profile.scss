@@ -1,0 +1,32 @@
+page-profile {
+.label-md {
+  margin-top: 5px;
+}
+  img {
+    height: 130px;
+    border-radius: 50%;
+    margin-top: 30px;
+  }
+  h5 {
+    color: #908c8c;
+  }
+
+  .searchbar-search-icon {
+    display: none;
+  }
+
+  .searchbar-input-container {
+    border-bottom: 1px solid #908c8c;
+  }
+
+.searchbar-md .searchbar-input {
+  padding: 6px 1px;
+  border-bottom: 1px solid #908c8c;
+}
+  .searchbar-md {
+    padding: 0;
+  }
+  .searchbar-input {
+    box-shadow: none !important;
+  }
+}

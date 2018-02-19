@@ -21,6 +21,17 @@
 .button-md {
   color: #ffffff;
 }
+.border {
+  border-bottom: 1px solid #908c8c;
+}
+.subheader-pading {
+  padding-top: 9px;
+  padding-bottom: 13px;
+}
+.primary-text {
+  color: color($colors, primary);
+
+}
 //.secondary {
 //  background-color: #f9b707;
 //}
