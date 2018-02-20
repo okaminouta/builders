@@ -6,9 +6,11 @@ import {NavController} from 'ionic-angular';
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-  myVar: [] = ['123', '234', '3465'];
+  // myVar: [] = ['123', '234', '3465'];
+  city: string;
 
   constructor(public navCtrl: NavController) {
+    this.initializeItems();
 
   }
 
@@ -16,10 +18,6 @@ export class ProfilePage {
   showList: boolean = false;
   searchQuery: string = '';
   items: string[];
-
-  constructor() {
-    this.initializeItems();
-  }
 
   initializeItems() {
     this.items = [

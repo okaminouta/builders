@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -18,20 +17,25 @@
 .toolbar-md {
   padding: 0;
 }
+
 .button-md {
   color: #ffffff;
 }
+
 .border {
   border-bottom: 1px solid #908c8c;
 }
+
 .subheader-pading {
   padding-top: 9px;
   padding-bottom: 13px;
 }
+
 .primary-text {
   color: color($colors, primary);
 
 }
+
 //.secondary {
 //  background-color: #f9b707;
 //}
