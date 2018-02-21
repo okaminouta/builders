@@ -6,36 +6,59 @@
 -->
 
 
-<ion-content padding>
+<ion-content padding class="bg">
 
-  <h1 margin-vertical
-      text-center>Агроконструкции </h1>
 
-  <ion-list margin-top>
-    <ion-item>
-      <ion-label floating>Username</ion-label>
+
+  <!--<ion-list margin-top>-->
+    <!--<ion-item id="rounded_one">
+      <ion-label floating>+380-__-__-__</ion-label>
       <ion-input type="text"></ion-input>
-    </ion-item>
+    </ion-item>-->
+   <ion-item id="rounded_one">
+        <ion-input type="text" placeholder="+380-__-__-__-__"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label floating>Password</ion-label>
+
+<!--<ion-item id="rounded_two">
+            <ion-input type="isActive ? 'password' : 'text'"
+            placeholder="ПАРОЛЬ"></ion-input>
+          </ion-item>-->
+
+            <ion-item id="rounded_two">
+              <ion-input type="password" placeholder="ПАРОЛЬ"></ion-input>
+            </ion-item>
+
+
+    <!--<ion-item id="rounded_two">
+      <ion-label floating>ПАРОЛЬ</ion-label>
       <ion-input
-        [type]="isActive ? 'password' : 'text'"></ion-input>
-      <ion-icon
+        [type]="isActive ? 'password' : 'text'"></ion-input>-->
+     <!-- <ion-icon
         class="pass-icon"
         [name]="isActive ? 'eye-off': 'eye' "
         item-right
         (click)="showPass()">
-      </ion-icon>
-    </ion-item>
+      </ion-icon>-->
 
-    <ion-item>
 
-    </ion-item>
 
-  </ion-list>
+ <!-- </ion-list>-->
 
-  <button ion-button class="secondary"
-          (click)="goToTabs()">Login
-  </button>
+  <!--<button ion-button class="secondary"
+          (click)="goToTabs()">ВОЙТИ
+  </button>-->
+  <button ion-button color="secondary"
+   round>УВІЙТИ</button>
+<div class="forgott">
+<br><a>ЗАБУЛИ ПАРОЛЬ?</a>
+
+<br><a>НЕМАЄ АКАУНТА?</a>
+
+<span><a>ЗАРЕЄСТРУЙТЕСЯ!</a></span>
+</div>
 </ion-content>
+
+
+
+
