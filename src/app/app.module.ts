@@ -13,6 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import {HeaderComponent} from "../components/header/header";
 import {SignUpPage} from "../pages/sign-up/sign-up";
+import {Mask} from "../directives/mask/mask";
+import {FriendsPage} from "../pages/friends/friends";
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import {SignUpPage} from "../pages/sign-up/sign-up";
     LoginPage,
     HeaderComponent,
     SignUpPage,
+    Mask,
+    FriendsPage,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,7 @@ import {SignUpPage} from "../pages/sign-up/sign-up";
     TabsPage,
     LoginPage,
     SignUpPage,
+    FriendsPage,
   ],
   providers: [
     StatusBar,
