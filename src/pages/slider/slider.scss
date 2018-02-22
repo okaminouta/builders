@@ -1,0 +1,26 @@
+page-slider {
+  ion-content {
+    ion-slide {
+      ion-header {
+        button {
+          background-color: transparent !important;
+        }
+        &:after {
+          display: none;
+        }
+      }
+
+      background-position: center center ;
+      background-size: cover ;
+    }
+    .first {
+      background-image: url(../assets/imgs/slider/first.jpg);
+    }
+    .second {
+      background-image: url(../assets/imgs/slider/second.jpg);
+    }
+    .third {
+      background-image: url(../assets/imgs/slider/third.jpg);
+    }
+  }
+}

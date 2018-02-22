@@ -15,6 +15,7 @@ import {HeaderComponent} from "../components/header/header";
 import {SignUpPage} from "../pages/sign-up/sign-up";
 import {Mask} from "../directives/mask/mask";
 import {FriendsPage} from "../pages/friends/friends";
+import {SliderPage} from "../pages/slider/slider";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {FriendsPage} from "../pages/friends/friends";
     SignUpPage,
     Mask,
     FriendsPage,
+    SliderPage,
   ],
   imports: [
     BrowserModule,
@@ -43,11 +45,12 @@ import {FriendsPage} from "../pages/friends/friends";
     LoginPage,
     SignUpPage,
     FriendsPage,
+    SliderPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+  ],
 })
 export class AppModule {}

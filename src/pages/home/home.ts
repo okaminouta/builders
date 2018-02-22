@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {TabsPage} from "../tabs/tabs";
-import {SignUpPage} from "../sign-up/sign-up";
+import {SliderPage} from "../slider/slider";
 
 @Component({
   selector: 'page-home',
@@ -14,7 +13,7 @@ export class HomePage {
   }
 
   toReg() {
-    this.navCtrl.push(SignUpPage);
+    this.navCtrl.push(SliderPage);
 
     let elements = document.querySelectorAll(".tabbar");
 

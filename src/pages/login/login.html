@@ -18,17 +18,7 @@
 <!--mask="+(**)*******"></ion-input>-->
 <!--</ion-item>-->
 
-<!--<ion-item>-->
-<!--<ion-label floating>Password</ion-label>-->
-<!--<ion-input-->
-<!--[type]="isActive ? 'password' : 'text'"></ion-input>-->
-<!--<ion-icon-->
-<!--class="pass-icon"-->
-<!--[name]="isActive ? 'eye-off': 'eye' "-->
-<!--item-right-->
-<!--(click)="showPass()">-->
-<!--</ion-icon>-->
-<!--</ion-item>-->
+
 
 <!--<ion-item>-->
 
@@ -58,18 +48,41 @@
       </ion-item>
 
       <ion-item margin-vertical>
-        <ion-input type="password" placeholder="ПАРОЛЬ"
-                   [(ngModel)]="password"></ion-input>
+        <!--<ion-input type="password" placeholder="ПАРОЛЬ"-->
+                   <!--[(ngModel)]="password"></ion-input>-->
+        <ion-input
+          [type]="isActive ? 'password' : 'text'"></ion-input>
+        <ion-icon
+          class="pass-icon"
+          [name]="isActive ? 'eye-off': 'eye' "
+          item-right
+          (click)="showPass()">
+        </ion-icon>
+
       </ion-item>
+
+
+      <!--<ion-item>-->
+        <!--<ion-label floating>Password</ion-label>-->
+        <!--<ion-input-->
+          <!--[type]="isActive ? 'password' : 'text'"></ion-input>-->
+        <!--<ion-icon-->
+          <!--class="pass-icon"-->
+          <!--[name]="isActive ? 'eye-off': 'eye' "-->
+          <!--item-right-->
+          <!--(click)="showPass()">-->
+        <!--</ion-icon>-->
+      <!--</ion-item>-->
 
       <button ion-button
               round
               (click)="goToTabs()">увійти</button>
 
+
       <div text-center>
         <div margin-bottom><a>забули пароль?</a></div>
         <br><a margin-vertical>немає акаунта?</a>
-        <span><a color="primary">зареэструйтеся!</a></span>
+        <span><a color="primary" (click)="goToRegistration()">зареэструйтеся!</a></span>
       </div>
     </ion-col>
   </ion-row>

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {TabsPage} from "../tabs/tabs";
+import {SignUpPage} from "../sign-up/sign-up";
 
 /**
  * Generated class for the LoginPage page.
@@ -15,15 +16,21 @@ import {TabsPage} from "../tabs/tabs";
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  isActive = true;
+
+
+  phone: string;
+  password: string;
+
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+
   }
 
   goToTabs() {
@@ -31,8 +38,6 @@ export class LoginPage {
 
   }
 
-  phone: string;
-  password: string;
 
   updateInput () {
     if (this.phone == undefined || this.phone == "") {
@@ -40,6 +45,13 @@ export class LoginPage {
     }
   }
 
+  goToRegistration() {
+    this.navCtrl.push(SignUpPage);
+  }
+
+/////////////
+
+  isActive = true;
   showPass () {
     this.isActive = !this.isActive;
   }

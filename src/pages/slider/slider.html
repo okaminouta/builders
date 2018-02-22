@@ -1,0 +1,61 @@
+
+<ion-content >
+
+
+  <ion-slides pager>
+    <!--<ion-slide *ngFor="let slide of slides">-->
+    <!--<ion-toolbar>-->
+    <!--<ion-buttons end>-->
+    <!--<button ion-button color="primary"-->
+    <!--(click)="tolog()">Skip</button>-->
+    <!--</ion-buttons>-->
+    <!--</ion-toolbar>-->
+    <!--<img [src]="slide.image" class="slide-image"/>-->
+    <!--<h2 class="slide-title" [innerHTML]="slide.title"></h2>-->
+    <!--<p [innerHTML]="slide.description"></p>-->
+    <!--</ion-slide>-->
+    <ion-slide class="first">
+      <ion-header >
+
+        <!--<ion-toolbar>-->
+          <ion-buttons end>
+            <button ion-button color="primary"
+                    (click)="tolog()">Skip</button>
+          </ion-buttons>
+        <!--</ion-toolbar>-->
+      </ion-header>
+      <!--<img src="../assets/imgs/logo.png" class="slide-image"/>-->
+      <h2 class="slide-title">Ready to Play? 1</h2>
+      <!--<button ion-button large clear icon-end color="primary">-->
+        <!--123-->
+        <!--<ion-icon name="arrow-forward"></ion-icon>-->
+      <!--</button>-->
+    </ion-slide><ion-slide class="second">
+    <ion-toolbar>
+      <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color="primary"
+                  (click)="tolog()">Skip</button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-toolbar>
+    <!--<img src="../assets/imgs/logo.png" class="slide-image"/>-->
+    <h2 class="slide-title">Ready to Play? 2</h2>
+    <!--<button ion-button large clear icon-end color="primary">-->
+      <!--234-->
+      <!--<ion-icon name="arrow-forward"></ion-icon>-->
+    <!--</button>-->
+  </ion-slide>
+    <ion-slide class="third">
+      <ion-toolbar>
+      </ion-toolbar>
+      <!--<img src="../assets/imgs/logo.png" class="slide-image"/>-->
+      <h2 class="slide-title">Ready to Play? 3</h2>
+      <button ion-button large clear icon-end color="primary">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

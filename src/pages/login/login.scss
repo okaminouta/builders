@@ -1,5 +1,6 @@
 
 page-login {
+  font-size: 12px;
   a {
     text-transform: uppercase;
     color: white ;
@@ -14,20 +15,25 @@ page-login {
   }
 
   .item {
+
     border-radius: 40px;
     opacity: 0.5;
-    height: 50px;
-    font-size: 14px;
+    height: 40px;
+
     font-weight: bold;
     .input {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
     }
   }
   .button {
+    font-size: 12px;
     text-transform: uppercase;
     margin: 50px 0 30px 0;
     width: 99%;
-    height: 50px;
+    height: 40px;
+  }
+  .pass-icon {
+    z-index: 99;
   }
 }
