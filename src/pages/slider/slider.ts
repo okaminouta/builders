@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {SignUpPage} from "../sign-up/sign-up";
 
 /**
  * Generated class for the SliderPage page.
@@ -20,6 +21,10 @@ export class SliderPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SliderPage');
+  }
+
+  tolog () {
+    this.navCtrl.push(SignUpPage);
   }
 
 }

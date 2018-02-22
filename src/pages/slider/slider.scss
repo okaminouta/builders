@@ -1,4 +1,13 @@
 page-slider {
+  .content-md {
+    color: white !important;
+  }
+  .button-md {
+    box-shadow: none;
+  }
+  .icon {
+    font-size: 200px;
+  }
   ion-content {
     ion-slide {
       ion-header {
