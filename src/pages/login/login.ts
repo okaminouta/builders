@@ -31,6 +31,15 @@ export class LoginPage {
 
   }
 
+  phone: string;
+  password: string;
+
+  updateInput () {
+    if (this.phone == undefined || this.phone == "") {
+      this.phone = '+380()';
+    }
+  }
+
   showPass () {
     this.isActive = !this.isActive;
   }
