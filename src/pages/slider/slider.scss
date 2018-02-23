@@ -1,15 +1,19 @@
 page-slider {
-  .content-md {
-    color: white !important;
-  }
   .button-md {
     box-shadow: none;
   }
   .icon {
     font-size: 200px;
+    &:last-child {
+      font-size: 1.4em;
+    }
   }
   ion-content {
     ion-slide {
+      color: white;
+      h2 {
+        color: color($colors, primary)
+      }
       ion-header {
         button {
           background-color: transparent !important;
@@ -23,13 +27,22 @@ page-slider {
       background-size: cover ;
     }
     .first {
-      background-image: url(../assets/imgs/slider/first.jpg);
+      background: linear-gradient(135deg, rgba(253,173,42,0.7) 0%,rgba(8,29,50,0.6) 100%),  url(../assets/imgs/slider/first.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center ;
     }
     .second {
-      background-image: url(../assets/imgs/slider/second.jpg);
-    }
+      background: linear-gradient(135deg, rgba(253,173,42,0.7) 0%,rgba(8,29,50,0.6) 100%),  url(../assets/imgs/slider/second.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center ;
+     }
     .third {
-      background-image: url(../assets/imgs/slider/third.jpg);
+      background: linear-gradient(135deg, rgba(253,173,42,0.7) 0%,rgba(8,29,50,0.6) 100%),  url(../assets/imgs/slider/third.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center ;
     }
   }
 }
