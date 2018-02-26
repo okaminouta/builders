@@ -1,4 +1,11 @@
 page-profile {
+
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+    background: #081d32 !important;
+    color: white !important;
+    text-align: center;
+
+  }
 .label-md {
   margin-top: 5px;
 }
