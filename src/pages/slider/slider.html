@@ -1,84 +1,48 @@
-
-<ion-content >
-
-  <div style="width: 100%; height: 100%">
+<ion-content>
   <ion-slides pager>
-    <!--<ion-slide *ngFor="let slide of slides">-->
-    <!--<ion-toolbar>-->
-    <!--<ion-buttons end>-->
-    <!--<button ion-button color="primary"-->
-    <!--(click)="tolog()">Skip</button>-->
-    <!--</ion-buttons>-->
-    <!--</ion-toolbar>-->
-    <!--<img [src]="slide.image" class="slide-image"/>-->
-    <!--<h2 class="slide-title" [innerHTML]="slide.title"></h2>-->
-    <!--<p [innerHTML]="slide.description"></p>-->
-    <!--</ion-slide>-->
     <ion-slide class="first">
-
-      <ion-header >
-
-        <!--<ion-toolbar>-->
-          <ion-buttons end>
-            <button ion-button
-                    margin-vertical
-
-                    (click)="tolog()">Skip</button>
-          </ion-buttons>
-        <!--</ion-toolbar>-->
+      <ion-header>
+        <ion-buttons end>
+          <button ion-button
+                  margin-vertical
+                  (click)="tolog()">Skip
+          </button>
+        </ion-buttons>
       </ion-header>
-      <!--<img src="../assets/imgs/logo.png" class="slide-image"/>-->
       <ion-icon color="white"
-        name="eye">
+                name="eye">
       </ion-icon>
       <h2 class="slide-title">Lorem ipsum dolor.</h2>
       <ion-row
         justify-content-center>
         <ion-col col-10><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, unde?
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi eos, eum fugit impedit maxime natus nesciunt omnis quam sit!</p></ion-col>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi eos, eum fugit impedit maxime natus
+          nesciunt omnis quam sit!</p></ion-col>
       </ion-row>
-
-      <!--<button ion-button large clear icon-end color="primary">-->
-        <!--123-->
-        <!--<ion-icon name="arrow-forward"></ion-icon>-->
-      <!--</button>-->
-      <!--</div>-->
-    </ion-slide><ion-slide class="second">
-    <ion-header >
-
-      <!--<ion-toolbar>-->
-      <ion-buttons end>
-        <button ion-button
-                margin-vertical
-
-                (click)="tolog()">Skip</button>
-      </ion-buttons>
-      <!--</ion-toolbar>-->
-    </ion-header>
-    <!--<img src="../assets/imgs/logo.png" class="slide-image"/>-->
-    <ion-icon color="white"
-              name="eye">
-    </ion-icon>
-    <h2 class="slide-title">Lorem ipsum dolor.</h2>
-    <ion-row
-      justify-content-center>
-      <ion-col col-10><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, unde?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi eos, eum fugit impedit maxime natus nesciunt omnis quam sit!</p></ion-col>
-    </ion-row>
-  </ion-slide>
-    <ion-slide class="third">
-      <ion-header >
-
-        <!--<ion-toolbar>-->
-        <!--<ion-buttons end>-->
-          <!--<button ion-button-->
-                  <!--margin-vertical-->
-
-                  <!--(click)="tolog()">Skip</button>-->
-        <!--</ion-buttons>-->
-        <!--</ion-toolbar>-->
+    </ion-slide>
+    <ion-slide class="second">
+      <ion-header>
+        <ion-buttons end>
+          <button ion-button
+                  margin-vertical
+                  (click)="tolog()">Skip
+          </button>
+        </ion-buttons>
       </ion-header>
-      <!--<img src="../assets/imgs/logo.png" class="slide-image"/>-->
+      <ion-icon color="white"
+                name="eye">
+      </ion-icon>
+      <h2 class="slide-title">Lorem ipsum dolor.</h2>
+      <ion-row
+        justify-content-center>
+        <ion-col col-10><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, unde?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi eos, eum fugit impedit maxime natus
+          nesciunt omnis quam sit!</p></ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide class="third">
+      <ion-header>
+      </ion-header>
       <ion-icon color="white"
                 name="eye">
       </ion-icon>
@@ -86,16 +50,18 @@
       <ion-row
         justify-content-center>
         <ion-col col-10><p no-margin> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, unde?
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi eos, eum fugit impedit maxime natus nesciunt omnis quam sit!</p>
-          <button ion-button large clear icon-end color="primary">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi eos, eum fugit impedit maxime natus
+          nesciunt omnis quam sit!</p>
+          <button
+            ion-button
+            large clear
+            icon-end color="primary"
+            (click)="tolog()">
             Continue
             <ion-icon name="arrow-forward"></ion-icon>
           </button>
         </ion-col>
       </ion-row>
-
     </ion-slide>
   </ion-slides>
-  </div>
-
 </ion-content>
