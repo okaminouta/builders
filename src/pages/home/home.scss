@@ -1,3 +1,36 @@
 page-home {
+  ion-navbar{
+    background: #2d2d2d !important;
+    color: white !important;
+  }
+  ion-content {
+    align-items:center;
+    justify-content: center;
+
+  }
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+    background: #081d32 !important;
+    color: white !important;
+  }
+  .card .note-ios{
+    margin: 10px;
+    font-size: 16px;
+    font-family: "Roboto";
+  }
+  .card .note-md{
+    margin: 10px;
+    font-size: 16px;
+    font-family: "Roboto";
+  }
+  .button-round-md{
+    text-transform: none;
+  }
+[col-12]{
+  text-align: center;
+}
+  .button-inner{
+    color: #5d6d7d;
+  }
 
 }
+
