@@ -1,6 +1,7 @@
 page-slider {
   .button-md {
     box-shadow: none;
+    color: white;
   }
   .icon {
     font-size: 200px;
@@ -26,23 +27,14 @@ page-slider {
       background-position: center center ;
       background-size: cover ;
     }
-    .first {
-      background: linear-gradient(135deg, rgba(253,173,42,0.7) 0%,rgba(8,29,50,0.6) 100%),  url(../assets/imgs/slider/first.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center ;
-    }
-    .second {
-      background: linear-gradient(135deg, rgba(253,173,42,0.7) 0%,rgba(8,29,50,0.6) 100%),  url(../assets/imgs/slider/second.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center ;
-     }
-    .third {
-      background: linear-gradient(135deg, rgba(253,173,42,0.7) 0%,rgba(8,29,50,0.6) 100%),  url(../assets/imgs/slider/third.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center ;
+
+    @each $name in 'first' 'second' 'third' {
+      .#{$name} {
+        background: linear-gradient(135deg, rgba(253,173,42,0.7) 0%,rgba(8,29,50,0.6) 100%),  url('../assets/imgs/slider/#{$name}.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center ;
+      }
     }
   }
 }

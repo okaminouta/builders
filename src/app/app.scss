@@ -36,6 +36,15 @@ button {
 
 }
 
+ion-header {
+  .toolbar-background {
+    background-color: color($colors, secondary);
+  }
+  .bar-button, .toolbar-title{
+    color: white;
+  }
+}
+
 
 
 

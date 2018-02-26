@@ -1,36 +1,3 @@
-<!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
-
-<!--<ion-content padding>-->
-
-<!--<h1 margin-vertical-->
-<!--text-center>Агроконструкции</h1>-->
-
-<!--<ion-list margin-top>-->
-<!--<ion-item>-->
-<!--<ion-label floating>Username</ion-label>-->
-<!--<ion-input type="text"-->
-<!--mask="+(**)*******"></ion-input>-->
-<!--</ion-item>-->
-
-
-
-<!--<ion-item>-->
-
-<!--</ion-item>-->
-
-<!--</ion-list>-->
-
-<!--<button ion-button class="secondary"-->
-<!--(click)="goToTabs()">Login-->
-<!--</button>-->
-<!--</ion-content>-->
-
 
 <ion-content padding>
 
@@ -48,8 +15,6 @@
       </ion-item>
 
       <ion-item margin-vertical>
-        <!--<ion-input type="password" placeholder="ПАРОЛЬ"-->
-                   <!--[(ngModel)]="password"></ion-input>-->
         <ion-input
           [type]="isActive ? 'password' : 'text'"></ion-input>
         <ion-icon
@@ -58,29 +23,14 @@
           item-right
           (click)="showPass()">
         </ion-icon>
-
       </ion-item>
-
-
-      <!--<ion-item>-->
-        <!--<ion-label floating>Password</ion-label>-->
-        <!--<ion-input-->
-          <!--[type]="isActive ? 'password' : 'text'"></ion-input>-->
-        <!--<ion-icon-->
-          <!--class="pass-icon"-->
-          <!--[name]="isActive ? 'eye-off': 'eye' "-->
-          <!--item-right-->
-          <!--(click)="showPass()">-->
-        <!--</ion-icon>-->
-      <!--</ion-item>-->
-
       <button ion-button
               round
               (click)="goToTabs()">увійти</button>
 
 
       <div text-center>
-        <div margin-bottom><a>забули пароль?</a></div>
+        <div margin-bottom><a>забули пароль?</a> <a (click)="goToSlider()">слайдер</a> </div>
         <br><a margin-vertical>немає акаунта?</a>
         <span><a color="primary" (click)="goToRegistration()">зареэструйтеся!</a></span>
       </div>

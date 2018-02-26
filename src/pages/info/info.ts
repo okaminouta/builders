@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import {AboutPage} from "../about/about";
 import {SliderPage} from "../slider/slider";
 import {LoginPage} from "../login/login";
+import {HelpPage} from "../help/help";
 
 @Component({
   selector: 'page-info',
@@ -12,6 +13,10 @@ export class InfoPage {
 
   toAbout () {
     this.navCtrl.push(AboutPage);
+  }
+
+  toHelp () {
+    this.navCtrl.push(HelpPage);
   }
 
   logout () {

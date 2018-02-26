@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {TabsPage} from "../tabs/tabs";
 import {SignUpPage} from "../sign-up/sign-up";
+import {SliderPage} from "../slider/slider";
 
 /**
  * Generated class for the LoginPage page.
@@ -47,6 +48,10 @@ export class LoginPage {
 
   goToRegistration() {
     this.navCtrl.push(SignUpPage);
+  }
+
+  goToSlider() {
+    this.navCtrl.push(SliderPage);
   }
 
 /////////////

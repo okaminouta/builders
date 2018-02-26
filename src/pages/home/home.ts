@@ -7,21 +7,11 @@ import {SliderPage} from "../slider/slider";
   templateUrl: 'home.html'
 })
 export class HomePage {
+  showOffers: string = 'all';
 
   constructor(public navCtrl: NavController) {
 
   }
 
-  toReg() {
-    this.navCtrl.push(SliderPage);
-
-    let elements = document.querySelectorAll(".tabbar");
-
-    if (elements != null) {
-      Object.keys(elements).map((key) => {
-        elements[key].style.display = 'none';
-      });
-    }
-  }
 
 }

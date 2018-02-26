@@ -17,6 +17,7 @@ import {Mask} from "../directives/mask/mask";
 import {FriendsPage} from "../pages/friends/friends";
 import {SliderPage} from "../pages/slider/slider";
 import {AboutPage} from "../pages/about/about";
+import {HelpPage} from "../pages/help/help";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {AboutPage} from "../pages/about/about";
     FriendsPage,
     SliderPage,
     AboutPage,
+    HelpPage,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,7 @@ import {AboutPage} from "../pages/about/about";
     FriendsPage,
     SliderPage,
     AboutPage,
+    HelpPage,
   ],
   providers: [
     StatusBar,

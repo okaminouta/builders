@@ -9,7 +9,7 @@ page-home {
 
   }
   .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
-    background: #081d32 !important;
+    background: color($colors, secondary) !important;
     color: white !important;
   }
   .card .note-ios{
@@ -24,6 +24,7 @@ page-home {
   }
   .button-round-md{
     text-transform: none;
+    border: 1px solid color($colors, secondary);
   }
 [col-12]{
   text-align: center;
