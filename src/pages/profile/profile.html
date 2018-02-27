@@ -9,23 +9,10 @@ text center>
  <ion-col col-6>
 
 <ion-segment [(ngModel)]="sentence">
-<ion-segment-button  value="about_me"
-justify-content-center
-       align-items-center
-style="border: 1px solid black;
-                text-transform: none;
-               color: #081d32;
-             height: 34px;
-             border-radius: 25px 0 0 25px;">
+<ion-segment-button id="one" value="about_me">
       Про мене
       </ion-segment-button>
-<ion-segment-button class="two" value="skills"
-style="border: 1px solid black;
-  background: white;
-color: #081d32;
-        text-transform: none;
-    height: 34px;
-        border-radius: 0 25px 25px 0;">
+<ion-segment-button id="two" value="skills">
             Навички
             </ion-segment-button>
 
@@ -73,9 +60,10 @@ color: #081d32;
 
           </ion-row>
       </ion-item>
-     <ion-item>
-        <ion-label>У мене є закордонний паспорт</ion-label>
-        <ion-checkbox color="dark" checked="true" round item-end></ion-checkbox>
+     <ion-item no-padding>
+        <ion-label >У мене є закордонний паспорт</ion-label>
+        <ion-checkbox color="white" checked="false" round item-end></ion-checkbox>
+
       </ion-item>
 
       <ion-item no-padding>
@@ -97,13 +85,49 @@ color: #081d32;
     [(ngModel)]="city"
   ></ion-searchbar>-->
 
-  <ion-list *ngIf="showList">
-    <ion-item *ngFor="let item of items" (click)="chooseItem(item)">
-      {{ item }}
+<ion-list>
+    <ion-item>
+      <ion-label class="black-shadow">Змінити пароль</ion-label>
+      <ion-select  [(ngModel)]="gaming">
+
+      </ion-select>
     </ion-item>
   </ion-list>
 </ion-list>
+
 </div>
 
+<div [ngSwitch]="sentence">
+  <ion-list *ngSwitchCase="'skills'">
+
+  <ion-card style="color: yellow">
+    <ion-card-header>
+      Кладка плитки
+    </ion-card-header>
+    <ion-card-content>
+       <ion-item no-padding>
+              <ion-label ><p>7/10</p></ion-label>
+              <ion-checkbox color="white" checked="true" round item-end></ion-checkbox>
+
+            </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+<ion-card>
+    <ion-card-header>
+      Кладка плитки Кладка плитки Кладка плит<wbr>ки Кладка плитки
+    </ion-card-header>
+    <ion-card-content>
+       <ion-item no-padding>
+              <ion-label><p>7/10</p></ion-label>
+              <ion-checkbox color="white" checked="true" round item-end></ion-checkbox>
+
+            </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+  </ion-list>
+  </div>
 
 </ion-content>
