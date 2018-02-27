@@ -8,26 +8,14 @@
 
 <ion-content padding>
   <ion-grid>
-    <ion-row justify-content-center>
+    <ion-row>
       <ion-col col-6>
 
         <ion-segment [(ngModel)]="showOffers">
-          <ion-segment-button value="all"
-                              justify-content-center
-                              align-items-center
-                              style="border: 1px solid black;
-
-               color: #081d32;
-             height: 34px;
-             border-radius: 25px 0 0 25px;">
+          <ion-segment-button id="left_button" value="all" clear>
             Всі
           </ion-segment-button>
-          <ion-segment-button class="two" value="my"
-                              style="border: 1px solid black;
-                                     background: white;
-                                     color: #081d32;
-                                     height: 34px;
-                                      border-radius: 0 25px 25px 0;">
+          <ion-segment-button id="right_button" value="my" clear>
             Мої
           </ion-segment-button>
 
@@ -36,42 +24,43 @@
       </ion-col>
     </ion-row>
 
+
   </ion-grid>
   <ion-list *ngIf=" showOffers == 'my'">
     <ion-card>
 
-      <ion-item>
-        <ion-avatar item-start>
-          <img src="../assets/imgs/man.png">
-        </ion-avatar>
-        <h2>Marty McFly</h2>
-        <p>November 5, 1955</p>
-      </ion-item>
-
       <ion-card-content>
-        <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a
-          DeLorean?! Whoa. This is heavy.</p>
+
+        <br>
+        <h2 style="font-weight: bold"> Будівничі роботи будівничі роботи будівничі роботи
+          <p style="font-size: 17px">
+            <wbr>
+            <i style="color: #f9b707;  ">Ваша заявка розглядається</i></p>
+        </h2>
+
+        <ion-icon ios="ios-home" md="md-home"> ФОП Фортуна</ion-icon>
+        <br>
+        <ion-icon name="calendar">&nbsp; 21.02.2018 - 18.05.2018</ion-icon>
+        <span><br><ion-icon name="cash">&nbsp;1200$ &nbsp;</ion-icon>
+                   <ion-icon md="md-navigate">&nbsp;Мюнхен&nbsp;</ion-icon></span>
+
       </ion-card-content>
 
       <ion-row>
-        <ion-col>
-          <button ion-button icon-left clear small>
-            <ion-icon name="thumbs-up"></ion-icon>
-            <div>12 Likes</div>
-          </button>
-        </ion-col>
-        <ion-col>
-          <button ion-button icon-left clear small>
-            <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
-          </button>
-        </ion-col>
-        <ion-col center text-center>
+
+        <ion-col left text-left>
           <ion-note>
-            11h ago
+            Розміщено 1 год назад ·&nbsp;54 перегляди
           </ion-note>
         </ion-col>
       </ion-row>
+      <div row col-12>
+        <button ion-button color="secondary"
+                round clear>Поділитися</button>
+
+        <button ion-button color="secondary"
+                round clear>Подати заявку</button>
+      </div>
 
     </ion-card>
 
@@ -92,43 +81,45 @@
 
       </ion-item>
 
-      <!--<img src="img/advance-card-bttf.png">-->
 
-      <ion-card-content style="color:#5d6d7d;
-      font-family: 'Roboto'">
-        <h2 style="font-weight: bold"> Будівничі роботи</h2>
+      <ion-card-content>
+        <h2> Будівничі роботи</h2>
         <br>
         <ion-icon ios="ios-home" md="md-home"> ФОП Фортуна</ion-icon>
         <br>
         <ion-icon name="calendar">&nbsp; 21.02.2018 - 18.05.2018</ion-icon>
         <span><br><ion-icon name="cash">&nbsp;1200$ &nbsp;</ion-icon>
-          <ion-icon md="md-navigate">Мюнхен</ion-icon></span>
+          <ion-icon md="md-navigate">&nbsp;Мюнхен</ion-icon></span>
 
       </ion-card-content>
 
       <ion-row>
+
         <ion-col left text-left>
           <ion-note>
-            Розміщено 1 год назад ·54 перегляди
+            Розміщено 1 год назад · &nbsp;54 перегляди
           </ion-note>
         </ion-col>
       </ion-row>
       <div row col-12>
         <br>
-        <button ion-button round clear>Порадити</button>
+        <button ion-button round
+                clear>Порадити
+        </button>
 
-        <button ion-button round clear>Подати заявку</button>
+        <button ion-button round
+                clear>Подати заявку
+        </button>
       </div>
     </ion-card>
 
 
     <ion-card>
 
-      <ion-card-content style="color:#5d6d7d;
-             font-family: 'Roboto'">
+      <ion-card-content>
 
         <br>
-        <h2 style="font-weight: bold"> Будівничі роботи будівничі роботи будівничі роботи</h2>
+        <h2> Будівничі роботи будівничі роботи будівничі роботи</h2>
         <ion-icon ios="ios-home" md="md-home"> ФОП Фортуна</ion-icon>
         <br>
         <ion-icon name="calendar">&nbsp; 21.02.2018 - 18.05.2018</ion-icon>
@@ -141,13 +132,20 @@
 
         <ion-col left text-left>
           <ion-note>
-            Розміщено 1 год назад ·54 перегляди 123
+            Розміщено 1 год назад · &nbsp;54 перегляди
           </ion-note>
         </ion-col>
       </ion-row>
       <div row col-12>
-        <button ion-button color="secondary" round clear>Поділитися</button>
-        <button ion-button color="secondary" round clear>Подати заявку</button>
+        <button ion-button color="secondary"
+                round
+                clear>Поділитися
+        </button>
+
+        <button ion-button color="secondary"
+                round
+                clear>Подати заявку
+        </button>
       </div>
 
     </ion-card>
@@ -156,4 +154,3 @@
 
 
 </ion-content>
-

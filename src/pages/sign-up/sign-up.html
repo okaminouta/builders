@@ -4,18 +4,18 @@
            style="height: 100%"
            justify-content-center>
     <ion-col col-10 justify-content-center>
-
+      <!--mask="+*** (**) ***-**-**"-->
+      <!--placeholder="+380 (__) ___-__-__"-->
+      <!--(click)="updateInput()"-->
       <ion-item margin-vertical>
         <ion-input type="text"
-                   mask="+*** (**) ***-**-**"
-                   placeholder="+380 (__) ___-__-__"
-                   (click)="updateInput()"
-                   [(ngModel)]="phone"></ion-input>
+
+                   [(ngModel)]="userData.phone"></ion-input>
       </ion-item>
 
       <ion-item margin-vertical>
         <ion-input type="password" placeholder="ПАРОЛЬ"
-                   [(ngModel)]="password"></ion-input>
+                   [(ngModel)]="userData.password"></ion-input>
       </ion-item>
 
       <button ion-button
