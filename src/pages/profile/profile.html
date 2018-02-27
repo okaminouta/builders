@@ -9,7 +9,7 @@ text center>
  <ion-col col-6>
 
 <ion-segment [(ngModel)]="sentence">
-<ion-segment-button  value="all"
+<ion-segment-button  value="about_me"
 justify-content-center
        align-items-center
 style="border: 1px solid black;
@@ -19,7 +19,7 @@ style="border: 1px solid black;
              border-radius: 25px 0 0 25px;">
       Про мене
       </ion-segment-button>
-<ion-segment-button class="two" value="my"
+<ion-segment-button class="two" value="skills"
 style="border: 1px solid black;
   background: white;
 color: #081d32;
@@ -36,48 +36,74 @@ color: #081d32;
 
 
 </ion-grid>
+<div [ngSwitch]="sentence">
+  <ion-list *ngSwitchCase="'about_me'">
   <ion-row>
     <div col-4>
-      <img src="../assets/imgs/camera.png" alt="" style="height: 130px">
+      <img src="../assets/imgs/camera.png" alt="">
     </div>
     <ion-list col-8>
-      <ion-item>
-        <ion-label floating>Прізвище</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
       <ion-item>
         <ion-label floating>Ім'я</ion-label>
         <ion-input type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>По батькові</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
+              <ion-label floating>Прізвище</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
     </ion-list>
   </ion-row>
+ <ion-item no-padding>
+    <ion-label floating>Номер телефону</ion-label>
+    <ion-input type="text"></ion-input>
+    <ion-row class="border">
 
-  <ion-row class="border">
+      </ion-row>
+  </ion-item>
+  <ion-item no-padding>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input type="text"></ion-input>
+      <ion-row class="border">
+        </ion-row>
+    </ion-item>
+    <ion-item no-padding>
+        <ion-label floating> Місто</ion-label>
+        <ion-input type="text"></ion-input>
+        <ion-row class="border">
 
-    <h5>Місто проживання</h5>
-  </ion-row>
+          </ion-row>
+      </ion-item>
+     <ion-item>
+        <ion-label>У мене є закордонний паспорт</ion-label>
+        <ion-checkbox color="dark" checked="true" round item-end></ion-checkbox>
+      </ion-item>
+
+      <ion-item no-padding>
+             <ion-label floating>Ім'я на англійській мові</ion-label>
+             <ion-input type="text"></ion-input>
+            </ion-item>
+      <ion-item no-padding>
+          <ion-label floating>Прізвище на англійській мові</ion-label>
+          <ion-input type="text"></ion-input>
+       </ion-item>
 
 
-  <ion-searchbar
+
+
+  <!--<ion-searchbar
     margin-top
     (ionInput)="getItems($event)"
     placeholder="Введіть назву ..."
     [(ngModel)]="city"
-  ></ion-searchbar>
+  ></ion-searchbar>-->
 
   <ion-list *ngIf="showList">
     <ion-item *ngFor="let item of items" (click)="chooseItem(item)">
       {{ item }}
     </ion-item>
   </ion-list>
-  <ion-item no-padding>
-    <ion-label floating>Номер телефону</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+</ion-list>
+</div>
 
 
 </ion-content>
