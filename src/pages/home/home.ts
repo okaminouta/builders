@@ -7,7 +7,7 @@ import {SliderPage} from "../slider/slider";
   templateUrl: 'home.html'
 })
 export class HomePage {
-  showOffers: string = 'all';
+    sentence: string = 'all';
 
   constructor(public navCtrl: NavController) {
 

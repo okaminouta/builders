@@ -31,6 +31,13 @@ page-home {
     color:#5d6d7d;
     font-family: 'Roboto';
   }
+  ion-card-content h2{
+    font-weight: bold;
+  }
+  .card-md p{
+    color: #f9b707;
+    font-size: 17px;
+  }
   .card-md h2 {
     font-weight: bold;
     font-size: 20px;
@@ -60,6 +67,18 @@ page-home {
   .button-inner{
     color: #5d6d7d;
   }
+  [col-6]{
+    padding: 0;
+  }
+  .button-outline-md{
+    border-color:#5d6d7d;
+  }
+  #orange_button {
+    border-color: #fdad2a;
 
+  }
+  #orange_button span{
+    color: #fdad2a;
+  }
 }
 

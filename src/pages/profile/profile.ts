@@ -6,7 +6,7 @@ import {NavController} from 'ionic-angular';
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-  // myVar: [] = ['123', '234', '3465'];
+    sentence: string = 'about_me';
   city: string;
 
   constructor(public navCtrl: NavController) {
