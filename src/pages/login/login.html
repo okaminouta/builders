@@ -1,42 +1,42 @@
-
 <ion-content padding>
 
-  <ion-row align-items-center
-           style="height: 100%"
-           justify-content-center>
-    <ion-col col-10 justify-content-center>
+    <ion-row align-items-center
+             style="height: 100%"
+             justify-content-center>
+        <ion-col col-10 justify-content-center>
 
-      <ion-item margin-vertical>
-        <ion-input type="text"
-                   mask="+*** (**) ***-**-**"
-                   placeholder="+380 (__) ___-__-__"
-                   (click)="updateInput()"
-                   [(ngModel)]="phone"></ion-input>
-      </ion-item>
+            <ion-item margin-vertical>
+                <ion-input type="text"
+                           mask="(**) ***-**-**"
+                           placeholder="+380 (__) ___-__-__"
+                           [(ngModel)]="userData.phone"></ion-input>
+            </ion-item>
 
-      <ion-item margin-vertical>
-        <ion-input
-          [type]="isActive ? 'password' : 'text'"
-          placeholder="ПАРОЛЬ"></ion-input>
-        <ion-icon
-          class="pass-icon"
-          [name]="isActive ? 'eye-off': 'eye' "
-          item-right
-          (click)="showPass()">
-        </ion-icon>
-      </ion-item>
-      <button ion-button
-              round
-              (click)="goToTabs()">увійти</button>
+            <ion-item margin-vertical>
+                <ion-input
+                        [type]="isActive ? 'password' : 'text'"
+                        placeholder="ПАРОЛЬ"
+                        [(ngModel)]="userData.password"></ion-input>
+                <ion-icon
+                        class="pass-icon"
+                        [name]="isActive ? 'eye-off': 'eye' "
+                        item-right
+                        (click)="showPass()">
+                </ion-icon>
+            </ion-item>
+            <button ion-button
+                    round
+                    (click)="goToTabs()">увійти
+            </button>
 
 
-      <div text-center>
-        <div margin-bottom><a>забули пароль?</a> <a (click)="goToSlider()">слайдер</a> </div>
-        <br><a margin-vertical>немає акаунта?</a>
-        <span><a color="primary" (click)="goToRegistration()">зареэструйтеся!</a></span>
-      </div>
-    </ion-col>
-  </ion-row>
+            <div text-center>
+                <div margin-bottom><a>забули пароль?</a> <a (click)="goToSlider()">слайдер</a></div>
+                <br><a margin-vertical>немає акаунта?</a>
+                <span><a color="primary" (click)="goToRegistration()">зареэструйтеся!</a></span>
+            </div>
+        </ion-col>
+    </ion-row>
 
 </ion-content>
 
