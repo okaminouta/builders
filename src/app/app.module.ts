@@ -2,6 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import {HttpModule} from "@angular/http";
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+
 
 import { ProfilePage } from '../pages/profile/profile';
 import { InfoPage } from '../pages/info/info';
@@ -15,6 +18,14 @@ import {HeaderComponent} from "../components/header/header";
 import {SignUpPage} from "../pages/sign-up/sign-up";
 import {Mask} from "../directives/mask/mask";
 import {FriendsPage} from "../pages/friends/friends";
+import {SliderPage} from "../pages/slider/slider";
+import {AboutPage} from "../pages/about/about";
+import {HelpPage} from "../pages/help/help";
+import { UserProvider } from '../providers/user/user';
+import { UrlProvider } from '../providers/url/url';
+import { RequestProvider } from '../providers/request/request';
+
+
 
 @NgModule({
   declarations: [
@@ -28,10 +39,16 @@ import {FriendsPage} from "../pages/friends/friends";
     SignUpPage,
     Mask,
     FriendsPage,
+    SliderPage,
+    AboutPage,
+    HelpPage,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule,
+    HttpClientModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,11 +60,18 @@ import {FriendsPage} from "../pages/friends/friends";
     LoginPage,
     SignUpPage,
     FriendsPage,
+    SliderPage,
+    AboutPage,
+    HelpPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserProvider,
+    UrlProvider,
+    HttpClient,
+    RequestProvider
+  ],
 })
 export class AppModule {}

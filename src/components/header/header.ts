@@ -14,11 +14,9 @@ import {LoginPage} from "../../pages/login/login";
 })
 export class HeaderComponent {
 
-  text: string;
 
   constructor(public navCtrl: NavController) {
     console.log('Hello HeaderComponent Component');
-    this.text = 'Hello World';
   }
   logout () {
 

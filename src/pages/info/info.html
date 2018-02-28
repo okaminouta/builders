@@ -2,61 +2,26 @@
   <header></header>
 </ion-header>
 
-<ion-content padding style="text-align: justify;">
-  <p>
-   <b>This starter project comes with simple</b>  tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages. This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-    <span class="primary-text"> Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages. </span>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages. This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p >
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <ion-list no-lines>
+    <button ion-item detail-none margin-top>
+      <ion-icon name="star" item-start></ion-icon>
+      Оцените нас
+    </button>
+    <button ion-item detail-none margin-top (click)="toHelp()">
+      <ion-icon name="leaf" item-start></ion-icon>
+      Поддержка
+    </button>
+    <button ion-item detail-none margin-top (click)="toAbout()">
+      <ion-icon name="leaf" item-start></ion-icon>
+      О нас
+    </button>
+    <button ion-item detail-none margin-top (click)="logout()">
+      <ion-icon name="leaf" item-start></ion-icon>
+      Выход
+    </button>
+
+
+  </ion-list>
+
 </ion-content>
