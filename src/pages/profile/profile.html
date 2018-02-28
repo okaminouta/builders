@@ -90,7 +90,7 @@ text center>
 
 <ion-list>
     <ion-item>
-      <ion-label class="black-shadow">Змінити пароль</ion-label>
+      <ion-label class="black-shadow"><p>Змінити пароль</p></ion-label>
       <ion-select  [(ngModel)]="gaming">
 
       </ion-select>
@@ -103,7 +103,7 @@ text center>
 <div [ngSwitch]="sentence">
   <ion-list *ngSwitchCase="'skills'">
 
-  <ion-card style="color: yellow">
+  <ion-card id="ots">
     <ion-card-header>
       Кладка плитки
     </ion-card-header>
@@ -117,14 +117,14 @@ text center>
     </ion-card-content>
   </ion-card>
 
-<ion-card>
-    <ion-card-header>
-      Кладка плитки Кладка плитки Кладка плит<wbr>ки Кладка плитки
+<ion-card id="ots">
+    <ion-card-header  text-wrap>
+      Кладка плитки Кладка плитки Кладка плитки Кладка плитки
     </ion-card-header>
     <ion-card-content>
-       <ion-item no-padding>
+       <ion-item no-padding >
               <ion-label id="color_checkbox"><p>7/10</p></ion-label>
-              <ion-checkbox color="white" checked="true" round item-end></ion-checkbox>
+              <ion-checkbox    color="white" checked="true" round item-end></ion-checkbox>
 
             </ion-item>
 

@@ -1,24 +1,25 @@
 <ion-header>
-  <header></header>
+  <ion-navbar>
+    <ion-title text-center>Інфо</ion-title>
+  </ion-navbar>
 </ion-header>
-
 <ion-content>
   <ion-list no-lines>
     <button ion-item detail-none margin-top>
       <ion-icon name="star" item-start></ion-icon>
-      Оцените нас
+      <b text-center>Оцените нас</b>
     </button>
     <button ion-item detail-none margin-top (click)="toHelp()">
-      <ion-icon name="leaf" item-start></ion-icon>
-      Поддержка
+        <ion-icon ios="ios-call" md="md-call"></ion-icon>
+      <b text-center>Поддержка</b>
     </button>
     <button ion-item detail-none margin-top (click)="toAbout()">
-      <ion-icon name="leaf" item-start></ion-icon>
-      О нас
+          <ion-icon name="information"></ion-icon>
+      <b text-center>О нас</b>
     </button>
-    <button ion-item detail-none margin-top (click)="logout()">
-      <ion-icon name="leaf" item-start></ion-icon>
-      Выход
+    <button id="bebebe" ion-item detail-none margin-top (click)="logout()">
+       <ion-icon ios="ios-exit" md="md-exit"></ion-icon>
+      <b text-center>Выход</b>
     </button>
 
 
