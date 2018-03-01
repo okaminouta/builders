@@ -4,6 +4,7 @@ import {UrlProvider} from "../url/url";
 import {HttpClientModule} from '@angular/common/http';
 import {RequestProvider} from "../request/request";
 import 'rxjs/add/operator/toPromise';
+import { ToastController } from 'ionic-angular';
 
 
 /*
@@ -15,15 +16,39 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserProvider {
 
-  constructor
-  (private http: HttpClient,
-  private request: RequestProvider,
-   private url: UrlProvider) {
-    console.log('Hello UserProvider Provider');
-  }
+    constructor(private http: HttpClient,
+                private request: RequestProvider,
+                private url: UrlProvider,
+                public toastCtrl: ToastController) {
+        console.log('Hello UserProvider Provider');
+    }
 
-  register(data: any) {
-    return this.request.post(this.url.signUp, data);
+    register(data: any) {
+        return this.request.post(this.url.signUp, data);
 
-  }
+    }
+
+    login(data: any) {
+        return this.request.post(this.url.signIn, data);
+
+    }
+
+    credentialsCheck(data: any) {
+        let toast = this.toastCtrl.create({
+            message: 'Check input',
+            position: 'middle',
+            duration: 3000
+        });
+        if (data.phone.length !== 9) {
+            console.log('failed 1')
+            toast.present();
+            return false;
+
+        }
+        if (data.password.length < 6 || data.password.length > 15) {
+            console.log('failed 2')
+            return false;
+        }
+        return true;
+    }
 }

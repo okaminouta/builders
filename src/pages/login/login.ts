@@ -3,6 +3,7 @@ import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angula
 import {TabsPage} from "../tabs/tabs";
 import {SignUpPage} from "../sign-up/sign-up";
 import {SliderPage} from "../slider/slider";
+import {UserProvider} from "../../providers/user/user";
 
 /**
  * Generated class for the LoginPage page.
@@ -17,15 +18,16 @@ import {SliderPage} from "../slider/slider";
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-
-  phone: string;
-  password: string;
+    userData = {
+        phone: null,
+        password: null,
+    };
 
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController,
+              public  user: UserProvider) {
 
   }
 
@@ -35,14 +37,18 @@ export class LoginPage {
   }
 
   goToTabs() {
-    this.navCtrl.push(TabsPage);
-
+    if (this.user.credentialsCheck(this.userData)){
+        this.user.login(this.userData).then((res)=> {
+            console.log(res,'logged');
+            this.navCtrl.push(TabsPage);
+        });
+    }
   }
 
 
   updateInput () {
-    if (this.phone == undefined || this.phone == "") {
-      this.phone = '+380()';
+    if (this.userData.phone == undefined || this.userData.phone == "") {
+        this.userData.phone = '+380()';
     }
   }
 
