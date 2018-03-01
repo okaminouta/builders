@@ -56,15 +56,20 @@ float: right;
     color: white !important;
 
   }
+  .card-content-md{
+    padding-bottom: 1px;
+  }
   .card .note-ios{
     margin: 10px;
     font-size: 16px;
-    font-family: "Roboto";
+   // font-family: "Roboto";
+    font-weight: 200;
   }
   .card .note-md{
     margin: 10px;
     font-size: 16px;
-    font-family: "Roboto";
+    //font-family: "Roboto";
+    font-weight: 200;
   }
   .button-round-md{
     text-transform: none;
