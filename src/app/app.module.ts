@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {HttpModule} from "@angular/http";
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 import { ProfilePage } from '../pages/profile/profile';
@@ -24,6 +25,8 @@ import {HelpPage} from "../pages/help/help";
 import { UserProvider } from '../providers/user/user';
 import { UrlProvider } from '../providers/url/url';
 import { RequestProvider } from '../providers/request/request';
+import { UtilityProvider } from '../providers/utility/utility';
+
 
 
 
@@ -45,7 +48,10 @@ import { RequestProvider } from '../providers/request/request';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: 'Go Back'
+    }),
+    IonicStorageModule.forRoot(),
     HttpModule,
     HttpClientModule,
 
@@ -71,7 +77,8 @@ import { RequestProvider } from '../providers/request/request';
     UserProvider,
     UrlProvider,
     HttpClient,
-    RequestProvider
+    RequestProvider,
+    UtilityProvider
   ],
 })
 export class AppModule {}

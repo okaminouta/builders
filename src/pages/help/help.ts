@@ -14,12 +14,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'help.html',
 })
 export class HelpPage {
-
+  message: string = '';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.message = '';
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HelpPage');
   }
+
+  disableSendButton () {
+    if (!this.message && !this.message.length && this.message.length == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  goBack () {
+    this.navCtrl.pop();
+  }
+
 
 }

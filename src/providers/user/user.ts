@@ -4,7 +4,7 @@ import {UrlProvider} from "../url/url";
 import {HttpClientModule} from '@angular/common/http';
 import {RequestProvider} from "../request/request";
 import 'rxjs/add/operator/toPromise';
-import { ToastController } from 'ionic-angular';
+import {Storage} from "@ionic/storage";
 
 
 /*
@@ -19,7 +19,7 @@ export class UserProvider {
     constructor(private http: HttpClient,
                 private request: RequestProvider,
                 private url: UrlProvider,
-                public toastCtrl: ToastController) {
+                private storage: Storage) {
         console.log('Hello UserProvider Provider');
     }
 
@@ -33,22 +33,16 @@ export class UserProvider {
 
     }
 
-    credentialsCheck(data: any) {
-        let toast = this.toastCtrl.create({
-            message: 'Check input',
-            position: 'middle',
-            duration: 3000
-        });
-        if (data.phone.length !== 9) {
-            console.log('failed 1')
-            toast.present();
-            return false;
+    setUser (data) {
+      this.storage.set('user', data);
 
-        }
-        if (data.password.length < 6 || data.password.length > 15) {
-            console.log('failed 2')
-            return false;
-        }
-        return true;
     }
+
+    getUser() {
+      return this.storage.get('user').then((data) => {
+        return  data;
+      });
+    }
+
+
 }

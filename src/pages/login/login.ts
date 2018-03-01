@@ -4,6 +4,8 @@ import {TabsPage} from "../tabs/tabs";
 import {SignUpPage} from "../sign-up/sign-up";
 import {SliderPage} from "../slider/slider";
 import {UserProvider} from "../../providers/user/user";
+import {UtilityProvider} from "../../providers/utility/utility";
+
 
 /**
  * Generated class for the LoginPage page.
@@ -27,6 +29,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController,
+              public util: UtilityProvider,
               public  user: UserProvider) {
 
   }
@@ -37,7 +40,7 @@ export class LoginPage {
   }
 
   goToTabs() {
-    if (this.user.credentialsCheck(this.userData)){
+    if (this.util.credentialsCheck(this.userData)){
         this.user.login(this.userData).then((res)=> {
             console.log(res,'logged');
             this.navCtrl.push(TabsPage);
