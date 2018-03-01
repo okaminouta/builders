@@ -27,6 +27,7 @@ float: right;
              height: 32px;
              border-radius: 25px 0 0 25px;
   text-transform: none;
+  font-weight: bold;
 }
   #right_button{
     border: 1px solid black;
@@ -35,6 +36,7 @@ float: right;
     text-transform: none;
     height: 32px;
     border-radius: 0 25px 25px 0;
+    font-weight: bold;
   }
   ion-card-content{
     color:#5d6d7d;
@@ -54,6 +56,7 @@ float: right;
   .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
     background: color($colors, secondary) !important;
     color: white !important;
+    font-weight: 200!important;
 
   }
   .card-content-md{
@@ -65,6 +68,7 @@ float: right;
    // font-family: "Roboto";
     font-weight: 200;
   }
+
   .card .note-md{
     margin: 10px;
     font-size: 16px;
@@ -77,6 +81,7 @@ float: right;
   }
 [col-12]{
   text-align: center;
+  padding-bottom: 17px;
 }
   .button-inner{
     color: #5d6d7d;
@@ -93,6 +98,25 @@ float: right;
   }
   #orange_button span{
     color: #fdad2a;
+  }
+  #left_button p{
+    font-size: 14px;
+    margin-top: -3px;
+    font-weight: bold;
+  }
+
+  #right_button p{
+    font-size: 14px;
+    margin-top: -3px;
+    font-weight: bold;
+  }
+  page-home .button-inner{
+    margin: 0 13px !important;
+  }
+  .button-outline-md {
+    border-color: #5d6d7d;
+    /* margin-left: 22px; */
+    margin: 0px 12px 0px 13px;
   }
 
 }
