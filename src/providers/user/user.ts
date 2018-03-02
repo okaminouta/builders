@@ -4,6 +4,7 @@ import {UrlProvider} from "../url/url";
 import {HttpClientModule} from '@angular/common/http';
 import {RequestProvider} from "../request/request";
 import 'rxjs/add/operator/toPromise';
+import {Storage} from "@ionic/storage";
 
 
 /*
@@ -15,15 +16,33 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserProvider {
 
-  constructor
-  (private http: HttpClient,
-  private request: RequestProvider,
-   private url: UrlProvider) {
-    console.log('Hello UserProvider Provider');
-  }
+    constructor(private http: HttpClient,
+                private request: RequestProvider,
+                private url: UrlProvider,
+                private storage: Storage) {
+        console.log('Hello UserProvider Provider');
+    }
 
-  register(data: any) {
-    return this.request.post(this.url.signUp, data);
+    register(data: any) {
+        return this.request.post(this.url.signUp, data);
 
-  }
+    }
+
+    login(data: any) {
+        return this.request.post(this.url.signIn, data);
+
+    }
+
+    setUser (data) {
+      this.storage.set('user', data);
+
+    }
+
+    getUser() {
+      return this.storage.get('user').then((data) => {
+        return  data;
+      });
+    }
+
+
 }

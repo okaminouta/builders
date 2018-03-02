@@ -21,7 +21,6 @@ export class RequestProvider {
   post(url, data) {
     let promise = new Promise((resolve, reject) => {
       // const headers = new Headers({'Content-Type': '', 'Accept': 'application/json'});
-      debugger
       this.http.post(url, data)
         .subscribe(
           response => {
@@ -42,7 +41,6 @@ export class RequestProvider {
         console.log(err, 'err');
         return err;
       });
-    ;
   }
 
   put() {

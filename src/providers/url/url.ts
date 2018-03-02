@@ -11,6 +11,7 @@ import {Injectable} from '@angular/core';
 export class UrlProvider {
   url: string = 'http://hire-man.grassbusinesslabs.tk/public/api/';
   signUp: string = this.url + 'register';
+  signIn: string = this.url + 'login';
 
   constructor(public http: HttpClient) {
     console.log('Hello UrlProvider Provider');

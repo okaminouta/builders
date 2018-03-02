@@ -40,8 +40,24 @@ ion-header {
   .toolbar-background {
     background-color: color($colors, secondary);
   }
-  .bar-button, .toolbar-title{
+  .bar-button, .toolbar-title {
     color: white;
+  }
+}
+
+.toast-message {
+  text-align: center;
+}
+
+.success {
+  > div {
+    background-color: #32db64 !important;
+  }
+}
+
+.alert {
+  > div {
+    background-color: red !important;
   }
 }
 
