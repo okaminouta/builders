@@ -26,6 +26,12 @@ page-profile {
     color: #081d32;
     height: 32px;
     border-radius: 25px 0 0 25px;
+
+  }
+  #one p{
+    font-size: 14px;
+    margin-top: -3px;
+    font-weight: bold;
   }
   #two{
     border: 1px solid black;
@@ -34,6 +40,12 @@ page-profile {
     text-transform: none;
     height: 32px;
     border-radius: 0 25px 25px 0;
+
+  }
+  #two p{
+    font-size: 14px;
+    margin-top: -3px;
+    font-weight: bold;
   }
   .list-md{
     margin:0;
