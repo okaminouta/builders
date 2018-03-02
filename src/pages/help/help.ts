@@ -33,6 +33,9 @@ export class HelpPage {
   goBack () {
     this.navCtrl.pop();
   }
-
+// todo do smth here
+  ionViewDidLeave() {
+    this.navCtrl.popToRoot();
+  }
 
 }

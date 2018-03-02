@@ -73,7 +73,7 @@ export class LoginPage {
   showPrompt() {
   let prompt = this.alertCtrl.create({
     title: 'Login',
-    message: "Enter a name for this new album you're so keen on adding",
+    message: '<h1>hel</h1>',
     inputs: [
       {
         name: 'title',
