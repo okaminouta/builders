@@ -26,6 +26,7 @@ import { UserProvider } from '../providers/user/user';
 import { UrlProvider } from '../providers/url/url';
 import { RequestProvider } from '../providers/request/request';
 import { UtilityProvider } from '../providers/utility/utility';
+import {ChangePassPage} from "../pages/change-pass/change-pass";
 
 
 
@@ -45,6 +46,7 @@ import { UtilityProvider } from '../providers/utility/utility';
     SliderPage,
     AboutPage,
     HelpPage,
+    ChangePassPage,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { UtilityProvider } from '../providers/utility/utility';
     SliderPage,
     AboutPage,
     HelpPage,
+    ChangePassPage,
   ],
   providers: [
     StatusBar,

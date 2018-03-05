@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {ModalController, NavController} from 'ionic-angular';
+import {InfoPage} from "../info/info";
+import {ChangePassPage} from "../change-pass/change-pass";
 
 @Component({
   selector: 'page-profile',
@@ -9,11 +11,16 @@ export class ProfilePage {
     sentence: string = 'about_me';
   city: string;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public modalCtrl: ModalController) {
     this.initializeItems();
 
   }
 
+  presentContactModal() {
+    let contactModal = this.modalCtrl.create(ChangePassPage);
+    contactModal.present();
+  }
 
   showList: boolean = false;
   searchQuery: string = '';

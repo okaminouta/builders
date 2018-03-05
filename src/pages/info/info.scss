@@ -3,5 +3,10 @@ page-info {
 #bebebe{
   color:red;
 }
-
+  .item-md ion-icon[item-left] + .item-inner, .item-md ion-icon[item-left] + .item-input, .item-md ion-icon[item-start] + .item-inner, .item-md ion-icon[item-start] + .item-input{
+    margin-left: 0px;
+  }
+  .input-wrapper p{
+    margin-left: 7px;
+  }
 }

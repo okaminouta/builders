@@ -6,7 +6,11 @@ page-home {
     color: white;
   }
   #icon-right{
+
+    float: right;
+
 float: right;
+
   }
   ion-navbar{
     background: #2d2d2d !important;
@@ -20,6 +24,17 @@ float: right;
   ion-row{
     justify-content:center;
   }
+
+  #left_button{
+    border: 1px solid black;
+    text-transform: none;
+    color: #081d32;
+    height: 32px;
+    border-radius: 25px 0 0 25px;
+    text-transform: none;
+    font-weight: bold;
+  }
+
 #left_button{
   border: 1px solid black;
         text-transform: none;
@@ -29,6 +44,7 @@ float: right;
   text-transform: none;
   font-weight: bold;
 }
+
   #right_button{
     border: 1px solid black;
     background: white;
@@ -65,7 +81,7 @@ float: right;
   .card .note-ios{
     margin: 10px;
     font-size: 16px;
-   // font-family: "Roboto";
+    // font-family: "Roboto";
     font-weight: 200;
   }
 
@@ -79,10 +95,17 @@ float: right;
     text-transform: none;
     border: 1px solid color($colors, secondary);
   }
+
+  [col-12]{
+    text-align: center;
+    padding-bottom: 17px;
+  }
+
 [col-12]{
   text-align: center;
   padding-bottom: 17px;
 }
+
   .button-inner{
     color: #5d6d7d;
   }
