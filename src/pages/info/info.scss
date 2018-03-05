@@ -1,6 +1,6 @@
 page-info {
 
-  .item-md ion-icon[item-left] + .item-inner, .item-md ion-icon[item-left] + .item-input, .item-md ion-icon[item-start] + .item-inner, .item-md ion-icon[item-start] + .item-input {
+  /*.item-md ion-icon[item-left] + .item-inner, .item-md ion-icon[item-left] + .item-input, .item-md ion-icon[item-start] + .item-inner, .item-md ion-icon[item-start] + .item-input {
     margin-left: 0px;
   }
   .input-wrapper p {
@@ -51,6 +51,24 @@ page-info {
   }
   .butt_styl_exit b {
     color: red;
+  }*/
+  /*.item-md [item-left], .item-md [item-right], .item-md [item-start], .item-md [item-end]{
+    margin: 0px 8px 9px 0;
+  }*/
+  /*.fa{
+    margin: 0px 8px 0px 0;
+  }
+  .input-wrapper{
+    margin: 0px 10px 0px 0;
+  }*/
+  /*.item-md [item-left], .item-md [item-right], .item-md [item-start], .item-md [item-end]{
+    margin: 9px 8px 9px 0;
+  }*/
+  .red_ex button{
+    color: red;
+  }
+  .red_ex b{
+    margin: 0px 10px 0px 0;
   }
 
 }

@@ -5,30 +5,57 @@
 </ion-header>
 <ion-content>
   <ion-list >
-    <div class="butt_styl_rate">
+    <!--<div class="butt_styl_rate">
     <button ion-item detail-none margin-top>
-      <ion-icon name="star" item-start></ion-icon>
+      <fa-icon name="star" item-start></fa-icon>
       <b>Оцените нас</b>
     </button>
     </div>
     <div class="butt_styl_rate">
     <button  ion-item detail-none margin-top (click)="toHelp()">
-         <p><b><ion-icon name="call" ></ion-icon></b>
-      <b text-center><!--style="margin-left: 5px; color: black;"-->&nbsp;Поддержка</b></p>
+         <p><b><fa-icon name="phone" ></fa-icon></b>
+      <b text-center><!--style="margin-left: 5px; color: black;"-->&nbsp;<!--Поддержка</b></p>
     </button>
     </div>
     <div class="butt_styl_about">
     <button  ion-item detail-none margin-top (click)="toAbout()">
-         <p> <b><ion-icon name="information" style="zoom:2.0;" ></ion-icon></b>
-      <b text-center> <!--style="margin-left: 10px; color: black;"-->&nbsp;О нас</b></p>
+         <p> <b><fa-icon name="info"></fa-icon></b>
+      <b text-center> <!--style="margin-left: 10px; color: black;"-->&nbsp;<!--О нас</b></p>
     </button>
     </div>
     <div class="butt_styl_exit">
     <button ion-item detail-none margin-top (click)="logout()">
-       <p><b><ion-icon ios="ios-exit" md="md-exit"> <!--style="zoom:1.0; margin-right: 9px; color: red;"--></ion-icon></b>
+       <p> <b><fa-icon name="sign-out-alt"></fa-icon></b>
       <b text-center >&nbsp;Выход</b></p>
     </button>
-    </div>
+    </div>-->
+
+        <button ion-item detail-none margin-top (click)="toHelp()">
+        <fa-icon name="star" item-start></fa-icon>
+          <!--<fa-icon name="star" item-start></fa-icon>-->
+          <b>Оцените нас</b>
+        </button>
+
+
+        <button  ion-item detail-none margin-top (click)="toHelp()">
+            <fa-icon name="phone" item-start ></fa-icon>
+          <b>Поддержка</b>
+        </button>
+
+
+        <button  ion-item detail-none margin-top (click)="toAbout()">
+            <fa-icon name="info" item-start></fa-icon>
+          <b>О нас</b>
+        </button>
+
+<div class="red_ex">
+        <button ion-item detail-none margin-top (click)="logout()">
+           <fa-icon name="sign-out" item-start></fa-icon>
+          <b>Выход</b>
+        </button>
+        </div>
+
+
 
 
   </ion-list>
