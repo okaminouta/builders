@@ -5,6 +5,9 @@ import {MyApp} from './app.component';
 import {HttpModule} from "@angular/http";
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {IonicStorageModule} from '@ionic/storage';
+import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
+import {File} from '@ionic-native/file';
+import {Camera} from '@ionic-native/camera';
 
 
 import {ProfilePage} from '../pages/profile/profile';
@@ -32,61 +35,65 @@ import {FaIconComponent} from "../components/fa-icon/fa-icon";
 
 
 @NgModule({
-    declarations: [
-        MyApp,
-        ProfilePage,
-        InfoPage,
-        HomePage,
-        TabsPage,
-        LoginPage,
-        HeaderComponent,
-        SignUpPage,
-        Mask,
-        FriendsPage,
-        SliderPage,
-        AboutPage,
-        HelpPage,
-        ChangePassPage,
-        AddSkillPage,
-        FaIconComponent
-    ],
-    imports: [
-        BrowserModule,
-        IonicModule.forRoot(MyApp, {
-            backButtonText: 'Go Back'
-        }),
-        IonicStorageModule.forRoot(),
-        HttpModule,
-        HttpClientModule,
+  declarations: [
+    MyApp,
+    ProfilePage,
+    InfoPage,
+    HomePage,
+    TabsPage,
+    LoginPage,
+    HeaderComponent,
+    SignUpPage,
+    Mask,
+    FriendsPage,
+    SliderPage,
+    AboutPage,
+    HelpPage,
+    ChangePassPage,
+    AddSkillPage,
+    FaIconComponent
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp, {
+      backButtonText: 'Go Back'
+    }),
+    IonicStorageModule.forRoot(),
+    HttpModule,
+    HttpClientModule,
 
-    ],
-    bootstrap: [IonicApp],
-    entryComponents: [
-        MyApp,
-        ProfilePage,
-        InfoPage,
-        HomePage,
-        TabsPage,
-        LoginPage,
-        SignUpPage,
-        FriendsPage,
-        SliderPage,
-        AboutPage,
-        HelpPage,
-        ChangePassPage,
-        AddSkillPage,
-        FaIconComponent
-    ],
-    providers: [
-        StatusBar,
-        SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler},
-        UserProvider,
-        UrlProvider,
-        HttpClient,
-        RequestProvider,
-        UtilityProvider
-    ],
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    ProfilePage,
+    InfoPage,
+    HomePage,
+    TabsPage,
+    LoginPage,
+    SignUpPage,
+    FriendsPage,
+    SliderPage,
+    AboutPage,
+    HelpPage,
+    ChangePassPage,
+    AddSkillPage,
+    FaIconComponent
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FileTransfer,
+    FileTransferObject,
+    File,
+    Camera,
+    UserProvider,
+    UrlProvider,
+    HttpClient,
+    RequestProvider,
+    UtilityProvider
+  ],
 })
 export class AppModule {
 }
