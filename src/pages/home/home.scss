@@ -81,6 +81,12 @@ page-home {
   ion-card-content h2 {
     font-weight: bold;
   }
+  .card-md h4 {
+    margin: 0px;
+    font-size: 17px;
+    color: #182c40;
+    font-weight: 540;
+  }
   .card-md p {
     color: #f9b707;
     font-size: 17px;
@@ -155,6 +161,9 @@ page-home {
   }
   page-home .button-inner {
     margin: 0 13px !important;
+  }
+  .note-md {
+    color: #888a8c;
   }
   .button-outline-md {
     border-color: #5d6d7d;
