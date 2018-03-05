@@ -4,23 +4,31 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-list no-lines>
+  <ion-list >
+    <div class="butt_styl_rate">
     <button ion-item detail-none margin-top>
-      <ion-icon name="star" item-start style="zoom:0.8; color: gray;"></ion-icon>
-      <b style="font-size: 14px;">Оцените нас</b>
+      <ion-icon name="star" item-start></ion-icon>
+      <b>Оцените нас</b>
     </button>
-    <button  ion-item detail-none margin-top (click)="toHelp()" large >
-         <p><ion-icon name="call" style="color: gray;"></ion-icon>
-      <b text-center style="margin-left: 5px; color: black;">Поддержка</b></p>
+    </div>
+    <div class="butt_styl_rate">
+    <button  ion-item detail-none margin-top (click)="toHelp()">
+         <p><b><ion-icon name="call" ></ion-icon></b>
+      <b text-center><!--style="margin-left: 5px; color: black;"-->&nbsp;Поддержка</b></p>
     </button>
-    <button  ion-item detail-none margin-top (click)="toAbout()" large>
-         <p> <ion-icon name="information" style="zoom:2.0; "></ion-icon>
-      <b text-center style="margin-left: 10px; color: black;">О нас</b></p>
+    </div>
+    <div class="butt_styl_about">
+    <button  ion-item detail-none margin-top (click)="toAbout()">
+         <p> <b><ion-icon name="information" style="zoom:2.0;" ></ion-icon></b>
+      <b text-center> <!--style="margin-left: 10px; color: black;"-->&nbsp;О нас</b></p>
     </button>
-    <button  id="bebebe" ion-item detail-none margin-top (click)="logout()" large>
-       <p><ion-icon ios="ios-exit" md="md-exit" style="zoom:1.0; margin-right: 9px; color: red;"></ion-icon>
-      <b text-center style="margin-left: -3px; color: red;">Выход</b></p>
+    </div>
+    <div class="butt_styl_exit">
+    <button ion-item detail-none margin-top (click)="logout()">
+       <p><b><ion-icon ios="ios-exit" md="md-exit"> <!--style="zoom:1.0; margin-right: 9px; color: red;"--></ion-icon></b>
+      <b text-center >&nbsp;Выход</b></p>
     </button>
+    </div>
 
 
   </ion-list>
