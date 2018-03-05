@@ -29,6 +29,7 @@ import {UtilityProvider} from '../providers/utility/utility';
 import {ChangePassPage} from "../pages/change-pass/change-pass";
 import {AddSkillPage} from "../pages/add-skill/add-skill";
 import {FaIconComponent} from "../components/fa-icon/fa-icon";
+import {AddSkillModalsPage} from "../pages/add-skill-modals/add-skill-modals";
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {FaIconComponent} from "../components/fa-icon/fa-icon";
         HelpPage,
         ChangePassPage,
         AddSkillPage,
-        FaIconComponent
+        FaIconComponent,
+        AddSkillModalsPage
     ],
     imports: [
         BrowserModule,
@@ -75,7 +77,8 @@ import {FaIconComponent} from "../components/fa-icon/fa-icon";
         HelpPage,
         ChangePassPage,
         AddSkillPage,
-        FaIconComponent
+        FaIconComponent,
+        AddSkillModalsPage
     ],
     providers: [
         StatusBar,

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {TabsPage} from "../tabs/tabs";
+import {AlertController, IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
+import {AddSkillModalsPage} from "../add-skill-modals/add-skill-modals";
 
 /**
  * Generated class for the AddSkillPage page.
@@ -16,46 +16,22 @@ import {TabsPage} from "../tabs/tabs";
 })
 export class AddSkillPage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public alertCtrl: AlertController,
+                public modalCtrl: ModalController) {
     }
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad AddSkillPage');
-    }
+    // ionViewDidLoad() {
+    //     console.log('ionViewDidLoad AddSkillPage');
+    // }
 
     goBack() {
         this.navCtrl.pop();
     }
 
     skillSelectorPopap() {
-        let prompt = this.alertCtrl.create({
-            title: 'Login',
-            message: "<ion-item>\n" +
-            "    <ion-label>step=100, snaps, </ion-label>\n" +
-            "    <ion-range min=\"1000\" max=\"2000\" step=\"100\" snaps=\"true\" color=\"secondary\" [(ngModel)]=\"singleValue4\"></ion-range>\n" +
-            "  </ion-item>",
-            inputs: [
-                {
-                    name: 'title',
-                    placeholder: 'Title'
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: data => {
-                        console.log('Cancel clicked');
-                    }
-                },
-                {
-                    text: 'Ok',
-                    handler: data => {
-                        console.log('Saved clicked');
-                        this.navCtrl.push(TabsPage);
-                    }
-                }
-            ]
-        });
-        prompt.present();
+        let modal = this.modalCtrl.create(AddSkillModalsPage, {userId: 8675309});
+        modal.present();
     }
 }
