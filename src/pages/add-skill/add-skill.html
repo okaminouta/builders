@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+        <ion-row justify-content-between align-items-center>
+            <ion-col>
+                <ion-buttons ion-col>
+                    <button ion-button text-capitalize (click)="goBack()">
+                        Отменить
+                    </button>
+                </ion-buttons>
+            </ion-col>
+
+            <ion-title ion-col>
+                Добавить навык
+            </ion-title>
+
+            <ion-buttons ion-col text-end>
+                <button ion-button text-capitalize>
+                    Сохранить
+                </button>
+            </ion-buttons>
+        </ion-row>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <button ion-item
+                class="slill-item"
+                (click)="skillSelectorPopap()">
+            <ion-col>
+                Developer
+            </ion-col>
+        </button>
+        <button ion-item
+                class="slill-item"
+                (click)="skillSelectorPopap()">
+            <ion-col>
+                Developer
+            </ion-col>
+        </button>
+    </ion-list>
+
+</ion-content>

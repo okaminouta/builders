@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
+import {AddSkillPage} from "../add-skill/add-skill";
 
 @Component({
   selector: 'page-profile',
@@ -56,6 +57,10 @@ export class ProfilePage {
       // hide the results when the query is empty
       this.showList = false;
     }
+  }
+
+  goToAddSkill() {
+      this.navCtrl.push(AddSkillPage)
   }
 
 }
