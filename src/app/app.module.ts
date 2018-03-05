@@ -27,7 +27,7 @@ import { UrlProvider } from '../providers/url/url';
 import { RequestProvider } from '../providers/request/request';
 import { UtilityProvider } from '../providers/utility/utility';
 import {ChangePassPage} from "../pages/change-pass/change-pass";
-
+import {AddSkillPage} from "../pages/add-skill/add-skill";
 
 
 
@@ -47,6 +47,7 @@ import {ChangePassPage} from "../pages/change-pass/change-pass";
     AboutPage,
     HelpPage,
     ChangePassPage,
+    AddSkillPage,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +73,7 @@ import {ChangePassPage} from "../pages/change-pass/change-pass";
     AboutPage,
     HelpPage,
     ChangePassPage,
+    AddSkillPage,
   ],
   providers: [
     StatusBar,

@@ -56,6 +56,7 @@ export class LoginPage {
   }
 
   goToRegistration() {
+    console.log('Naw ctrl', this.navCtrl);
     this.navCtrl.push(SignUpPage);
   }
 

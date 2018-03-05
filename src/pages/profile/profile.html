@@ -135,11 +135,16 @@ text center>
 
     </ion-card-content>
   </ion-card>
-  <ion-footer id="color_foot" text-center>
-  	<ion-toolbar position="bottom">
-  		<button ion-button full>Видалити вибрані</button>
-  	</ion-toolbar>
-  </ion-footer>
+    <ion-footer id="color_foot" text-center>
+      <ion-toolbar position="bottom">
+        <button ion-button full>Видалити вибрані</button>
+      </ion-toolbar>
+    </ion-footer>
+
+      <ion-fab right bottom>
+          <button ion-fab (click)="goToAddSkill()"><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
+
   </ion-list>
 
   </div>
