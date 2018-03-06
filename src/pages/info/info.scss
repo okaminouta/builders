@@ -1,74 +1,16 @@
 page-info {
 
-  /*.item-md ion-icon[item-left] + .item-inner, .item-md ion-icon[item-left] + .item-input, .item-md ion-icon[item-start] + .item-inner, .item-md ion-icon[item-start] + .item-input {
-    margin-left: 0px;
-  }
-  .input-wrapper p {
-    margin-left: 7px;
-  }
-  .butt_styl_rate {
-    zoom: 0.8;
-    color: black;
 
-  }
-  .butt_styl_rate b {
-    font-size: 18px;
-    color: black;
-  }
-
-  .butt_styl_exit {
-    margin-left: -3px;
-    color: red;
-  }
-  ion-icon information {
-    zoom: 2.0;
-
-  }
-  butt_styl_about button ion-icon {
-    margin-left: 10px;
-    color: black;
-    zoom: 2.0;
-  }
-  butt_styl_about p b {
-    color: black;
-
-  }
-  butt_styl_about b ion-icon {
-    zoom: 2.0;
-  }
-
-  .label-md {
-    margin: 0;
-  }
-  button ion-icon {
-    margin-right: 3px;
-  }
-  .item-md p {
-    color: black;
-  }
-  .item > ion-icon:first-child, .item-inner > ion-icon:first-child {
-    min-width: 0px;
-  }
-  .butt_styl_exit b {
-    color: red;
-  }*/
-  /*.item-md [item-left], .item-md [item-right], .item-md [item-start], .item-md [item-end]{
-    margin: 0px 8px 9px 0;
-  }*/
-  /*.fa{
-    margin: 0px 8px 0px 0;
-  }
-  .input-wrapper{
-    margin: 0px 10px 0px 0;
-  }*/
-  /*.item-md [item-left], .item-md [item-right], .item-md [item-start], .item-md [item-end]{
-    margin: 9px 8px 9px 0;
-  }*/
   .red_ex button{
     color: red;
+
   }
   .red_ex b{
-    margin: 0px 10px 0px 0;
+    margin: 0 0px;
+  }
+
+  .info-centre b{
+    margin: 0 5px;
   }
 
 }
