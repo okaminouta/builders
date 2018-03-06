@@ -1,11 +1,12 @@
 
 page-login {
   font-size: 12px;
+
   a {
     text-transform: uppercase;
-    color: white ;
+    color: white;
     &:last-child {
-      color: color($colors, primary) ;
+      color: color($colors, primary);
     }
   }
 
@@ -19,7 +20,7 @@ page-login {
     border-radius: 40px;
     opacity: 0.5;
     height: 40px;
-    width: 245px;
+    width: 88%;
 
     font-weight: bold;
     .input {
@@ -33,10 +34,19 @@ page-login {
     font-size: 12px;
     text-transform: uppercase;
     margin: 50px 0 30px 0;
-    width: 245px;
+    width: 88%;
     height: 40px;
   }
   .pass-icon {
     z-index: 99;
+  }
+  ion-input placeholder {
+    color: red;
+  }
+  [col-9] {
+    margin-left: 9%;
+  }
+  .text-cust {
+    margin-right: 5%;
   }
 }

@@ -1,38 +1,87 @@
 page-sign-up {
-    font-size: 12px;
-    a {
-      text-transform: uppercase;
-      color: white ;
-      &:last-child {
-        color: color($colors, primary) ;
-      }
-    }
-
-    ion-content {
-      background: url('../assets/imgs/bg.png');
-      background-size: 100% 100%;
-    }
-
-    .item {
-
-      border-radius: 40px;
-      opacity: 0.5;
-      height: 40px;
-
-      font-weight: bold;
-      .input {
-        font-size: 13px;
-        font-weight: bold;
-      }
-    }
-    .button {
-      font-size: 12px;
-      text-transform: uppercase;
-      margin: 50px 0 30px 0;
-      width: 99%;
-      height: 40px;
+  /*font-size: 12px;
+  a {
+    text-transform: uppercase;
+    color: white ;
+    &:last-child {
+      color: color($colors, primary) ;
     }
   }
 
+  ion-content {
+    background: url('../assets/imgs/bg.png');
+    background-size: 100% 100%;
+  }
 
+  .item {
+
+    border-radius: 40px;
+    opacity: 0.5;
+    height: 40px;
+
+    font-weight: bold;
+    .input {
+      font-size: 13px;
+      font-weight: bold;
+    }
+  }
+  .button {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 50px 0 30px 0;
+    width: 99%;
+    height: 40px;
+  }
+}
+*/
+  font-size: 12px;
+
+  a {
+    text-transform: uppercase;
+    color: white;
+    &:last-child {
+      color: color($colors, primary);
+    }
+  }
+
+  ion-content {
+    background: url('../assets/imgs/bg.png');
+    background-size: 100% 100%;
+  }
+
+  .item {
+
+    border-radius: 40px;
+    opacity: 0.5;
+    height: 40px;
+    width: 88%;
+
+    font-weight: bold;
+    .input {
+      font-size: 13px;
+      font-weight: bold;
+
+    }
+  }
+  .button {
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 50px 0 30px 0;
+    width: 88%;
+    height: 40px;
+  }
+  .pass-icon {
+    z-index: 99;
+  }
+  ion-input placeholder {
+    color: red;
+  }
+  [col-9] {
+    margin-left: 9%;
+  }
+  .text-cust {
+    margin-right: 5%;
+  }
+}
 
