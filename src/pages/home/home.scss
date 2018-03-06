@@ -1,31 +1,51 @@
 page-home {
-  .toolbar-background-md{
-    background:#081d32;
+  .toolbar-background-md {
+    background: #081d32;
   }
-  .toolbar-title-md{
+  .toolbar-title-md {
     color: white;
   }
-  #icon-right{
+  #icon-right {
 
     float: right;
 
-float: right;
+    float: right;
 
   }
-  ion-navbar{
+  ion-navbar {
     background: #2d2d2d !important;
     color: white !important;
   }
+  .searchbar-md .searchbar-input {
+    border-radius: 65px;
+    background-color: #0c2a49;
+    color: white;
+    width: 88%;
+    line-height: 2.4rem;
+    font-weight: 200;
+    margin-left: 3px;
+  }
+  .searchbar searchbar-md .searchbar-animated .searchbar-show-cancel .searchbar-active .searchbar-left-aligned .searchbar-has-focus {
+    //display:none;
+    color: white;
+  }
+  .toolbar .searchbar-md .searchbar-md-cancel {
+    display: none;
+  }
+  .searchbar-md .searchbar-search-icon {
+    color: white;
+  }
+
   /*ion-content padding {
     align-items:center;
     justify-content: center;
 
   }*/
-  ion-row{
-    justify-content:center;
+  ion-row {
+    justify-content: center;
   }
 
-  #left_button{
+  #left_button {
     border: 1px solid black;
     text-transform: none;
     color: #081d32;
@@ -35,17 +55,17 @@ float: right;
     font-weight: bold;
   }
 
-#left_button{
-  border: 1px solid black;
-        text-transform: none;
-               color: #081d32;
-             height: 32px;
-             border-radius: 25px 0 0 25px;
-  text-transform: none;
-  font-weight: bold;
-}
+  #left_button {
+    border: 1px solid black;
+    text-transform: none;
+    color: #081d32;
+    height: 32px;
+    border-radius: 25px 0 0 25px;
+    text-transform: none;
+    font-weight: bold;
+  }
 
-  #right_button{
+  #right_button {
     border: 1px solid black;
     background: white;
     color: #081d32;
@@ -54,14 +74,26 @@ float: right;
     border-radius: 0 25px 25px 0;
     font-weight: bold;
   }
-  ion-card-content{
-    color:#5d6d7d;
+  ion-card-content {
+    color: #5d6d7d;
     font-family: 'Roboto';
+    font-size: 17px;
   }
-  ion-card-content h2{
+  ion-card-content h2 {
     font-weight: bold;
   }
-  .card-md p{
+  .data {
+    color: #5d6d7d;
+    font-family: 'Roboto';
+    font-size: 17px;
+  }
+  .card-md h4 {
+    margin: 0px;
+    font-size: 17px;
+    color: #182c40;
+    font-weight: 540;
+  }
+  .card-md p {
     color: #f9b707;
     font-size: 17px;
   }
@@ -69,77 +101,99 @@ float: right;
     font-weight: bold;
     font-size: 20px;
   }
-  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
     background: color($colors, secondary) !important;
     color: white !important;
-    font-weight: 200!important;
+    font-weight: 200 !important;
 
   }
-  .card-content-md{
+  .card-content-md {
     padding-bottom: 1px;
   }
-  .card .note-ios{
+  .card .note-ios {
     margin: 10px;
     font-size: 16px;
     // font-family: "Roboto";
     font-weight: 200;
   }
 
-  .card .note-md{
+  .card .note-md {
     margin: 10px;
-    font-size: 16px;
+    font-size: 14px;
     //font-family: "Roboto";
     font-weight: 200;
   }
-  .button-round-md{
+  .button-round-md {
     text-transform: none;
     border: 1px solid color($colors, secondary);
   }
 
-  [col-12]{
+  [col-12] {
     text-align: center;
     padding-bottom: 17px;
   }
 
-[col-12]{
-  text-align: center;
-  padding-bottom: 17px;
-}
+  [col-12] {
+    text-align: center;
+    padding-bottom: 17px;
+  }
 
-  .button-inner{
+  .button-inner {
     color: #5d6d7d;
   }
-  [col-6]{
+  [col-6] {
     padding: 0;
   }
-  .button-outline-md{
-    border-color:#5d6d7d;
+  .button-outline-md {
+    border-color: #5d6d7d;
   }
   #orange_button {
     border-color: #fdad2a;
 
   }
-  #orange_button span{
+  #orange_button span {
     color: #fdad2a;
   }
-  #left_button p{
+  #left_button p {
     font-size: 14px;
     margin-top: -3px;
     font-weight: bold;
   }
 
-  #right_button p{
+  #right_button p {
     font-size: 14px;
     margin-top: -3px;
     font-weight: bold;
   }
-  page-home .button-inner{
+  page-home .button-inner {
     margin: 0 13px !important;
+  }
+  .note-md {
+    color: #888a8c;
   }
   .button-outline-md {
     border-color: #5d6d7d;
     /* margin-left: 22px; */
     margin: 0px 12px 0px 13px;
+  }
+  .checks fa-icon {
+    color: green;
+    margin-left: 59%;
+    //padding: 5px;
+  }
+  .fa-times {
+    color: red !important;
+
+  }
+  @media screen and (max-width: 377px) {
+    .button-outline-md {
+      margin: 0px;
+    }
+  }
+  @media screen and (max-width: 327px) {
+    .button-round-md {
+      padding: 0px 1.6rem;
+    }
   }
 
 }

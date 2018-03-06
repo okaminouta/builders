@@ -1,12 +1,19 @@
 page-info {
-  color: #000;
-#bebebe{
-  color:red;
-}
-  .item-md ion-icon[item-left] + .item-inner, .item-md ion-icon[item-left] + .item-input, .item-md ion-icon[item-start] + .item-inner, .item-md ion-icon[item-start] + .item-input{
-    margin-left: 0px;
+
+  .fa {
+    color: gray;
   }
-  .input-wrapper p{
-    margin-left: 7px;
+
+  .red_ex button{
+    color: red;
+
   }
+  .red_ex fa-icon{
+    color: red;
+  }
+
+  .info-centre b{
+    margin: 0 5px;
+  }
+
 }

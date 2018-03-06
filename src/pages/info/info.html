@@ -5,22 +5,58 @@
 </ion-header>
 <ion-content>
   <ion-list no-lines>
+    <!--<div class="butt_styl_rate">
     <button ion-item detail-none margin-top>
-      <ion-icon name="star" item-start style="zoom:0.8; color: gray;"></ion-icon>
-      <b style="font-size: 14px;">Оцените нас</b>
+      <fa-icon name="star" item-start></fa-icon>
+      <b>Оцените нас</b>
     </button>
-    <button  ion-item detail-none margin-top (click)="toHelp()" large >
-         <p><ion-icon name="call" style="color: gray;"></ion-icon>
-      <b text-center style="margin-left: 5px; color: black;">Поддержка</b></p>
+    </div>
+    <div class="butt_styl_rate">
+    <button  ion-item detail-none margin-top (click)="toHelp()">
+         <p><b><fa-icon name="phone" ></fa-icon></b>
+      <b text-center><!--style="margin-left: 5px; color: black;"-->&nbsp;<!--Поддержка</b></p>
     </button>
-    <button  ion-item detail-none margin-top (click)="toAbout()" large>
-         <p> <ion-icon name="information" style="zoom:2.0; "></ion-icon>
-      <b text-center style="margin-left: 10px; color: black;">О нас</b></p>
+    </div>
+    <div class="butt_styl_about">
+    <button  ion-item detail-none margin-top (click)="toAbout()">
+         <p> <b><fa-icon name="info"></fa-icon></b>
+      <b text-center> <!--style="margin-left: 10px; color: black;"-->&nbsp;<!--О нас</b></p>
     </button>
-    <button  id="bebebe" ion-item detail-none margin-top (click)="logout()" large>
-       <p><ion-icon ios="ios-exit" md="md-exit" style="zoom:1.0; margin-right: 9px; color: red;"></ion-icon>
-      <b text-center style="margin-left: -3px; color: red;">Выход</b></p>
+    </div>
+    <div class="butt_styl_exit">
+    <button ion-item detail-none margin-top (click)="logout()">
+       <p> <b><fa-icon name="sign-out-alt"></fa-icon></b>
+      <b text-center >&nbsp;Выход</b></p>
     </button>
+    </div>-->
+
+        <button ion-item detail-none margin-top (click)="toHelp()">
+        <fa-icon name="star" item-start></fa-icon>&nbsp;
+          <!--<fa-icon name="star" item-start></fa-icon>-->
+          <b>Оцініть нас</b>
+        </button>
+
+
+        <button  ion-item detail-none margin-top (click)="toHelp()">
+            <fa-icon name="phone" item-start ></fa-icon>&nbsp;
+          &nbsp;<b>Підтримка</b>
+        </button>
+
+        <div class="info-centre">
+        <button  ion-item detail-none margin-top (click)="toAbout()">
+            <fa-icon name="info" item-start></fa-icon>&nbsp;
+          &nbsp;<b>Про нас</b>
+        </button>
+        </div>
+
+<div class="red_ex">
+        <button ion-item detail-none margin-top (click)="logout()">
+           <fa-icon name="sign-out" item-start></fa-icon>&nbsp;
+          <b>Вихід</b>
+        </button>
+        </div>
+
+
 
 
   </ion-list>
