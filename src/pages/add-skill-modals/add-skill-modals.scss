@@ -1,3 +1,20 @@
 page-add-skill-modals {
-
+  ion-header {
+    border-bottom: 1px solid #DCDEE2;
+    p {
+      font-size: 16px;
+      margin: 7px 0 7px 10px;
+    }
+  }
+  ion-content {
+    ion-row {
+      height: 100%;
+      ion-range {
+        padding: 28px 8px 28px 8px;
+      }
+    }
+  }
+  ion-footer {
+    border-top: 1px solid #DCDEE2;
+  }
 }
