@@ -28,12 +28,13 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-        primary: #f9b707,
+        primary: #fdc260,
         secondary: #081d32, //#32db64
         danger: #f53d3d,
         light: #f4f4f4,
         dark: #222,
-        white: white
+        white: white,
+        colorlink: #5d6d7d
 );
 
 // App iOS Variables
@@ -74,11 +75,10 @@ $colors: (
 $fa-font-path: $font-path;
 @import "font-awesome";
 
-
 $modal-inset-width: (60%);
-$modal-inset-min-width:	(100px);
+$modal-inset-min-width: (100px);
 //$modal-inset-min-height-small:(100px);
 //$modal-inset-min-height-large:(100px);
 //$modal-inset-widt:(100px);
 //$modal-inset-height-small:(100px);
-$modal-inset-height-large:(300px);
+$modal-inset-height-large: (300px);

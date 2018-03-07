@@ -99,7 +99,8 @@ page-home {
   }
   .card-md h2 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
+    font-family: "Roboto";
   }
   .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
     background: color($colors, secondary) !important;
@@ -183,7 +184,10 @@ page-home {
   }
   .fa-times {
     color: red !important;
-
+  }
+  .grid {
+    padding: 0;
+    width: 92%;
   }
   @media screen and (max-width: 377px) {
     .button-outline-md {
