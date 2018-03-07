@@ -9,9 +9,9 @@ page-add-skill-modals {
   ion-content {
     ion-row {
       height: 100%;
-      ion-range {
-        padding: 28px 8px 28px 8px;
-      }
+    }
+    .badge {
+      color: white;
     }
   }
   ion-footer {
