@@ -19,8 +19,8 @@ export class ProfilePage {
   }
 
   presentContactModal() {
-    let contactModal = this.modalCtrl.create(ChangePassPage);
-    contactModal.present();
+    this.navCtrl.push(ChangePassPage);
+
   }
 
   showList: boolean = false;
