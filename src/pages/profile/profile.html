@@ -1,117 +1,115 @@
 <ion-header>
-  <ion-navbar>
-    <ion-row justify-content-between align-items-center>
-      <ion-col>
-        <button color="white"
-                ion-button clear
-                text-capitalize
-                no-padding
-                *ngIf="editSkills && sentence == 'skills'"
-                (click)="editSkillsFunc()">
-          Відмінити
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <ion-title>
-          Профіль
-        </ion-title>
-      </ion-col>
-      <ion-col text-right>
-        <button color="white"
-                ion-button clear
-                text-capitalize
-                *ngIf="sentence == 'skills'"
-                (click)="editSkills ? selectedAllSkills() : editSkillsFunc()"
-                no-padding>
-          {{editSkills ? 'Вибрати все' : 'Вибрати'}}
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-row justify-content-between align-items-center>
+            <ion-col>
+                <button color="white"
+                        ion-button clear
+                        text-capitalize
+                        no-margin
+                        no-padding
+                        *ngIf="editSkills && segmentValue == 'skills'"
+                        (click)="editSkillsFunc()">
+                    Відмінити
+                </button>
+            </ion-col>
+            <ion-col text-center>
+                <ion-title>
+                    Профіль
+                </ion-title>
+            </ion-col>
+            <ion-col text-end>
+                <button color="white"
+                        ion-button clear
+                        text-capitalize
+                        no-margin
+                        no-padding
+                        *ngIf="segmentValue == 'skills'"
+                        (click)="editSkills ? selectedAllSkills() : editSkillsFunc()">
+                    {{editSkills ? 'Вибрати все' : 'Вибрати'}}
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-grid>
+<ion-content>
+
     <ion-row justify-content-center>
-      <ion-col col-6>
-        <ion-segment [(ngModel)]="sentence" text-center>
-          <ion-segment-button id="one" value="about_me">
-            <p>Про мене</p>
-          </ion-segment-button>
-          <ion-segment-button id="two" value="skills">
-            <p>Навички</p>
-          </ion-segment-button>
-        </ion-segment>
-      </ion-col>
+        <ion-col col-6 col-md-4 col-lg-3>
+            <ion-segment [(ngModel)]="segmentValue" color="secondary">
+                <ion-segment-button id="one" value="about_me">
+                    <p>Про мене</p>
+                </ion-segment-button>
+                <ion-segment-button id="two" value="skills">
+                    <p>Навички</p>
+                </ion-segment-button>
+            </ion-segment>
+        </ion-col>
     </ion-row>
-  </ion-grid>
 
-  <div [ngSwitch]="sentence">
-    <ion-list *ngSwitchCase="'about_me'">
-      <ion-row>
-        <div col-4 (click)="getImage()">
-          <img [src]="imageURI" alt="">
-        </div>
-        <ion-list col-8>
-          <ion-item>
-            <ion-label floating>Ім'я</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Прізвище</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
+    <div [ngSwitch]="segmentValue">
+        <ion-list *ngSwitchCase="'about_me'" padding>
+            <ion-row>
+                <div col-4 (click)="getImage()">
+                    <img [src]="imageURI" alt="">
+                </div>
+                <ion-list col-8>
+                    <ion-item>
+                        <ion-label floating>Ім'я</ion-label>
+                        <ion-input type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Прізвище</ion-label>
+                        <ion-input type="text"></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-row>
+            <ion-item no-padding>
+                <ion-label floating>Номер телефону</ion-label>
+                <ion-input type="text"></ion-input>
+                <ion-row class="border">
+
+                </ion-row>
+            </ion-item>
+            <ion-item no-padding>
+                <ion-label floating>E-mail</ion-label>
+                <ion-input type="text"></ion-input>
+                <ion-row class="border">
+                </ion-row>
+            </ion-item>
+            <ion-item no-padding>
+                <ion-label floating> Місто</ion-label>
+                <ion-input type="text"></ion-input>
+                <ion-row class="border">
+
+                </ion-row>
+            </ion-item>
+            <ion-item no-padding>
+                <ion-label>У мене є закордонний паспорт</ion-label>
+                <ion-checkbox color="white" checked="false" round item-end></ion-checkbox>
+
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label floating>Ім'я на англійській мові</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item no-padding>
+                <ion-label floating>Прізвище на англійській мові</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+
+            <ion-list>
+                <ion-item (click)="presentContactModal()">
+                    <ion-label class="black-shadow"><p>Змінити пароль</p></ion-label>
+                </ion-item>
+            </ion-list>
+
         </ion-list>
-      </ion-row>
-      <ion-item no-padding>
-        <ion-label floating>Номер телефону</ion-label>
-        <ion-input type="text"></ion-input>
-        <ion-row class="border">
 
-        </ion-row>
-      </ion-item>
-      <ion-item no-padding>
-        <ion-label floating>E-mail</ion-label>
-        <ion-input type="text"></ion-input>
-        <ion-row class="border">
-        </ion-row>
-      </ion-item>
-      <ion-item no-padding>
-        <ion-label floating> Місто</ion-label>
-        <ion-input type="text"></ion-input>
-        <ion-row class="border">
 
-        </ion-row>
-      </ion-item>
-      <ion-item no-padding>
-        <ion-label>У мене є закордонний паспорт</ion-label>
-        <ion-checkbox color="white" checked="false" round item-end></ion-checkbox>
+        <profile-skills [editSkills]="editSkills" *ngSwitchCase="'skills'"></profile-skills>
 
-      </ion-item>
-
-      <ion-item no-padding>
-        <ion-label floating>Ім'я на англійській мові</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item no-padding>
-        <ion-label floating>Прізвище на англійській мові</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-
-      <ion-list>
-        <ion-item (click)="presentContactModal()">
-          <ion-label class="black-shadow"><p>Змінити пароль</p></ion-label>
-        </ion-item>
-      </ion-list>
-
-    </ion-list>
-
-  </div>
-
-  <div [ngSwitch]="sentence">
-    <div *ngSwitchCase="'skills'">
-      <profile-skills [editSkills]="editSkills"></profile-skills>
     </div>
-  </div>
 
 </ion-content>

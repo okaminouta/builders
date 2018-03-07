@@ -11,7 +11,7 @@ import {Camera, CameraOptions} from "@ionic-native/camera";
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-    sentence: string = 'about_me';
+    segmentValue: string = 'about_me';
   city: string;
   imageURI:any;
   imageFileName:any;
