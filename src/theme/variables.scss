@@ -33,7 +33,8 @@ $colors: (
         danger: #f53d3d,
         light: #f4f4f4,
         dark: #222,
-        white: white
+        white: white,
+        grey: #5D6D7D
 );
 
 // App iOS Variables
@@ -74,11 +75,9 @@ $colors: (
 $fa-font-path: $font-path;
 @import "font-awesome";
 
-
-$modal-inset-width: (60%);
-$modal-inset-min-width:	(100px);
-//$modal-inset-min-height-small:(100px);
-//$modal-inset-min-height-large:(100px);
-//$modal-inset-widt:(100px);
-//$modal-inset-height-small:(100px);
-$modal-inset-height-large:(300px);
+$modal-inset-min-width: (300px);       //ширина при которой модалка на 100% (px)
+$modal-inset-min-height-small:(400px); //Вылазит Small модалка (px)
+//$modal-inset-min-height-large:(768px); //Вылазит Large модалка (px)
+$modal-inset-width:	(230px);             //Ширина модалки (px || %)
+$modal-inset-height-small:(170px);     //Высота Small модалки (px || %)
+$modal-inset-height-large:(170px);     //Высота Large модалки (px || %)

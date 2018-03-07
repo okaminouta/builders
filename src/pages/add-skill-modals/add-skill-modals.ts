@@ -24,6 +24,7 @@ export class AddSkillModalsPage {
         console.log('UserId', navParams.get('userId'))
     }
 
+    skilLavel: number = 1;
     // ionViewDidLoad() {
     //   console.log('ionViewDidLoad AddSkillModalsPage');
     // }
