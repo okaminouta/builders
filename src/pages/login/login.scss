@@ -7,10 +7,9 @@ page-login {
 
   ion-content {
     ion-row {
-      margin:  42% auto;
+      margin: 42% auto;
     }
   }
-
 
   font-size: 12px;
 
@@ -56,8 +55,8 @@ page-login {
   /*ion-input placeholder {
     color: red;
   }*/
-  [col-9] {
-    margin-left: 9%;
+  [col-sm-9] {
+    margin-left: 10%;
   }
   .text-cust {
     margin-right: 9%;
@@ -91,13 +90,13 @@ page-login {
     color: white;
   }
   .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
-    border-bottom-color: black;
-    box-shadow: inset 0 -1px 0 0 black;;
+    //border-bottom-color: black;
+    //box-shadow: inset 0 -1px 0 0 black;;
   }
-.item-input-has-focus{
-  border: 1px solid;
-}
-  .item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end]{
+  .item-input-has-focus {
+    border: 1px solid;
+  }
+  .item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end] {
     font-size: 2.5rem;
     color: rgba(1, 1, 2, 0.68);
     margin-top: 14px;
