@@ -15,7 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FriendsPage {
 
+  imageURI:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.imageURI = 'assets/imgs/man.png';
   }
 
   ionViewDidLoad() {

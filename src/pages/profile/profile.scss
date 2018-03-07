@@ -16,9 +16,11 @@ page-profile {
     text-align: center;
 
   }
-  page-profile img{
-   margin-top: 20px;
-  }
+  //page-profile img{
+  //  height: 80%;
+  //  border-radius: 50%;
+  //  margin-top: 20px;
+  //}
   #one{
     justify-content:center;
             align-items:center;
@@ -56,9 +58,10 @@ page-profile {
   margin:0 8px 2px 0;
 }
  img {
-    height: 75px;
-    border-radius: 50%;
-    margin-top: 30px;
+   height: 88px;
+   width: 88px;
+   border-radius: 50%;
+   margin-top: 20px;
   }
   h5 {
     color: #908c8c;

@@ -34,8 +34,8 @@
   <div [ngSwitch]="sentence">
     <ion-list *ngSwitchCase="'about_me'">
       <ion-row>
-        <div col-4>
-          <img src="../assets/imgs/camera.png" alt="">
+        <div col-4 (click)="getImage()">
+          <img [src]="imageURI" alt="">
         </div>
         <ion-list col-8>
           <ion-item>
