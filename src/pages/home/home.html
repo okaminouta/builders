@@ -10,7 +10,9 @@
   <ion-navbar>
     <div class="bar bar-header bar-positive">
       <ion-title text-center *ngIf="!showSearchbar">Пропозиції
-        <ion-icon id="icon-right" ios="ios-search" md="md-search" (click)="showSBar()"></ion-icon>
+        <div class="icon-right">
+        <ion-icon  ios="ios-search" md="md-search" (click)="showSBar()"></ion-icon>
+        </div>
       </ion-title>
       <div *ngIf="showSearchbar">
         <ion-searchbar
@@ -33,7 +35,7 @@
 
                 <ion-segment [(ngModel)]="sentence">
 
-                    <ion-segment-button id="left_button" value="all">
+                   <ion-segment-button id="left_button" value="all">
                         <p>Всі</p>
                     </ion-segment-button>
 
