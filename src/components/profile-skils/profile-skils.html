@@ -1,0 +1,38 @@
+<ion-card>
+  <ion-card-header text-wrap>
+    Кладка плитки
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-item no-padding>
+      <ion-label>
+        <p class="card-label">7/10</p>
+      </ion-label>
+      <button *ngIf="!editSkills"
+              ion-button
+              text-capitalize
+              round outline
+              color="grey"
+              item-end>Змiнити</button>
+      <ion-checkbox color="primary"
+                    *ngIf="editSkills"
+                    item-end></ion-checkbox>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+
+<ion-fab right bottom *ngIf="!editSkills">
+  <button ion-fab (click)="goToAddSkill()" color="grey">
+    <ion-icon name="add" color="white"></ion-icon>
+  </button>
+</ion-fab>
+
+<ion-footer text-center *ngIf="editSkills">
+    <button ion-button
+            no-margin
+            color="white"
+            class="futer-button"
+            col-12>Видалити вибрані</button>
+</ion-footer>
+
+

@@ -18,7 +18,6 @@ import {TabsPage} from '../pages/tabs/tabs';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
-import {HeaderComponent} from "../components/header/header";
 import {SignUpPage} from "../pages/sign-up/sign-up";
 import {Mask} from "../directives/mask/mask";
 import {FriendsPage} from "../pages/friends/friends";
@@ -33,70 +32,75 @@ import {ChangePassPage} from "../pages/change-pass/change-pass";
 import {AddSkillPage} from "../pages/add-skill/add-skill";
 import {FaIconComponent} from "../components/fa-icon/fa-icon";
 import {AddSkillModalsPage} from "../pages/add-skill-modals/add-skill-modals";
+import {ProfileAboutMeComponent} from "../components/profile-about-me/profile-about-me";
+import {ProfileSkilsComponent} from "../components/profile-skils/profile-skils";
 
 
 @NgModule({
-  declarations: [
-    MyApp,
-    ProfilePage,
-    InfoPage,
-    HomePage,
-    TabsPage,
-    LoginPage,
-    HeaderComponent,
-    SignUpPage,
-    Mask,
-    FriendsPage,
-    SliderPage,
-    AboutPage,
-    HelpPage,
-    ChangePassPage,
-    AddSkillPage,
-    FaIconComponent,
-    AddSkillModalsPage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp, {
-      backButtonText: 'Go Back'
-    }),
-    IonicStorageModule.forRoot(),
-    HttpModule,
-    HttpClientModule,
+    declarations: [
+        MyApp,
+        ProfilePage,
+        InfoPage,
+        HomePage,
+        TabsPage,
+        LoginPage,
+        SignUpPage,
+        Mask,
+        FriendsPage,
+        SliderPage,
+        AboutPage,
+        HelpPage,
+        ChangePassPage,
+        AddSkillPage,
+        FaIconComponent,
+        AddSkillModalsPage,
+        ProfileAboutMeComponent,
+        ProfileSkilsComponent
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(MyApp, {
+            backButtonText: 'Go Back'
+        }),
+        IonicStorageModule.forRoot(),
+        HttpModule,
+        HttpClientModule,
 
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    ProfilePage,
-    InfoPage,
-    HomePage,
-    TabsPage,
-    LoginPage,
-    SignUpPage,
-    FriendsPage,
-    SliderPage,
-    AboutPage,
-    HelpPage,
-    ChangePassPage,
-    AddSkillPage,
-    FaIconComponent,
-    AddSkillModalsPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FileTransfer,
-    FileTransferObject,
-    File,
-    Camera,
-    UserProvider,
-    UrlProvider,
-    HttpClient,
-    RequestProvider,
-    UtilityProvider
-  ],
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        ProfilePage,
+        InfoPage,
+        HomePage,
+        TabsPage,
+        LoginPage,
+        SignUpPage,
+        FriendsPage,
+        SliderPage,
+        AboutPage,
+        HelpPage,
+        ChangePassPage,
+        AddSkillPage,
+        FaIconComponent,
+        AddSkillModalsPage,
+        ProfileAboutMeComponent,
+        ProfileSkilsComponent
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+        FileTransfer,
+        FileTransferObject,
+        File,
+        Camera,
+        UserProvider,
+        UrlProvider,
+        HttpClient,
+        RequestProvider,
+        UtilityProvider
+    ],
 })
 export class AppModule {
 }

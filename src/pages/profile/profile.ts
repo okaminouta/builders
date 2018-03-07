@@ -32,7 +32,7 @@ export class ProfilePage {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
-    }
+    };
 
     this.camera.getPicture(options).then((imageData) => {
       this.imageURI = imageData;
@@ -90,8 +90,15 @@ export class ProfilePage {
     }
   }
 
-  goToAddSkill() {
-      this.navCtrl.push(AddSkillPage)
-  }
+    editSkills: boolean = false;
+
+    selectedAllSkills() {
+
+    }
+
+    editSkillsFunc() {
+        this.editSkills = !this.editSkills;
+    }
+
 
 }
