@@ -1,30 +1,43 @@
-
-
 <ion-content padding align-items-center>
 
   <ion-row
 
-           justify-content-center>
+    justify-content-center>
     <ion-col col-sm-9 justify-content-center>
       <!--mask="(**) ***-**-**"-->
-      <ion-item margin-vertical>
-        <ion-input type="text"
-                    placeholder="+380 (__) ___-__-__"
-                   [(ngModel)]="userData.phone"></ion-input>
-      </ion-item>
 
-      <ion-item justify-content-center>
-        <ion-input
-          [type]="isActive ? 'password' : 'text'"
-          placeholder="ПАРОЛЬ"
-          [(ngModel)]="userData.password"></ion-input>
-        <ion-icon
-          class="pass-icon"
-          [name]="isActive ? 'eye-off': 'eye' "
-          item-right
-          (click)="showPass()">
-        </ion-icon>
-      </ion-item>
+      <form [formGroup]="loginForm">
+
+        <ion-item margin-vertical>
+          <ion-input type="text"
+                     formControlName="phone"
+                     placeholder="+380 (__) ___-__-__"
+                     [(ngModel)]="userData.phone"></ion-input>
+        </ion-item>
+
+        <ion-item justify-content-center
+        ngClass="{{loginForm.controls.password.errors ? invalid : ''}}">
+          <ion-input
+            [type]="isActive ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="ПАРОЛЬ"
+            [(ngModel)]="userData.password"></ion-input>
+          <ion-icon
+            class="pass-icon"
+            [name]="isActive ? 'eye-off': 'eye' "
+            item-right
+            (click)="showPass()">
+          </ion-icon>
+        </ion-item>
+        <ion-item *ngIf="(loginForm.invalid &&
+         loginForm.controls.password.errors
+          && loginForm.controls.password.dirty)">required</ion-item>
+        <ion-item *ngIf="(loginForm.invalid &&
+         loginForm.controls.password.errors &&
+         loginForm.controls.password.errors.required
+          && loginForm.controls.password.dirty)">dlinna 6 -30 </ion-item>
+
+      </form>
       <button ion-button
               round
               (click)="goToTabs()">увійти
