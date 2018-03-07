@@ -4,16 +4,19 @@ page-info {
     color: gray;
   }
 
-  .red_ex button{
+  .red_ex button {
     color: red;
 
   }
-  .red_ex fa-icon{
+  .red_ex fa-icon {
     color: red;
   }
 
-  .info-centre b{
+  .info-centre b {
     margin: 0 5px;
+  }
+  .item-md [item-start] {
+    margin: 5px 8px 9px 0;
   }
 
 }

@@ -81,7 +81,49 @@ page-sign-up {
     margin-left: 9%;
   }
   .text-cust {
-    margin-right: 5%;
+    margin-right: 9%;
+  }
+  button ion-button {
+    color: #fdad2a;
+  }
+  a:last-child {
+    color: #fdad2a;
+  }
+  .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.item-input-has-focus .item-inner {
+    border-bottom-color: black;
+    box-shadow: inset 0 -1px 0 0 black;
+    outline: black;
+
+  }
+  :-ms-input-placeholder {
+    color: #c0392b;
+  }
+  button ion-button {
+    color: #fdad2a;
+  }
+  a:last-child {
+    color: #fdad2a;
+  }
+  /*.item-md.item-block .item-inner{
+    border-bottom: 2px solid black;
+  }*/
+  .input-cover :focus {
+    border: 1px solid #30cc00;
+  }
+  .ion-input .placeholder {
+    color: white;
+  }
+  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: black;
+    box-shadow: inset 0 -1px 0 0 black;;
+  }
+  .item-input-has-focus {
+    border: 1px solid;
+  }
+  .item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end] {
+    font-size: 2.5rem;
+    color: rgba(1, 1, 2, 0.68);
+    margin-top: 14px;
   }
 }
 
