@@ -1,5 +1,17 @@
 
 page-login {
+
+  .scroll-content {
+    margin-bottom: 0;
+  }
+
+  ion-content {
+    ion-row {
+      margin:  42% auto;
+    }
+  }
+
+
   font-size: 12px;
 
   a {

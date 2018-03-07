@@ -42,13 +42,22 @@ export class SignUpPage {
     });
     // console.log('test',test)
 
-    this.navCtrl.push(TabsPage)
+    this.navCtrl.push(TabsPage);
  }
 
   updateInput () {
     if (this.userData.phone == undefined || this.userData.phone == "") {
       this.userData.phone = '+380()';
     }
+  }
+
+  goToLogin () {
+    this.navCtrl.push(LoginPage);
+  }
+
+  isActive = true;
+  showPass () {
+    this.isActive = !this.isActive;
   }
 
 }

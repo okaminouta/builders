@@ -1,18 +1,30 @@
-<!--
-  Generated template for the AddSkillModalsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>add-skill-modals</ion-title>
-  </ion-navbar>
-
+<ion-header no-border>
+    <p>Уровень навыка</p>
 </ion-header>
 
-
 <ion-content padding>
-
+    <ion-row align-items-center>
+        <ion-col>
+            <ion-row justify-content-center>
+                <ion-badge class="bage" color="primary">{{skilLavel}}</ion-badge>
+            </ion-row>
+            <ion-row>
+                <ion-range min="1" max="10" step="1" snaps="true" color="primary" [(ngModel)]="skilLavel" no-padding col-12>
+                    <ion-label range-left>1</ion-label>
+                    <ion-label range-right>10</ion-label>
+                </ion-range>
+            </ion-row>
+        </ion-col>
+    </ion-row>
 </ion-content>
+
+<ion-footer no-border>
+    <ion-row>
+        <button ion-button color="grey" clear col-6 no-margin text-capitalize>
+            Отменить
+        </button>
+        <button ion-button color="grey" clear col-6 no-margin>
+            ОК
+        </button>
+    </ion-row>
+</ion-footer>

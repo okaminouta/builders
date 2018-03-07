@@ -18,7 +18,7 @@
         Поддержка
       </ion-title>
       <ion-buttons ion-col text-end>
-        <button ion-button text-capitalize >
+        <button ion-button text-capitalize>
           Сохранить
         </button>
       </ion-buttons>
@@ -27,18 +27,30 @@
 </ion-header>
 
 
-<ion-content padding>
-<!--ne udalat blat! -->
+<ion-content >
+
+  <ion-item>
+    <ion-input type="text" placeholder="Старий пароль"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" placeholder="Новий пароль"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" placeholder="Підтвердіть пароль"></ion-input>
+  </ion-item>
+
+
+  <!--ne udalat blat! -->
   <!--<ion-item>-->
-    <!--<p>{{imageURI}}</p>-->
-    <!--<button ion-button color="secondary" (click)="getImage()">Get Image</button>-->
+  <!--<p>{{imageURI}}</p>-->
+  <!--<button ion-button color="secondary" (click)="getImage()">Get Image</button>-->
   <!--</ion-item>-->
   <!--<ion-item>-->
-    <!--<h4>Image Preview</h4>-->
-    <!--<img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" />-->
+  <!--<h4>Image Preview</h4>-->
+  <!--<img src="{{imageURI}}" *ngIf="imageURI" alt="Ionic File" width="300" />-->
   <!--</ion-item>-->
   <!--<ion-item>-->
-    <!--<button ion-button (click)="uploadFile()">Upload</button>-->
+  <!--<button ion-button (click)="uploadFile()">Upload</button>-->
   <!--</ion-item>-->
 
 </ion-content>
