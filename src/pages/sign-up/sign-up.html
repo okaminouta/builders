@@ -3,11 +3,58 @@
   <ion-row align-items-center
            style="height: 100%"
            justify-content-center>
+    <ion-col col-9 justify-content-center>
+      <!--mask="(**) ***-**-**"-->
+      <ion-item margin-vertical>
+        <ion-input type="text"
+                   placeholder="+380 (__) ___-__-__"
+                   [(ngModel)]="userData.phone"></ion-input>
+      </ion-item>
+
+      <ion-item justify-content-center>
+        <ion-input
+          [type]="isActive ? 'password' : 'text'"
+          placeholder="ПАРОЛЬ"
+          [(ngModel)]="userData.password"></ion-input>
+        <ion-icon
+          class="pass-icon"
+          [name]="isActive ? 'eye-off': 'eye' "
+          item-right
+          (click)="showPass()">
+        </ion-icon>
+      </ion-item>
+      <button ion-button
+              round
+              (click)="goToRegistration()">зареєструватися
+      </button>
+
+
+      <div class="text-cust" text-center>
+        <!--<div margin-bottom><a>забули пароль?</a> <a (click)="goToSlider()">слайдер</a></div>-->
+        <br><a margin-vertical>уже є акаунт?</a>
+        <span><a color="primary" (click)="goToTabs()">увійти!</a></span>
+      </div>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+
+
+
+
+
+
+<!--<ion-content padding>
+
+  <ion-row align-items-center
+           style="height: 100%"
+           justify-content-center>
     <ion-col col-10 justify-content-center>
       <!--mask="+*** (**) ***-**-**"-->
       <!--placeholder="+380 (__) ___-__-__"-->
       <!--(click)="updateInput()"-->
-      <ion-item margin-vertical>
+     <!-- <ion-item margin-vertical>
         <ion-input type="text"
                    mask="(**) ***-**-**"
                    placeholder="+380 (__) ___-__-__"
@@ -26,6 +73,6 @@
     </ion-col>
   </ion-row>
 
-</ion-content>
+</ion-content>-->
 
 
