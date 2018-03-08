@@ -27,6 +27,7 @@ export class LoginPage {
     phone: null,
     password: null,
   };
+validation: any;
 
 
   constructor(public navCtrl: NavController,
@@ -35,6 +36,7 @@ export class LoginPage {
               public util: UtilityProvider,
               public  user: UserProvider,
               public formBuilder: FormBuilder) {
+    this.validation = this.util.validation;
 
   }
 
@@ -49,6 +51,10 @@ export class LoginPage {
       Validators.minLength(6),
       Validators.required])]
   });
+
+
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
