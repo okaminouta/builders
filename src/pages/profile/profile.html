@@ -12,11 +12,11 @@
                     Відмінити
                 </button>
             </ion-col>
-            <ion-col text-center>
-                <ion-title>
-                    Профіль
-                </ion-title>
-            </ion-col>
+
+            <ion-title text-center>
+                Профіль
+            </ion-title>
+
             <ion-col text-end>
                 <button color="white"
                         ion-button clear
@@ -48,68 +48,8 @@
     </ion-row>
 
     <div [ngSwitch]="segmentValue">
-        <ion-list *ngSwitchCase="'about_me'" padding>
-            <ion-row>
-                <div col-4 (click)="getImage()">
-                    <img [src]="imageURI" alt="">
-                </div>
-                <ion-list col-8>
-                    <ion-item>
-                        <ion-label floating>Ім'я</ion-label>
-                        <ion-input type="text"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label floating>Прізвище</ion-label>
-                        <ion-input type="text"></ion-input>
-                    </ion-item>
-                </ion-list>
-            </ion-row>
-            <ion-item no-padding>
-                <ion-label floating>Номер телефону</ion-label>
-                <ion-input type="text"></ion-input>
-                <ion-row class="border">
-
-                </ion-row>
-            </ion-item>
-            <ion-item no-padding>
-                <ion-label floating>E-mail</ion-label>
-                <ion-input type="text"></ion-input>
-                <ion-row class="border">
-                </ion-row>
-            </ion-item>
-            <ion-item no-padding>
-                <ion-label floating> Місто</ion-label>
-                <ion-input type="text"></ion-input>
-                <ion-row class="border">
-
-                </ion-row>
-            </ion-item>
-            <ion-item no-padding>
-                <ion-label>У мене є закордонний паспорт</ion-label>
-                <ion-checkbox color="white" checked="false" round item-end></ion-checkbox>
-
-            </ion-item>
-
-            <ion-item no-padding>
-                <ion-label floating>Ім'я на англійській мові</ion-label>
-                <ion-input type="text"></ion-input>
-            </ion-item>
-            <ion-item no-padding>
-                <ion-label floating>Прізвище на англійській мові</ion-label>
-                <ion-input type="text"></ion-input>
-            </ion-item>
-
-            <ion-list>
-                <ion-item (click)="presentContactModal()">
-                    <ion-label class="black-shadow"><p>Змінити пароль</p></ion-label>
-                </ion-item>
-            </ion-list>
-
-        </ion-list>
-
-
+        <profile-about-me *ngSwitchCase="'about_me'"></profile-about-me>
         <profile-skills [editSkills]="editSkills" *ngSwitchCase="'skills'"></profile-skills>
-
     </div>
 
 </ion-content>
