@@ -61,13 +61,13 @@ validation: any;
 
   }
 
-  goToTabs() {
+  login () {
     console.log(this.loginForm)
-    debugger
     if (this.util.credentialsCheck(this.userData)) {
-      this.user.login(this.userData).then((res) => {
-        console.log(res, 'logged');
-        this.navCtrl.push(TabsPage);
+      this.user.login(this.userData).then((res: any) => {
+        if (res) {
+          this.navCtrl.push(TabsPage);
+        }
       });
     }
   }

@@ -1,5 +1,8 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {UtilityProvider} from "../utility/utility";
+import {UserProvider} from "../user/user";
+import {Storage} from "@ionic/storage";
 
 /*
   Generated class for the RequestProvider provider.
@@ -9,19 +12,38 @@ import {Injectable} from '@angular/core';
 */
 @Injectable()
 export class RequestProvider {
+  authKey: string;
+  headers = {};
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,
+              public util: UtilityProvider,
+              private storage: Storage) {
+
     console.log('Hello RequestProvider Provider');
+
+    this.storage.get('user').then((data) => {
+      if (data) {
+        this.authKey = 'Bearer ' + data.api_token;
+        this.headers = {
+          headers: {
+            "Authorization": this.authKey
+          }
+        }
+      } else {
+        this.headers = {};
+      }
+    });
   }
+
 
   get() {
 
   }
 
   post(url, data) {
+    console.log(this.headers,'qweqwe')
     let promise = new Promise((resolve, reject) => {
-      // const headers = new Headers({'Content-Type': '', 'Accept': 'application/json'});
-      this.http.post(url, data)
+      this.http.post(url, data, this.headers)
         .subscribe(
           response => {
             // console.log(response);
@@ -31,6 +53,7 @@ export class RequestProvider {
           err => {
             // console.log(err);
             reject(err);
+            return err;
           });
     });
     return promise.then(data => {
@@ -39,7 +62,10 @@ export class RequestProvider {
       },
       err => {
         console.log(err, 'err');
-        return err;
+        // this.util.toast(err.error.message, 'alert');
+
+
+        // return err;
       });
   }
 

@@ -1,10 +1,12 @@
-import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {UrlProvider} from "../url/url";
 import {HttpClientModule} from '@angular/common/http';
 import {RequestProvider} from "../request/request";
 import 'rxjs/add/operator/toPromise';
 import {Storage} from "@ionic/storage";
+
+import {TabsPage} from "../../pages/tabs/tabs";
 
 
 /*
@@ -29,7 +31,12 @@ export class UserProvider {
     }
 
     login(data: any) {
-        return this.request.post(this.url.signIn, data);
+        return this.request.post(this.url.signIn, data).then((res: any) => {
+          if (res) {
+            this.setUser (res.data);
+            return res;
+          }
+        });
 
     }
 
@@ -47,6 +54,10 @@ export class UserProvider {
       return this.storage.get('user').then((data) => {
         return  data;
       });
+    }
+
+    contacktSupport (data) {
+      return this.request.post(this.url.support, data);
     }
 
 

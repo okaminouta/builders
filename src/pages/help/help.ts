@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {UserProvider} from "../../providers/user/user";
 
 /**
  * Generated class for the HelpPage page.
@@ -15,24 +16,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HelpPage {
   message: string = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.message = '';
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public user: UserProvider) {
+    // this.message = '';
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HelpPage');
   }
 
-  disableSendButton () {
+  sendMessage() {
+    this.user.contacktSupport({
+      description: this.message
+    });
+  }
+
+  disableSendButton() {
     if (!this.message && !this.message.length && this.message.length == 0) {
       return true;
     } else {
       return false;
     }
   }
-  goBack () {
+
+  goBack() {
     this.navCtrl.pop();
   }
+
 // todo do smth here
   ionViewDidLeave() {
     this.navCtrl.popToRoot();
