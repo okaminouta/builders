@@ -8,6 +8,8 @@ import {IonicStorageModule} from '@ionic/storage';
 import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
 import {File} from '@ionic-native/file';
 import {Camera} from '@ionic-native/camera';
+import {FormsModule} from '@angular/forms';
+import { BrMaskerModule } from 'brmasker-ionic-3';
 
 
 import {ProfilePage} from '../pages/profile/profile';
@@ -18,7 +20,6 @@ import {TabsPage} from '../pages/tabs/tabs';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
-import {HeaderComponent} from "../components/header/header";
 import {SignUpPage} from "../pages/sign-up/sign-up";
 import {Mask} from "../directives/mask/mask";
 import {FriendsPage} from "../pages/friends/friends";
@@ -33,6 +34,9 @@ import {ChangePassPage} from "../pages/change-pass/change-pass";
 import {AddSkillPage} from "../pages/add-skill/add-skill";
 import {FaIconComponent} from "../components/fa-icon/fa-icon";
 import {AddSkillModalsPage} from "../pages/add-skill-modals/add-skill-modals";
+import {ProfileAboutMeComponent} from "../components/profile-about-me/profile-about-me";
+import {ProfileSkilsComponent} from "../components/profile-skils/profile-skils";
+import { ContentProvider } from '../providers/content/content';
 
 
 @NgModule({
@@ -43,7 +47,6 @@ import {AddSkillModalsPage} from "../pages/add-skill-modals/add-skill-modals";
     HomePage,
     TabsPage,
     LoginPage,
-    HeaderComponent,
     SignUpPage,
     Mask,
     FriendsPage,
@@ -53,7 +56,9 @@ import {AddSkillModalsPage} from "../pages/add-skill-modals/add-skill-modals";
     ChangePassPage,
     AddSkillPage,
     FaIconComponent,
-    AddSkillModalsPage
+    AddSkillModalsPage,
+    ProfileAboutMeComponent,
+    ProfileSkilsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +68,8 @@ import {AddSkillModalsPage} from "../pages/add-skill-modals/add-skill-modals";
     IonicStorageModule.forRoot(),
     HttpModule,
     HttpClientModule,
+    FormsModule,
+    BrMaskerModule,
 
   ],
   bootstrap: [IonicApp],
@@ -81,7 +88,9 @@ import {AddSkillModalsPage} from "../pages/add-skill-modals/add-skill-modals";
     ChangePassPage,
     AddSkillPage,
     FaIconComponent,
-    AddSkillModalsPage
+    AddSkillModalsPage,
+    ProfileAboutMeComponent,
+    ProfileSkilsComponent
   ],
   providers: [
     StatusBar,
@@ -95,7 +104,8 @@ import {AddSkillModalsPage} from "../pages/add-skill-modals/add-skill-modals";
     UrlProvider,
     HttpClient,
     RequestProvider,
-    UtilityProvider
+    UtilityProvider,
+    ContentProvider,
   ],
 })
 export class AppModule {

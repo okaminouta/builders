@@ -19,7 +19,7 @@ import {UserProvider} from "../../providers/user/user";
 export class SignUpPage {
   // @HostBinding('style.backgroundColor') backgroundColor: string;
   userData = {
-    phone: null,
+    phone: '+380',
     password: null,
   };
 

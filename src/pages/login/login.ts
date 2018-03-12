@@ -24,7 +24,7 @@ export class LoginPage {
   // loginForm: FormGroup;
 
   userData = {
-    phone: null,
+    phone: '+380',
     password: null,
   };
 validation: any;
@@ -42,9 +42,8 @@ validation: any;
 
   loginForm = this.formBuilder.group({
     phone: ['', Validators.compose([
-      Validators.maxLength(9),
-      Validators.minLength(9),
-      Validators.pattern('[0-9]*'),
+      Validators.maxLength(14),
+      Validators.minLength(14),
       Validators.required])],
     password: ['', Validators.compose([
       Validators.maxLength(30),

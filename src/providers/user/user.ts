@@ -41,8 +41,9 @@ export class UserProvider {
     }
 
     logout() {
+      return this.storage.clear().then(() => {
         return this.request.post(this.url.logOut,{});
-
+      })
     }
 
     setUser (data) {

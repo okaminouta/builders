@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {UtilityProvider} from "../utility/utility";
 import {UserProvider} from "../user/user";
 import {Storage} from "@ionic/storage";
+import {RequestOptions} from "@angular/http";
 
 /*
   Generated class for the RequestProvider provider.
@@ -13,7 +14,10 @@ import {Storage} from "@ionic/storage";
 @Injectable()
 export class RequestProvider {
   authKey: string;
-  headers = {};
+  options: any;
+
+  // headers = new Headers();
+
 
   constructor(public http: HttpClient,
               public util: UtilityProvider,
@@ -21,29 +25,64 @@ export class RequestProvider {
 
     console.log('Hello RequestProvider Provider');
 
+
+    // let opts = new RequestOptions();
+    // opts.headers = headers;
+
+  }
+
+
+  getAuthkey() {
     this.storage.get('user').then((data) => {
       if (data) {
         this.authKey = 'Bearer ' + data.api_token;
-        this.headers = {
+        this.options = {
           headers: {
             "Authorization": this.authKey
           }
         }
       } else {
-        this.headers = {};
+        this.options = {};
       }
     });
-  }
-
-
-  get() {
 
   }
+
+  get(url) {
+    this.getAuthkey();
+    let promise = new Promise((resolve, reject) => {
+      this.http.get(url, this.options)
+        .subscribe(
+          response => {
+            resolve(response);
+
+          },
+          err => {
+            reject(err);
+          });
+    });
+    return promise.then(data => {
+        console.log(data, 'data');
+        return data
+      },
+      err => {
+        console.log(err, 'err');
+      });
+  }
+
+  // this.headers
+  // headders = new Headers({'Authorization':'Bearer gb75QQW9Kkn092sDTmfRMyBLlufdfty1oIl9G4O2U0JjPTsBlVxIi4lmNCfb'});
+
 
   post(url, data) {
-    console.log(this.headers,'qweqwe')
+    // this.headers.append('Authorization', 'Bearer gb75QQW9Kkn092sDTmfRMyBLlufdfty1oIl9G4O2U0JjPTsBlVxIi4lmNCfb');
+    // console.log(this.headers,'qweqwe');
+    // {
+    //   headers: {'Authorization':'Bearer S7XXtbsuFfEmwZt3bzWEqr3Td3LvCbclgfjYljMkcjq1LTxktQ7fblAOWwly'}}
+    this.getAuthkey();
+
     let promise = new Promise((resolve, reject) => {
-      this.http.post(url, data, this.headers)
+      this.http.post(url, data, this.options)
         .subscribe(
           response => {
             // console.log(response);
@@ -53,7 +92,6 @@ export class RequestProvider {
           err => {
             // console.log(err);
             reject(err);
-            return err;
           });
     });
     return promise.then(data => {
@@ -63,21 +101,11 @@ export class RequestProvider {
       err => {
         console.log(err, 'err');
         // this.util.toast(err.error.message, 'alert');
-
-
         // return err;
       });
   }
 
   put() {
-
-  }
-
-  resolve(res: any) {
-
-  }
-
-  reject(res: any) {
 
   }
 

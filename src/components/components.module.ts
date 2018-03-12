@@ -1,11 +1,18 @@
-import { NgModule } from '@angular/core';
-import { HeaderComponent } from './header/header';
-import { FaIconComponent } from './fa-icon/fa-icon';
+import {NgModule} from '@angular/core';
+import {FaIconComponent} from './fa-icon/fa-icon';
+import {ProfileSkilsComponent} from './profile-skils/profile-skils';
+import {ProfileAboutMeComponent} from './profile-about-me/profile-about-me';
+
 @NgModule({
-	declarations: [HeaderComponent,
-    FaIconComponent],
-	imports: [],
-	exports: [HeaderComponent,
-    FaIconComponent]
+    declarations: [
+        FaIconComponent,
+        ProfileSkilsComponent,
+        ProfileAboutMeComponent],
+    imports: [],
+    exports: [
+        FaIconComponent,
+        ProfileSkilsComponent,
+        ProfileAboutMeComponent]
 })
-export class ComponentsModule {}
+export class ComponentsModule {
+}
