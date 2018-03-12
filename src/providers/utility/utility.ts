@@ -33,16 +33,57 @@ export class UtilityProvider {
       return false;
     }
     if (data.phone.length !== 9) {
-      console.log('failed 1',data.phone,data.phone.length )
+      console.log('failed 1',data.phone,data.phone.length );
       this.toast('Длинна номера телефона должна быть 9 цифр', 'alert');
       return false;
     }
     if (data.password.length < 6 || data.password.length > 15) {
-      console.log('failed 2')
+      console.log('failed 2');
       this.toast('Длинна пароля должна быть от 6  до 9 цифр', 'alert');
       return false;
     }
     return true;
+  }
+
+  validation (form:any) {
+    return {
+      phone: () => {
+        if (form.controls.phone.errors &&
+          form.controls.phone.errors.required &&
+          form.controls.phone.dirty) {
+          return 'required';
+        }
+        else if (form.controls.phone.dirty &&
+          form.controls.phone.errors &&
+          form.controls.phone.errors.minlength ||
+          form.controls.phone.dirty &&
+          form.controls.phone.errors &&
+          form.controls.phone.errors.maxlength) {
+          return 'length 9';
+        }
+        else {
+          return false
+        }
+      },
+      password: () => {
+        if (form.controls.password.errors &&
+          form.controls.password.errors.required &&
+          form.controls.password.dirty) {
+          return 'required';
+        }
+        else if (form.controls.password.dirty &&
+          form.controls.password.errors &&
+          form.controls.password.errors.minlength ||
+          form.controls.password.dirty &&
+          form.controls.password.errors &&
+          form.controls.password.errors.maxlength) {
+          return 'length 6-30';
+        }
+        else {
+          return false
+        }
+      }
+    }
   }
 
 }

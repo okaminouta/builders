@@ -14,6 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'friends.html',
 })
 export class FriendsPage {
+  showSearchbar: boolean = false;
 
   imageURI:any;
 
@@ -23,6 +24,14 @@ export class FriendsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FriendsPage');
+  }
+
+  hideSBar () {
+    this.showSearchbar = false;
+  }
+
+  showSBar () {
+    this.showSearchbar = true;
   }
 
 }

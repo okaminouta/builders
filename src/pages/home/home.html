@@ -1,12 +1,4 @@
 <ion-header>
-
-<!--<ion-navbar>-->
-<!--<div class="bar bar-header bar-positive">-->
-<!--<ion-title text-center>Пропозиції-->
-<!--<ion-icon id="icon-right" ios="ios-search" md="md-search"></ion-icon></ion-title>-->
-<!--</div>-->
-<!--</ion-navbar>-->
-
   <ion-navbar>
     <div class="bar bar-header bar-positive">
       <ion-title text-center *ngIf="!showSearchbar">Пропозиції
@@ -21,11 +13,8 @@
           (ionCancel)="hideSBar()" >
         </ion-searchbar>
       </div>
-
     </div>
   </ion-navbar>
-
-
 </ion-header>
 
 <ion-content padding-vertical >

@@ -1,12 +1,19 @@
 
 <ion-header>
-
-<ion-navbar>
-<div class="bar bar-header bar-positive">
-<ion-title text-center>Друзі
-<ion-icon id="icon-right" ios="ios-search" md="md-search"></ion-icon></ion-title>
-</div>
-</ion-navbar>
+  <ion-navbar>
+    <div class="bar bar-header bar-positive">
+      <ion-title text-center *ngIf="!showSearchbar">Друзі
+        <ion-icon ios="ios-search" md="md-search" (click)="showSBar()"></ion-icon>
+      </ion-title>
+      <div *ngIf="showSearchbar">
+        <ion-searchbar
+          [animated]="'true'"
+          [showCancelButton]="'true'"
+          (ionCancel)="hideSBar()" >
+        </ion-searchbar>
+      </div>
+    </div>
+  </ion-navbar>
 </ion-header>
 
 
