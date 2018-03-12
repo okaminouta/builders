@@ -90,29 +90,32 @@
         placeholder="Введіть назву ..."
         [(ngModel)]="city"
       ></ion-searchbar>-->
-
+<div class="arrow-style">
       <ion-list>
         <ion-item (click)="presentContactModal()">
-          <ion-label class="black-shadow"><p>Змінити пароль</p></ion-label>
+          <ion-label class="black-shadow"><span> Змінити пароль <ion-icon name="ios-arrow-forward"></ion-icon>	</span></ion-label>
           <!--<ion-select  [(ngModel)]="gaming">-->
 
           <!--</ion-select>-->
         </ion-item>
       </ion-list>
+       </div>
     </ion-list>
+
 
   </div>
 
   <div [ngSwitch]="sentence">
     <ion-list *ngSwitchCase="'skills'">
 
-      <ion-card id="ots">
+
+      <ion-card class="ots" >
         <ion-card-header>
           Кладка плитки
         </ion-card-header>
         <ion-card-content>
           <ion-item no-padding>
-            <ion-label id="color_checkbox"><p>7/10</p></ion-label>
+            <ion-label class="color_checkbox"><p>7/10</p></ion-label>
             <ion-checkbox color="black" checked="true" round item-end></ion-checkbox>
 
           </ion-item>
@@ -120,20 +123,20 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-card id="ots">
+      <ion-card class="ots">
         <ion-card-header text-wrap>
           Кладка плитки Кладка плитки Кладка плитки Кладка плитки Кладка плитки Кладка плитки
         </ion-card-header>
         <ion-card-content>
           <ion-item no-padding>
-            <ion-label id="color_checkbox"><p>7/10</p></ion-label>
+            <ion-label class="color_checkbox"><p>7/10</p></ion-label>
             <ion-checkbox color="black" checked="true" round item-end></ion-checkbox>
 
           </ion-item>
 
         </ion-card-content>
       </ion-card>
-      <ion-footer id="color_foot" text-center>
+      <ion-footer class="color_foot" text-center>
         <ion-toolbar position="bottom">
           <button ion-button full>Видалити вибрані</button>
         </ion-toolbar>

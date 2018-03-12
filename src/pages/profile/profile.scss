@@ -103,11 +103,11 @@ page-profile {
     color: black;
     font-size: 16px;
   }
-  #color_checkbox p {
+  .color_checkbox p {
     color: orange;
     font-size: 16px;
   }
-  #ots {
+  .ots {
     padding-top: 0px;
   }
   .card-header-md {
@@ -116,7 +116,7 @@ page-profile {
   .checkbox-md .checkbox-checked .checkbox-inner {
     border-color: white;
   }
-  #color_foot {
+  .color_foot {
     background: #ffffff;
   }
   .toolbar-background-md p {
@@ -137,5 +137,27 @@ page-profile {
   }
   .card-header-md {
     text-align: left;
+  }
+  /*.arrow-style p{
+
+
+    color: #bfbbbb;
+    font-size: 23px;
+    text-align: end;
+    margin-top: -22px;
+  }*/
+  /*.lolo p {
+    text-align: end;
+  }
+  .black-shadow p {
+    text-align: end;
+    font-size: 25px;
+  }
+  .black-shadow span {
+    margin-top: 12px;
+  }*/
+  .black-shadow ion-icon {
+    margin-left: 57%;
+    color:gray;
   }
 }
