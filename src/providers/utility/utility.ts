@@ -51,7 +51,7 @@ export class UtilityProvider {
       phone: null,
       password: null
     };
-    cred.phone = parseInt(data.phone.replace(/[^0-9]/g, ''));
+    cred.phone = data.phone.replace(/[^0-9]/g, '');
     cred.password = data.password;
     return cred;
   }

@@ -61,5 +61,16 @@ export class UserProvider {
       return this.request.post(this.url.support, data);
     }
 
-
+    firstEnter () {
+      return {
+        set: () => {
+          this.storage.set('firstEnter', true);
+        },
+        get:() => {
+          return this.storage.get('firstEnter').then((data) => {
+            return  data;
+          });
+        }
+      }
+    }
 }

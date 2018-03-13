@@ -21,16 +21,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  // loginForm: FormGroup;
-
   userData = {
     phone: null,
     password: null
   };
   validation: any;
-
-
-
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -38,8 +33,13 @@ export class LoginPage {
               public util: UtilityProvider,
               public  user: UserProvider,
               public formBuilder: FormBuilder) {
+   this.user.firstEnter().get().then((data)=>{
+      if(!data){
+        this.navCtrl.push(SliderPage);
+        this.user.firstEnter().set();
+      }
+    });
     this.validation = this.util.validation;
-
   }
 
   loginForm = this.formBuilder.group({
@@ -62,7 +62,6 @@ export class LoginPage {
   login() {
     console.log(this.loginForm)
     if (this.util.credentialsCheck(this.userData)) {
-      debugger
       this.user.login(this.util.cut(this.userData)).then((res: any) => {
         if (res) {
           this.navCtrl.push(TabsPage);
@@ -70,13 +69,6 @@ export class LoginPage {
       });
     }
   }
-
-
-  // updateInput() {
-  //   if (this.userData.phone == undefined || this.userData.phone == "") {
-  //     this.userData.phone = '+380()';
-  //   }
-  // }
 
   goToRegistration() {
     console.log('Naw ctrl', this.navCtrl);

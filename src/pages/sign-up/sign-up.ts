@@ -3,6 +3,8 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {LoginPage} from "../login/login";
 import {TabsPage} from "../tabs/tabs";
 import {UserProvider} from "../../providers/user/user";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UtilityProvider} from "../../providers/utility/utility";
 
 /**
  * Generated class for the SignUpPage page.
@@ -17,20 +19,35 @@ import {UserProvider} from "../../providers/user/user";
     templateUrl: 'sign-up.html',
 })
 export class SignUpPage {
+  validation: any;
     // @HostBinding('style.backgroundColor') backgroundColor: string;
     userData = {
-        phone: '+380',
+        phone: null,
         password: null,
     };
 
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
+                public formBuilder: FormBuilder,
+                public util: UtilityProvider,
                 public userProvider: UserProvider) {
+      this.validation = this.util.validation;
         // sometimes falls here wtf
         // this.userData.name = null;
         // this.userData.pass = null;
     }
+
+  registerForm = this.formBuilder.group({
+    phone: ['', Validators.compose([
+      Validators.maxLength(14),
+      Validators.minLength(14),
+      Validators.required])],
+    password: ['', Validators.compose([
+      Validators.maxLength(30),
+      Validators.minLength(6),
+      Validators.required])]
+  });
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad SignUpPage');
@@ -45,11 +62,11 @@ export class SignUpPage {
         this.navCtrl.push(TabsPage);
     }
 
-    updateInput() {
-        if (this.userData.phone == undefined || this.userData.phone == "") {
-            this.userData.phone = '+380()';
-        }
-    }
+    // updateInput() {
+    //     if (this.userData.phone == undefined || this.userData.phone == "") {
+    //         this.userData.phone = '+380()';
+    //     }
+    // }
 
     goToLogin() {
         this.navCtrl.push(LoginPage);

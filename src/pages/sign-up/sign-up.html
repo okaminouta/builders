@@ -4,29 +4,52 @@
            style="height: 100%"
            justify-content-center>
     <ion-col col-sm-9 justify-content-center>
-      <!--mask="(**) ***-**-**"-->
-      <ion-item margin-vertical>
-        <ion-input type="text"
-                   placeholder="+380 (__) ___-__-__"
-                   [brmasker]="{mask:'+000 (00) 00-00-000', len:19, type:'num'}"
-                   [(ngModel)]="userData.phone"></ion-input>
-      </ion-item>
+      <form [formGroup]="registerForm">
+        <div class="input_one" >
+          <ion-item >
+            <ion-input type="text"
+                       formControlName="phone"
+                       [(ngModel)]="userData.phone"
+                       placeholder="(__) ___-__-__"
+                       [brmasker]="{mask:'(00) 00-00-000', len:14, type:'num'}"></ion-input>
+          </ion-item>
 
-      <ion-item justify-content-center>
-        <ion-input
-          [type]="isActive ? 'password' : 'text'"
-          placeholder="ПАРОЛЬ"
-          [(ngModel)]="userData.password"></ion-input>
-        <ion-icon
-          class="pass-icon"
-          [name]="isActive ? 'eye-off': 'eye' "
-          item-right
-          (click)="showPass()">
-        </ion-icon>
-      </ion-item>
+          <div class="valid">
+       <span><ion-item  *ngIf="validation(registerForm).phone()" >
+          {{validation(registerForm).phone()}}
+        </ion-item></span>
+          </div>
+        </div>
+        <div class="input_bottom">
+          <div class="input_two" >
+            <ion-item justify-content-center
+                      ngClass="{{registerForm.controls.password.errors ? invalid : ''}}">
+              <ion-input
+                [type]="isActive ? 'password' : 'text'"
+                formControlName="password"
+                placeholder="ПАРОЛЬ"
+                [(ngModel)]="userData.password"></ion-input>
+              <ion-icon
+                class="pass-icon"
+                [name]="isActive ? 'eye-off': 'eye' "
+                item-right
+                (click)="showPass()">
+              </ion-icon>
+            </ion-item>
+
+            <div class="valid">
+              <ion-item *ngIf="validation(registerForm).password()" >
+                {{validation(registerForm).password()}}
+              </ion-item>
+            </div>
+          </div>
+        </div>
+      </form>
+
       <button ion-button
               round
-              (click)="register()">зареєструватися
+              (click)="register()"
+              ngClass="{{registerForm.valid ? 'valid-button' : ''}}">увійти
       </button>
 
 
@@ -41,11 +64,6 @@
 </ion-content>
 
 
-
-
-
-
-
 <!--<ion-content padding>
 
   <ion-row align-items-center
@@ -53,26 +71,26 @@
            justify-content-center>
     <ion-col col-10 justify-content-center>
       <!--mask="+*** (**) ***-**-**"-->
-      <!--placeholder="+380 (__) ___-__-__"-->
-      <!--(click)="updateInput()"-->
-     <!-- <ion-item margin-vertical>
-        <ion-input type="text"
-                   mask="(**) ***-**-**"
-                   placeholder="+380 (__) ___-__-__"
-                   [(ngModel)]="userData.phone"></ion-input>
-      </ion-item>
+<!--placeholder="+380 (__) ___-__-__"-->
+<!--(click)="updateInput()"-->
+<!-- <ion-item margin-vertical>
+   <ion-input type="text"
+              mask="(**) ***-**-**"
+              placeholder="+380 (__) ___-__-__"
+              [(ngModel)]="userData.phone"></ion-input>
+ </ion-item>
 
-      <ion-item margin-vertical>
-        <ion-input type="password" placeholder="ПАРОЛЬ"
-                   [(ngModel)]="userData.password"></ion-input>
-      </ion-item>
+ <ion-item margin-vertical>
+   <ion-input type="password" placeholder="ПАРОЛЬ"
+              [(ngModel)]="userData.password"></ion-input>
+ </ion-item>
 
-      <button ion-button
-              round
-              (click)="register()">зареєструватися
-      </button>
-    </ion-col>
-  </ion-row>
+ <button ion-button
+         round
+         (click)="register()">зареєструватися
+ </button>
+</ion-col>
+</ion-row>
 
 </ion-content>-->
 
