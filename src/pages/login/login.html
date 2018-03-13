@@ -1,11 +1,11 @@
-<ion-content padding align-items-center>
+<ion-content  align-items-center>
 
   <ion-row
 
     justify-content-center>
     <ion-col col-sm-9 justify-content-center>
       <form [formGroup]="loginForm">
-
+<div class="input_one" >
         <ion-item >
           <ion-input type="text"
                      formControlName="phone"
@@ -19,7 +19,9 @@
           {{validation(loginForm).phone()}}
         </ion-item></span>
         </div>
+        </div>
         <div class="input_bottom">
+        <div class="input_two" >
         <ion-item justify-content-center
                   ngClass="{{loginForm.controls.password.errors ? invalid : ''}}">
           <ion-input
@@ -34,13 +36,16 @@
             (click)="showPass()">
           </ion-icon>
         </ion-item>
-        </div>
+
         <div class="valid">
         <ion-item *ngIf="validation(loginForm).password()" >
           {{validation(loginForm).password()}}
         </ion-item>
         </div>
+        </div>
+       </div>
       </form>
+
       <button ion-button
               round
               (click)="login()"
