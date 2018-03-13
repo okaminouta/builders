@@ -41,7 +41,7 @@ page-home {
     justify-content: center;
   }
 
-  #left_button {
+  .left_button {
     border: 1px solid black;
     text-transform: none;
     color: #081d32;
@@ -51,17 +51,7 @@ page-home {
     font-weight: bold;
   }
 
-  #left_button {
-    border: 1px solid black;
-    text-transform: none;
-    color: #081d32;
-    height: 32px;
-    border-radius: 25px 0 0 25px;
-    text-transform: none;
-    font-weight: bold;
-  }
-
-  #right_button {
+  .right_button {
     border: 1px solid black;
     background: white;
     color: #081d32;
@@ -70,6 +60,7 @@ page-home {
     border-radius: 0 25px 25px 0;
     font-weight: bold;
   }
+
   ion-card-content {
     color: #5d6d7d;
     font-family: 'Roboto';
@@ -151,16 +142,21 @@ page-home {
   #orange_button span {
     color: #fdad2a;
   }
-  #left_button p {
+  .left_button p {
     font-size: 14px;
-    margin-top: -3px;
+
     font-weight: bold;
+    text-transform: none;
+    margin-top: -2px;
+
   }
 
-  #right_button p {
+  .right_button p {
     font-size: 14px;
-    margin-top: -3px;
+
     font-weight: bold;
+    text-transform: none;
+    margin-top: -2px;
   }
   page-home .button-inner {
     margin: 0 13px !important;
@@ -186,8 +182,18 @@ page-home {
     width: 92%;
   }
   .data {
-    line-height: 30px;
+    line-height: 26px;
   }
+  .segment-md .segment-button.segment-activated {
+    height: 34px;
+    border-color: transparent;
+  }
+  .segment-md .segment-button {
+    height: 34px;
+    color: #081d32;
+    border-bottom-color: #081d32;
+  }
+
   @media screen and (max-width: 377px) {
     .button-outline-md {
       margin: 0px;

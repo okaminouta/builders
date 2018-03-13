@@ -10,23 +10,30 @@ import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular
 
 @IonicPage()
 @Component({
-    selector: 'page-add-skill-modals',
-    templateUrl: 'add-skill-modals.html',
+  selector: 'page-add-skill-modals',
+  templateUrl: 'add-skill-modals.html',
 })
 export class AddSkillModalsPage {
 
-    constructor(public navCtrl: NavController,
-                public navParams: NavParams,
-                public renderer: Renderer,
-                public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public renderer: Renderer,
+              public viewCtrl: ViewController) {
 
-        this.renderer.setElementClass(viewCtrl.pageRef().nativeElement, 'my-popup', true);
-        console.log('UserId', navParams.get('userId'))
-    }
+    this.renderer.setElementClass(viewCtrl.pageRef().nativeElement, 'my-popup', true);
+    console.log('UserId', navParams.get('userId'))
+  }
 
-    skilLavel: number = 1;
-    // ionViewDidLoad() {
-    //   console.log('ionViewDidLoad AddSkillModalsPage');
-    // }
+  skilLavel: number = 1;
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad AddSkillModalsPage');
+  // }
+  cancel() {
+    this.viewCtrl.dismiss()
+  }
 
+  save() {
+    let data = { 'foo': 'bar' };
+    this.viewCtrl.dismiss(data);
+  }
 }

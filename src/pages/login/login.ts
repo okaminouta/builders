@@ -42,8 +42,8 @@ validation: any;
 
   loginForm = this.formBuilder.group({
     phone: ['', Validators.compose([
-      Validators.maxLength(14),
-      Validators.minLength(14),
+      Validators.maxLength(19),
+      Validators.minLength(19),
       Validators.required])],
     password: ['', Validators.compose([
       Validators.maxLength(30),
