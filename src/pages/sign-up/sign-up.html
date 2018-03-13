@@ -8,6 +8,7 @@
       <ion-item margin-vertical>
         <ion-input type="text"
                    placeholder="+380 (__) ___-__-__"
+                   [brmasker]="{mask:'+000 (00) 00-00-000', len:19, type:'num'}"
                    [(ngModel)]="userData.phone"></ion-input>
       </ion-item>
 

@@ -1,0 +1,30 @@
+import {Component, Input} from '@angular/core';
+import {AddSkillPage} from "../../pages/add-skill/add-skill";
+import {NavController} from "ionic-angular";
+import {ContentProvider} from "../../providers/content/content";
+
+/**
+ * Generated class for the ProfileSkilsComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+@Component({
+  selector: 'profile-skills',
+  templateUrl: 'profile-skils.html'
+})
+export class ProfileSkilsComponent {
+  @Input() editSkills;
+
+  constructor(public navCtrl: NavController,
+              public contentProvider: ContentProvider) {
+    this.contentProvider.getSkills().then((res) => {
+      console.log(res, 'res skills')
+    })
+  }
+
+  goToAddSkill() {
+    this.navCtrl.push(AddSkillPage)
+  }
+
+}

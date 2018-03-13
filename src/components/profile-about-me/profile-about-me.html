@@ -1,0 +1,57 @@
+<ion-list  padding>
+  <ion-row>
+    <div col-4 (click)="getImage()">
+      <img [src]="imageURI" alt="">
+    </div>
+    <ion-list col-8>
+      <ion-item>
+        <ion-label floating>Ім'я</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Прізвище</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-row>
+  <ion-item no-padding>
+    <ion-label floating>Номер телефону</ion-label>
+    <ion-input type="text"></ion-input>
+    <ion-row class="border">
+
+    </ion-row>
+  </ion-item>
+  <ion-item no-padding>
+    <ion-label floating>E-mail</ion-label>
+    <ion-input type="text"></ion-input>
+    <ion-row class="border">
+    </ion-row>
+  </ion-item>
+  <ion-item no-padding>
+    <ion-label floating> Місто</ion-label>
+    <ion-input type="text"></ion-input>
+    <ion-row class="border">
+
+    </ion-row>
+  </ion-item>
+  <ion-item no-padding>
+    <ion-label>У мене є закордонний паспорт</ion-label>
+    <ion-checkbox color="white" checked="false" round item-end></ion-checkbox>
+
+  </ion-item>
+
+  <ion-item no-padding>
+    <ion-label floating>Ім'я на англійській мові</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item no-padding>
+    <ion-label floating>Прізвище на англійській мові</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <!--<ion-items>-->
+    <button no-padding detail-push  ion-item (click)="presentContactModal()">Змінити пароль</button>
+
+  <!--</ion-items>-->
+
+</ion-list>
