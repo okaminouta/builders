@@ -32,7 +32,7 @@ export class UtilityProvider {
       this.toast('Заполните все поля', 'alert');
       return false;
     }
-    if (data.phone.length !== 14) {
+    if (data.phone.length !== 19) {
       console.log('failed 1',data.phone,data.phone.length );
       this.toast('Длинна номера телефона должна быть 9 цифр', 'alert');
       return false;

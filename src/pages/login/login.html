@@ -1,19 +1,25 @@
 <ion-content padding align-items-center>
+
   <ion-row
 
     justify-content-center>
     <ion-col col-sm-9 justify-content-center>
       <form [formGroup]="loginForm">
-        <ion-item margin-vertical>
+
+        <ion-item >
           <ion-input type="text"
                      formControlName="phone"
                      [(ngModel)]="userData.phone"
                      placeholder="+380 (__) ___-__-__"
                      [brmasker]="{mask:'+000 (00) 00-00-000', len:19, type:'num'}"></ion-input>
         </ion-item>
-        <ion-item *ngIf="validation(loginForm).phone()">
+
+        <div class="valid">
+       <span><ion-item  *ngIf="validation(loginForm).phone()" >
           {{validation(loginForm).phone()}}
-        </ion-item>
+        </ion-item></span>
+        </div>
+        <div class="input_bottom">
         <ion-item justify-content-center
                   ngClass="{{loginForm.controls.password.errors ? invalid : ''}}">
           <ion-input
@@ -28,9 +34,12 @@
             (click)="showPass()">
           </ion-icon>
         </ion-item>
-        <ion-item *ngIf="validation(loginForm).password()">
+        </div>
+        <div class="valid">
+        <ion-item *ngIf="validation(loginForm).password()" >
           {{validation(loginForm).password()}}
         </ion-item>
+        </div>
       </form>
       <button ion-button
               round
