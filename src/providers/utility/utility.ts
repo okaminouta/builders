@@ -32,17 +32,28 @@ export class UtilityProvider {
       this.toast('Заполните все поля', 'alert');
       return false;
     }
-    if (data.phone.length !== 19) {
+    if (data.phone.length !== 14) {
       console.log('failed 1',data.phone,data.phone.length );
       this.toast('Длинна номера телефона должна быть 9 цифр', 'alert');
       return false;
     }
     if (data.password.length < 6 || data.password.length > 15) {
       console.log('failed 2');
-      this.toast('Длинна пароля должна быть от 6  до 9 цифр', 'alert');
+      this.toast('Длинна пароля должна быть от 6  до 15 цифр', 'alert');
       return false;
     }
     return true;
+  }
+
+
+  cut(data: any) {
+    let cred = {
+      phone: null,
+      password: null
+    };
+    cred.phone = parseInt(data.phone.replace(/[^0-9]/g, ''));
+    cred.password = data.password;
+    return cred;
   }
 
   validation (form:any) {
@@ -51,7 +62,7 @@ export class UtilityProvider {
         if (form.controls.phone.errors &&
           form.controls.phone.errors.required &&
           form.controls.phone.dirty) {
-          return 'required';
+          return 'Це поле є обов\'язковим!';
         }
         else if (form.controls.phone.dirty &&
           form.controls.phone.errors &&
@@ -69,7 +80,7 @@ export class UtilityProvider {
         if (form.controls.password.errors &&
           form.controls.password.errors.required &&
           form.controls.password.dirty) {
-          return 'required';
+          return 'Це поле є обов\'язковим!';
         }
         else if (form.controls.password.dirty &&
           form.controls.password.errors &&

@@ -10,8 +10,8 @@
           <ion-input type="text"
                      formControlName="phone"
                      [(ngModel)]="userData.phone"
-                     placeholder="+380 (__) ___-__-__"
-                     [brmasker]="{mask:'+000 (00) 00-00-000', len:19, type:'num'}"></ion-input>
+                     placeholder="(__) ___-__-__"
+                     [brmasker]="{mask:'(00) 00-00-000', len:14, type:'num'}"></ion-input>
         </ion-item>
 
         <div class="valid">
@@ -43,7 +43,8 @@
       </form>
       <button ion-button
               round
-              (click)="login()">увійти
+              (click)="login()"
+      ngClass="{{loginForm.valid ? 'valid-button' : ''}}">увійти
       </button>
       <div class="text-cust" text-center>
         <div margin-bottom><a>забули пароль?</a> <a (click)="goToSlider()">слайдер</a></div>

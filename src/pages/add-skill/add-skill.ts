@@ -32,8 +32,10 @@ export class AddSkillPage {
 
     skillSelectorPopap() {
         let modal = this.modalCtrl.create(AddSkillModalsPage, {userId: 8675309});
-        modal.present().then((data) => {
-          console.log(data, '5464')
-        });
+      modal.onDidDismiss(data => {
+        console.log(data,'modal datsa');
+      });
+        modal.present()
+
     }
 }

@@ -24,10 +24,12 @@ export class LoginPage {
   // loginForm: FormGroup;
 
   userData = {
-    phone: '+380',
-    password: null,
+    phone: null,
+    password: null
   };
-validation: any;
+  validation: any;
+
+
 
 
   constructor(public navCtrl: NavController,
@@ -42,8 +44,8 @@ validation: any;
 
   loginForm = this.formBuilder.group({
     phone: ['', Validators.compose([
-      Validators.maxLength(19),
-      Validators.minLength(19),
+      Validators.maxLength(14),
+      Validators.minLength(14),
       Validators.required])],
     password: ['', Validators.compose([
       Validators.maxLength(30),
@@ -52,18 +54,16 @@ validation: any;
   });
 
 
-
-
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
 
   }
 
-  login () {
+  login() {
     console.log(this.loginForm)
     if (this.util.credentialsCheck(this.userData)) {
-      this.user.login(this.userData).then((res: any) => {
+      debugger
+      this.user.login(this.util.cut(this.userData)).then((res: any) => {
         if (res) {
           this.navCtrl.push(TabsPage);
         }
@@ -72,11 +72,11 @@ validation: any;
   }
 
 
-  updateInput() {
-    if (this.userData.phone == undefined || this.userData.phone == "") {
-      this.userData.phone = '+380()';
-    }
-  }
+  // updateInput() {
+  //   if (this.userData.phone == undefined || this.userData.phone == "") {
+  //     this.userData.phone = '+380()';
+  //   }
+  // }
 
   goToRegistration() {
     console.log('Naw ctrl', this.navCtrl);
