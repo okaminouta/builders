@@ -16,6 +16,7 @@ export class UrlProvider {
   logOut: string = this.url + 'logout';
   support: string = this.url + 'support';
   getSkills: string = this.url + 'myskill';
+  profileCreate: string = this.url + 'about_me';
 
   constructor(public http: HttpClient) {
     console.log('Hello UrlProvider Provider');

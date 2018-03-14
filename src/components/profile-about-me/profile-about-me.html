@@ -6,48 +6,49 @@
     <ion-list col-8>
       <ion-item>
         <ion-label floating>Ім'я</ion-label>
-        <ion-input type="text" [(ngModel)]="userData.name"></ion-input>
+        <ion-input type="text" [(ngModel)]="userData.first_name" [disabled]="!editProfile"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Прізвище</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="userData.last_name" [disabled]="!editProfile"></ion-input>
       </ion-item>
     </ion-list>
   </ion-row>
   <ion-item no-padding>
     <ion-label floating>Номер телефону</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="phone" [disabled]="!editProfile"
+               [brmasker]="{mask:'(00) 00-00-000', len:14, type:'num'}"></ion-input>
     <ion-row class="border">
 
     </ion-row>
   </ion-item>
   <ion-item no-padding>
     <ion-label floating>E-mail</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="userData.email" [disabled]="!editProfile"></ion-input>
     <ion-row class="border">
     </ion-row>
   </ion-item>
   <ion-item no-padding>
     <ion-label floating> Місто</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="userData.city" [disabled]="!editProfile"></ion-input>
     <ion-row class="border">
 
     </ion-row>
   </ion-item>
   <ion-item no-padding>
     <ion-label>У мене є закордонний паспорт</ion-label>
-    <ion-checkbox color="primary" checked="false" round item-end></ion-checkbox>
+    <ion-checkbox color="primary" checked="false" round item-end [(ngModel)]="userData.passport_id" [disabled]="!editProfile"></ion-checkbox>
 
 
   </ion-item>
 
   <ion-item no-padding>
     <ion-label floating>Ім'я на англійській мові</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="userData.first_name_ENG" [disabled]="!editProfile"></ion-input>
   </ion-item>
   <ion-item no-padding>
     <ion-label floating>Прізвище на англійській мові</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="userData.last_name_ENG" [disabled]="!editProfile"></ion-input>
   </ion-item>
 
   <!--<ion-items>-->

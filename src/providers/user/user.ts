@@ -18,59 +18,75 @@ import {TabsPage} from "../../pages/tabs/tabs";
 @Injectable()
 export class UserProvider {
 
-    constructor(private http: HttpClient,
-                private request: RequestProvider,
-                private url: UrlProvider,
-                private storage: Storage) {
-        console.log('Hello UserProvider Provider');
-    }
+  constructor(private http: HttpClient,
+              private request: RequestProvider,
+              private url: UrlProvider,
+              private storage: Storage) {
+    console.log('Hello UserProvider Provider');
+  }
 
-    register(data: any) {
-        return this.request.post(this.url.signUp, data);
+  register(data: any) {
+    return this.request.post(this.url.signUp, data).then((res: any) => {
+      if (res) {
+        this.setUser(res.data);
+      }
+    });
 
-    }
+  }
 
-    login(data: any) {
-        return this.request.post(this.url.signIn, data).then((res: any) => {
-          if (res) {
-            this.setUser (res.data);
-            return res;
-          }
+  login(data: any) {
+    return this.request.post(this.url.signIn, data).then((res: any) => {
+      if (res) {
+        this.setUser(res.data);
+        return res;
+      }
+    });
+
+  }
+
+  logout() {
+    return this.storage.clear().then(() => {
+      return this.request.post(this.url.logOut, {});
+    })
+  }
+
+  setUser(data) {
+    this.storage.set('user', data);
+
+  }
+
+  getUser() {
+    return this.storage.get('user').then((data) => {
+      return data;
+    });
+  }
+
+  contacktSupport(data) {
+    return this.request.post(this.url.support, data);
+  }
+
+  firstEnter() {
+    return {
+      set: () => {
+        this.storage.set('firstEnter', true);
+      },
+      get: () => {
+        return this.storage.get('firstEnter').then((data) => {
+          return data;
         });
-
-    }
-
-    logout() {
-      return this.storage.clear().then(() => {
-        return this.request.post(this.url.logOut,{});
-      })
-    }
-
-    setUser (data) {
-      this.storage.set('user', data);
-
-    }
-
-    getUser() {
-      return this.storage.get('user').then((data) => {
-        return  data;
-      });
-    }
-
-    contacktSupport (data) {
-      return this.request.post(this.url.support, data);
-    }
-
-    firstEnter () {
-      return {
-        set: () => {
-          this.storage.set('firstEnter', true);
-        },
-        get:() => {
-          return this.storage.get('firstEnter').then((data) => {
-            return  data;
-          });
-        }
       }
     }
+  }
+
+  getProfile() {
+
+  }
+
+  setProfile(data: any) {
+    return this.request.post(this.url.profileCreate, data).then((res: any) => {
+      if (res) {
+        console.log(res,'setProfile res')
+      }
+    });
+  }
 }

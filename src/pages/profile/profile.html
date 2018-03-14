@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar hideBackButton>
         <ion-row justify-content-between align-items-center>
             <ion-col>
                 <button color="white"
@@ -27,6 +27,15 @@
                         (click)="editSkills ? selectedAllSkills() : editSkillsFunc()">
                     {{editSkills ? 'Вибрати все' : 'Вибрати'}}
                 </button>
+              <button color="white"
+                      ion-button clear
+                      text-capitalize
+                      no-margin
+                      no-padding
+                      *ngIf="segmentValue == 'about_me'"
+                      (click)="editProfileFunc()">
+                {{editProfile ? 'Зберегти' : 'Редагувати'}}
+              </button>
             </ion-col>
         </ion-row>
     </ion-navbar>
@@ -48,7 +57,7 @@
     </ion-row>
 
     <div [ngSwitch]="segmentValue">
-        <profile-about-me *ngSwitchCase="'about_me'"></profile-about-me>
+        <profile-about-me [editProfile]="editProfile" *ngSwitchCase="'about_me'"></profile-about-me>
         <profile-skills [editSkills]="editSkills" *ngSwitchCase="'skills'"></profile-skills>
     </div>
 

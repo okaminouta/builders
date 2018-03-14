@@ -11,7 +11,7 @@
                      formControlName="phone"
                      [(ngModel)]="userData.phone"
                      placeholder="(__) ___-__-__"
-                     [brmasker]="{mask:'(00) 00-00-000', len:14, type:'num'}"></ion-input>
+                     [brmasker]="{mask:'+000 (00) 00-00-000', len:19, type:'num'}"></ion-input>
         </ion-item>
 
         <div class="valid">
@@ -52,7 +52,7 @@
       ngClass="{{loginForm.valid ? 'valid-button' : ''}}">увійти
       </button>
       <div class="text-cust" text-center>
-        <div margin-bottom><a>забули пароль?</a></div>
+        <div margin-bottom><a (click)="forgotPass()">забули пароль?</a></div>
         <br><a margin-vertical>немає акаунта?</a>
         <span><a color="colorlink" (click)="goToRegistration()">зареєструйтеся!</a></span>
       </div>

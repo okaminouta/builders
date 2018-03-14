@@ -2,6 +2,12 @@ page-sign-up {
 
   font-size: 12px;
 
+  ion-content {
+    ion-row {
+      margin: 42% auto;
+    }
+  }
+
   a {
     text-transform: uppercase;
     color: white;

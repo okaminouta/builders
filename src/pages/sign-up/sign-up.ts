@@ -5,6 +5,7 @@ import {TabsPage} from "../tabs/tabs";
 import {UserProvider} from "../../providers/user/user";
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UtilityProvider} from "../../providers/utility/utility";
+import {ProfilePage} from "../profile/profile";
 
 /**
  * Generated class for the SignUpPage page.
@@ -15,28 +16,27 @@ import {UtilityProvider} from "../../providers/utility/utility";
 
 @IonicPage()
 @Component({
-    selector: 'page-sign-up',
-    templateUrl: 'sign-up.html',
+  selector: 'page-sign-up',
+  templateUrl: 'sign-up.html',
 })
 export class SignUpPage {
   validation: any;
-    // @HostBinding('style.backgroundColor') backgroundColor: string;
-    userData = {
-        phone: null,
-        password: null,
-    };
+  userData = {
+    phone: '+380 (__) __-__-___',
+    password: null,
+  };
 
 
-    constructor(public navCtrl: NavController,
-                public navParams: NavParams,
-                public formBuilder: FormBuilder,
-                public util: UtilityProvider,
-                public userProvider: UserProvider) {
-      this.validation = this.util.validation;
-        // sometimes falls here wtf
-        // this.userData.name = null;
-        // this.userData.pass = null;
-    }
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public formBuilder: FormBuilder,
+              public util: UtilityProvider,
+              public userProvider: UserProvider) {
+    this.validation = this.util.validation;
+    // sometimes falls here wtf
+    // this.userData.name = null;
+    // this.userData.pass = null;
+  }
 
   registerForm = this.formBuilder.group({
     phone: ['', Validators.compose([
@@ -49,33 +49,37 @@ export class SignUpPage {
       Validators.required])]
   });
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad SignUpPage');
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SignUpPage');
+  }
+
+  register() {
+    if (this.util.credentialsCheck(this.userData) && this.registerForm.valid) {
+      this.userProvider.register(this.util.cut(this.userData)).then((res: any) => {
+        if (res) {
+          console.log(res,'res sight')
+          this.navCtrl.push(ProfilePage);
+        }
+      });
+
+
     }
+  }
 
-    register() {
-        this.userProvider.register(this.userData).then((data: any) => {
-            console.log(data, 'signupdata')
-        });
-        // console.log('test',test)
+  // updateInput() {
+  //     if (this.userData.phone == undefined || this.userData.phone == "") {
+  //         this.userData.phone = '+380()';
+  //     }
+  // }
 
-        this.navCtrl.push(TabsPage);
-    }
+  goToLogin() {
+    this.navCtrl.push(LoginPage);
+  }
 
-    // updateInput() {
-    //     if (this.userData.phone == undefined || this.userData.phone == "") {
-    //         this.userData.phone = '+380()';
-    //     }
-    // }
+  isActive = true;
 
-    goToLogin() {
-        this.navCtrl.push(LoginPage);
-    }
-
-    isActive = true;
-
-    showPass() {
-        this.isActive = !this.isActive;
-    }
+  showPass() {
+    this.isActive = !this.isActive;
+  }
 
 }

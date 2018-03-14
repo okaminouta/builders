@@ -57,6 +57,7 @@ export class RequestProvider {
   post(url, data) {
     let promise = new Promise((resolve, reject) => {
       this.getAuthkey().then(() => {
+        console.log(this.options,'headers')
         this.http.post(url, data, this.options)
           .subscribe(
             response => {

@@ -48,10 +48,11 @@ ion-header {
 /*.toast-wrapper.toast-middle {
   text-align: center;
 }*/
- .toast-wrapper.toast-middle{
+ .toast-wrapper{
+   margin-top: 10px !important;
   opacity: 0.6!important;
   border-radius: 15px;
-  width: 65%;
+  width: 65% !important;
   z-index: 999999;
   text-align: center;
 

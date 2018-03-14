@@ -1,7 +1,6 @@
 <ion-content padding>
 
   <ion-row align-items-center
-           style="height: 100%"
            justify-content-center>
     <ion-col col-sm-9 justify-content-center>
       <form [formGroup]="registerForm">
@@ -11,7 +10,7 @@
                        formControlName="phone"
                        [(ngModel)]="userData.phone"
                        placeholder="(__) ___-__-__"
-                       [brmasker]="{mask:'(00) 00-00-000', len:14, type:'num'}"></ion-input>
+                       [brmasker]="{mask:'+000 (00) 00-00-000', len:19, type:'num'}"></ion-input>
           </ion-item>
 
           <div class="valid">

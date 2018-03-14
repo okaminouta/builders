@@ -1,23 +1,31 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
-    selector: 'page-profile',
-    templateUrl: 'profile.html'
+  selector: 'page-profile',
+  templateUrl: 'profile.html'
 })
 export class ProfilePage {
 
-    segmentValue: string = 'about_me';
-    editSkills: boolean = false;
+  segmentValue: string = 'about_me';
+  editSkills: boolean = false;
+  editProfile: boolean = false;
 
-    constructor() {
+  constructor() {
 
-    }
+  }
 
-    selectedAllSkills() {
+  selectedAllSkills() {
 
-    }
+  }
 
-    editSkillsFunc() {
-        this.editSkills = !this.editSkills;
-    }
+  editSkillsFunc() {
+    this.editSkills = !this.editSkills;
+  }
+
+  editProfileFunc() {
+    this.editProfile = !this.editProfile;
+    // this.onEditing.emit(this.editProfile);
+  }
+
+  // @Output() onEditing = new EventEmitter<boolean>();
 }

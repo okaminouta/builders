@@ -23,11 +23,11 @@ import {ProfilePage} from "../profile/profile";
 })
 export class LoginPage {
   userData = {
-    phone: null,
+    phone: '+380 (__) __-__-___',
     password: null
   };
   validation: any;
-  firstTime: boolean = false;
+
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -38,7 +38,6 @@ export class LoginPage {
    this.user.firstEnter().get().then((data)=>{
       if(!data){
         this.navCtrl.push(SliderPage);
-        this.firstTime = true;
         this.user.firstEnter().set();
       }
     });
@@ -47,8 +46,8 @@ export class LoginPage {
 
   loginForm = this.formBuilder.group({
     phone: ['', Validators.compose([
-      Validators.maxLength(14),
-      Validators.minLength(14),
+      Validators.maxLength(19),
+      Validators.minLength(19),
       Validators.required])],
     password: ['', Validators.compose([
       Validators.maxLength(30),
@@ -64,15 +63,10 @@ export class LoginPage {
 
   login() {
     console.log(this.loginForm)
-    if (this.util.credentialsCheck(this.userData)) {
+    if (this.util.credentialsCheck(this.userData) && this.loginForm.valid) {
       this.user.login(this.util.cut(this.userData)).then((res: any) => {
         if (res) {
-          if (this.firstTime){
             this.navCtrl.push(ProfilePage);
-          } else {
-            this.navCtrl.push(TabsPage);
-          }
-
         }
       });
     }
@@ -81,6 +75,10 @@ export class LoginPage {
   goToRegistration() {
     console.log('Naw ctrl', this.navCtrl);
     this.navCtrl.push(SignUpPage);
+  }
+
+  forgotPass () {
+    this.navCtrl.push(TabsPage);
   }
 
 

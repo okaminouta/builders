@@ -16,7 +16,7 @@ export class UtilityProvider {
     console.log('Hello UtilityProvider Provider');
   }
 
-  toast (msg: string, cssClass: string, position: string = 'middle' ) {
+  toast (msg: string, cssClass: string, position: string = 'top' ) {
     let toast = this.toastCtrl.create({
       message: msg,
       position: position,
@@ -41,7 +41,7 @@ export class UtilityProvider {
       phone: null,
       password: null
     };
-    cred.phone = data.phone.replace(/[^0-9]/g, '');
+    cred.phone = parseInt( data.phone.substr(3).replace(/[^0-9]/g, ''));
     cred.password = data.password;
     return cred;
   }
