@@ -32,16 +32,6 @@ export class UtilityProvider {
       this.toast('Заполните все поля', 'alert');
       return false;
     }
-    if (data.phone.length !== 14) {
-      console.log('failed 1',data.phone,data.phone.length );
-      this.toast('Длинна номера телефона должна быть 9 цифр', 'alert');
-      return false;
-    }
-    if (data.password.length < 6 || data.password.length > 15) {
-      console.log('failed 2');
-      this.toast('Длинна пароля должна быть от 6  до 15 цифр', 'alert');
-      return false;
-    }
     return true;
   }
 
@@ -70,7 +60,7 @@ export class UtilityProvider {
           form.controls.phone.dirty &&
           form.controls.phone.errors &&
           form.controls.phone.errors.maxlength) {
-          return 'length 9';
+          return 'Номер телефону має бути 9 цифер';
         }
         else {
           return false
@@ -88,7 +78,7 @@ export class UtilityProvider {
           form.controls.password.dirty &&
           form.controls.password.errors &&
           form.controls.password.errors.maxlength) {
-          return 'length 6-30';
+          return 'Пароль має бути 6-30 символів';
         }
         else {
           return false

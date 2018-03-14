@@ -6,6 +6,7 @@ import {SliderPage} from "../slider/slider";
 import {UserProvider} from "../../providers/user/user";
 import {UtilityProvider} from "../../providers/utility/utility";
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ProfilePage} from "../profile/profile";
 
 
 /**
@@ -26,6 +27,7 @@ export class LoginPage {
     password: null
   };
   validation: any;
+  firstTime: boolean = false;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -36,6 +38,7 @@ export class LoginPage {
    this.user.firstEnter().get().then((data)=>{
       if(!data){
         this.navCtrl.push(SliderPage);
+        this.firstTime = true;
         this.user.firstEnter().set();
       }
     });
@@ -64,7 +67,12 @@ export class LoginPage {
     if (this.util.credentialsCheck(this.userData)) {
       this.user.login(this.util.cut(this.userData)).then((res: any) => {
         if (res) {
-          this.navCtrl.push(TabsPage);
+          if (this.firstTime){
+            this.navCtrl.push(ProfilePage);
+          } else {
+            this.navCtrl.push(TabsPage);
+          }
+
         }
       });
     }
@@ -75,9 +83,6 @@ export class LoginPage {
     this.navCtrl.push(SignUpPage);
   }
 
-  goToSlider() {
-    this.navCtrl.push(SliderPage);
-  }
 
 /////////////
 
