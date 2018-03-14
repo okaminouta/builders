@@ -1,15 +1,13 @@
-
 page-login {
 
   .item.item-block.item-md.item-input.ng-dirty.ng-touched.ng-invalid {
     border: 1px solid red;
   }
-  //.item.item-block.item-md.item-input.ng-dirty.ng-touched.ng-valid {
-  //    border: 1px solid #3bff38;
-  //}
 
   .scroll-content {
     margin-bottom: 0;
+    padding: 16px;
+
   }
 
   ion-content {
@@ -48,6 +46,9 @@ page-login {
 
     }
   }
+  .text-input {
+    margin-left: 7px;
+  }
   .button {
     color: white;
     font-size: 12px;
@@ -59,12 +60,9 @@ page-login {
   .pass-icon {
     z-index: 99;
   }
-  /*ion-input placeholder {
-    color: red;
-  }*/
   [col-sm-9] {
     margin-left: 10%;
-    display: block;
+
   }
   .text-cust {
     margin-right: 9%;
@@ -79,9 +77,6 @@ page-login {
     // outline: black;
 
   }
-  /*:-ms-input-placeholder{
-    color:#c0392b;
-  }*/
   button ion-button {
     color: #fdad2a;
   }
@@ -122,54 +117,19 @@ page-login {
     margin-bottom: 0;
 
   }
-  /*.item.item-block.item-md.item-input.ng-dirty.ng-touched.ng-invalid {
-
-  margin-bottom: 1px;
- }
- */
-
   .item-md.item-block .item-inner {
     border-bottom: 1px solid transparent;
 
   }
-  /*.item-input.ng-dirty.ng-touched.ng-invalid{
-    margin-bottom: 0!important;
-
-  }*/
-  /* .valid .label-md{
-     margin: 0 0 0 0;
-   }
-   .item-md.item-block .item-inner{
-    margin: 0 0 0 0;
-  }*/
-  /*.md [margin-vertical], .md [margin-vertical] .scroll-content{
-    margin: 0 0 0 0;
-  }*/
-  /*.valid span {
-    margin: -2px 0px 1px 0px;
-  }*/
- /* .input_bottom {
-    margin-top: 7%;
-  }*/
-
-
-  .input_one{
+  .input_one {
     height: 85px;
   }
   .valid-button {
     background-color: #ffb130;
   }
-  .input_two{
+  .input_two {
     height: 85px;
   }
-  /*.input_one :focus, :active{
-    //margin-bottom: 15px;
-    margin-top: 25px;
-  }*/
-  /*.input_one{
-    display: inline-block;
-  }*/
-  .valid{
-    display: inline;
-  }
+
+
 }

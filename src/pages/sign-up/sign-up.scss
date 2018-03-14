@@ -1,103 +1,128 @@
- page-sign-up {
+page-sign-up {
 
-    font-size: 12px;
+  font-size: 12px;
 
-    a {
-      text-transform: uppercase;
-      color: white;
-      &:last-child {
-        color: color($colors, primary);
-      }
+  a {
+    text-transform: uppercase;
+    color: white;
+    &:last-child {
+      color: color($colors, primary);
     }
+  }
 
-    ion-content {
-      background: url('../assets/imgs/bg.png');
-      background-size: 100% 100%;
-    }
+  ion-content {
+    background: url('../assets/imgs/bg.png');
+    background-size: 100% 100%;
+  }
 
-    .item {
+  .item {
 
-      border-radius: 40px;
-      opacity: 0.5;
-      height: 40px;
-      width: 88%;
+    border-radius: 40px;
+    opacity: 0.5;
+    height: 40px;
+    width: 88%;
 
+    font-weight: bold;
+    .input {
+      font-size: 13px;
       font-weight: bold;
-      .input {
-        font-size: 13px;
-        font-weight: bold;
-
-      }
-    }
-    .button {
-      color: white;
-      font-size: 12px;
-      text-transform: uppercase;
-      margin: 50px 0 30px 0;
-      width: 88%;
-      height: 40px;
-    }
-    .pass-icon {
-      z-index: 99;
-    }
-    ion-input placeholder {
-      color: red;
-    }
-    [col-9] {
-      margin-left: 9%;
-    }
-    .text-cust {
-      margin-right: 9%;
-    }
-    button ion-button {
-      color: #fdad2a;
-    }
-    a:last-child {
-      color: #fdad2a;
-    }
-    .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.item-input-has-focus .item-inner {
-      border-bottom-color: black;
-      box-shadow: inset 0 -1px 0 0 black;
-      outline: black;
 
     }
-    :-ms-input-placeholder {
-      color: #c0392b;
-    }
-    button ion-button {
-      color: #fdad2a;
-    }
-    a:last-child {
-      color: #fdad2a;
-    }
-    /*.item-md.item-block .item-inner{
-      border-bottom: 2px solid black;
-    }*/
-    .input-cover :focus {
-      border: 1px solid #30cc00;
-    }
-    .ion-input .placeholder {
-      color: white;
-    }
-    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
-      border-bottom-color: black;
-      box-shadow: inset 0 0px 0 0 black;
-    }
-    .item-input-has-focus {
-      border: 1px solid;
-    }
-    .item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end] {
-      font-size: 2.5rem;
-      color: rgba(1, 1, 2, 0.68);
-      margin-top: 14px;
-    }
-   [col-sm-9]{
-     margin-left: 10%;
-   }
-   .valid-button {
-     background-color: #ffb130;
-   }
- }
+  }
+  .button {
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    width: 88%;
+    height: 40px;
+    margin: 6% 0 30px 0;
+  }
+  .pass-icon {
+    z-index: 99;
+  }
+  ion-input placeholder {
+    color: red;
+  }
+  [col-9] {
+    margin-left: 9%;
+  }
+  .text-cust {
+    margin-right: 9%;
+  }
+  button ion-button {
+    color: #fdad2a;
+  }
+  a:last-child {
+    color: #fdad2a;
+  }
+  .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.item-input-has-focus .item-inner {
+    border-bottom-color: black;
+    box-shadow: inset 0 -1px 0 0 black;
+    outline: black;
+
+  }
+  :-ms-input-placeholder {
+    color: #c0392b;
+  }
+  button ion-button {
+    color: #fdad2a;
+  }
+  a:last-child {
+    color: #fdad2a;
+  }
+  .input-cover :focus {
+    border: 1px solid #30cc00;
+  }
+  .ion-input .placeholder {
+    color: white;
+  }
+  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: black;
+    box-shadow: inset 0 0px 0 0 black;
+  }
+  .item-input-has-focus {
+    border: 1px solid;
+  }
+  .item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end] {
+    font-size: 2.5rem;
+    color: rgba(1, 1, 2, 0.68);
+    margin-top: 14px;
+  }
+  [col-sm-9] {
+    margin-left: 10%;
+  }
+  .valid-button {
+    background-color: #ffb130;
+  }
+  .valid .label-md {
+    color: red;
+    font-weight: 500;
+    font-size: 12px;
+  }
+  .valid .item {
+    background-color: transparent;
+    opacity: 1;
+    //margin-top: -6%;
+    margin-bottom: 0;
+
+  }
+  .item-md.item-block .item-inner {
+    border-bottom: 1px solid transparent;
+
+  }
+  .input_one {
+    height: 85px;
+  }
+  .valid-button {
+    background-color: #ffb130;
+  }
+  .input_two {
+    height: 85px;
+  }
+  .valid {
+    display: inline;
+  }
+}
 
 
 
