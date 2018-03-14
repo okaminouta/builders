@@ -56,14 +56,12 @@ page-sign-up {
     color: #fdad2a;
   }
   .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.item-input-has-focus .item-inner {
-    border-bottom-color: black;
+    border-bottom-color: transparent;
     box-shadow: inset 0 -1px 0 0 black;
     outline: black;
 
   }
-  :-ms-input-placeholder {
-    color: #c0392b;
-  }
+  
   button ion-button {
     color: #fdad2a;
   }
@@ -77,8 +75,15 @@ page-sign-up {
     color: white;
   }
   .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
-    border-bottom-color: black;
-    box-shadow: inset 0 0px 0 0 black;
+    border-bottom-color: transparent;
+    box-shadow: inset 0 0px 0 0 transparent;
+    -webkit-box-shadow: inset 0 0px 0 0 transparent;
+  }
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+
+    border-bottom-color: transparent;
+    -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+    box-shadow: inset 0 -1px 0 0 transparent;
   }
   .item-input-has-focus {
     border: 1px solid;

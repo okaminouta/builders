@@ -9,14 +9,19 @@ page-info {
 
   }
   .red_ex fa-icon {
-    color: red;
+    color: red!important;
   }
 
   .info-centre b {
     margin: 0 5px;
   }
-  .item-md [item-start] {
+  .item[item-start] {
     margin: 5px 8px 9px 0;
+  }
+   b{
+     font-weight: 500;
+    font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+     font-size: 13px;
   }
 
 }

@@ -16,7 +16,7 @@ export class UtilityProvider {
     console.log('Hello UtilityProvider Provider');
   }
 
-  toast (msg: string, cssClass: string, position: string = 'middle' ) {
+  toast (msg: string, cssClass: string, position: string = 'top' ) {
     let toast = this.toastCtrl.create({
       message: msg,
       position: position,
