@@ -1,9 +1,10 @@
 import {Component, Input,OnChanges, SimpleChange} from '@angular/core';
 import {Camera, CameraOptions} from "@ionic-native/camera";
-import {NavController} from "ionic-angular";
+import {LoadingController, NavController, ToastController} from "ionic-angular";
 import {ChangePassPage} from "../../pages/change-pass/change-pass";
 import {UtilityProvider} from "../../providers/utility/utility";
 import {UserProvider} from "../../providers/user/user";
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
 @Component({
   selector: 'profile-about-me',
@@ -22,9 +23,12 @@ export class ProfileAboutMeComponent implements OnChanges {
   items: string[];
 
   constructor(public navCtrl: NavController,
-              private camera: Camera,
               public util: UtilityProvider,
-              private user: UserProvider) {
+              private user: UserProvider,
+              private transfer: FileTransfer,
+              private camera: Camera,
+              public loadingCtrl: LoadingController,
+              public toastCtrl: ToastController) {
     this.initializeItems();
     if (this.userData.name === null || this.userData.surname === null) {
       this.util.toast('Заповніть данні профіля', 'alert')
@@ -46,19 +50,31 @@ export class ProfileAboutMeComponent implements OnChanges {
   getImage() {
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     };
 
     this.camera.getPicture(options).then((imageData) => {
-      this.imageURI = imageData;
+      this.imageURI = 'data:image/jpeg;base64,' + imageData;
+
     }, (err) => {
+
       console.log(err);
       // this.presentToast(err);
     });
   }
 
+  uploadFile() {
+    let loader = this.loadingCtrl.create({
+      content: "Uploading..."
+    });
+    loader.present();
+    loader.dismiss();
+
+  }
+
   updateProfile () {
+    console.log(this.userData)
     this.user.setProfile(this.userData).then((res) => {
       console.log(res, 'updateProfile res')
     })
@@ -82,10 +98,10 @@ export class ProfileAboutMeComponent implements OnChanges {
       last_name: null,
       email: null,
       city: null,
-      passport_id: true,
+      passport_id: false,
       first_name_ENG: null,
       last_name_ENG: null,
-      photo: null
+      photo: this.imageURI
     }
   }
 

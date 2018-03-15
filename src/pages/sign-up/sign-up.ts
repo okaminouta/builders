@@ -40,8 +40,8 @@ export class SignUpPage {
 
   registerForm = this.formBuilder.group({
     phone: ['', Validators.compose([
-      Validators.maxLength(14),
-      Validators.minLength(14),
+      Validators.maxLength(19),
+      Validators.minLength(19),
       Validators.required])],
     password: ['', Validators.compose([
       Validators.maxLength(30),
@@ -57,7 +57,7 @@ export class SignUpPage {
     if (this.util.credentialsCheck(this.userData) && this.registerForm.valid) {
       this.userProvider.register(this.util.cut(this.userData)).then((res: any) => {
         if (res) {
-          console.log(res,'res sight')
+          console.log(res, 'res sight')
           this.navCtrl.push(ProfilePage);
         }
       });

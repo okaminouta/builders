@@ -18,7 +18,7 @@
         Поддержка
       </ion-title>
       <ion-buttons ion-col text-end>
-        <button ion-button text-capitalize>
+        <button ion-button text-capitalize [disabled]="credCheck()">
           Сохранить
         </button>
       </ion-buttons>
@@ -27,16 +27,22 @@
 </ion-header>
 
 
-<ion-content >
-
+<ion-content>
+  <form action=""></form>
   <ion-item>
-    <ion-input type="text" placeholder="Старий пароль"></ion-input>
+    <ion-label floating>Старий пароль</ion-label>
+    <ion-input type="password" [(ngModel)]="userData.oldPass"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-input type="text" placeholder="Новий пароль"></ion-input>
+    <ion-label floating>Новий пароль</ion-label>
+    <ion-input type="password" [(ngModel)]="userData.newPass"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-input type="text" placeholder="Підтвердіть пароль"></ion-input>
+    <ion-label floating>Підтвердіть пароль</ion-label>
+    <ion-input type="password" [(ngModel)]="userData.confPass"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="userData.newPass !== userData.confPass">
+    <p>Поля "Новий пароль" та "Підтвердіть пароль" не співпадають </p>
   </ion-item>
 
 

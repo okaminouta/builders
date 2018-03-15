@@ -1,6 +1,6 @@
-<ion-list  padding>
+<ion-list  padding-horizontal>
   <ion-row>
-    <div col-4 (click)="getImage()">
+    <div col-4 (click)="getImage()" vertical-align-center text-center>
       <img [src]="imageURI" alt="">
     </div>
     <ion-list col-8>
@@ -55,5 +55,4 @@
     <button no-padding detail-push  ion-item (click)="presentContactModal()">Змінити пароль</button>
 
   <!--</ion-items>-->
-
 </ion-list>

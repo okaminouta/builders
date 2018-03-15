@@ -11,7 +11,7 @@ export class RequestProvider {
   options: any;
 
   constructor(public http: HttpClient,
-              public util: UtilityProvider,
+              private util: UtilityProvider,
               private storage: Storage) {
   }
 

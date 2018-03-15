@@ -60,7 +60,7 @@ export class UtilityProvider {
           form.controls.phone.dirty &&
           form.controls.phone.errors &&
           form.controls.phone.errors.maxlength) {
-          return 'Номер телефону має бути 9 цифер';
+          return 'Номер телефону має бути 12 цифер';
         }
         else {
           return false

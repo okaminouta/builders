@@ -21,7 +21,7 @@ export class UserProvider {
   constructor(private http: HttpClient,
               private request: RequestProvider,
               private url: UrlProvider,
-              private storage: Storage) {
+              public storage: Storage) {
     console.log('Hello UserProvider Provider');
   }
 
@@ -45,7 +45,7 @@ export class UserProvider {
   }
 
   logout() {
-    return this.storage.clear().then(() => {
+    return this.storage.remove('user').then(() => {
       return this.request.post(this.url.logOut, {});
     })
   }
