@@ -4,6 +4,8 @@
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
+//$font-path: "../assets/fonts";
+
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
@@ -70,7 +72,8 @@ $colors: (
 // --------------------------------------------------
 
 @import "roboto";
-@import "noto-sans";
+//@import "noto-sans";
+
 
 // Font Awesome
 $fa-font-path: $font-path;
@@ -86,3 +89,30 @@ $modal-inset-height-large: (170px); //Высота Large модалки (px || %
 $checkbox-md-icon-border-radius: (10px);
 //$checkbox-md-icon-size: (20px);
 $item-md-detail-push-show: (true); // arrow for button ion-item
+/*
+$font-family-base: 'Roboto-Light';
+$font-family-ios-base: 'Roboto-Light';
+$font-family-md-base: 'Roboto-Light';
+$font-family-wp-base: 'Roboto-Light';
+
+$font-family-base: 'Roboto-Regular';
+$font-family-ios-base: 'Roboto-Regular';
+$font-family-md-base: 'Roboto-Regular';
+$font-family-wp-base: 'Roboto-Regular';
+
+$font-family-base: 'Roboto-Medium';
+$font-family-ios-base: 'Roboto-Medium';
+$font-family-md-base: 'Roboto-Medium';
+$font-family-wp-base: 'Roboto-Medium';
+
+$font-family-base: 'Roboto-Bold';
+$font-family-ios-base: 'Roboto-Bold';
+$font-family-md-base: 'Roboto-Bold';
+$font-family-wp-base: 'Roboto-Bold';
+*/
+
+/*@font-face {
+  font-family: "Myriad";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Myriad"), local("Myriad-Regular"), url("../fonts/myriad-regular.ttf") format("truetype");}*/

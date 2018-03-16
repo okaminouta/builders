@@ -17,7 +17,32 @@
 //.toolbar-md {
 //  padding: 0;
 //}
+*{
+  font-family: 'Roboto-Medium';
+}
+@font-face {
+  font-family: "Roboto-Light ";
+  font-style: normal;
+  font-weight: 300;
+  src: local("roboto light"), local("roboto-light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
+@font-face {
+  font-family: "Roboto-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: local("roboto"), local("roboto-regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+
+@font-face {
+  font-family: "Roboto-Medium";
+  font-style: normal;
+  font-weight: 500;
+  src: local("roboto medium"), local("roboto-medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+
+@font-face {
+  font-family: "Roboto-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: local("roboto bold"), local("roboto-bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 button {
   color: #ffffff;
 }
