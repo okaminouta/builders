@@ -1,6 +1,5 @@
 page-login {
 
-
   .item.item-block.item-md.item-input.ng-dirty.ng-touched.ng-invalid {
     border: 1px solid red;
   }
@@ -131,6 +130,8 @@ page-login {
   .input_two {
     height: 85px;
   }
-
+  .forgott a:last-child {
+    color: white !important;
+  }
 
 }

@@ -1,17 +1,19 @@
 page-info {
-//font-family: Roboto-Medium;
-
+  //font-family: Roboto-Medium;
 
   .fa {
     color: gray;
   }
 
-  .red_ex button {
-    color: red;
-
-  }
-  .red_ex fa-icon {
+  /*.red_ex button {
     color: red!important;
+
+  }*/
+  .red_ex fa-icon {
+    color: red;
+  }
+  .red_ex b {
+    color: red;
   }
 
   .info-centre b {
@@ -20,10 +22,11 @@ page-info {
   .item[item-start] {
     margin: 5px 8px 9px 0;
   }
-   b{
-     font-weight: 500;
+  b {
+    font-weight: 500;
     //font-family: "Roboto-Medium";
-     font-size: 14px;
+    font-size: 14px;
+    color: #454648;
   }
 
 }
