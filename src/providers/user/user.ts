@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {UrlProvider} from "../url/url";
 import {HttpClientModule} from '@angular/common/http';
@@ -24,11 +24,12 @@ export class UserProvider {
               public storage: Storage) {
     console.log('Hello UserProvider Provider');
   }
-
+  @Output() dataChange = new EventEmitter<boolean>();
   register(data: any) {
     return this.request.post(this.url.signUp, data).then((res: any) => {
       if (res) {
         this.setUser(res.data);
+        return res;
       }
     });
 
@@ -67,8 +68,12 @@ export class UserProvider {
 
   firstEnter() {
     return {
-      set: () => {
+      setTrue: () => {
         this.storage.set('firstEnter', true);
+      },
+      setFalse: () => {
+        this.storage.set('firstEnter', false);
+        this.dataChange.emit(false);
       },
       get: () => {
         return this.storage.get('firstEnter').then((data) => {

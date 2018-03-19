@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import { ToastController } from 'ionic-angular';
 
 /*
@@ -10,10 +10,14 @@ import { ToastController } from 'ionic-angular';
 */
 @Injectable()
 export class UtilityProvider {
-
+  @Output() changeTabs = new EventEmitter<string>();
   constructor(public http: HttpClient,
               public toastCtrl: ToastController,) {
     console.log('Hello UtilityProvider Provider');
+  }
+
+  changeTab (str){
+    this.changeTabs.emit(str);
   }
 
   toast (msg: string, cssClass: string, position: string = 'top' ) {
@@ -22,7 +26,7 @@ export class UtilityProvider {
       position: position,
       duration: 3000,
       cssClass: cssClass,
-      dismissOnPageChange: true
+      dismissOnPageChange: false
     });
     toast.present();
   }

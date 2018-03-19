@@ -38,7 +38,7 @@ export class LoginPage {
    this.user.firstEnter().get().then((data)=>{
       if(!data){
         this.navCtrl.push(SliderPage);
-        this.user.firstEnter().set();
+        this.user.firstEnter().setTrue();
       }
     });
     this.validation = this.util.validation;
