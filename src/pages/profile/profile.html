@@ -49,7 +49,7 @@
                 <ion-segment-button id="one" value="about_me">
                     <p>Про мене</p>
                 </ion-segment-button>
-                <ion-segment-button id="two" value="skills">
+                <ion-segment-button id="two" value="skills" >
                     <p>Навички</p>
                 </ion-segment-button>
             </ion-segment>
@@ -57,7 +57,7 @@
     </ion-row>
 
     <div [ngSwitch]="segmentValue">
-        <profile-about-me [editProfile]="editProfile" *ngSwitchCase="'about_me'"></profile-about-me>
+        <profile-about-me [editProfile]="editProfile"  *ngSwitchCase="'about_me'"></profile-about-me>
         <profile-skills [editSkills]="editSkills" *ngSwitchCase="'skills'"></profile-skills>
     </div>
 

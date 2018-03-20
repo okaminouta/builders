@@ -4,7 +4,9 @@ import {LoadingController, NavController, ToastController} from "ionic-angular";
 import {ChangePassPage} from "../../pages/change-pass/change-pass";
 import {UtilityProvider} from "../../providers/utility/utility";
 import {UserProvider} from "../../providers/user/user";
+import { Crop } from '@ionic-native/crop';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import {MediaProvider} from "../../providers/media/media";
 
 @Component({
   selector: 'profile-about-me',
@@ -12,6 +14,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 })
 export class ProfileAboutMeComponent implements OnChanges {
   @Input() editProfile;
+  segmentValue;
   userData: any;
   city: string;
   imageURI: any;
@@ -27,35 +30,94 @@ export class ProfileAboutMeComponent implements OnChanges {
               private user: UserProvider,
               private transfer: FileTransfer,
               private camera: Camera,
+              private crop: Crop,
+              private media: MediaProvider,
               public loadingCtrl: LoadingController,
               public toastCtrl: ToastController) {
     this.initializeItems();
-    if (this.userData.name === null || this.userData.surname === null) {
-      this.util.toast('Заповніть данні профіля', 'alert')
-    }
+    this.leaveCheck();
     this.imageURI = 'assets/imgs/camera.png';
   }
+
+  leaveCheck(){
+    if (this.userData.first_name === null || this.userData.last_name === null) {
+      this.util.toast('Заповніть данні профіля', 'alert')
+    }
+  }
+
+  testImg;
+  test () {
+    alert('123 ');
+    this.testImg = this.media.getMedia();
+  }
+
+  // resize(base64Img, width, height) {
+  //   let img = new Image();
+  //   img.src = base64Img;
+  //   let canvas = document.createElement('canvas'),ctx = canvas.getContext('2d');
+  //   canvas.width = width;
+  //   canvas.height = height;
+  //   ctx.drawImage(img, 0, 0, width, height);
+  //   return canvas.toDataURL("image/jpeg");
+  // }
+
+
+
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
     if (!changes.editProfile.firstChange && !this.editProfile){
       this.user.setProfile(this.userData)
+      this.user.firstEnter().get().then((res) => {
+        if(res){
+          this.util.toast('Заповніть вашы навички', 'alert');
+          this.util.changeTab('skills');
+
+        }
+      })
+
     }
 
   }
 
-  ionViewWillLeave() {
-    console.log("Looks like I'm about to leave :(");
-  }
 
+  toBase64(url: string) {
+    return new Promise<string>(function (resolve) {
+      let xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = function () {
+        let reader = new FileReader();
+        reader.onloadend = function () {
+          resolve(reader.result);
+        }
+        reader.readAsDataURL(xhr.response);
+      };
+      xhr.open('GET', url);
+      xhr.send();
+    });
+  }
+  base64Image: any;
   getImage() {
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
     };
 
     this.camera.getPicture(options).then((imageData) => {
       this.imageURI = 'data:image/jpeg;base64,' + imageData;
+      this.crop.crop(this.imageURI, {quality: 75, targetHeight: 50, targetWidth: 50})
+        .then(
+          newImage => {
+            console.log('new image path is: ' + newImage);
+            this.toBase64(newImage).then((base64Img) => {
+              this.base64Image = base64Img;
+            });
+
+          },
+          error => console.error('Error cropping image', error)
+        );
 
     }, (err) => {
 
@@ -73,12 +135,7 @@ export class ProfileAboutMeComponent implements OnChanges {
 
   }
 
-  updateProfile () {
-    console.log(this.userData)
-    this.user.setProfile(this.userData).then((res) => {
-      console.log(res, 'updateProfile res')
-    })
-  }
+
 
   presentContactModal() {
     this.navCtrl.push(ChangePassPage);

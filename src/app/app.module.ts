@@ -10,7 +10,7 @@ import {File} from '@ionic-native/file';
 import {Camera} from '@ionic-native/camera';
 import {FormsModule} from '@angular/forms';
 import { BrMaskerModule } from 'brmasker-ionic-3';
-
+import { Crop } from '@ionic-native/crop';
 
 import {ProfilePage} from '../pages/profile/profile';
 import {InfoPage} from '../pages/info/info';
@@ -37,6 +37,7 @@ import {AddSkillModalsPage} from "../pages/add-skill-modals/add-skill-modals";
 import {ProfileAboutMeComponent} from "../components/profile-about-me/profile-about-me";
 import {ProfileSkilsComponent} from "../components/profile-skils/profile-skils";
 import { ContentProvider } from '../providers/content/content';
+import { MediaProvider } from '../providers/media/media';
 
 
 @NgModule({
@@ -100,12 +101,14 @@ import { ContentProvider } from '../providers/content/content';
     FileTransferObject,
     File,
     Camera,
+    Crop,
     UserProvider,
     UrlProvider,
     HttpClient,
     RequestProvider,
     UtilityProvider,
     ContentProvider,
+    MediaProvider,
   ],
 })
 export class AppModule {
