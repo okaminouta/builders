@@ -1,6 +1,6 @@
 page-login {
 
-  .item.item-block.item-md.item-input.ng-dirty.ng-touched.ng-invalid {
+  .item.item-block.item.item-input.ng-dirty.ng-touched.ng-invalid {
     border: 1px solid red;
   }
 
@@ -67,11 +67,11 @@ page-login {
   .text-cust {
     margin-right: 9%;
   }
-  .text-input-md {
+  .text-input {
     margin: 0;
   }
 
-  .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.item-input-has-focus .item-inner {
+  .item.item-input.item-input-has-focus .item-inner, .item.item-input.item-input-has-focus .item-inner {
     border-bottom-color: transparent;
     box-shadow: inset 0 0px 0 0 black;
     // outline: black;
@@ -92,7 +92,7 @@ page-login {
   .ion-input .placeholder {
     color: white;
   }
-  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
     border-bottom-color: transparent;
     box-shadow: inset 0 0px 0 0 black;
 
@@ -100,13 +100,13 @@ page-login {
   .item-input-has-focus {
     border: 1px solid;
   }
-  .item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end] {
+  .item ion-icon[item-left], .item ion-icon[item-right], .item ion-icon[item-start], .item ion-icon[item-end] {
     font-size: 2.5rem;
     color: rgba(1, 1, 2, 0.68);
     margin-top: 14px;
   }
-  .valid .label-md {
-    color: red;
+  .valid .label {
+    color: #A80B00;
     font-weight: 500;
     font-size: 12px;
   }
@@ -117,7 +117,7 @@ page-login {
     margin-bottom: 0;
 
   }
-  .item-md.item-block .item-inner {
+  .item.item-block .item-inner {
     border-bottom: 1px solid transparent;
 
   }
@@ -133,5 +133,10 @@ page-login {
   .forgott a:last-child {
     color: white !important;
   }
+  /*.text-input{
+    position: absolute;
+    //width: 20%;
+    margin: -5px 31px 0px;
+  }*/
 
 }

@@ -1,4 +1,7 @@
 profile-about-me {
+  .scroll-content {
+    padding-bottom: 0px !important;
+  }
   img {
     width: 90%;
     margin-top: 40px;
@@ -7,8 +10,36 @@ profile-about-me {
     border-radius: 50%;
 
   }
-  .checkbox-md .checkbox-checked .checkbox-inner {
+  .checkbox .checkbox-checked .checkbox-inner {
     border-color: white;
   }
-
+  .item-label-floating .text-input {
+    margin-left: 15px;
+  }
+  .label {
+    margin-left: 15px;
+  }
+  .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: transparent;
+    -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+    box-shadow: inset 0 0px 0 0 transparent;
+  }
+  .item.item-input.item-input-has-focus .item-inner, .item-.item-input.item-input-has-focus .item-inner {
+    border-bottom-color: black;
+    -webkit-box-shadow: inset 0 0px 0 0 black;
+    box-shadow: inset 0 0px 0 0 black;
+  }
+  .list .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
+    border-bottom-color: transparent;
+    -webkit-box-shadow: inset 0 0px 0 0 transparent;
+    box-shadow: inset 0 0px 0 0 transparent;
+  }
+  .list .item-input.item-input-has-focus:last-child, .list .item-input.input-has-focus:last-child {
+    border-bottom-color: black;
+    -webkit-box-shadow: inset 0 0px 0 0 black;
+    box-shadow: inset 0 0px 0 0 black;
+  }
+  .item-input-has-focus .label[stacked], .input-has-focus .label[stacked], .item-input-has-focus .label[floating], .input-has-focus .label[floating] {
+    color: black;
+  }
 }

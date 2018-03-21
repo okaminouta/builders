@@ -2,7 +2,10 @@ page-home {
   //.toolbar-background-md {
   //  background: #081d32;
   //}
-  .toolbar-title-md {
+  .scroll-content{
+    background: #fafafa;
+  }
+  .toolbar-title {
     color: white;
   }
   .icon-right {
@@ -12,7 +15,7 @@ page-home {
     background: #2d2d2d !important;
     color: white !important;
   }
-  .searchbar-md .searchbar-input {
+  .searchbar .searchbar-input {
     border-radius: 65px;
     background-color: #0c2a49;
     color: white;
@@ -21,14 +24,14 @@ page-home {
     font-weight: 200;
     margin-left: 3px;
   }
-  .searchbar searchbar-md .searchbar-animated .searchbar-show-cancel .searchbar-active .searchbar-left-aligned .searchbar-has-focus {
+  .searchbar searchbar .searchbar-animated .searchbar-show-cancel .searchbar-active .searchbar-left-aligned .searchbar-has-focus {
     //display:none;
     //color: white;
   }
   //.toolbar .searchbar-md .searchbar-md-cancel {
   //  display: none;
   //}
-  .searchbar-md .searchbar-search-icon {
+  .searchbar .searchbar-search-icon {
     color: white;
   }
 
@@ -74,28 +77,28 @@ page-home {
     font-family: 'Roboto';
     font-size: 17px;
   }
-  .card-md h4 {
+  .card h4 {
     margin: 0px;
     font-size: 17px;
     color: #182c40;
     font-weight: 540;
   }
-  .card-md p {
+  .card p {
     color: #f9b707;
     font-size: 17px;
   }
-  .card-md h2 {
+  .card h2 {
     font-weight: bold;
     font-size: 18px;
     //font-family: "Roboto";
   }
-  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+  .segment .segment-button.activated, .segment .segment-button.segment-activated {
     background: color($colors, secondary) !important;
     color: white !important;
     font-weight: 200 !important;
 
   }
-  .card-content-md {
+  .card-content {
     padding-bottom: 1px;
   }
   .card .note-ios {
@@ -105,13 +108,13 @@ page-home {
     font-weight: 200;
   }
 
-  .card .note-md {
+  .card .note {
     margin: 10px;
     font-size: 14px;
     // font-family: "Roboto";
     font-weight: 200;
   }
-  .button-round-md {
+  .button-round {
     text-transform: none;
     border: 1px solid color($colors, secondary);
   }
@@ -132,7 +135,7 @@ page-home {
   [col-6] {
     padding: 0;
   }
-  .button-outline-md {
+  .button-outline {
     border-color: #5d6d7d;
   }
   #orange_button {
@@ -161,7 +164,7 @@ page-home {
   page-home .button-inner {
     margin: 0 13px !important;
   }
-  .note-md {
+  .note {
     color: #888a8c;
   }
   .button-outline {
@@ -188,11 +191,11 @@ page-home {
   .data {
     line-height: 26px;
   }
-  .segment-md .segment-button.segment-activated {
+  .segment .segment-button.segment-activated {
     height: 32px;
     border-color: transparent;
   }
-  .segment-md .segment-button {
+  .segment .segment-button {
     height: 32px;
     color: #081d32;
     border-bottom-color: #081d32;

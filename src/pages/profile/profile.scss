@@ -9,10 +9,49 @@ page-profile {
   //.toolbar-title-md {
   //  color: white;
   //}
- /* ion-segment {
-    margin-top: 12px;
-  }*/
-  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+  /* ion-segment {
+     margin-top: 12px;
+   }*/
+
+  .item-label-stacked .text-input-md, .item-label-floating .text-input-md{
+    margin-bottom: 9px;
+  }
+  .label[stacked], .label[floating]{
+  margin-left: 15px;
+}
+  .button-inner span{
+    margin-left: 15px;
+  }
+  [col-6]{
+    margin-bottom: 7px;
+  }
+  [col-8]{
+    padding: 0;
+  }
+  [col-4]{
+    background: white;
+   // height: 90%;
+  //  margin: 5px 0;
+    padding: 0;
+  }
+  .scroll-content{
+    background: #fafafa;
+  }
+  img{
+    margin-top: 14px;
+  }
+  .list{
+    margin: 0;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+
+  }
+  .item{
+    margin-top: 0;
+  }
+
+
+  .segment .segment-button.activated, .segment .segment-button.segment-activated {
     background: #081d32 !important;
     color: white !important;
     text-align: center;
@@ -46,10 +85,10 @@ page-profile {
     }
   }
 
-  //.list-md {
+  //.list {
   //  margin: 0;
   //}
-  //.label-md {
+  //.label {
   //  //margin-top: 5px;
   //  margin: 0 8px 2px 0;
   //}
@@ -62,12 +101,12 @@ page-profile {
   //h5 {
   //  color: #908c8c;
   //}
-  //.checkbox-md .checkbox-icon {
+  //.checkbox .checkbox-icon {
   //  border-radius: 10px;
   //  color: white;
   //  transform: scale(1.3);
   //}
-  //.item-md {
+  //.item {
   //  padding-left: 0;
   //}
   //
@@ -79,11 +118,11 @@ page-profile {
   //  border-bottom: 1px solid #908c8c;
   //}
   //
-  //.searchbar-md .searchbar-input {
+  //.searchbar .searchbar-input {
   //  padding: 6px 1px;
   //  border-bottom: 1px solid #908c8c;
   //}
-  //.searchbar-md {
+  //.searchbar {
   //  padding: 0;
   //}
   //.searchbar-input {
@@ -95,7 +134,7 @@ page-profile {
   ///*{
   //  color: yellow;
   //}*/
-  //.alert-md .alert-button .button-inner {
+  //.alert .alert-button .button-inner {
   //  color: black;
   //}
   //.black-shadow p {
@@ -106,16 +145,16 @@ page-profile {
   //  color: orange;
   //  font-size: 16px;
   //}
-  //.card-header-md {
+  //.card-header {
   //  padding-bottom: 2px;
   //}
-  //.checkbox-md .checkbox-checked .checkbox-inner {
+  //.checkbox .checkbox-checked .checkbox-inner {
   //  border-color: white;
   //}
   //#color_foot {
   //  background: #ffffff;
   //}
-  //.toolbar-background-md p {
+  //.toolbar-background p {
   //  background: white;
   //}
 

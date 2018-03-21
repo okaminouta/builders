@@ -6,28 +6,27 @@ page-change-pass {
   .item {
     padding-left: 0;
   }
-  .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
-  border-bottom-color: gray;
-  -webkit-box-shadow: inset 0 -1px 0 0 gray;
-  box-shadow: inset 0 -1px 0 0 gray;
-}
-  .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.item-input-has-focus .item-inner{
-   border-bottom-color: black;
+  .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: gray;
+    -webkit-box-shadow: inset 0 -1px 0 0 gray;
+    box-shadow: inset 0 -1px 0 0 gray;
+  }
+  .item.item-input.item-input-has-focus .item-inner, .item-.item-input.item-input-has-focus .item-inner {
+    border-bottom-color: black;
     -webkit-box-shadow: inset 0 0px 0 0 black;
     box-shadow: inset 0 0px 0 0 black;
   }
-  .item-inner{
+  .item-inner {
     margin-left: 15px;
   }
-  .item-input-has-focus .label[stacked], .input-has-focus .label[stacked], .item-input-has-value .label[floating], .input-has-value .label[floating]{
-    color:black;
+  .item-input-has-focus .label[stacked], .input-has-focus .label[stacked], .item-input-has-value .label[floating], .input-has-value .label[floating] {
+    color: black;
   }
-
 
   /*.item-input-has-focus .label-[stacked], .input-has-focus .label-[stacked]*//*.item-input-has-focus .label-[floating] .input-has-focus .label-[floating]{
     color:black;
   }*/
-  .item-input-has-focus .label[stacked], .input-has-focus .label[stacked], .item-input-has-focus .label[floating], .input-has-focus .label[floating]{
-    color:black;
+  .item-input-has-focus .label[stacked], .input-has-focus .label[stacked], .item-input-has-focus .label[floating], .input-has-focus .label[floating] {
+    color: black;
   }
 }
