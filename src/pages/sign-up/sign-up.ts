@@ -54,7 +54,7 @@ export class SignUpPage {
   }
 
   register() {
-    if (this.util.credentialsCheck(this.userData) && this.registerForm.valid) {debugger
+    if (this.util.credentialsCheck(this.userData) && this.registerForm.valid) {
       this.userProvider.register(this.util.cut(this.userData)).then((res: any) => {
         if (res) {
           console.log(res, 'res sight')

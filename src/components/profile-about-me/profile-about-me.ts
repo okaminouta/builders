@@ -1,12 +1,11 @@
-import {Component, Input,OnChanges, SimpleChange} from '@angular/core';
-import {Camera, CameraOptions} from "@ionic-native/camera";
-import {LoadingController, NavController, ToastController} from "ionic-angular";
+import {Component, Input, OnChanges, SimpleChange} from '@angular/core';
+import {NavController} from "ionic-angular";
+
 import {ChangePassPage} from "../../pages/change-pass/change-pass";
 import {UtilityProvider} from "../../providers/utility/utility";
 import {UserProvider} from "../../providers/user/user";
-import { Crop } from '@ionic-native/crop';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import {MediaProvider} from "../../providers/media/media";
+
 
 @Component({
   selector: 'profile-about-me',
@@ -18,7 +17,8 @@ export class ProfileAboutMeComponent implements OnChanges {
   userData: any;
   city: string;
   imageURI: any;
-  imageFileName: any;
+  phone;
+
   // disableFields: boolean = true;
 
   showList: boolean = false;
@@ -28,114 +28,48 @@ export class ProfileAboutMeComponent implements OnChanges {
   constructor(public navCtrl: NavController,
               public util: UtilityProvider,
               private user: UserProvider,
-              private transfer: FileTransfer,
-              private camera: Camera,
-              private crop: Crop,
-              private media: MediaProvider,
-              public loadingCtrl: LoadingController,
-              public toastCtrl: ToastController) {
+              private media: MediaProvider,) {
     this.initializeItems();
     this.leaveCheck();
+    this.user.getUser().then((res) => {
+      this.phone = '+380 ' +
+        res.phone.toString().substring(0, 2) +
+        ' ' + res.phone.toString().substring(2, 4) +
+        ' ' + res.phone.toString().substring(4, 6) +
+        ' ' + res.phone.toString().substring(6);
+    })
     this.imageURI = 'assets/imgs/camera.png';
   }
 
-  leaveCheck(){
+  leaveCheck() {
     if (this.userData.first_name === null || this.userData.last_name === null) {
       this.util.toast('Заповніть данні профіля', 'alert')
     }
   }
 
-  testImg;
-  test () {
-    alert('123 ');
-    this.testImg = this.media.getMedia();
+  test() {
+    this.user.getProfile({
+      photo: this.imageURI
+    });
   }
 
-  // resize(base64Img, width, height) {
-  //   let img = new Image();
-  //   img.src = base64Img;
-  //   let canvas = document.createElement('canvas'),ctx = canvas.getContext('2d');
-  //   canvas.width = width;
-  //   canvas.height = height;
-  //   ctx.drawImage(img, 0, 0, width, height);
-  //   return canvas.toDataURL("image/jpeg");
-  // }
+  imgUpload() {
+    this.media.getMedia().then((res) => {
+      this.imageURI = res;
+    });
+  }
 
-
-
-
-  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-    if (!changes.editProfile.firstChange && !this.editProfile){
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    if (!changes.editProfile.firstChange && !this.editProfile) {
       this.user.setProfile(this.userData)
       this.user.firstEnter().get().then((res) => {
-        if(res){
+        if (res) {
           this.util.toast('Заповніть вашы навички', 'alert');
           this.util.changeTab('skills');
-
         }
       })
-
     }
-
   }
-
-
-  toBase64(url: string) {
-    return new Promise<string>(function (resolve) {
-      let xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob';
-      xhr.onload = function () {
-        let reader = new FileReader();
-        reader.onloadend = function () {
-          resolve(reader.result);
-        }
-        reader.readAsDataURL(xhr.response);
-      };
-      xhr.open('GET', url);
-      xhr.send();
-    });
-  }
-  base64Image: any;
-  getImage() {
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
-    };
-
-    this.camera.getPicture(options).then((imageData) => {
-      this.imageURI = 'data:image/jpeg;base64,' + imageData;
-      this.crop.crop(this.imageURI, {quality: 75, targetHeight: 50, targetWidth: 50})
-        .then(
-          newImage => {
-            console.log('new image path is: ' + newImage);
-            this.toBase64(newImage).then((base64Img) => {
-              this.base64Image = base64Img;
-            });
-
-          },
-          error => console.error('Error cropping image', error)
-        );
-
-    }, (err) => {
-
-      console.log(err);
-      // this.presentToast(err);
-    });
-  }
-
-  uploadFile() {
-    let loader = this.loadingCtrl.create({
-      content: "Uploading..."
-    });
-    loader.present();
-    loader.dismiss();
-
-  }
-
-
 
   presentContactModal() {
     this.navCtrl.push(ChangePassPage);
@@ -190,6 +124,4 @@ export class ProfileAboutMeComponent implements OnChanges {
       this.showList = false;
     }
   }
-
-
 }

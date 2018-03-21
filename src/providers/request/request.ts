@@ -41,6 +41,7 @@ export class RequestProvider {
 
             },
             err => {
+              alert(err.message);
               reject(err);
             });
       })
@@ -50,7 +51,7 @@ export class RequestProvider {
         return data
       },
       err => {
-        console.log(err, 'err');
+        alert(err.message);
       });
   }
 
@@ -65,6 +66,7 @@ export class RequestProvider {
 
             },
             err => {
+              alert(err.message);
               reject(err);
             });
       })

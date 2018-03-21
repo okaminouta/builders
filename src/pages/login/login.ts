@@ -35,6 +35,11 @@ export class LoginPage {
               public util: UtilityProvider,
               public  user: UserProvider,
               public formBuilder: FormBuilder) {
+    this.user.getUser().then((res)=> {
+      if(res){
+        this.navCtrl.push(TabsPage);
+      }
+    });
    this.user.firstEnter().get().then((data)=>{
       if(!data){
         this.navCtrl.push(SliderPage);

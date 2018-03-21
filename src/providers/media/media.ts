@@ -1,15 +1,11 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import {Injectable} from '@angular/core';
+import {LoadingController, Platform} from 'ionic-angular';
 import {Camera, CameraOptions} from "@ionic-native/camera";
-import { Crop } from '@ionic-native/crop';
+import {Crop} from '@ionic-native/crop';
+import {Base64} from '@ionic-native/base64';
+import {DomSanitizer} from '@angular/platform-browser';
 
-/*
-  Generated class for the MediaProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class MediaProvider {
 
@@ -22,31 +18,37 @@ export class MediaProvider {
 
   constructor(public platform: Platform,
               private Camera: Camera,
-              private Crop: Crop) {}
+              private Crop: Crop,
+              private base64: Base64,
+              public loadingCtrl: LoadingController,
+              private sanitizer: DomSanitizer,) {
+  }
 
 
-  // Return a promise to catch errors while loading image
   getMedia(): Promise<any> {
-    // Get Image from ionic-native's built in camera plugin
+    let loader = this.loadingCtrl.create({
+      content: "Uploading..."
+    });
     return this.Camera.getPicture(this.options)
       .then((fileUri) => {
-        // Crop Image, on android this returns something like, '/storage/emulated/0/Android/...'
-        // Only giving an android example as ionic-native camera has built in cropping ability
+        // Only giving an android example as ios-native camera has built in cropping ability
         if (this.platform.is('ios')) {
           return fileUri
         } else if (this.platform.is('android')) {
-          // Modify fileUri format, may not always be necessary
-          // fileUri = 'file://' + fileUri;
-
-          /* Using cordova-plugin-crop starts here */
-          return this.Crop.crop(fileUri, { quality: 100, targetHeight: 50, targetWidth: 50 });
+          return this.Crop.crop(fileUri, {quality: 100, targetHeight: 50, targetWidth: 50});
         }
       })
       .then((path) => {
-        // path looks like 'file:///storage/emulated/0/Android/data/com.foo.bar/cache/1477008080626-cropped.jpg?1477008106566'
-        alert('Cropped Image Path!: ' + path);
+        loader.present();
         return path;
+      }, (err) => {
+        alert(err);
+      }).then((path) => {
+        return this.base64.encodeFile(path).then((base64File: string) => {
+          const sanitizedImg = this.sanitizer.bypassSecurityTrustUrl(base64File);
+          loader.dismiss();
+          return sanitizedImg;
+        })
       })
   }
-
 }
