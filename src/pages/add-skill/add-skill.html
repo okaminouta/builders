@@ -30,19 +30,12 @@
 <ion-content>
     <ion-list>
         <button ion-item
+                detail-none
+                *ngFor="let skill of skillsArr"
                 class="slill-item"
-                (click)="skillSelectorPopap()">
-            <ion-col>
-                Developer
-            </ion-col>
-        </button>
-        <button ion-item
-                class="slill-item"
-                (click)="skillSelectorPopap()">
-            <ion-col>
-                Developer
-                <fa-icon name="camera-retro"></fa-icon>
-            </ion-col>
+                (click)="skillSelectorPopap(skill)">
+          <ion-label margin-horizontal>{{skill.description}}</ion-label>
+          <ion-checkbox item-end [checked]="skill.checked" *ngIf="skill.checked" (click)="skill.checked = false"></ion-checkbox>
         </button>
     </ion-list>
 

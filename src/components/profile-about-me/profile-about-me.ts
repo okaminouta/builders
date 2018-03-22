@@ -61,7 +61,7 @@ export class ProfileAboutMeComponent implements OnChanges {
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     if (!changes.editProfile.firstChange && !this.editProfile) {
-      this.user.setProfile(this.userData)
+      this.user.setProfile(this.userData);
       this.user.firstEnter().get().then((res) => {
         if (res) {
           this.util.toast('Заповніть вашы навички', 'alert');

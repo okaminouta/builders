@@ -1,18 +1,19 @@
 page-login {
-
   .item.item-block.item.item-input.ng-dirty.ng-touched.ng-invalid {
     border: 1px solid red;
   }
 
   .scroll-content {
-    margin-bottom: 0;
+    margin-bottom: 0!important;
     padding: 16px;
+    padding-bottom: 0!important;
 
   }
 
   ion-content {
     ion-row {
-      margin: 42% auto;
+      //margin-top: calc(100% - 60%);
+      height: calc(100% - 1%);
     }
   }
 

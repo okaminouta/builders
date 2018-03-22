@@ -17,10 +17,8 @@ export class ProfileSkilsComponent {
   @Input() editSkills;
 
   constructor(public navCtrl: NavController,
-              public contentProvider: ContentProvider) {
-    this.contentProvider.getSkills().then((res) => {
-      console.log(res, 'res skills')
-    })
+              ) {
+
   }
 
   goToAddSkill() {
