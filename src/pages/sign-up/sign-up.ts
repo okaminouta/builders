@@ -22,7 +22,7 @@ import {ProfilePage} from "../profile/profile";
 export class SignUpPage {
   validation: any;
   userData = {
-    phone: '+380 (__) __-__-___',
+    phone: null,
     password: null,
   };
 
@@ -32,30 +32,30 @@ export class SignUpPage {
               public formBuilder: FormBuilder,
               public util: UtilityProvider,
               public userProvider: UserProvider) {
-    this.validation = this.util.validation;
+    // this.validation = this.util.validation;
     // sometimes falls here wtf
     // this.userData.name = null;
     // this.userData.pass = null;
   }
 
-  registerForm = this.formBuilder.group({
-    phone: ['', Validators.compose([
-      Validators.maxLength(19),
-      Validators.minLength(19),
-      Validators.required])],
-    password: ['', Validators.compose([
-      Validators.maxLength(30),
-      Validators.minLength(6),
-      Validators.required])]
-  });
+  // registerForm = this.formBuilder.group({
+  //   phone: ['', Validators.compose([
+  //     Validators.maxLength(19),
+  //     Validators.minLength(19),
+  //     Validators.required])],
+  //   password: ['', Validators.compose([
+  //     Validators.maxLength(30),
+  //     Validators.minLength(6),
+  //     Validators.required])]
+  // });
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignUpPage');
   }
 
   register() {
-    if (this.util.credentialsCheck(this.userData) && this.registerForm.valid) {
-      this.userProvider.register(this.util.cut(this.userData)).then((res: any) => {
+    if (this.util.credentialsCheck(this.userData)) {
+      this.userProvider.register(this.userData).then((res: any) => {
         if (res) {
           console.log(res, 'res sight')
           this.navCtrl.push(ProfilePage);

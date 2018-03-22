@@ -23,7 +23,7 @@ import {ProfilePage} from "../profile/profile";
 })
 export class LoginPage {
   userData = {
-    phone: '+380 (__) __-__-___',
+    phone: null,
     password: null
   };
   validation: any;
@@ -49,16 +49,16 @@ export class LoginPage {
     this.validation = this.util.validation;
   }
 
-  loginForm = this.formBuilder.group({
-    phone: ['', Validators.compose([
-      Validators.maxLength(19),
-      Validators.minLength(19),
-      Validators.required])],
-    password: ['', Validators.compose([
-      Validators.maxLength(30),
-      Validators.minLength(6),
-      Validators.required])]
-  });
+  // loginForm = this.formBuilder.group({
+  //   phone: ['', Validators.compose([
+  //     Validators.maxLength(14),
+  //     Validators.minLength(14),
+  //     Validators.required])],
+  //   password: ['', Validators.compose([
+  //     Validators.maxLength(30),
+  //     Validators.minLength(6),
+  //     Validators.required])]
+  // });
 
 
   ionViewDidLoad() {
@@ -67,9 +67,11 @@ export class LoginPage {
   }
 
   login() {
-    console.log(this.loginForm)
-    if (this.util.credentialsCheck(this.userData) && this.loginForm.valid) {
-      this.user.login(this.util.cut(this.userData)).then((res: any) => {
+    // console.log(this.loginForm)
+  // && this.loginForm.valid
+
+    if (this.util.credentialsCheck(this.userData) ) {
+      this.user.login(this.userData).then((res: any) => {
         if (res) {
             this.navCtrl.push(ProfilePage);
         }

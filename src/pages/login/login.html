@@ -1,58 +1,66 @@
-<ion-content  >
-  <ion-row align-items-center   >
-    <ion-col col-sm-9 >
-      <form [formGroup]="loginForm">
-<div class="input_one" >
-        <ion-item >
-          <!--<ion-input type="text"
-                     formControlName="phone"
-                     [(ngModel)]="userData.phone"
-                     placeholder="(__) ___-__-__"
-                     [brmasker]="{mask:'+000 (00) 00-00-000', len:19, type:'num'}"></ion-input>-->
-                     <div class="telefone_all"><div class="telef"><input class="telephone" type="text"><p>+380</p></div></div>
+<ion-content>
+  <ion-row align-items-center>
+    <ion-col col-sm-9>
+      <!--<form [formGroup]="loginForm">-->
+        <div class="input_one">
+          <ion-item>
+            <!--<ion-input type="text"
+                       formControlName="phone"
+                       [(ngModel)]="userData.phone"
+                       placeholder="(__) ___-__-__"
+                       [brmasker]="{mask:'+000 (00) 00-00-000', len:19, type:'num'}"></ion-input>-->
+            <div class="telefone_all">
+              <div class="telef"><input class="telephone"
+                                        type="tel"
+                                        maxlength="9"
+                                        [(ngModel)]="userData.phone"
+                                        placeholder="(xx) xxx-xx-xx">
+                <p>+380</p></div>
+            </div>
 
-        </ion-item>
+          </ion-item>
 
-        <div class="valid">
-       <span><ion-item  *ngIf="validation(loginForm).phone()" >
-          {{validation(loginForm).phone()}}
-        </ion-item></span>
-        </div>
+          <div class="valid">
+       <!--<span><ion-item *ngIf="validation(loginForm).phone()">-->
+          <!--{{validation(loginForm).phone()}}-->
+        <!--</ion-item></span>-->
+          </div>
         </div>
         <div class="input_bottom">
-        <div class="input_two" >
-        <ion-item justify-content-center
-                  ngClass="{{loginForm.controls.password.errors ? invalid : ''}}">
-          <ion-input
-            [type]="isActive ? 'password' : 'text'"
-            formControlName="password"
-            placeholder="ПАРОЛЬ"
-            [(ngModel)]="userData.password"></ion-input>
-          <ion-icon
-            class="pass-icon"
-            [name]="isActive ? 'eye-off': 'eye' "
-            item-right
-            (click)="showPass()">
-          </ion-icon>
-        </ion-item>
+          <div class="input_two">
+            <ion-item justify-content-center
+                      >
+              <!--ngClass="{{loginForm.controls.password.errors ? invalid : ''}}"-->
+              <ion-input
+                [type]="isActive ? 'password' : 'text'"
+                placeholder="ПАРОЛЬ"
+                [(ngModel)]="userData.password"></ion-input>
+              <ion-icon
+                class="pass-icon"
+                [name]="isActive ? 'eye-off': 'eye' "
+                item-right
+                (click)="showPass()">
+              </ion-icon>
+            </ion-item>
 
-        <div class="valid">
-        <ion-item *ngIf="validation(loginForm).password()" >
-          {{validation(loginForm).password()}}
-        </ion-item>
+            <div class="valid">
+              <!--<ion-item *ngIf="validation(loginForm).password()">-->
+                <!--{{validation(loginForm).password()}}-->
+              <!--</ion-item>-->
+            </div>
+          </div>
         </div>
-        </div>
-       </div>
-      </form>
+      <!--</form>-->
 
       <button ion-button
               round
-              (click)="login()"
-      ngClass="{{loginForm.valid ? 'valid-button' : ''}}">увійти
+              (click)="login()">увійти
+        <!--ngClass="{{loginForm.valid ? 'valid-button' : ''}}"-->
       </button>
       <div class="text-cust" text-center>
-      <div class="forgott">
-        <div margin-bottom><a (click)="forgotPass()">забули пароль?</a></div></div>
+        <div class="forgott">
+          <div margin-bottom><a (click)="forgotPass()">забули пароль?</a></div>
+        </div>
         <br><a margin-vertical>немає акаунта?</a>
         <span><a color="colorlink" (click)="goToRegistration()">зареєструватися!</a></span>
       </div>

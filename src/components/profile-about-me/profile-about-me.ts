@@ -37,7 +37,7 @@ export class ProfileAboutMeComponent implements OnChanges {
         ' ' + res.phone.toString().substring(2, 4) +
         ' ' + res.phone.toString().substring(4, 6) +
         ' ' + res.phone.toString().substring(6);
-    })
+    });
     this.imageURI = 'assets/imgs/camera.png';
   }
 
@@ -61,6 +61,7 @@ export class ProfileAboutMeComponent implements OnChanges {
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     if (!changes.editProfile.firstChange && !this.editProfile) {
+      console.log(this.userData)
       this.user.setProfile(this.userData);
       this.user.firstEnter().get().then((res) => {
         if (res) {
@@ -92,7 +93,7 @@ export class ProfileAboutMeComponent implements OnChanges {
       passport_id: false,
       first_name_ENG: null,
       last_name_ENG: null,
-      photo: this.imageURI
+      photo: this.imageURI || null
     }
   }
 
