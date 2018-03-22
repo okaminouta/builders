@@ -167,6 +167,9 @@ page-login {
     border: none;
     margin-top: 2px;
   }
+  .item .item-block .item :focus{
+    border:1px solid black;
+  }
 
 
 
