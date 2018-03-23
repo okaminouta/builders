@@ -3,211 +3,215 @@
     <div class="bar bar-header bar-positive">
       <ion-title text-center *ngIf="!showSearchbar">Пропозиції
         <div class="icon-right">
-        <ion-icon  ios="ios-search" md="md-search" (click)="showSBar()"></ion-icon>
+          <ion-icon ios="ios-search" md="md-search" (click)="showSBar()"></ion-icon>
         </div>
       </ion-title>
       <div *ngIf="showSearchbar">
         <ion-searchbar
           [animated]="'true'"
           [showCancelButton]="'true'"
-          (ionCancel)="hideSBar()" >
+          (ionCancel)="hideSBar()">
         </ion-searchbar>
       </div>
     </div>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding-vertical >
-    <ion-grid>
+<ion-content padding-vertical>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+
+        <ion-segment [(ngModel)]="sentence">
+
+          <ion-segment-button class="left_button" value="all">
+            <p>Всі</p>
+          </ion-segment-button>
+
+          <ion-segment-button class="right_button" value="my">
+            <p>Мої</p>
+          </ion-segment-button>
+
+        </ion-segment>
+
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+  <div [ngSwitch]="sentence">
+    <ion-list *ngSwitchCase="'my'">
+      <ion-card>
+
+        <ion-card-content>
+
+
+          <h2> Будівничі роботи будівничі роботи будівничі роботи
+            <p>
+              <wbr>
+              <i>Ваша заявка розглядається</i></p>
+          </h2>
+
+          <div class="data">
+            <!--<fa-icon name="camera-retro"></fa-icon> -->
+            <fa-icon name="building"></fa-icon>
+            <wbr>&nbsp;ФОП Фортуна
+            <br>
+            <fa-icon name="calendar"></fa-icon>&nbsp; 21.02.2018 - 18.05.2018
+            <span><br><fa-icon name="money"></fa-icon>&nbsp;1200$
+              <!--<ion-icon md="md-navigate"></ion-icon>-->
+                            &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;Мюнхен</span>
+          </div>
+
+        </ion-card-content>
+
         <ion-row>
-            <ion-col col-6>
 
-                <ion-segment [(ngModel)]="sentence">
-
-                   <ion-segment-button class="left_button"  value="all" >
-                        <p>Всі</p>
-                    </ion-segment-button>
-
-                    <ion-segment-button class="right_button" value="my">
-                        <p>Мої</p>
-                    </ion-segment-button>
-
-                </ion-segment>
-
-            </ion-col>
+          <ion-col left text-left>
+            <ion-note>
+              Розміщено 1 год назад ·&nbsp;54 перегляди
+            </ion-note>
+          </ion-col>
         </ion-row>
+        <div row col-12>
+          <button ion-button round outline>Поділитися</button>
 
 
-    </ion-grid>
-    <div [ngSwitch]="sentence">
-        <ion-list *ngSwitchCase="'my'">
-            <ion-card>
+          <button ion-button round outline>Відхилити заявку</button>
 
-                <ion-card-content>
+        </div>
 
 
-                    <h2> Будівничі роботи будівничі роботи будівничі роботи
-                        <p>
-                            <wbr>
-                            <i>Ваша заявка розглядається</i></p>
-                    </h2>
+      </ion-card>
 
-                   <div class="data">
-                                      <!--<fa-icon name="camera-retro"></fa-icon> -->
-                                      <fa-icon name="building"></fa-icon> <wbr>&nbsp;ФОП Фортуна
-                                       <br><fa-icon name="calendar"></fa-icon>&nbsp; 21.02.2018 - 18.05.2018
-                                       <span><br><fa-icon name="money"></fa-icon>&nbsp;1200$
-                             <!--<ion-icon md="md-navigate"></ion-icon>-->
-                            &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;Мюнхен</span>
-                                       </div>
+    </ion-list>
+    <ion-list *ngSwitchCase="'all'">
 
-                </ion-card-content>
+      <ion-card>
 
-                <ion-row>
+        <ion-item text-wrap>
+          <ion-avatar item-start>
+            <img src="../assets/imgs/man.png">
+          </ion-avatar>
+          <h3><b>Михайло Андрієвський</b>
 
-                    <ion-col left text-left>
-                        <ion-note>
-                            Розміщено 1 год назад ·&nbsp;54 перегляди
-                        </ion-note>
-                    </ion-col>
-                </ion-row>
-                <div row col-12>
-                    <button ion-button round outline>Поділитися</button>
+            <i>прислав Вам заявку на роботу</i></h3>
 
 
-<button ion-button round outline>Відхилити заявку</button>
-
-                </div>
+        </ion-item>
 
 
-            </ion-card>
-
-        </ion-list>
-        <ion-list *ngSwitchCase="'all'">
-
-            <ion-card>
-
-                <ion-item text-wrap>
-                    <ion-avatar item-start>
-                        <img src="../assets/imgs/man.png">
-                    </ion-avatar>
-                    <h3><b>Михайло Андрієвський</b>
-
-                        <i>прислав Вам заявку на роботу</i></h3>
-
-
-                </ion-item>
-
-
-                <ion-card-content>
-                    <h2> Будівничі роботи</h2>
-                    <div class="data">
-                   <!--<fa-icon name="camera-retro"></fa-icon> -->
-                   <fa-icon name="building"></fa-icon> <wbr>&nbsp;ФОП Фортуна
-                    <br><fa-icon name="calendar"></fa-icon>&nbsp; 21.02.2018 - 18.05.2018
-                    <span><br><fa-icon name="money"></fa-icon>&nbsp;1200$
-          <!--<ion-icon md="md-navigate"></ion-icon>-->
+        <ion-card-content>
+          <h2> Будівничі роботи</h2>
+          <div class="data">
+            <!--<fa-icon name="camera-retro"></fa-icon> -->
+            <fa-icon name="building"></fa-icon>
+            <wbr>&nbsp;ФОП Фортуна
+            <br>
+            <fa-icon name="calendar"></fa-icon>&nbsp; 21.02.2018 - 18.05.2018
+            <span><br><fa-icon name="money"></fa-icon>&nbsp;1200$
+              <!--<ion-icon md="md-navigate"></ion-icon>-->
          &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;Мюнхен</span>
-                    </div>
-                </ion-card-content>
+          </div>
+        </ion-card-content>
 
-                <ion-row>
+        <ion-row>
 
-                    <ion-col left text-left>
-                        <ion-note>
-                            Розміщено 1 год назад · &nbsp;54 перегляди
-                        </ion-note>
-                    </ion-col>
-                </ion-row>
-                <div row col-12>
+          <ion-col left text-left>
+            <ion-note>
+              Розміщено 1 год назад · &nbsp;54 перегляди
+            </ion-note>
+          </ion-col>
+        </ion-row>
+        <div row col-12>
 
-                    <button ion-button round outline color="secondary">Поділитися</button>
+          <button ion-button round outline color="secondary">Поділитися</button>
 
-                    <button ion-button round outline id="orange_button">Подати заявку</button>
-                    <br>
-                </div>
-            </ion-card>
-
-
-            <ion-card>
-
-                <ion-card-content text-wrap>
+          <button ion-button round outline id="orange_button">Подати заявку</button>
+          <br>
+        </div>
+      </ion-card>
 
 
-                    <h2> Будівничі роботи будівничі роботи будівничі роботи</h2>
-                    <div class="data">
-                                       <!--<fa-icon name="camera-retro"></fa-icon> -->
-                                       <fa-icon name="building"></fa-icon> <wbr>&nbsp;ФОП Фортуна
-                                        <br><fa-icon name="calendar"></fa-icon>&nbsp; 21.02.2018 - 18.05.2018
-                                        <span><br><fa-icon name="money"></fa-icon>&nbsp;1200$
-                              <!--<ion-icon md="md-navigate"></ion-icon>-->
-                             &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;Мюнхен</span>
-                                        </div>
+      <!--<ion-card>-->
 
-                </ion-card-content>
-
-                <ion-row>
-
-                    <ion-col left text-left>
-                        <ion-note>
-                            Розміщено 1 год назад · &nbsp;54 перегляди
-                        </ion-note>
-                    </ion-col>
-                </ion-row>
-                <div row col-12>
-                    <button ion-button round outline>Поділитися</button>
-
-                    <button ion-button round outline id="orange_button">Подати заявку</button>
-                </div>
-
-            </ion-card>
-
-<ion-card>
-
-                <ion-card-content text-wrap>
+        <!--<ion-card-content text-wrap>-->
 
 
-                    <h2> Будівничі роботи</h2>
+          <!--<h2> Будівничі роботи будівничі роботи будівничі роботи</h2>-->
+          <!--<div class="data">-->
+            <!--&lt;!&ndash;<fa-icon name="camera-retro"></fa-icon> &ndash;&gt;-->
+            <!--<fa-icon name="building"></fa-icon>-->
+            <!--<wbr>&nbsp;ФОП Фортуна-->
+            <!--<br>-->
+            <!--<fa-icon name="calendar"></fa-icon>&nbsp; 21.02.2018 - 18.05.2018-->
+            <!--<span><br><fa-icon name="money"></fa-icon>&nbsp;1200$-->
+                             <!--&nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;Мюнхен</span>-->
+          <!--</div>-->
+        <!--</ion-card-content>-->
+        <!--<ion-row>-->
+          <!--<ion-col left text-left>-->
+            <!--<ion-note>-->
+              <!--Розміщено 1 год назад · &nbsp;54 перегляди-->
+            <!--</ion-note>-->
+          <!--</ion-col>-->
+        <!--</ion-row>-->
+        <!--<div row col-12>-->
+          <!--<button ion-button round outline>Поділитися</button>-->
 
-                   <div class="data">
-                                      <!--<fa-icon name="camera-retro"></fa-icon> -->
-                                      <fa-icon name="building"></fa-icon> <wbr>&nbsp;ФОП Фортуна
-                                       <br><fa-icon name="calendar"></fa-icon>&nbsp; 21.02.2018 - 18.05.2018
-                                       <span><br><fa-icon name="money"></fa-icon>&nbsp; 1200$
-                             <!--<ion-icon md="md-navigate"></ion-icon>-->
-                            &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;Мюнхен</span>
-                                       </div>
-                    <br><h4>Потрібен чоловік для роботи в Мюнхені(Німеччина). Малярні роботи, кладка плитки. Заробітна плата на напрацювання.</h4>
-                   <!-- <ion-item> <ion-label>Проживання</ion-label> <ion-checkbox checked="true"></ion-checkbox> </ion-item>
-                    <ion-item> <ion-label>Харчування</ion-label> <ion-checkbox checked="true"></ion-checkbox> </ion-item>
-                    <ion-item> <ion-label>Транспортування</ion-label> <ion-checkbox checked="false"></ion-checkbox> </ion-item>-->
-                    <br><div col-xs-auto>
-                    <div class="checks">
-                    <h4>Проживання<fa-icon name="check"></fa-icon></h4>
-                    <h4>Харчування&nbsp;<fa-icon  name="check"></fa-icon></h4>
-                    <h4>Перевезення&nbsp;<fa-icon name="times"></fa-icon></h4>
-                    </div>
-                    </div>
-                </ion-card-content>
+          <!--<button ion-button round outline id="orange_button">Подати заявку</button>-->
+        <!--</div>-->
+      <!--</ion-card>-->
 
-                <ion-row>
+      <ion-card *ngFor=" let job of jobsArr; index as i;" (click)="showDetails(job)" >
+        <div *ngIf="i<scrollLimit">
+        <ion-card-content text-wrap >
+          <h2> {{job.title}}</h2>
+          <div class="data">
+            <fa-icon name="building"></fa-icon>
+            <wbr>&nbsp;ФОП Фортуна
+            <br>
+            <fa-icon name="calendar"></fa-icon>&nbsp; {{job.start_date | date:"dd.MM.yy"}} -
+            {{job.end_date | date:"dd.MM.yy"}}
+            <span><br><fa-icon name="money"></fa-icon>&nbsp; {{job.price | currency}}
+                            &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;{{job.city}}</span>
+          </div>
+          <div *ngIf="job.details">
+            <p margin-vertical>{{job.description}}</p>
+            <div col-xs-auto>
+              <div class="checks">
+                <h4>Проживання
+                  <fa-icon name="check" icon-end></fa-icon>
+                </h4>
+                <h4>Харчування&nbsp;<fa-icon name="check" icon-end></fa-icon>
+                </h4>
+                <h4>Перевезення&nbsp;<fa-icon name="times" icon-end></fa-icon>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </ion-card-content>
+        <ion-row>
+          <ion-col left text-left>
+            <ion-note>
+              Розміщено {{job.created_at | date:"dd.MM.yy"}} · &nbsp; перегляди: {{job.count}}
+            </ion-note>
+          </ion-col>
+        </ion-row>
+        <div row col-12>
+          <button ion-button round outline>Поділитися</button>
+          <button ion-button round outline id="orange_button">Подати заявку</button>
+        </div>
+        </div>
+      </ion-card>
+    </ion-list>
+  </div>
 
-                    <ion-col left text-left>
-                        <ion-note>
-                            Розміщено 1 год назад · &nbsp;54 перегляди
-                        </ion-note>
-                    </ion-col>
-                </ion-row>
-                <div row col-12>
-                    <button ion-button round outline>Поділитися</button>
-
-                    <button ion-button round outline id="orange_button">Подати заявку</button>
-                </div>
-
-            </ion-card>
-        </ion-list>
-
-    </div>
-
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="this.scrollLimit < this.jobsArr.length">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 </ion-content>

@@ -25,7 +25,10 @@ export class MediaProvider {
   }
 
 
-  getMedia(): Promise<any> {
+  getMedia(options: string): Promise<any> {
+    if (options === 'camera'){
+      this.options.sourceType = this.Camera.PictureSourceType.CAMERA;
+    }
     let loader = this.loadingCtrl.create({
       content: "Uploading..."
     });

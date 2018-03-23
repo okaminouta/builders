@@ -83,11 +83,11 @@ export class UserProvider {
     }
   }
 
-  getProfile(data) {
-    //todo remake this funk
-    return this.request.post('http://hire-man.grassbusinesslabs.tk/public/api/base64', data).then((res: any) => {
+  getProfile() {
+    return this.request.get(this.url.profile).then((res: any) => {
       if (res) {
-        console.log(res,'setProfile res')
+        console.log(res,'getProfile res');
+        return res;
       }
     });
 
@@ -95,7 +95,7 @@ export class UserProvider {
   }
 
   setProfile(data: any) {
-    return this.request.post(this.url.profileCreate, data).then((res: any) => {
+    return this.request.post(this.url.profile, data).then((res: any) => {
       if (res) {
         console.log(res,'setProfile res')
       }

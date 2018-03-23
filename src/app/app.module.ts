@@ -39,6 +39,7 @@ import {ProfileAboutMeComponent} from "../components/profile-about-me/profile-ab
 import {ProfileSkilsComponent} from "../components/profile-skils/profile-skils";
 import { ContentProvider } from '../providers/content/content';
 import { MediaProvider } from '../providers/media/media';
+import {CameraOptionsPage} from "../pages/camera-options/camera-options";
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { MediaProvider } from '../providers/media/media';
     FaIconComponent,
     AddSkillModalsPage,
     ProfileAboutMeComponent,
-    ProfileSkilsComponent
+    ProfileSkilsComponent,
+    CameraOptionsPage
   ],
   imports: [
     BrowserModule,
@@ -92,7 +94,8 @@ import { MediaProvider } from '../providers/media/media';
     FaIconComponent,
     AddSkillModalsPage,
     ProfileAboutMeComponent,
-    ProfileSkilsComponent
+    ProfileSkilsComponent,
+    CameraOptionsPage
   ],
   providers: [
     StatusBar,

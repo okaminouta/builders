@@ -26,4 +26,12 @@ export class ContentProvider {
       });
   }
 
+  getJobs () {
+    return this.request.get(this.url.jobs).then((res: any) => {
+      if (res) {
+        return res;
+      }
+    });
+  }
+
 }

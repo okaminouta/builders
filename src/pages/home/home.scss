@@ -2,7 +2,12 @@ page-home {
   //.toolbar-background-md {
   //  background: #081d32;
   //}
-  .scroll-content{
+  .checks {
+    fa-icon {
+      float: right;
+    }
+  }
+  .scroll-content {
     background: #fafafa;
   }
   .toolbar-title {
@@ -83,9 +88,13 @@ page-home {
     color: #182c40;
     font-weight: 540;
   }
-  .card p {
-    color: #f9b707;
-    font-size: 17px;
+  .card {
+    h2 {
+      p {
+        color: #f9b707;
+        font-size: 17px;
+      }
+    }
   }
   .card h2 {
     font-weight: bold;
