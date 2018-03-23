@@ -60,9 +60,8 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
 
   }
-    debugger;
+
   login() {
-    //debugger;
     console.log(this.loginForm)
     if (this.util.credentialsCheck(this.userData) && this.loginForm.valid) {
       this.user.login(this.util.cut(this.userData)).then((res: any) => {

@@ -14,6 +14,7 @@ import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular
   templateUrl: 'add-skill-modals.html',
 })
 export class AddSkillModalsPage {
+  skill: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -21,10 +22,11 @@ export class AddSkillModalsPage {
               public viewCtrl: ViewController) {
 
     this.renderer.setElementClass(viewCtrl.pageRef().nativeElement, 'my-popup', true);
-    console.log('UserId', navParams.get('userId'))
+    console.log('item', navParams.get('item'));
+    this.skill = navParams.get('item')
   }
 
-  skilLavel: number = 1;
+  skilLavel = 1;
   // ionViewDidLoad() {
   //   console.log('ionViewDidLoad AddSkillModalsPage');
   // }
@@ -33,7 +35,8 @@ export class AddSkillModalsPage {
   }
 
   save() {
-    let data = { 'foo': 'bar' };
-    this.viewCtrl.dismiss(data);
+    this.skill.level = this.skilLavel;
+    this.skill.checked = true;
+    this.viewCtrl.dismiss({item: this.skill});
   }
 }

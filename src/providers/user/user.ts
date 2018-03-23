@@ -86,7 +86,14 @@ export class UserProvider {
     }
   }
 
-  getProfile() {
+  getProfile(data) {
+    //todo remake this funk
+    return this.request.post('http://hire-man.grassbusinesslabs.tk/public/api/base64', data).then((res: any) => {
+      if (res) {
+        console.log(res,'setProfile res')
+      }
+    });
+
 
   }
 

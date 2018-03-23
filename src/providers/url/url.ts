@@ -15,7 +15,7 @@ export class UrlProvider {
   signIn: string = this.url + 'login';
   logOut: string = this.url + 'logout';
   support: string = this.url + 'support';
-  getSkills: string = this.url + 'myskill';
+  getSkills: string = this.url + 'skill';
   profileCreate: string = this.url + 'about_me';
   changePass: string = this.url + 'change-pass';
 

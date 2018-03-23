@@ -32,8 +32,17 @@ export class UtilityProvider {
   }
 
   credentialsCheck(data: any) {
+
     if (!data.phone || !data.password){
       this.toast('Заполните все поля', 'alert');
+      return false;
+    }
+    if (data.phone.length != 9){
+      this.toast('Номер телефону має бути 12 цифер', 'alert');
+      return false;
+    }
+    if (data.password.length < 6 || data.password.length > 15 ){
+      this.toast('Пароль має бути 6-15 символів', 'alert');
       return false;
     }
     return true;

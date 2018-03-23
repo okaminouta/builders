@@ -11,6 +11,7 @@ import {Camera} from '@ionic-native/camera';
 import {FormsModule} from '@angular/forms';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { Crop } from '@ionic-native/crop';
+import { Base64 } from '@ionic-native/base64';
 
 import {ProfilePage} from '../pages/profile/profile';
 import {InfoPage} from '../pages/info/info';
@@ -102,6 +103,7 @@ import { MediaProvider } from '../providers/media/media';
     File,
     Camera,
     Crop,
+    Base64,
     UserProvider,
     UrlProvider,
     HttpClient,

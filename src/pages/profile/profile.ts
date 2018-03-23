@@ -7,28 +7,30 @@ import {UtilityProvider} from "../../providers/utility/utility";
   selector: 'page-profile',
   templateUrl: 'profile.html'
 })
-export class ProfilePage implements OnInit{
+export class ProfilePage implements OnInit {
 
 
   editSkills: boolean = false;
   editProfile: boolean = false;
-  cantLeave = true;
-  segmentValue= 'about_me';
+  canLeave = true;
+  segmentValue = 'about_me';
+
   constructor(public navCtrl: NavController,
               private user: UserProvider,
               private util: UtilityProvider) {
 
   }
 
-  ngOnInit () {
+  ngOnInit() {
     this.util.changeTabs.subscribe(
-      (str)=>this.segmentValue = str)
-    this.user.firstEnter().get().then((res)=> {
-      if(res) {
-        this.cantLeave = true;
+      (str) => this.segmentValue = str);
+    this.user.firstEnter().get().then((res) => {
+      if (res) {
+        this.canLeave = false;
         this.editProfile = true;
-      }})
-    this.user.dataChange.subscribe(this.cantLeave = false);
+      }
+    });
+    this.user.dataChange.subscribe(this.canLeave = true);
   }
 
   selectedAllSkills() {
