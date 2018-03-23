@@ -24,6 +24,16 @@ export class ChangePassPage {
 
     return false
   }
+    changePass() {
+        if (this.userData.oldPass === null ||
+            this.userData.newPass === null ||
+            this.userData.confPass === null
+        ) {
+            return true
+        }
+
+        return false
+    }
 
   constructor(public navCtrl: NavController) {
   }

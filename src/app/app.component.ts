@@ -27,7 +27,7 @@ export class MyApp {
       splashScreen.hide();
     });
   }
-
+//debugger
 
 
 }

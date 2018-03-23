@@ -65,6 +65,9 @@ export class UserProvider {
   contacktSupport(data) {
     return this.request.post(this.url.support, data);
   }
+    changePass(data) {
+        return this.request.post(this.url.changePass, data);
+    }
 
   firstEnter() {
     return {
