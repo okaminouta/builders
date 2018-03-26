@@ -21,8 +21,10 @@ export class HomePage {
       console.log('Welcome');
     });
     this.content.getJobs().then(res => {
-      console.log('jobs', res)
-      this.jobsArr = res;
+      if(res){
+        console.log('jobs', res)
+        this.jobsArr = res;
+      }
     })
   }
 
@@ -39,6 +41,7 @@ export class HomePage {
     if (!job.viewed) {
       job.viewed = true;
       job.count++;
+      this.content.counter(job.id);
     }
 
   }
@@ -47,9 +50,5 @@ export class HomePage {
     if(this.scrollLimit < this.jobsArr.length){
       this.scrollLimit +=5;
     }
-
   }
-
-
-
 }

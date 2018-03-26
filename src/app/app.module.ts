@@ -40,6 +40,7 @@ import {ProfileSkilsComponent} from "../components/profile-skils/profile-skils";
 import { ContentProvider } from '../providers/content/content';
 import { MediaProvider } from '../providers/media/media';
 import {CameraOptionsPage} from "../pages/camera-options/camera-options";
+import {JobCardComponent} from "../components/job-card/job-card";
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import {CameraOptionsPage} from "../pages/camera-options/camera-options";
     AddSkillModalsPage,
     ProfileAboutMeComponent,
     ProfileSkilsComponent,
-    CameraOptionsPage
+    CameraOptionsPage,
+    JobCardComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,8 @@ import {CameraOptionsPage} from "../pages/camera-options/camera-options";
     AddSkillModalsPage,
     ProfileAboutMeComponent,
     ProfileSkilsComponent,
-    CameraOptionsPage
+    CameraOptionsPage,
+    JobCardComponent
   ],
   providers: [
     StatusBar,

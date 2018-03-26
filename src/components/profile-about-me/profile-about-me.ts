@@ -35,22 +35,23 @@ export class ProfileAboutMeComponent implements OnChanges {
               private media: MediaProvider,) {
     this.initializeItems();
     this.leaveCheck();
+    this.imageURI = 'assets/imgs/camera.png';
     this.user.getProfile().then(res => {
       if (res) {
-        console.log(res, 'component profile get')
-        this.userData.first_name = res.first_name;
-        this.userData.last_name = res.last_name;
-        this.userData.email = res.email;
-        this.userData.city = res.city;
-        this.userData.passport_id = res.passport_id;
+        this.userData.first_name = res.profile.first_name;
+        this.userData.last_name = res.profile.last_name;
+        this.userData.email = res.profile.email;
+        this.userData.city = res.profile.city;
+        this.userData.passport_id = res.profile.passport_id;
         this.phone = '+380 ' +
-          res.phone.toString().substring(0, 2) +
-          ' ' + res.phone.toString().substring(2, 4) +
-          ' ' + res.phone.toString().substring(4, 6) +
-          ' ' + res.phone.toString().substring(6);
+          res.profile.phone.toString().substring(0, 2) +
+          ' ' + res.profile.phone.toString().substring(2, 4) +
+          ' ' + res.profile.phone.toString().substring(4, 6) +
+          ' ' + res.profile.phone.toString().substring(6);
+        this.imageURI = res.photo_path;
       }
     });
-    this.imageURI = 'assets/imgs/camera.png';
+
   }
 
   leaveCheck() {
@@ -61,13 +62,14 @@ export class ProfileAboutMeComponent implements OnChanges {
 
   photoAddControl() {
     let modal = this.modalCtrl.create(CameraOptionsPage);
-    modal.onDidDismiss(data => {
-      console.log(data, 'modal data');
-        if(data.item === null){
-          this.imageURI = 'assets/imgs/camera.png';
-        } else {
-          this.imageURI = data;
-        }
+    modal.onDidDismiss((data) => {
+      if (data === 'delete') {
+        this.imageURI = 'assets/imgs/camera.png';
+      } else {
+        this.media.getMedia(data).then((res) => {
+          this.imageURI = res;
+        });
+      }
     });
     modal.present()
   }

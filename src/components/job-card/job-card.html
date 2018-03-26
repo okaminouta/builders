@@ -1,0 +1,42 @@
+
+<ion-card (click)="showDetails(job)" >
+
+    <ion-card-content text-wrap >
+      <h2> {{job.title | async}}</h2>
+      <div class="data">
+        <fa-icon name="building"></fa-icon>
+        <wbr>&nbsp;ФОП Фортуна
+        <br>
+        <fa-icon name="calendar"></fa-icon>&nbsp; {{job.start_date | date:"dd.MM.yy"}} -
+        {{job.end_date | date:"dd.MM.yy"}}
+        <span><br><fa-icon name="money"></fa-icon>&nbsp; {{job.price | currency}}
+                            &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;{{job.city}}</span>
+      </div>
+      <div>
+        <p margin-vertical>{{job.description}}</p>
+        <div col-xs-auto>
+          <div class="checks">
+            <h4>Проживання
+              <fa-icon name="check" icon-end></fa-icon>
+            </h4>
+            <h4>Харчування&nbsp;<fa-icon name="check" icon-end></fa-icon>
+            </h4>
+            <h4>Перевезення&nbsp;<fa-icon name="times" icon-end></fa-icon>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+    <ion-row>
+      <ion-col left text-left>
+        <ion-note>
+          Розміщено {{job.created_at | date:"dd.MM.yy"}} · &nbsp; перегляди: {{job.count}}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+    <div row col-12>
+      <button ion-button round outline>Поділитися</button>
+      <button ion-button round outline id="orange_button">Подати заявку</button>
+    </div>
+
+</ion-card>

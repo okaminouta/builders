@@ -28,16 +28,7 @@ export class CameraOptionsPage {
 
   imgUpload(option) {
     console.log(option)
-    if (option === 'delete') {
-      this.image = null;
-    } else {+
-      this.media.getMedia(option).then((res) => {
-        this.image = res;
-        this.viewCtrl.dismiss({item: this.image});
-      });
-    }
-    this.viewCtrl.dismiss({item: this.image});
-
+    this.viewCtrl.dismiss(option);
   }
 
 }

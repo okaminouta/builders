@@ -14,7 +14,7 @@ export class MediaProvider {
     sourceType: this.Camera.PictureSourceType.PHOTOLIBRARY,
     mediaType: this.Camera.MediaType.PICTURE,
     destinationType: this.Camera.DestinationType.FILE_URI
-  }
+  };
 
   constructor(public platform: Platform,
               private Camera: Camera,
@@ -26,14 +26,17 @@ export class MediaProvider {
 
 
   getMedia(options: string): Promise<any> {
-    if (options === 'camera'){
+    if (options === 'camera') {
       this.options.sourceType = this.Camera.PictureSourceType.CAMERA;
+    }else {
+      this.options.sourceType = this.Camera.PictureSourceType.PHOTOLIBRARY;
     }
     let loader = this.loadingCtrl.create({
       content: "Uploading..."
     });
     return this.Camera.getPicture(this.options)
       .then((fileUri) => {
+        loader.present();
         // Only giving an android example as ios-native camera has built in cropping ability
         if (this.platform.is('ios')) {
           return fileUri
@@ -42,7 +45,6 @@ export class MediaProvider {
         }
       })
       .then((path) => {
-        loader.present();
         return path;
       }, (err) => {
         alert(err);

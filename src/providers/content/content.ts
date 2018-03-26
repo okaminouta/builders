@@ -34,4 +34,8 @@ export class ContentProvider {
     });
   }
 
+  counter (id) {
+    return this.request.get(this.url.counter + id);
+  }
+
 }

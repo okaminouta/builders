@@ -38,7 +38,7 @@ export class UserProvider {
   login(data: any) {
     return this.request.post(this.url.signIn, data).then((res: any) => {
       if (res) {
-        this.setUser(res.data);
+        this.setUser(res.user);
         return res;
       }
     });
@@ -98,6 +98,14 @@ export class UserProvider {
     return this.request.post(this.url.profile, data).then((res: any) => {
       if (res) {
         console.log(res,'setProfile res')
+      }
+    });
+  }
+
+  addSkills(data: any) {
+    return this.request.post(this.url.addSkills, data).then((res: any) => {
+      if (res) {
+        console.log(res,'setSkills res')
       }
     });
   }
