@@ -2,7 +2,8 @@ page-info {
   //font-family: Roboto-Medium;
 
   .fa {
-    color: gray;
+    color: #5d6d7d;
+    font-size: 14px;
   }
 
   /*.red_ex button {
@@ -10,10 +11,10 @@ page-info {
 
   }*/
   .red_ex fa-icon {
-    color: red;
+    color: #ee3744;
   }
   .red_ex b {
-    color: red;
+    color: #ee3744;
   }
 
   .info-centre b {
@@ -21,12 +22,18 @@ page-info {
   }
   .item[item-start] {
     margin: 5px 8px 9px 0;
+    font-size: 14px;
   }
   b {
     font-weight: 500;
     //font-family: "Roboto-Medium";
-    font-size: 14px;
+    font-size: 13px;
     color: #454648;
   }
-
+  .item{
+    margin-top: 2px!important;
+  }
+  .list-md[no-lines] .item-block, .list-md[no-lines] ion-item-options, .list-md[no-lines] .item .item-inner{
+    border-bottom: 1px solid #fafafa;
+  }
 }

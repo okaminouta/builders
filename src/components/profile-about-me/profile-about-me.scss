@@ -50,11 +50,16 @@ profile-about-me {
   }
   .row{
     background: white;
+    margin-top: 3px;
+
   }
   .item-input:last-child{
     border-bottom:1px solid transparent!important;
   }
   .first_last_name{
     height: 20px;
+  }
+  .list{
+    margin-top: 4px;
   }
 }

@@ -67,6 +67,10 @@ ion-header {
   }
   .bar-button, .toolbar-title {
     color: white;
+    font-size: 15px;
+  }
+  .bar-button:first-child{
+    font-size: 13px;
   }
 }
 
