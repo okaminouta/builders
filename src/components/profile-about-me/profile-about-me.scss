@@ -20,26 +20,41 @@ profile-about-me {
     margin-left: 15px;
   }
   .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
-    border-bottom-color: transparent;
-    -webkit-box-shadow: inset 0 -1px 0 0 transparent;
-    box-shadow: inset 0 0px 0 0 transparent;
+    border-bottom-color: #fafafa;
+    -webkit-box-shadow: inset 0 -1px 0 0 #fafafa;
+    box-shadow: inset 0 0px 0 0 #fafafa;
   }
   .item.item-input.item-input-has-focus .item-inner, .item-.item-input.item-input-has-focus .item-inner {
-    border-bottom-color: black;
-    -webkit-box-shadow: inset 0 0px 0 0 black;
-    box-shadow: inset 0 0px 0 0 black;
+    border-bottom-color: #fafafa;
+    -webkit-box-shadow: inset 0 0px 0 0 #fafafa;
+    box-shadow: inset 0 0px 0 0 #fafafa;
   }
   .list .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
-    border-bottom-color: transparent;
-    -webkit-box-shadow: inset 0 0px 0 0 transparent;
-    box-shadow: inset 0 0px 0 0 transparent;
+    border-bottom-color: #fafafa;
+    -webkit-box-shadow: inset 0 0px 0 0 #fafafa;
+    box-shadow: inset 0 0px 0 0 #fafafa;
   }
   .list .item-input.item-input-has-focus:last-child, .list .item-input.input-has-focus:last-child {
-    border-bottom-color: black;
-    -webkit-box-shadow: inset 0 0px 0 0 black;
-    box-shadow: inset 0 0px 0 0 black;
+    border-bottom-color: #fafafa;
+    -webkit-box-shadow: inset 0 0px 0 0 #fafafa;
+    box-shadow: inset 0 0px 0 0 #fafafa;
   }
   .item-input-has-focus .label[stacked], .input-has-focus .label[stacked], .item-input-has-focus .label[floating], .input-has-focus .label[floating] {
-    color: black;
+    color: #fafafa;
+  }
+  .item-block .item-inner{
+    border-bottom: 1px solid #fafafa!important;
+  }
+  .item-label-stacked .text-input, .item-label-floating .text-input{
+    color:#fafafa;
+  }
+  .row{
+    background: white;
+  }
+  .item-input:last-child{
+    border-bottom:1px solid transparent!important;
+  }
+  .first_last_name{
+    height: 20px;
   }
 }
