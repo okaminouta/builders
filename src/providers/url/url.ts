@@ -20,6 +20,7 @@ export class UrlProvider {
   jobs: string = this.url + 'jobs';
   counter: string = this.url + 'see_job/';
   addSkills: string = this.url + 'addskill';
+  mySkills: string = this.url + 'myskill';
 
   constructor(public http: HttpClient) {
     console.log('Hello UrlProvider Provider');

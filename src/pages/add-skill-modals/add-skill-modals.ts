@@ -24,9 +24,12 @@ export class AddSkillModalsPage {
     this.renderer.setElementClass(viewCtrl.pageRef().nativeElement, 'my-popup', true);
     console.log('item', navParams.get('item'));
     this.skill = navParams.get('item')
+    if(!this.skill.skillLvl){
+      this.skill.skillLvl = 1;
+    }
   }
 
-  skilLavel = 1;
+  // skilLavel = 1;
   // ionViewDidLoad() {
   //   console.log('ionViewDidLoad AddSkillModalsPage');
   // }
@@ -35,7 +38,6 @@ export class AddSkillModalsPage {
   }
 
   save() {
-    this.skill.level = this.skilLavel;
     this.skill.checked = true;
     this.viewCtrl.dismiss({item: this.skill});
   }

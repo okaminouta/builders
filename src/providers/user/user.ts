@@ -24,7 +24,9 @@ export class UserProvider {
               public storage: Storage) {
     console.log('Hello UserProvider Provider');
   }
+
   @Output() dataChange = new EventEmitter<boolean>();
+
   register(data: any) {
     return this.request.post(this.url.signUp, data).then((res: any) => {
       if (res) {
@@ -86,7 +88,7 @@ export class UserProvider {
   getProfile() {
     return this.request.get(this.url.profile).then((res: any) => {
       if (res) {
-        console.log(res,'getProfile res');
+        console.log(res, 'getProfile res');
         return res;
       }
     });
@@ -97,7 +99,7 @@ export class UserProvider {
   setProfile(data: any) {
     return this.request.post(this.url.profile, data).then((res: any) => {
       if (res) {
-        console.log(res,'setProfile res')
+        console.log(res, 'setProfile res')
       }
     });
   }
@@ -105,8 +107,18 @@ export class UserProvider {
   addSkills(data: any) {
     return this.request.post(this.url.addSkills, data).then((res: any) => {
       if (res) {
-        console.log(res,'setSkills res')
+        console.log(res, 'setSkills res')
       }
     });
   }
+
+  userSkills() {
+    return this.request.get(this.url.mySkills).then((res: any) => {
+      if (res) {
+        console.log(res, 'setSkills res');
+        return res;
+      }
+    })
+  };
+
 }
