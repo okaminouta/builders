@@ -5,5 +5,10 @@ page-help {
   ion-textarea{
     background:white;
   }
-
+  [margin-top] .scroll-content{
+    margin-top: 0;
+  }
+  [padding] h6:first-child{
+  margin-top: 0;
+}
 }

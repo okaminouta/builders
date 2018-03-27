@@ -1,35 +1,49 @@
 <ion-list  padding-horizontal>
   <ion-row>
-    <div col-4 (click)="photoAddControl()" vertical-align-center text-center>
+    <div col-4 (click)="imgUpload()" vertical-align-center text-center>
       <img [src]="imageURI" alt="">
     </div>
     <ion-list col-8>
-      <ion-item>
-        <ion-label floating>Ім'я на англійській мові</ion-label>
+      <!--<ion-item>
+        <ion-label floating>Ім'я</ion-label>
         <ion-input type="text" [(ngModel)]="userData.first_name" [disabled]="!editProfile"></ion-input>
+      </ion-item>-->
+      <div class="first_last_name">
+      <ion-item floating>
+         <ion-input [(ngModel)]="userData.first_name" [disabled]="!editProfile" placeholder="Ім'я" type="text"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label floating>Прізвище на англійській мові</ion-label>
+      <!--<ion-item>
+        <ion-label floating>Прізвище</ion-label>
         <ion-input type="text" [(ngModel)]="userData.last_name" [disabled]="!editProfile"></ion-input>
+      </ion-item>-->
+      <ion-item floating>
+        <ion-input [(ngModel)]="userData.last_name" [disabled]="!editProfile" placeholder="Прізвище" type="text"></ion-input>
       </ion-item>
+      </div>
     </ion-list>
   </ion-row>
   <ion-item no-padding>
-    <ion-label floating>Номер телефону</ion-label>
-    <ion-input type="text" [(ngModel)]="phone" disabled></ion-input>
+    <!--<ion-label floating>Номер телефону</ion-label>-->
+    <ion-input placeholder="Номер телефону" type="text" [(ngModel)]="phone" disabled
+               [brmasker]="{mask:'(00) 00-00-000', len:14, type:'num'}"></ion-input>
     <ion-row class="border">
 
     </ion-row>
   </ion-item>
+  <!--<ion-item>
+                  <!--<ion-label floating class="su-input" >Your name</ion-label>-->
+                  <!--<ion-input [(ngModel)]="phone" disabled
+                  [brmasker]="{mask:'(00) 00-00-000', len:14, type='num'}" ></ion-input>
+                </ion-item>-->
   <ion-item no-padding>
-    <ion-label floating>E-mail</ion-label>
-    <ion-input type="text" [(ngModel)]="userData.email" [disabled]="!editProfile"></ion-input>
+    <!--<ion-label floating>E-mail</ion-label>-->
+    <ion-input placeholder="E-mail" type="text" [(ngModel)]="userData.email" [disabled]="!editProfile"></ion-input>
     <ion-row class="border">
     </ion-row>
   </ion-item>
   <ion-item no-padding>
-    <ion-label floating> Місто</ion-label>
-    <ion-input type="text" [(ngModel)]="userData.city" [disabled]="!editProfile"></ion-input>
+    <!--<ion-label floating> Місто</ion-label>-->
+    <ion-input placeholder="Місто" type="text" [(ngModel)]="userData.city" [disabled]="!editProfile"></ion-input>
     <ion-row class="border">
     </ion-row>
   </ion-item>
@@ -37,15 +51,16 @@
     <ion-label>У мене є закордонний паспорт</ion-label>
     <ion-checkbox color="primary" checked="false" round item-end [(ngModel)]="userData.passport_id" [disabled]="!editProfile"></ion-checkbox>
   </ion-item>
-  <!--<ion-item no-padding>-->
-    <!--<ion-label floating>Ім'я на англійській мові</ion-label>-->
-    <!--<ion-input type="text" [(ngModel)]="userData.first_name_ENG" [disabled]="!editProfile"></ion-input>-->
-  <!--</ion-item>-->
-  <!--<ion-item no-padding>-->
-    <!--<ion-label floating>Прізвище на англійській мові</ion-label>-->
-    <!--<ion-input type="text" [(ngModel)]="userData.last_name_ENG" [disabled]="!editProfile"></ion-input>-->
-  <!--</ion-item>-->
+  <ion-item no-padding>
+    <!--<ion-label floating>Ім'я англійською мовою</ion-label>-->
+
+    <ion-input placeholder="Ім'я англійською мовою" type="text" [(ngModel)]="userData.first_name_ENG" [disabled]="!editProfile"></ion-input>
+  </ion-item>
+  <ion-item no-padding>
+    <!--<ion-label floating>Прізвище англійською мовою</ion-label>-->
+    <ion-input placeholder="Прізвище англійською мовою" type="text" [(ngModel)]="userData.last_name_ENG" [disabled]="!editProfile"></ion-input>
+  </ion-item>
     <button no-padding detail-push  ion-item (click)="presentContactModal()">Змінити пароль</button>
-    <!--<button no-padding detail-push  ion-item (click)="test()">tets</button>-->
+    <button no-padding detail-push  ion-item (click)="test()">tets</button>
 </ion-list>
 

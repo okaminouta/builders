@@ -9,12 +9,14 @@ page-home {
   }
   .scroll-content {
     background: #fafafa;
+    padding-top: 10px!important;
   }
   .toolbar-title {
     color: white;
   }
   .icon-right {
     float: right;
+    font-size: 0.9em;
   }
   ion-navbar {
     background: #2d2d2d !important;
@@ -47,13 +49,14 @@ page-home {
   }*/
   ion-row {
     justify-content: center;
+    margin-right: 2%;
   }
 
   .left_button {
     border: 1px solid black;
     text-transform: none;
     color: #081d32;
-    height: 32px;
+    height: 25px;
     border-radius: 25px 0 0 25px;
     text-transform: none;
     font-weight: bold;
@@ -64,7 +67,7 @@ page-home {
     background: white;
     color: #081d32;
     text-transform: none;
-    height: 32px;
+    height: 25px;
     border-radius: 0 25px 25px 0;
     font-weight: bold;
   }
@@ -80,13 +83,15 @@ page-home {
   .data {
     color: #5d6d7d;
     font-family: 'Roboto';
-    font-size: 17px;
+    font-size: 14px;
+    line-height: 24px;
   }
   .card h4 {
     margin: 0px;
-    font-size: 17px;
+    font-size: 16px;
     color: #182c40;
     font-weight: 540;
+    margin-top: 5px;
   }
   .card {
     h2 {
@@ -98,8 +103,9 @@ page-home {
   }
   .card h2 {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     //font-family: "Roboto";
+    color:#081d32;
   }
   .segment .segment-button.activated, .segment .segment-button.segment-activated {
     background: color($colors, secondary) !important;
@@ -119,7 +125,7 @@ page-home {
 
   .card .note {
     margin: 10px;
-    font-size: 14px;
+    font-size: 13px;
     // font-family: "Roboto";
     font-weight: 200;
   }
@@ -149,26 +155,29 @@ page-home {
   }
   #orange_button {
     border-color: #fdad2a;
+    height: 28px;
+    width: 43%;
 
   }
   #orange_button span {
     color: #fdad2a;
+    font-size: 12px;
   }
   .left_button p {
-    font-size: 14px;
+    font-size: 12px;
 
-    font-weight: bold;
+    //font-weight: bold;
     text-transform: none;
-    margin-top: -2px;
+    margin-top: -8px;
 
   }
 
   .right_button p {
-    font-size: 14px;
+    font-size: 13px;
 
-    font-weight: bold;
+    //font-weight: bold;
     text-transform: none;
-    margin-top: -2px;
+    margin-top: -8px;
   }
   page-home .button-inner {
     margin: 0 13px !important;
@@ -195,27 +204,48 @@ page-home {
   }
   .grid {
     padding: 0;
-    width: 92%;
-  }
-  .data {
-    line-height: 26px;
+    width: 87%;
   }
   .segment .segment-button.segment-activated {
-    height: 32px;
+    height: 25px;
     border-color: transparent;
   }
   .segment .segment-button {
-    height: 32px;
+    height: 25px;
     color: #081d32;
     border-bottom-color: #081d32;
+    font-weight: bold;
   }
   .card h4 h2 {
     // font-family: "Roboto-Bold";
   }
   .label i {
-    // font-size: 13px;
+     font-size: 11px;
   }
-
+  .label{
+   // margin-left: 8px;
+    margin: 11px 8px 8px 0;
+  }
+  .label b{
+    font-size: 12px;
+  }
+  .item{
+    margin-left: 0;
+  }
+#left_button{
+  height: 28px;
+  width: 41%;
+}
+  #left_button span {
+  font-size: 12px;
+  }
+  #disable_button{
+    height: 28px;
+    width: 41%;
+  }
+  #disable_button span{
+    font-size: 12px;
+  }
   @media screen and (max-width: 1920px) {
     .button-outline {
       margin: 0px 65px 0px 65px;

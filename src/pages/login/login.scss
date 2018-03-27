@@ -123,13 +123,13 @@ page-login {
 
   }
   .input_one {
-    height: 85px;
+    height: 69px;
   }
   .valid-button {
     background-color: #ffb130;
   }
   .input_two {
-    height: 85px;
+    height: 69px;
   }
   .forgott a:last-child {
     color: white !important;
@@ -171,7 +171,9 @@ page-login {
   .item .item-block .item :focus{
     border:1px solid black;
   }
-
+a{
+  font-size: 11px;
+}
 
 
 }
