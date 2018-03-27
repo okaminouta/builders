@@ -97,7 +97,7 @@ page-home {
     h2 {
       p {
         color: #f9b707;
-        font-size: 17px;
+        font-size: 14px;
       }
     }
   }
@@ -125,7 +125,7 @@ page-home {
 
   .card .note {
     margin: 10px;
-    font-size: 13px;
+    font-size: 12px;
     // font-family: "Roboto";
     font-weight: 200;
   }
@@ -246,6 +246,7 @@ page-home {
   #disable_button span{
     font-size: 12px;
   }
+
   @media screen and (max-width: 1920px) {
     .button-outline {
       margin: 0px 65px 0px 65px;
