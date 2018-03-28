@@ -15,6 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FriendsPage {
   showSearchbar: boolean = false;
+    sentence: string = 'friends';
+
 
   imageURI:any;
 

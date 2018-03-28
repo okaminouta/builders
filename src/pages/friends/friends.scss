@@ -1,6 +1,6 @@
 page-friends {
   ion-title {
-    ion-icon{
+    ion-icon {
       float: right;
     }
   }
@@ -16,4 +16,90 @@ page-friends {
   .searchbar .searchbar-search-icon {
     color: white;
   }
+  .left_button {
+    border: 1px solid black;
+    text-transform: none;
+    color: #081d32;
+    height: 25px;
+    border-radius: 25px 0 0 25px;
+    text-transform: none;
+    font-weight: bold;
+  }
+  .right_button {
+    border: 1px solid black;
+    background: white;
+    color: #081d32;
+    text-transform: none;
+    height: 30px;
+    border-radius: 0 25px 25px 0;
+    font-weight: bold;
+  }
+  .left_button p {
+    font-size: 12px;
+
+    //font-weight: bold;
+    text-transform: none;
+    margin-top: -8px;
+
+  }
+
+  .right_button p {
+    font-size: 12px;
+
+    //font-weight: bold;
+    text-transform: none;
+    margin-top: -8px;
+  }
+  .segment .segment-button {
+    height: 30px;
+    color: #081d32;
+    border-bottom-color: #081d32;
+    font-weight: bold;
+  }
+  .segment .segment-button.activated, .segment .segment-button.segment-activated {
+    background: color($colors, secondary) !important;
+    color: white !important;
+    font-weight: 600 !important;
+
+  }
+  ion-row {
+    justify-content: center;
+    margin-right: 2%;
+  }
+  .scroll-content {
+    background: #fafafa;
+    padding-top: 0px !important;
+  }
+  .segment .segment-button.segment-activated {
+    border-color: #fafafa;
+  }
+  .segment .segment-button.segment-activated {
+    height: 25px;
+    border-color: transparent;
+  }
+  .segment .segment-button {
+    height: 25px;
+    color: #081d32;
+    border-bottom-color: #081d32;
+    font-weight: bold;
+  }
+  fa-icon {
+    color: #5d6d7d;
+  }
+  .item.item-block .item-inner {
+    border-bottom: 1px solid #fafafa;
+  }
+  .item h2 {
+    font-size: 12px;
+  }
+
+  .contact_list {
+    margin-top: 4%;
+  }
+  .contact_list h2 {
+    font-size: 13px;
+    font-weight: bold;
+    color: #515254;
+  }
+
 }

@@ -18,13 +18,98 @@
 
 
 <ion-content padding-vertical>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-segment [(ngModel)]="sentence">
+          <ion-segment-button class="left_button" value="friends">
+            <p>Друзі</p>
+          </ion-segment-button>
+          <ion-segment-button class="right_button" value="contacts">
+            <p>Контакти</p>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+ <div [ngSwitch]="sentence">
+    <ion-list *ngSwitchCase="'friends'">
     <ion-list>
+
     <ion-item-sliding>
+
+      <ion-item>
+        <h2><fa-icon name="user-plus"></fa-icon>&nbsp;&nbsp;&nbsp;Додати друга</h2>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="primary">
+          <ion-icon name="text"></ion-icon>
+          Text
+        </button>
+        <button ion-button color="secondary">
+          <ion-icon name="call"></ion-icon>
+          Call
+        </button>
+      </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button color="primary">
+          <ion-icon name="mail"></ion-icon>
+          Email
+        </button>
+      </ion-item-options>
+    </ion-item-sliding> <ion-item-sliding>
+      <ion-item>
+        <h2><fa-icon name="users"></fa-icon>&nbsp;&nbsp;&nbsp;Запросити друга</h2>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="primary">
+          <ion-icon name="text"></ion-icon>
+          Text
+        </button>
+        <button ion-button color="secondary">
+          <ion-icon name="call"></ion-icon>
+          Call
+        </button>
+      </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button color="primary">
+          <ion-icon name="mail"></ion-icon>
+          Email
+        </button>
+      </ion-item-options>
+    </ion-item-sliding> <ion-item-sliding>
+      <ion-item>
+        <h2><fa-icon name="suitcase"></fa-icon>&nbsp; &nbsp;&nbsp;Запропонувати пропозицію</h2>
+      </ion-item>
+
+
+      <ion-item-options side="left">
+        <button ion-button color="primary">
+          <ion-icon name="text"></ion-icon>
+          Text
+        </button>
+        <button ion-button color="secondary">
+          <ion-icon name="call"></ion-icon>
+          Call
+        </button>
+      </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button color="primary">
+          <ion-icon name="mail"></ion-icon>
+          Email
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <div class="contact_list">
+    <ion-item-sliding>
+
       <ion-item>
         <ion-avatar item-start>
           <img [src]="imageURI">
         </ion-avatar>
-        <h2>Man Man</h2>
+        <h2>Михайло Андрієвський</h2>
       </ion-item>
       <ion-item-options side="left">
         <button ion-button color="primary">
@@ -47,7 +132,7 @@
         <ion-avatar item-start>
           <img [src]="imageURI">
         </ion-avatar>
-        <h2>Man Comrade</h2>
+        <h2>Євгеній Ільченко</h2>
       </ion-item>
       <ion-item-options side="left">
         <button ion-button color="primary">
@@ -70,76 +155,7 @@
         <ion-avatar item-start>
           <img [src]="imageURI">
         </ion-avatar>
-        <h2>Man Amigo</h2>
-      </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="primary">
-          <ion-icon name="text"></ion-icon>
-          Text
-        </button>
-        <button ion-button color="secondary">
-          <ion-icon name="call"></ion-icon>
-          Call
-        </button>
-      </ion-item-options>
-      <ion-item-options side="right">
-        <button ion-button color="primary">
-          <ion-icon name="mail"></ion-icon>
-          Email
-        </button>
-      </ion-item-options>
-    </ion-item-sliding> <ion-item-sliding>
-      <ion-item>
-        <ion-avatar item-start>
-          <img [src]="imageURI">
-        </ion-avatar>
-        <h2>Man Muchacho</h2>
-      </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="primary">
-          <ion-icon name="text"></ion-icon>
-          Text
-        </button>
-        <button ion-button color="secondary">
-          <ion-icon name="call"></ion-icon>
-          Call
-        </button>
-      </ion-item-options>
-      <ion-item-options side="right">
-        <button ion-button color="primary">
-          <ion-icon name="mail"></ion-icon>
-          Email
-        </button>
-      </ion-item-options>
-    </ion-item-sliding> <ion-item-sliding>
-      <ion-item>
-        <ion-avatar item-start>
-          <img [src]="imageURI">
-        </ion-avatar>
-        <h2>Man Compadre</h2>
-      </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="primary">
-          <ion-icon name="text"></ion-icon>
-          Text
-        </button>
-        <button ion-button color="secondary">
-          <ion-icon name="call"></ion-icon>
-          Call
-        </button>
-      </ion-item-options>
-      <ion-item-options side="right">
-        <button ion-button color="primary">
-          <ion-icon name="mail"></ion-icon>
-          Email
-        </button>
-      </ion-item-options>
-    </ion-item-sliding> <ion-item-sliding>
-      <ion-item>
-        <ion-avatar item-start>
-          <img [src]="imageURI">
-        </ion-avatar>
-        <h2>Man Guy</h2>
+        <h2>Сергій Мусієнко</h2>
       </ion-item>
       <ion-item-options side="left">
         <button ion-button color="primary">
@@ -162,7 +178,7 @@
         <ion-avatar item-start>
           <img src="{{imageURI}}">
         </ion-avatar>
-        <h2>Man Bro</h2>
+        <h2>Олександр Робочий</h2>
       </ion-item>
       <ion-item-options side="left">
         <button ion-button color="primary">
@@ -181,6 +197,17 @@
         </button>
       </ion-item-options>
     </ion-item-sliding>
+    <ion-item>
+            <ion-avatar item-start>
+              <img src="{{imageURI}}">
+            </ion-avatar>
+            <h2>Кирило Мітченко</h2>
+          </ion-item>
+          </div>
+
   </ion-list>
 
+</ion-list>
+
+</div>
 </ion-content>

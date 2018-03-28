@@ -51,15 +51,15 @@
     <ion-label>У мене є закордонний паспорт</ion-label>
     <ion-checkbox color="primary" checked="false" round item-end [(ngModel)]="userData.passport_id" [disabled]="!editProfile"></ion-checkbox>
   </ion-item>
-  <ion-item no-padding>
+ <!-- <ion-item no-padding>-->
     <!--<ion-label floating>Ім'я англійською мовою</ion-label>-->
 
-    <ion-input placeholder="Ім'я англійською мовою" type="text" [(ngModel)]="userData.first_name_ENG" [disabled]="!editProfile"></ion-input>
-  </ion-item>
-  <ion-item no-padding>
+    <!--<ion-input placeholder="Ім'я англійською мовою" type="text" [(ngModel)]="userData.first_name_ENG" [disabled]="!editProfile"></ion-input>-->
+  <!--</ion-item>-->
+ <!-- <ion-item no-padding>-->
     <!--<ion-label floating>Прізвище англійською мовою</ion-label>-->
-    <ion-input placeholder="Прізвище англійською мовою" type="text" [(ngModel)]="userData.last_name_ENG" [disabled]="!editProfile"></ion-input>
-  </ion-item>
+    <!--<ion-input placeholder="Прізвище англійською мовою" type="text" [(ngModel)]="userData.last_name_ENG" [disabled]="!editProfile"></ion-input>-->
+  <!--</ion-item>-->
     <button no-padding detail-push  ion-item (click)="presentContactModal()">Змінити пароль</button>
     <button no-padding detail-push  ion-item (click)="test()">tets</button>
 </ion-list>
