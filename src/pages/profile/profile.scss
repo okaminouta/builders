@@ -14,31 +14,30 @@ page-profile {
   /* ion-segment {
      margin-top: 12px;
    }*/
-  .item-label-stacked .text-input-md, .item-label-floating .text-input-md{
+  .item-label-stacked .text-input-md, .item-label-floating .text-input-md {
     margin-bottom: 9px;
   }
-  .label[stacked], .label[floating]{
-  margin-left: 15px;
-}
-  .button-inner span{
+  .label[stacked], .label[floating] {
     margin-left: 15px;
   }
-  [col-6]{
+  .button-inner span {
+    margin-left: 15px;
+  }
+  [col-6] {
     margin-bottom: 1px;
   }
-  [col-8]{
+  [col-8] {
     padding: 0;
   }
-  [col-4]{
+  [col-4] {
     background: white;
-   // height: 90%;
-  //  margin: 5px 0;
+    // height: 90%;
+    //  margin: 5px 0;
     padding: 0;
   }
-  .scroll-content{
+  .scroll-content {
     background: #fafafa;
-    padding-top: 2px!important;
-    // margin for tabs
+    padding-top: 0px !important;
     margin-bottom: 0 !important;
   }
   img{
@@ -161,7 +160,7 @@ page-profile {
   //.toolbar-background p {
   //  background: white;
   //}
-  .segment .segment-button.segment-activate{
+  .segment .segment-button.segment-activate {
     font-weight: bold;
   }
 
