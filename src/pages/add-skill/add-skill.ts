@@ -60,7 +60,7 @@ export class AddSkillPage {
           });
         }
       });
-      console.log({skills:idsArr});
+      console.log(idsArr);
       this.user.addSkills({skills:idsArr});
     }
 }

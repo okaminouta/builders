@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController} from 'ionic-angular';
+import {UserProvider} from "../../providers/user/user";
 
 @IonicPage()
 @Component({
@@ -18,24 +19,22 @@ export class ChangePassPage {
     if (this.userData.oldPass === null ||
       this.userData.newPass === null ||
       this.userData.confPass === null
-      ) {
+    ) {
       return true
     }
 
     return false
   }
-    changePass() {
-        if (this.userData.oldPass === null ||
-            this.userData.newPass === null ||
-            this.userData.confPass === null
-        ) {
-            return true
-        }
 
-        return false
-    }
+  changePass() {
+    this.user.changePass({
+      old_password: this.userData.oldPass,
+      new_password: this.userData.newPass
+    });
+  }
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public user: UserProvider) {
   }
 
   ionViewDidLoad() {

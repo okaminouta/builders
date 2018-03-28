@@ -18,7 +18,7 @@
         Поддержка
       </ion-title>
       <ion-buttons ion-col text-end>
-        <button ion-button text-capitalize [disabled]="credCheck()">
+        <button ion-button text-capitalize [disabled]="credCheck()" (click)="changePass()">
           Сохранить
         </button>
       </ion-buttons>

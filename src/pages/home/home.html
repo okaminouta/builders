@@ -25,7 +25,7 @@
           <ion-segment-button class="left_button" value="all">
             <p>Всі</p>
           </ion-segment-button>
-          <ion-segment-button class="right_button" value="my">
+          <ion-segment-button class="right_button" value="my" (click)="getMyJobs()">
             <p>Мої</p>
           </ion-segment-button>
         </ion-segment>
@@ -35,38 +35,48 @@
   </ion-grid>
   <div [ngSwitch]="sentence">
     <ion-list *ngSwitchCase="'my'">
-      <ion-card>
-        <ion-card-content>
-          <h2> Будівничі роботи будівничі роботи будівничі роботи
-            <p>
-              <wbr>
-              <i>Ваша заявка розглядається</i></p>
-          </h2>
-          <div class="data">
-            <!--<fa-icon name="camera-retro"></fa-icon> -->
-            <fa-icon name="building"></fa-icon>
-            <wbr>&nbsp;ФОП Фортуна
-            <br>
-            <fa-icon name="calendar"></fa-icon>&nbsp; 21.02.2018 - 18.05.2018
-            <span><br><fa-icon name="money"></fa-icon>&nbsp;1200$
-                            &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;Мюнхен</span>
+      <ion-card *ngFor=" let job of myJobsArr; index as i;" (click)="showDetails(job)" >
+        <div *ngIf="i<scrollLimit">
+          <ion-card-content text-wrap >
+            <h2> {{job.title}}
+              <p>
+                <wbr>
+                <i>Ваша заявка розглядається</i></p></h2>
+            <div class="data">
+              <fa-icon name="building"></fa-icon>
+              <wbr>&nbsp;ФОП Фортуна
+              <br>
+              <fa-icon name="calendar"></fa-icon>&nbsp; {{job.start_date | date:"dd.MM.yy"}} -
+              {{job.end_date | date:"dd.MM.yy"}}
+              <span><br><fa-icon name="money"></fa-icon>&nbsp; {{job.price }}$
+                            &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;{{job.city}}</span>
+            </div>
+            <div *ngIf="job.details">
+              <p margin-vertical>{{job.description}}</p>
+              <div col-xs-auto>
+                <div class="checks">
+                  <h4>Проживання
+                    <fa-icon name="check" icon-end></fa-icon>
+                  </h4>
+                  <h4>Харчування&nbsp;<fa-icon name="check" icon-end></fa-icon>
+                  </h4>
+                  <h4>Перевезення&nbsp;<fa-icon name="times" icon-end></fa-icon>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </ion-card-content>
+          <ion-row>
+            <ion-col left text-left>
+              <ion-note>
+                Розміщено {{job.created_at | date:"dd.MM.yy"}} · &nbsp; перегляди: {{job.count}}
+              </ion-note>
+            </ion-col>
+          </ion-row>
+          <div row col-12>
+            <button ion-button round outline id="left_button">Поділитися</button>
+            <button ion-button round outline id="disable_button">Відхилити заявку</button>
           </div>
-        </ion-card-content>
-
-                <ion-row>
-
-                    <ion-col left text-left>
-                        <ion-note>
-                            Розміщено 1 год назад ·&nbsp;54 перегляди
-                        </ion-note>
-                    </ion-col>
-                </ion-row>
-                <div row col-12>
-                    <button ion-button round outline id="left_button">Поділитися</button>
-
-
-<button ion-button round outline id="disable_button">Відхилити заявку</button>
-
         </div>
       </ion-card>
 
@@ -146,9 +156,9 @@
 <!--<job-card ngFor=" let job of jobsArr; index as i;"  [job]="job"-->
           <!--&gt;</job-card>-->
       <!--todo remake it if doesnt work-->
-      <ion-card *ngFor=" let job of jobsArr; index as i;" (click)="showDetails(job)" >
+      <ion-card *ngFor=" let job of jobsArr; index as i;"  >
         <div *ngIf="i<scrollLimit">
-        <ion-card-content text-wrap >
+        <ion-card-content text-wrap (click)="showDetails(job)">
           <h2> {{job.title}}</h2>
           <div class="data">
             <fa-icon name="building"></fa-icon>
@@ -183,7 +193,7 @@
         </ion-row>
         <div row col-12>
           <button ion-button round outline id="left_button">Поділитися</button>
-          <button ion-button round outline id="orange_button">Подати заявку</button>
+          <button ion-button round outline id="orange_button" (click)="toMyJobs(job)">Подати заявку</button>
         </div>
         </div>
       </ion-card>

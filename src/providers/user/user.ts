@@ -100,7 +100,7 @@ export class UserProvider {
   }
 
   setProfile(data: any) {
-    return this.request.post(this.url.profile, data).then((res: any) => {
+    return this.request.post(this.url.setProfile, data).then((res: any) => {
       if (res) {
         console.log(res, 'setProfile res')
       }
@@ -123,5 +123,24 @@ export class UserProvider {
       }
     })
   };
+
+  myJobs () {
+    return this.request.get(this.url.myjobs).then((res: any) => {
+      if (res) {
+        console.log(res, 'my jobs res');
+        return res;
+      }
+    })
+  };
+
+  applyForJob (id: any) {
+    return this.request.post(this.url.applyForJob, {
+      job_id: id
+    }).then((res: any) => {
+      if (res) {
+        console.log(res, 'applyForJob res')
+      }
+    });
+  }
 
 }

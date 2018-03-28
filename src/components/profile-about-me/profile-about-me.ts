@@ -19,7 +19,7 @@ export class ProfileAboutMeComponent implements OnChanges {
   segmentValue;
   userData: any;
   city: string;
-  imageURI: any;
+  imageURI: any = null;
   phone;
 
   // disableFields: boolean = true;
@@ -27,6 +27,7 @@ export class ProfileAboutMeComponent implements OnChanges {
   showList: boolean = false;
   searchQuery: string = '';
   items: string[];
+  defaultImg: string;
 
   constructor(public navCtrl: NavController,
               public util: UtilityProvider,
@@ -35,7 +36,7 @@ export class ProfileAboutMeComponent implements OnChanges {
               private media: MediaProvider,) {
     this.initializeItems();
     this.leaveCheck();
-    this.imageURI = 'assets/imgs/camera.png';
+    this.defaultImg = 'assets/imgs/camera.png';
     this.user.getProfile().then(res => {
       if (res) {
         this.userData.first_name = res.profile.first_name;
@@ -48,10 +49,11 @@ export class ProfileAboutMeComponent implements OnChanges {
           ' ' + res.profile.phone.toString().substring(2, 4) +
           ' ' + res.profile.phone.toString().substring(4, 6) +
           ' ' + res.profile.phone.toString().substring(6);
-        this.imageURI = res.photo_path;
+        if(res.photo_path != null){
+          this.imageURI = res.photo_path;
+        }
       }
     });
-
   }
 
   leaveCheck() {
@@ -78,7 +80,16 @@ export class ProfileAboutMeComponent implements OnChanges {
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     if (!changes.editProfile.firstChange && !this.editProfile) {
       console.log(this.userData)
-      this.user.setProfile(this.userData);
+      alert(this.imageURI);
+      this.user.setProfile({
+        first_name:this.userData.first_name,
+        last_name: this.userData.last_name,
+        email: this.userData.email,
+        city: this.userData.city,
+        photo: this.imageURI,
+        passpost_id: this.userData.passpost_id
+      }).then( (res)=> {
+      });
       this.user.firstEnter().get().then((res) => {
         if (res) {
           this.util.toast('Заповніть вашы навички', 'alert');
@@ -107,7 +118,7 @@ export class ProfileAboutMeComponent implements OnChanges {
       email: null,
       city: null,
       passport_id: false,
-      photo: this.imageURI || null
+      photo_id: this.imageURI
     }
   }
 
