@@ -56,7 +56,7 @@ export class ProfileAboutMeComponent implements OnChanges {
 
   leaveCheck() {
     if (this.userData.first_name === null || this.userData.last_name === null) {
-      this.util.toast('Заповніть данні профіля', 'alert')
+      this.util.toast('Заповніть дані профіля', 'alert')
     }
   }
 
@@ -81,7 +81,7 @@ export class ProfileAboutMeComponent implements OnChanges {
       this.user.setProfile(this.userData);
       this.user.firstEnter().get().then((res) => {
         if (res) {
-          this.util.toast('Заповніть вашы навички', 'alert');
+          this.util.toast('Заповніть ваші навички', 'alert');
           this.util.changeTab('skills');
         }
       })

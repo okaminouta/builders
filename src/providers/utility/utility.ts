@@ -34,11 +34,11 @@ export class UtilityProvider {
   credentialsCheck(data: any) {
 
     if (!data.phone || !data.password){
-      this.toast('Заполните все поля', 'alert');
+      this.toast('Заповніть всі поля', 'alert');
       return false;
     }
     if (data.phone.length != 9){
-      this.toast('Номер телефону має бути 12 цифер', 'alert');
+      this.toast('Номер телефону має бути 12 цифр', 'alert');
       return false;
     }
     if (data.password.length < 6 || data.password.length > 15 ){
