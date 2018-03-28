@@ -27,7 +27,7 @@ export class UrlProvider {
   changePass: string = this.url + 'reset_password';
   myjobs: string = this.url + 'myjobs';
   applyForJob: string = this.url + 'addorder';
-  escapeJob: string = this.url + 'destroyorder/';
+  escapeJob: string = this.url + 'deleteorder/';
 
   constructor(public http: HttpClient) {
     console.log('Hello UrlProvider Provider');
