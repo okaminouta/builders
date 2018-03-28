@@ -3,6 +3,7 @@ import {AlertController, IonicPage, NavController, NavParams, ModalController} f
 import {AddSkillModalsPage} from "../add-skill-modals/add-skill-modals";
 import {ContentProvider} from "../../providers/content/content";
 import {UserProvider} from "../../providers/user/user";
+import {SliderPage} from "../slider/slider";
 
 /**
  * Generated class for the AddSkillPage page.
@@ -18,6 +19,7 @@ import {UserProvider} from "../../providers/user/user";
 })
 export class AddSkillPage {
   skillsArr=[];
+
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public user: UserProvider,
@@ -55,12 +57,17 @@ export class AddSkillPage {
       this.skillsArr.forEach( (item) => {
         if(item.checked){
           idsArr.push({
-            id: item.id,
-            level: item.level
+            skill_id: item.id,
+            level: item.skillLvl
           });
         }
       });
       console.log(idsArr);
-      this.user.addSkills({skills:idsArr});
+      this.user.addSkills(idsArr).then( (res) => {
+        if (res) {
+          debugger
+          this.goBack();
+        }
+      })
     }
 }

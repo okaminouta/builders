@@ -21,8 +21,8 @@
         </ion-item>
 
         <!--<div class="valid">-->
-       <!--<span><ion-item *ngIf="validation(registerForm).phone()">-->
-          <!--{{validation(registerForm).phone()}}-->
+        <!--<span><ion-item *ngIf="validation(registerForm).phone()">-->
+        <!--{{validation(registerForm).phone()}}-->
         <!--</ion-item></span>-->
         <!--</div>-->
       </div>
@@ -43,9 +43,9 @@
           </ion-item>
 
           <!--<div class="valid">-->
-            <!--<ion-item *ngIf="validation(registerForm).password()">-->
-              <!--{{validation(registerForm).password()}}-->
-            <!--</ion-item>-->
+          <!--<ion-item *ngIf="validation(registerForm).password()">-->
+          <!--{{validation(registerForm).password()}}-->
+          <!--</ion-item>-->
           <!--</div>-->
         </div>
       </div>
@@ -54,7 +54,11 @@
       <button ion-button
               round
               (click)="register()"
-              >Зареєструватися
+              ngClass="{{ (userData.phone !== null &&
+               userData.password !== null &&
+               userData.phone.length === 9 &&
+               userData.password.length > 5) ? 'auth-active-button' : '' }}">
+        Зареєструватися
         <!--ngClass="{{registerForm.valid ? 'valid-button' : ''}}"-->
       </button>
 

@@ -35,7 +35,6 @@ export class ProfileAboutMeComponent implements OnChanges {
               private user: UserProvider,
               private media: MediaProvider,) {
     this.initializeItems();
-    this.leaveCheck();
     this.defaultImg = 'assets/imgs/camera.png';
     this.user.getProfile().then(res => {
       if (res) {
@@ -53,7 +52,9 @@ export class ProfileAboutMeComponent implements OnChanges {
           this.imageURI = res.photo_path;
         }
       }
+      this.leaveCheck();
     });
+
   }
 
   leaveCheck() {

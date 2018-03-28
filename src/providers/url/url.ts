@@ -21,11 +21,13 @@ export class UrlProvider {
   jobs: string = this.url + 'jobs';
   counter: string = this.url + 'see_job/';
   addSkills: string = this.url + 'addskill';
+  deleteSkills: string = this.url + 'deleteskill';
   mySkills: string = this.url + 'myskill';
   profileCreate: string = this.url + 'about_me';
   changePass: string = this.url + 'reset_password';
   myjobs: string = this.url + 'myjobs';
   applyForJob: string = this.url + 'addorder';
+  escapeJob: string = this.url + 'destroyorder/';
 
   constructor(public http: HttpClient) {
     console.log('Hello UrlProvider Provider');

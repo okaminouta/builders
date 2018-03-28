@@ -23,8 +23,12 @@ export class HomePage {
       // user and time are the same arguments passed in `events.publish(user, time)`
       console.log('Welcome');
     });
+    this.loadJobs();
+  }
+
+  loadJobs() {
     this.content.getJobs().then(res => {
-      if(res){
+      if (res) {
         console.log('jobs', res)
         this.jobsArr = res;
       }
@@ -33,13 +37,19 @@ export class HomePage {
 
   getMyJobs() {
     console.log('my jobs');
-    this.user.myJobs().then((res)=> {
+    this.user.myJobs().then((res) => {
       this.myJobsArr = res;
     })
   }
 
-  toMyJobs (job) {
+  toMyJobs(job) {
     this.user.applyForJob(job.id);
+  }
+
+  escapeJob (job) {
+    console.log(this.myJobsArr.indexOf(job),'job')
+    this.myJobsArr.splice(this.myJobsArr.indexOf(job), 1);
+    this.user.escapeJob(job.id);
   }
 
   hideSBar() {
@@ -61,8 +71,8 @@ export class HomePage {
   }
 
   doInfinite(infiniteScroll) {
-    if(this.scrollLimit < this.jobsArr.length){
-      this.scrollLimit +=5;
+    if (this.scrollLimit < this.jobsArr.length) {
+      this.scrollLimit += 5;
     }
   }
 }

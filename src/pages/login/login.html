@@ -3,7 +3,7 @@
     <ion-col col-sm-9>
       <!--<form [formGroup]="loginForm">-->
         <div class="input_one">
-          <ion-item>
+          <ion-item focus>
             <!--<ion-input type="text"
                        formControlName="phone"
                        [(ngModel)]="userData.phone"
@@ -54,6 +54,10 @@
 
       <button ion-button
               round
+              ngClass="{{ (userData.phone !== null &&
+               userData.password !== null &&
+               userData.phone.length === 9 &&
+               userData.password.length > 5) ? 'auth-active-button' : '' }}"
               (click)="login()">увійти
         <!--ngClass="{{loginForm.valid ? 'valid-button' : ''}}"-->
       </button>

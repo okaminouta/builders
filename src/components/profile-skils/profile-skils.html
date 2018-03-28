@@ -16,6 +16,7 @@
               item-end>Змiнити</button>
       <ion-checkbox color="pimary"
                     *ngIf="editSkills"
+                    (click)="checkSkill(skill)"
                     item-end></ion-checkbox>
     </ion-item>
   </ion-card-content>
@@ -26,12 +27,13 @@
     <ion-icon name="add" color="white"></ion-icon>
   </button>
 </ion-fab>
-
-<ion-footer text-center *ngIf="editSkills">
+<!--ngClass="{{skillsArr.length === 0 ? '' : 'custom-margin'}}"-->
+<ion-footer text-center *ngIf="editSkills" ngClass="{{registrationIsFinished ? 'above-tabs' : 'bottom'  }}">
     <button ion-button
             no-margin
             color="white"
             class="futer-button"
+            (click)="deleteSkills()"
             col-12>Видалити вибрані</button>
 </ion-footer>
 

@@ -74,10 +74,10 @@ export class UserProvider {
   firstEnter() {
     return {
       setTrue: () => {
-        this.storage.set('firstEnter', true);
+        this.storage.set('firstEnter', 'Unfinished');
       },
       setFalse: () => {
-        this.storage.set('firstEnter', false);
+        this.storage.set('firstEnter', 'Finished');
         this.dataChange.emit(false);
       },
       get: () => {
@@ -115,6 +115,14 @@ export class UserProvider {
     });
   }
 
+  deleteSkills(data: any) {
+    return this.request.post(this.url.deleteSkills, data).then((res: any) => {
+      if (res) {
+        console.log(res, 'deleteSkills res')
+      }
+    });
+  }
+
   userSkills() {
     return this.request.get(this.url.mySkills).then((res: any) => {
       if (res) {
@@ -139,6 +147,14 @@ export class UserProvider {
     }).then((res: any) => {
       if (res) {
         console.log(res, 'applyForJob res')
+      }
+    });
+  }
+
+  escapeJob (id: any) {
+    return this.request.post(this.url.escapeJob + id,{}).then((res: any) => {
+      if (res) {
+        console.log(res, 'escape job res')
       }
     });
   }

@@ -41,6 +41,7 @@ import { ContentProvider } from '../providers/content/content';
 import { MediaProvider } from '../providers/media/media';
 import {CameraOptionsPage} from "../pages/camera-options/camera-options";
 import {JobCardComponent} from "../components/job-card/job-card";
+import {FocusDirective} from "../directives/focus/focus";
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import {JobCardComponent} from "../components/job-card/job-card";
     LoginPage,
     SignUpPage,
     Mask,
+    FocusDirective,
     FriendsPage,
     SliderPage,
     AboutPage,
