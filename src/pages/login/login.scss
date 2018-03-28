@@ -13,7 +13,8 @@ page-login {
   ion-content {
     ion-row {
       //margin-top: calc(100% - 60%);
-      height: calc(100% - 1%);
+     // height: calc(100% - 1%);
+      margin: 42% auto;
     }
   }
 
@@ -60,7 +61,11 @@ page-login {
   }
   .pass-icon {
     z-index: 99;
+   // color: black;
   }
+   .item ion-icon[item-right]{
+     color: rgba(78, 78, 83, 0.68)!important;
+   }
   [col-sm-9] {
     margin-left: 10%;
 
@@ -168,12 +173,21 @@ page-login {
     border: none;
     margin-top: 2px;
   }
-  .item .item-block .item :focus{
-    border:1px solid black;
+  .item {
+   // border:1px solid black;
+    //border:2px solid rgba(55, 55, 55 ,1) !important;margin-left:5px !important;padding:12px !important;background-color: rgba(255, 188, 8, 0.75) !important;border-radius: 8px !important;
   }
 a{
   font-size: 11px;
 }
 
-
+  .item-input-has-focus {
+    border: 1px solid black;
+  }
+.item-has-focus{
+  border:1px solid black;
+}
+input-cover:active{
+  border:1px solid black;
+}
 }

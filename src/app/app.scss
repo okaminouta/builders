@@ -24,25 +24,30 @@
   font-family: "Roboto-Light ";
   font-style: normal;
   font-weight: 300;
-  src: local("roboto light"), local("roboto-light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("roboto light"), local("roboto-light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff");
+}
 
 @font-face {
   font-family: "Roboto-Regular";
   font-style: normal;
   font-weight: 400;
-  src: local("roboto"), local("roboto-regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("roboto"), local("roboto-regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff");
+}
 
 @font-face {
   font-family: "Roboto-Medium";
   font-style: normal;
   font-weight: 500;
-  src: local("roboto medium"), local("roboto-medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("roboto medium"), local("roboto-medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff");
+}
 
 @font-face {
   font-family: "Roboto-Bold";
   font-style: normal;
   font-weight: 700;
-  src: local("roboto bold"), local("roboto-bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("roboto bold"), local("roboto-bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff");
+}
+
 button {
   color: #ffffff;
 }
@@ -69,7 +74,7 @@ ion-header {
     color: white;
     font-size: 15px;
   }
-  .bar-button:first-child{
+  .bar-button:first-child {
     font-size: 13px;
   }
 }
@@ -77,22 +82,20 @@ ion-header {
 /*.toast-wrapper.toast-middle {
   text-align: center;
 }*/
- .toast-wrapper{
-   margin-top: 10px !important;
-  opacity: 0.6!important;
+.toast-wrapper {
+  margin-top: 10px !important;
+  opacity: 0.6 !important;
   border-radius: 15px;
   width: 65% !important;
   z-index: 999999;
   text-align: center;
 
-
 }
-.toast alert{
+
+.toast alert {
   height: 100%;
   width: 100%;
 }
-
-
 
 .success {
   > div {
@@ -110,6 +113,9 @@ ion-header {
   margin-bottom: 55px;
 }
 
+/*.tabs .tabbar{
+  display: none;
+}*/
 
 
 

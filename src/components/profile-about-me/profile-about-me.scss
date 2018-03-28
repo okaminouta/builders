@@ -42,24 +42,24 @@ profile-about-me {
   .item-input-has-focus .label[stacked], .input-has-focus .label[stacked], .item-input-has-focus .label[floating], .input-has-focus .label[floating] {
     color: #fafafa;
   }
-  .item-block .item-inner{
-    border-bottom: 1px solid #fafafa!important;
+  .item-block .item-inner {
+    border-bottom: 1px solid #fafafa !important;
   }
-  .item-label-stacked .text-input, .item-label-floating .text-input{
-    color:#fafafa;
+  .item-label-stacked .text-input, .item-label-floating .text-input {
+    color: #fafafa;
   }
-  .row{
+  .row {
     background: white;
     margin-top: 3px;
 
   }
-  .item-input:last-child{
-    border-bottom:1px solid transparent!important;
+  .item-input:last-child {
+    border-bottom: 1px solid transparent !important;
   }
-  .first_last_name{
-    height: 20px;
+  .first_last_name {
+    height: 100px;
   }
-  .list{
+  .list {
     margin-top: 4px;
   }
 }

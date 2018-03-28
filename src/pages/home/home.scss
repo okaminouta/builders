@@ -9,7 +9,7 @@ page-home {
   }
   .scroll-content {
     background: #fafafa;
-    padding-top: 10px!important;
+    padding-top: 10px !important;
   }
   .toolbar-title {
     color: white;
@@ -97,7 +97,7 @@ page-home {
     h2 {
       p {
         color: #f9b707;
-        font-size: 17px;
+        font-size: 14px;
       }
     }
   }
@@ -105,7 +105,7 @@ page-home {
     font-weight: bold;
     font-size: 16px;
     //font-family: "Roboto";
-    color:#081d32;
+    color: #081d32;
   }
   .segment .segment-button.activated, .segment .segment-button.segment-activated {
     background: color($colors, secondary) !important;
@@ -125,7 +125,7 @@ page-home {
 
   .card .note {
     margin: 10px;
-    font-size: 13px;
+    font-size: 12px;
     // font-family: "Roboto";
     font-weight: 200;
   }
@@ -220,32 +220,33 @@ page-home {
     // font-family: "Roboto-Bold";
   }
   .label i {
-     font-size: 11px;
+    font-size: 11px;
   }
-  .label{
-   // margin-left: 8px;
+  .label {
+    // margin-left: 8px;
     margin: 11px 8px 8px 0;
   }
-  .label b{
+  .label b {
     font-size: 12px;
   }
-  .item{
+  .item {
     margin-left: 0;
   }
-#left_button{
-  height: 28px;
-  width: 41%;
-}
-  #left_button span {
-  font-size: 12px;
-  }
-  #disable_button{
+  #left_button {
     height: 28px;
     width: 41%;
   }
-  #disable_button span{
+  #left_button span {
     font-size: 12px;
   }
+  #disable_button {
+    height: 28px;
+    width: 41%;
+  }
+  #disable_button span {
+    font-size: 12px;
+  }
+
   @media screen and (max-width: 1920px) {
     .button-outline {
       margin: 0px 65px 0px 65px;
@@ -253,6 +254,12 @@ page-home {
     .checks fa-icon {
       margin-left: 80%;
 
+    }
+    #left_button {
+      width: 35%;
+    }
+    #orange_button {
+      width: 41%;
     }
   }
   @media screen and (max-width: 1024px) {
@@ -267,6 +274,12 @@ page-home {
   @media screen and (max-width: 768px) {
     .button-outline {
       margin: 0px 12px 0px 13px;
+    }
+    #left_button {
+      width: 41%;
+    }
+    #orange_button {
+      width: 43%;
     }
   }
   @media screen and (max-width: 500px) {
