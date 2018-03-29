@@ -29,8 +29,9 @@ page-home {
     color: white;
     width: 88%;
     line-height: 2.4rem;
-    font-weight: 200;
+    font-weight: 500;
     margin-left: 3px;
+    font-size: 12px;
   }
   .searchbar searchbar .searchbar-animated .searchbar-show-cancel .searchbar-active .searchbar-left-aligned .searchbar-has-focus {
     //display:none;
@@ -40,7 +41,22 @@ page-home {
   //  display: none;
   //}
   .searchbar .searchbar-search-icon {
+    color: white!important;
+    background-size: 16px;
+   // background-color: white!important;
+  }
+  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon{
+    color: white!important;
+  }
+
+
+
+
+ /* .icon .icon .ion-arrow-back{
     color: white;
+  }*/
+  ion-icon{
+    color:white;
   }
 
   /*ion-content padding {
