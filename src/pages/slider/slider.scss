@@ -3,6 +3,13 @@ page-slider {
   .scroll-content {
     margin-bottom: 0;
   }
+  .swiper-slide img {
+    width: auto;
+    max-width: 43%;
+    height: auto;
+    max-height: 43%;
+    margin-bottom: 40px;
+  }
 
   .button {
     box-shadow: none;
@@ -14,11 +21,27 @@ page-slider {
       font-size: 1.4em;
     }
   }
+
+  .icons img {
+    font-size: 200px;
+  }
+
+  .button-inner {
+    text-transform: none;
+  }
   ion-content {
     ion-slide {
       color: white;
       h2 {
-        color: color($colors, primary)
+        //color: color($colors, primary)
+        color: #fdad2a;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+
+      }
+      p {
+        font-size: 15px;
+        font-weight: 300;
       }
       ion-header {
         button {
@@ -32,7 +55,22 @@ page-slider {
       background-position: center center;
       background-size: cover;
     }
-
+    .swiper-container-horizontal > .swiper-pagination-bullets {
+      left: 0;
+      bottom: 5%;
+      width: 100%;
+    }
+    .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+      margin: 0 8px;
+    }
+    .swiper-pagination-bullet-active {
+      color: white;
+      background: white;
+    }
+    .swiper-pagination-bullet {
+      background: white;
+      // border: 1px solid white;
+    }
     @each $name in 'first' 'second' 'third' {
       .#{$name} {
         background: linear-gradient(135deg, rgba(253, 173, 42, 0.7) 0%, rgba(8, 29, 50, 0.6) 100%), url('../assets/imgs/slider/#{$name}.jpg');

@@ -10,7 +10,7 @@ page-home {
   .scroll-content {
     background: #fafafa;
     padding-top: 10px !important;
-      margin-bottom: 55px;
+    margin-bottom: 55px;
   }
   .toolbar-title {
     color: white;
@@ -111,7 +111,7 @@ page-home {
   .segment .segment-button.activated, .segment .segment-button.segment-activated {
     background: color($colors, secondary) !important;
     color: white !important;
-    font-weight: 200 !important;
+    //font-weight: 200 !important;
 
   }
   .card-content {
@@ -121,14 +121,14 @@ page-home {
     margin: 10px;
     font-size: 16px;
     //font-family: "Roboto";
-    font-weight: 200;
+    //  font-weight: 200;
   }
 
   .card .note {
     margin: 10px;
     font-size: 12px;
     // font-family: "Roboto";
-    font-weight: 200;
+    // font-weight: 200;
   }
   .button-round {
     text-transform: none;
