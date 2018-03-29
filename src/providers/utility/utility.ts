@@ -10,95 +10,105 @@ import {ToastController} from 'ionic-angular';
 */
 @Injectable()
 export class UtilityProvider {
-    @Output() changeTabs = new EventEmitter<string>();
+  @Output() changeTabs = new EventEmitter<string>();
+  @Output() quitEditing = new EventEmitter<boolean>();
+  @Output() userSkills = new EventEmitter<void>();
 
-    constructor(public http: HttpClient,
-                public toastCtrl: ToastController,) {
-        console.log('Hello UtilityProvider Provider');
+  constructor(public http: HttpClient,
+              public toastCtrl: ToastController,) {
+    console.log('Hello UtilityProvider Provider');
+  }
+
+  changeTab(str) {
+    this.changeTabs.emit(str);
+  }
+
+  updateUserSkills() {
+    this.userSkills.emit();
+  }
+
+  quitEdit(val) {
+    this.quitEditing.emit(val);
+  }
+
+  toast(msg: string, cssClass: string, position: string = 'top') {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      position: position,
+      duration: 3000,
+      cssClass: cssClass,
+      dismissOnPageChange: false
+    });
+    toast.present();
+  }
+
+  credentialsCheck(data: any) {
+
+    if (!data.phone || !data.password) {
+      this.toast('Заповніть всі поля', 'alert');
+      return false;
     }
-
-    changeTab(str) {
-        this.changeTabs.emit(str);
+    if (data.phone.length != 9) {
+      this.toast('Номер телефону має бути 12 цифр', 'alert');
+      return false;
     }
-
-    toast(msg: string, cssClass: string, position: string = 'top') {
-        let toast = this.toastCtrl.create({
-            message: msg,
-            position: position,
-            duration: 3000,
-            cssClass: cssClass,
-            dismissOnPageChange: false
-        });
-        toast.present();
+    if (data.password.length < 6 || data.password.length > 15) {
+      this.toast('Пароль має бути 6-15 символів', 'alert');
+      return false;
     }
+    return true;
+  }
 
-    credentialsCheck(data: any) {
 
-        if (!data.phone || !data.password) {
-            this.toast('Заповніть всі поля', 'alert');
-            return false;
+  cut(data: any) {
+    let cred = {
+      phone: null,
+      password: null
+    };
+    cred.phone = parseInt(data.phone.substr(3).replace(/[^0-9]/g, ''));
+    cred.password = data.password;
+    return cred;
+  }
+
+  validation(form: any) {
+    return {
+      phone: () => {
+        if (form.controls.phone.errors &&
+          form.controls.phone.errors.required &&
+          form.controls.phone.dirty) {
+          return 'Це поле є обов\'язковим!';
         }
-        if (data.phone.length != 9) {
-            this.toast('Номер телефону має бути 12 цифр', 'alert');
-            return false;
+        else if (form.controls.phone.dirty &&
+          form.controls.phone.errors &&
+          form.controls.phone.errors.minlength ||
+          form.controls.phone.dirty &&
+          form.controls.phone.errors &&
+          form.controls.phone.errors.maxlength) {
+          return 'Номер телефону має бути 12 цифер';
         }
-        if (data.password.length < 6 || data.password.length > 15) {
-            this.toast('Пароль має бути 6-15 символів', 'alert');
-            return false;
+        else {
+          return false
         }
-        return true;
-    }
-
-
-    cut(data: any) {
-        let cred = {
-            phone: null,
-            password: null
-        };
-        cred.phone = parseInt(data.phone.substr(3).replace(/[^0-9]/g, ''));
-        cred.password = data.password;
-        return cred;
-    }
-
-    validation(form: any) {
-        return {
-            phone: () => {
-                if (form.controls.phone.errors &&
-                    form.controls.phone.errors.required &&
-                    form.controls.phone.dirty) {
-                    return 'Це поле є обов\'язковим!';
-                }
-                else if (form.controls.phone.dirty &&
-                    form.controls.phone.errors &&
-                    form.controls.phone.errors.minlength ||
-                    form.controls.phone.dirty &&
-                    form.controls.phone.errors &&
-                    form.controls.phone.errors.maxlength) {
-                    return 'Номер телефону має бути 12 цифер';
-                }
-                else {
-                    return false
-                }
-            },
-            password: () => {
-                if (form.controls.password.errors &&
-                    form.controls.password.errors.required &&
-                    form.controls.password.dirty) {
-                    return 'Це поле є обов\'язковим!';
-                }
-                else if (form.controls.password.dirty &&
-                    form.controls.password.errors &&
-                    form.controls.password.errors.minlength ||
-                    form.controls.password.dirty &&
-                    form.controls.password.errors &&
-                    form.controls.password.errors.maxlength) {
-                    return 'Пароль має бути 6-30 символів';
-                }
-                else {
-                    return false
-                }
-            }
+      },
+      password: () => {
+        if (form.controls.password.errors &&
+          form.controls.password.errors.required &&
+          form.controls.password.dirty) {
+          return 'Це поле є обов\'язковим!';
         }
+        else if (form.controls.password.dirty &&
+          form.controls.password.errors &&
+          form.controls.password.errors.minlength ||
+          form.controls.password.dirty &&
+          form.controls.password.errors &&
+          form.controls.password.errors.maxlength) {
+          return 'Пароль має бути 6-30 символів';
+        }
+        else {
+          return false
+        }
+      }
     }
+  }
 
 }

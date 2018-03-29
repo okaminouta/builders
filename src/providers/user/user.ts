@@ -123,6 +123,14 @@ export class UserProvider {
     });
   }
 
+  updateSkill(id: number, data: any) {
+    return this.request.post(this.url.updateSkill + id, data).then((res: any) => {
+      if (res) {
+        console.log(res, 'update skill res')
+      }
+    });
+  }
+
   userSkills() {
     return this.request.get(this.url.mySkills).then((res: any) => {
       if (res) {

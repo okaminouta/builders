@@ -1,8 +1,9 @@
 <ion-list padding-horizontal>
   <ion-row>
     <div col-4 (click)="photoAddControl()" vertical-align-center text-center style="min-height: 120px">
-      <img [src]="defaultImg" alt="" *ngIf="!imageURI">
+      <img [src]="defaultImg" alt="" *ngIf="!imageURI && !loadedImg">
       <img [src]="imageURI" alt="" *ngIf="imageURI">
+      <img [src]="loadedImg" alt="" *ngIf="loadedImg && !imageURI">
     </div>
     <ion-list col-8>
       <div class="first_last_name">

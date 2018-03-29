@@ -1,9 +1,10 @@
-<ion-card *ngFor="let skill of skillsArr">
+<ion-card *ngFor="let skill of skillsArr" >
+  <div *ngIf="skill !== undefined">
   <ion-card-header text-wrap>
     {{skill.description}}
   </ion-card-header>
 
-  <ion-card-content>
+  <ion-card-content >
     <ion-item no-padding>
       <ion-label class="card-label">
         {{skill.lvl}}/10
@@ -13,13 +14,15 @@
               text-capitalize
               round outline
               color="grey"
-              item-end>Змiнити</button>
+              item-end
+      (click)="changeSkill(skill)">Змiнити</button>
       <ion-checkbox color="pimary"
                     *ngIf="editSkills"
                     (click)="checkSkill(skill)"
                     item-end></ion-checkbox>
     </ion-item>
   </ion-card-content>
+  </div>
 </ion-card>
 
 <ion-fab right bottom *ngIf="!editSkills">

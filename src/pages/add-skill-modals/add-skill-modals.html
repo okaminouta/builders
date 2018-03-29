@@ -6,10 +6,10 @@
     <ion-row align-items-center>
         <ion-col>
             <ion-row justify-content-center>
-                <ion-badge class="bage" color="primary">{{skill.skillLvl}}</ion-badge>
+                <ion-badge class="bage" color="primary">{{skill.lvl}}</ion-badge>
             </ion-row>
             <ion-row>
-                <ion-range min="1" max="10" step="1" snaps="true" color="primary" [(ngModel)]="skilLavel" no-padding col-12>
+                <ion-range min="1" max="10" step="1" snaps="true" color="primary" [(ngModel)]="skill.lvl" no-padding col-12>
                     <ion-label range-left>1</ion-label>
                     <ion-label range-right>10</ion-label>
                 </ion-range>
@@ -20,10 +20,10 @@
 
 <ion-footer no-border>
     <ion-row>
-        <button ion-button color="grey" clear col-6 no-margin text-capitalize (click)="cancel()">
+        <button ion-button color="light" clear col-6 no-margin text-capitalize (click)="cancel()">
             Отменить
         </button>
-        <button ion-button color="grey" clear col-6 no-margin (click)="save()">
+        <button ion-button color="light" clear col-6 no-margin (click)="save()">
             ОК
         </button>
     </ion-row>

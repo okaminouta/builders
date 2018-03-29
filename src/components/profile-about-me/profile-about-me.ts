@@ -28,6 +28,8 @@ export class ProfileAboutMeComponent implements OnChanges {
   searchQuery: string = '';
   items: string[];
   defaultImg: string;
+  loadedImg;
+
 
   constructor(public navCtrl: NavController,
               public util: UtilityProvider,
@@ -48,8 +50,8 @@ export class ProfileAboutMeComponent implements OnChanges {
           ' ' + res.profile.phone.toString().substring(2, 4) +
           ' ' + res.profile.phone.toString().substring(4, 6) +
           ' ' + res.profile.phone.toString().substring(6);
-        if(res.photo_path != null){
-          this.imageURI = res.photo_path;
+        if (res.photo_path != null) {
+          this.loadedImg = res.photo_path;
         }
       }
       this.leaveCheck();
@@ -67,7 +69,8 @@ export class ProfileAboutMeComponent implements OnChanges {
     let modal = this.modalCtrl.create(CameraOptionsPage);
     modal.onDidDismiss((data) => {
       if (data === 'delete') {
-        this.imageURI = 'assets/imgs/camera.png';
+        this.imageURI = undefined;
+        this.loadedImg = undefined;
       } else {
         this.media.getMedia(data).then((res) => {
           this.imageURI = res;
@@ -81,15 +84,13 @@ export class ProfileAboutMeComponent implements OnChanges {
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     if (!changes.editProfile.firstChange && !this.editProfile) {
       console.log(this.userData)
-      alert(this.imageURI);
-      this.user.setProfile({
-        first_name:this.userData.first_name,
-        last_name: this.userData.last_name,
-        email: this.userData.email,
-        city: this.userData.city,
-        photo: this.imageURI,
-        passpost_id: this.userData.passpost_id
-      }).then( (res)=> {
+      if (this.imageURI) {
+        this.userData.photo = this.imageURI;
+      }
+      if (this.defaultImg){
+        this.userData.photo = null;
+      }
+      this.user.setProfile(this.userData).then((res) => {
       });
       this.user.firstEnter().get().then((res) => {
         if (res) {
@@ -119,7 +120,6 @@ export class ProfileAboutMeComponent implements OnChanges {
       email: null,
       city: null,
       passport_id: false,
-      photo_id: this.imageURI
     }
   }
 

@@ -23,7 +23,13 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.util.changeTabs.subscribe(
-      (str) => this.segmentValue = str);
+      (str) =>    {
+        this.segmentValue = str});
+    this.util.quitEditing.subscribe(
+      (val) => {
+        this.editSkills = val;
+        // this.editSkillsFunc()
+      });
     this.user.firstEnter().get().then((res) => {
       if (res) {
         this.canLeave = false;

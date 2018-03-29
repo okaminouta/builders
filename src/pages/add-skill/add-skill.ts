@@ -4,6 +4,8 @@ import {AddSkillModalsPage} from "../add-skill-modals/add-skill-modals";
 import {ContentProvider} from "../../providers/content/content";
 import {UserProvider} from "../../providers/user/user";
 import {SliderPage} from "../slider/slider";
+import {UtilityProvider} from "../../providers/utility/utility";
+import {TabsPage} from "../tabs/tabs";
 
 /**
  * Generated class for the AddSkillPage page.
@@ -19,9 +21,11 @@ import {SliderPage} from "../slider/slider";
 })
 export class AddSkillPage {
   skillsArr=[];
+  unfinioshedReg = false;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
+                public util: UtilityProvider,
                 public user: UserProvider,
                 public alertCtrl: AlertController,
                 public contentProvider: ContentProvider,
@@ -30,17 +34,21 @@ export class AddSkillPage {
         console.log(res, 'res skills');
         this.skillsArr=res;
       })
+
+      this.user.firstEnter().get().then((data)=>{
+        if (data && data === 'Unfinished'){
+          this.unfinioshedReg = true;
+        }
+      })
     }
 
-    // ionViewDidLoad() {
-    //     console.log('ionViewDidLoad AddSkillPage');
-    // }
 
     goBack() {
         this.navCtrl.pop();
     }
 
     skillSelectorPopap(skill:any) {
+      console.log(skill,'23423423423')
         let modal = this.modalCtrl.create(AddSkillModalsPage, {item: skill});
       modal.onDidDismiss(data => {
         console.log(data,'modal data');
@@ -58,16 +66,23 @@ export class AddSkillPage {
         if(item.checked){
           idsArr.push({
             skill_id: item.id,
-            level: item.skillLvl
+            level: item.lvl
           });
         }
       });
       console.log(idsArr);
       this.user.addSkills(idsArr).then( (res) => {
-        if (res) {
-          debugger
+        this.util.updateUserSkills();
+        if (this.unfinioshedReg) {
+          this.user.firstEnter().setFalse();
+          this.navCtrl.push(TabsPage);
+        } else {
           this.goBack();
         }
+
+        // if (res) {
+        //   this.goBack();
+        // }
       })
     }
 }

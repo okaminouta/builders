@@ -42,6 +42,7 @@ import { MediaProvider } from '../providers/media/media';
 import {CameraOptionsPage} from "../pages/camera-options/camera-options";
 import {JobCardComponent} from "../components/job-card/job-card";
 import {FocusDirective} from "../directives/focus/focus";
+import { CommunicationProvider } from '../providers/communication/communication ';
 
 
 @NgModule({
@@ -119,6 +120,7 @@ import {FocusDirective} from "../directives/focus/focus";
     UtilityProvider,
     ContentProvider,
     MediaProvider,
+    CommunicationProvider,
   ],
 })
 export class AppModule {

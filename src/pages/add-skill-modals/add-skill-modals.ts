@@ -24,8 +24,8 @@ export class AddSkillModalsPage {
     this.renderer.setElementClass(viewCtrl.pageRef().nativeElement, 'my-popup', true);
     console.log('item', navParams.get('item'));
     this.skill = navParams.get('item')
-    if(!this.skill.skillLvl){
-      this.skill.skillLvl = 1;
+    if(!this.skill.lvl){
+      this.skill.lvl = 1;
     }
   }
 
