@@ -1,0 +1,12 @@
+page-tabs {
+  .tabs .tab-button-icon {
+    font-size: 15px;
+  }
+  .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    font-size: 19px;
+  }
+  .tabs-md[tabsLayout=icon-top] .has-icon .tab-button-text {
+    font-size: 10px;
+  }
+
+}

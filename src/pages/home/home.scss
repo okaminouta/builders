@@ -9,7 +9,7 @@ page-home {
   }
   .scroll-content {
     background: #fafafa;
-    padding-top: 10px !important;
+    padding-top: 0px !important;
     margin-bottom: 55px;
   }
   .toolbar-title {
@@ -41,22 +41,19 @@ page-home {
   //  display: none;
   //}
   .searchbar .searchbar-search-icon {
-    color: white!important;
+    color: white !important;
     background-size: 16px;
-   // background-color: white!important;
+    // background-color: white!important;
   }
-  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon{
-    color: white!important;
+  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon {
+    color: white !important;
   }
 
-
-
-
- /* .icon .icon .ion-arrow-back{
+  /* .icon .icon .ion-arrow-back{
+     color: white;
+   }*/
+  ion-icon {
     color: white;
-  }*/
-  ion-icon{
-    color:white;
   }
 
   /*ion-content padding {
@@ -88,11 +85,14 @@ page-home {
     border-radius: 0 25px 25px 0;
     font-weight: bold;
   }
-
+  .list {
+    margin-top: 10%;
+  }
   ion-card-content {
     color: #5d6d7d;
     font-family: 'Roboto';
     font-size: 17px;
+    margin-top: 7%;
   }
   ion-card-content h2 {
     font-weight: bold;
@@ -164,8 +164,19 @@ page-home {
   .button-inner {
     color: #5d6d7d;
   }
+  .fix_buttons {
+
+    height: 43px;
+    position: fixed;
+    width: 100%;
+    background: #fafafa;
+    z-index: 99;
+  }
   [col-6] {
     padding: 0;
+    /* position: fixed;
+     z-index: 99;*/
+    margin-top: 3%;
   }
   .button-outline {
     border-color: #5d6d7d;
@@ -232,6 +243,7 @@ page-home {
     color: #081d32;
     border-bottom-color: #081d32;
     font-weight: bold;
+    background-color: white;
   }
   .card h4 h2 {
     // font-family: "Roboto-Bold";
