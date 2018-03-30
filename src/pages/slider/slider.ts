@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {SignUpPage} from "../sign-up/sign-up";
 
 /**
@@ -11,20 +11,30 @@ import {SignUpPage} from "../sign-up/sign-up";
 
 @IonicPage()
 @Component({
-  selector: 'page-slider',
-  templateUrl: 'slider.html',
+    selector: 'page-slider',
+    templateUrl: 'slider.html',
 })
 export class SliderPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    imageURI: any;
+    imageURI2: any;
+    imageURI3: any;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SliderPage');
-  }
 
-  tolog () {
-    this.navCtrl.push(SignUpPage);
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+        this.imageURI = 'assets/icon/dollar-coin.svg';
+        this.imageURI2 = 'assets/icon/man-wearing-business-attire-with-suitcase-in-a-city.svg';
+        this.imageURI3 = 'assets/icon/businessman-paper-of-the-application-for-a-job.svg';
+
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad SliderPage');
+    }
+
+    tolog() {
+        this.navCtrl.push(SignUpPage);
+    }
+
 
 }

@@ -1,4 +1,7 @@
 page-change-pass {
+  div.scroll-content {
+    bottom: 0px !important;
+  }
 
   .text-input {
     margin: 20px 8px;
@@ -7,14 +10,14 @@ page-change-pass {
     padding-left: 0;
   }
   .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
-    border-bottom-color: gray;
-    -webkit-box-shadow: inset 0 -1px 0 0 gray;
-    box-shadow: inset 0 -1px 0 0 gray;
+    border-bottom-color: #fafafa;
+    -webkit-box-shadow: inset 0 0px 0 0 #fafafa;
+    box-shadow: inset 0 0px 0 0 #fafafa;
   }
   .item.item-input.item-input-has-focus .item-inner, .item-.item-input.item-input-has-focus .item-inner {
-    border-bottom-color: black;
-    -webkit-box-shadow: inset 0 0px 0 0 black;
-    box-shadow: inset 0 0px 0 0 black;
+    border-bottom-color: gray;
+    -webkit-box-shadow: inset 0 0px 0 0 gray;
+    box-shadow: inset 0 0px 0 0 gray;
   }
   .item-inner {
     margin-left: 15px;

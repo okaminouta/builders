@@ -27,19 +27,16 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content scroll="false">
   <form action=""></form>
   <ion-item>
-    <ion-label floating>Старий пароль</ion-label>
-    <ion-input type="password" [(ngModel)]="userData.oldPass"></ion-input>
+    <ion-input placeholder="Старий пароль" type="password" [(ngModel)]="userData.oldPass"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label floating>Новий пароль</ion-label>
-    <ion-input type="password" [(ngModel)]="userData.newPass"></ion-input>
+    <ion-input placeholder="Новий пароль" type="password" [(ngModel)]="userData.newPass"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label floating>Підтвердіть пароль</ion-label>
-    <ion-input type="password" [(ngModel)]="userData.confPass"></ion-input>
+     <ion-input placeholder="Підтвердіть пароль" type="password" [(ngModel)]="userData.confPass"></ion-input>
   </ion-item>
   <ion-item *ngIf="userData.newPass !== userData.confPass">
     <p>Поля "Новий пароль" та "Підтвердіть пароль" не співпадають </p>
