@@ -21,6 +21,7 @@ export class ProfileAboutMeComponent implements OnChanges {
   city: string;
   imageURI: any = null;
   phone;
+  validator = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,6})+$';
 
   // disableFields: boolean = true;
 
@@ -87,13 +88,13 @@ export class ProfileAboutMeComponent implements OnChanges {
       if (this.imageURI) {
         this.userData.photo = this.imageURI;
       }
-      if (this.defaultImg){
+      if (this.defaultImg && !this.imageURI && !this.loadedImg){
         this.userData.photo = null;
       }
       this.user.setProfile(this.userData).then((res) => {
       });
       this.user.firstEnter().get().then((res) => {
-        if (res) {
+        if (res && res === 'Unfinished') {
           this.util.toast('Заповніть вашы навички', 'alert');
           this.util.changeTab('skills');
         }
@@ -117,7 +118,7 @@ export class ProfileAboutMeComponent implements OnChanges {
     this.userData = {
       first_name: null,
       last_name: null,
-      email: null,
+      email: '',
       city: null,
       passport_id: false,
     }

@@ -12,6 +12,7 @@ export class ProfilePage implements OnInit {
 
   editSkills: boolean = false;
   editProfile: boolean = false;
+  allSkills: boolean = false;
   canLeave = true;
   segmentValue = 'about_me';
 
@@ -23,15 +24,16 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.util.changeTabs.subscribe(
-      (str) =>    {
-        this.segmentValue = str});
+      (str) => {
+        this.segmentValue = str
+      });
     this.util.quitEditing.subscribe(
       (val) => {
         this.editSkills = val;
         // this.editSkillsFunc()
       });
     this.user.firstEnter().get().then((res) => {
-      if (res) {
+      if (res && res === 'Unfinished') {
         this.canLeave = false;
         this.editProfile = true;
       }
@@ -40,7 +42,7 @@ export class ProfilePage implements OnInit {
   }
 
   selectedAllSkills() {
-
+    this.allSkills = true;
   }
 
   ionViewWillLeave() {
@@ -50,11 +52,11 @@ export class ProfilePage implements OnInit {
 
 
   editSkillsFunc() {
+    this.allSkills = false;
     this.editSkills = !this.editSkills;
   }
 
   editProfileFunc() {
-
     this.editProfile = !this.editProfile;
     // this.onEditing.emit(this.editProfile);
   }

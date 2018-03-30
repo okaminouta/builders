@@ -160,7 +160,7 @@ export class UserProvider {
   }
 
   escapeJob (id: any) {
-    return this.request.post(this.url.escapeJob + id,{}).then((res: any) => {
+    return this.request.get(this.url.escapeJob + id).then((res: any) => {
       if (res) {
         console.log(res, 'escape job res')
       }

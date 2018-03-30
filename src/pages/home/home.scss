@@ -2,6 +2,10 @@ page-home {
   //.toolbar-background-md {
   //  background: #081d32;
   //}
+  //to hide searchbar clear input button
+  //.searchbar-clear-icon {
+  //  display: none !important;
+  //}
   .checks {
     fa-icon {
       float: right;
@@ -41,22 +45,19 @@ page-home {
   //  display: none;
   //}
   .searchbar .searchbar-search-icon {
-    color: white!important;
+    color: white !important;
     background-size: 16px;
-   // background-color: white!important;
+    // background-color: white!important;
   }
-  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon{
-    color: white!important;
+  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon {
+    color: white !important;
   }
 
-
-
-
- /* .icon .icon .ion-arrow-back{
+  /* .icon .icon .ion-arrow-back{
+     color: white;
+   }*/
+  ion-icon {
     color: white;
-  }*/
-  ion-icon{
-    color:white;
   }
 
   /*ion-content padding {

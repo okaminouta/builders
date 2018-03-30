@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, SimpleChange} from '@angular/core';
 import {AddSkillPage} from "../../pages/add-skill/add-skill";
 import {ModalController, NavController} from "ionic-angular";
 import {ContentProvider} from "../../providers/content/content";
@@ -16,14 +16,16 @@ import {AddSkillModalsPage} from "../../pages/add-skill-modals/add-skill-modals"
   selector: 'profile-skills',
   templateUrl: 'profile-skils.html'
 })
-export class ProfileSkilsComponent {
+export class ProfileSkilsComponent implements OnChanges {
   @Input() editSkills;
+  @Input() allSkills;
   skillsArr = [];
   registrationIsFinished: boolean;
 
 
   constructor(public navCtrl: NavController,
               private util: UtilityProvider,
+              private ref: ChangeDetectorRef,
               public modalCtrl: ModalController,
               public user: UserProvider) {
     this.loadSkills();
@@ -42,11 +44,13 @@ export class ProfileSkilsComponent {
   }
 
   changeSkill(skill) {
-    let modal = this.modalCtrl.create(AddSkillModalsPage, {item: skill});
+    let skillPreserver =  Object.assign({},skill);
+    let modal = this.modalCtrl.create(AddSkillModalsPage, {item: skillPreserver});
     modal.onDidDismiss(data => {
       console.log(data, 'modal data');
       if (data) {
-        skill = data;
+        data.item.checked = false;
+        this.skillsArr[this.skillsArr.indexOf(skill)]=data.item;
         this.user.updateSkill(data.item.id, {
           lvl: data.item.lvl
         });
@@ -54,6 +58,23 @@ export class ProfileSkilsComponent {
     });
     modal.present()
   }
+
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    console.log(changes)
+      if (this.allSkills ) {
+        console.log(this.skillsArr , '123')
+        this.skillsArr.forEach((skill) => {
+          skill.checked = true;
+        });
+      }
+      if (!this.editSkills){
+        this.skillsArr.forEach((skill) => {
+          skill.checked = false;
+        });
+      }
+  }
+
+
 
   goToAddSkill() {
     this.navCtrl.push(AddSkillPage)

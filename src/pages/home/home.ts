@@ -44,6 +44,7 @@ export class HomePage {
 
   toMyJobs(job) {
     this.user.applyForJob(job.id);
+    this.jobsArr.splice(this.jobsArr.indexOf(job), 1);
   }
 
   escapeJob (job) {
@@ -66,6 +67,16 @@ export class HomePage {
       job.viewed = true;
       job.count++;
       this.content.counter(job.id);
+    }
+
+  }
+
+  showMyJobDetails(job) {
+    job.details = !job.details;
+    if (!job.viewed) {
+      job.viewed = true;
+      job.count++;
+      this.content.counter(job.job.id);
     }
 
   }
