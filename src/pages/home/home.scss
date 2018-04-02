@@ -150,6 +150,14 @@ page-home {
     text-transform: none;
     border: 1px solid color($colors, secondary);
   }
+  .message {
+    h6 {
+      margin-top: 23%;
+      font-size: 13px;
+      text-align: center;
+      color: #888a8c;
+    }
+  }
 
   [col-12] {
     text-align: center;
