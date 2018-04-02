@@ -11,6 +11,7 @@ page-home {
     background: #fafafa;
     padding-top: 0px !important;
     margin-bottom: 55px;
+    position: absolute;
   }
   .toolbar-title {
     color: white;
@@ -111,6 +112,9 @@ page-home {
     margin-top: 5px;
   }
   .card {
+    z-index: 70;
+  }
+  .card {
     h2 {
       p {
         color: #f9b707;
@@ -152,10 +156,16 @@ page-home {
   }
   .message {
     h6 {
-      margin-top: 23%;
+      position: relative;
+      left: 50%;
+      /* top: 41%; */
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       font-size: 13px;
       text-align: center;
       color: #888a8c;
+      z-index: 50;
+      margin-top: 20%;
     }
   }
 

@@ -1,14 +1,18 @@
 page-help {
-  .fixed-content{
+  .fixed-content {
     background: #fafafa;
   }
-  ion-textarea{
-    background:white;
+  ion-textarea {
+    background: white;
   }
-  [margin-top] .scroll-content{
+  [margin-top] .scroll-content {
     margin-top: 0;
   }
-  [padding] h6:first-child{
-  margin-top: 0;
-}
+  [padding] h6:first-child {
+    margin-top: 0;
+  }
+  textarea {
+    padding: 5px;
+    box-sizing: border-box;
+  }
 }
