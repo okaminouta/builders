@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
-import {Events, NavController} from 'ionic-angular';
+import {App, Events, NavController, Tabs} from 'ionic-angular';
 import {SliderPage} from "../slider/slider";
 import {ContentProvider} from "../../providers/content/content";
 import {UserProvider} from "../../providers/user/user";
+import {CommunicationProvider} from "../../providers/communication/communication ";
 
 @Component({
   selector: 'page-home',
@@ -14,18 +15,45 @@ export class HomePage {
   jobsArr = [];
   myJobsArr = [];
   scrollLimit = 2;
-
+  communication;
+  tabs;
   constructor(public navCtrl: NavController,
               public content: ContentProvider,
               public user: UserProvider,
+              private app: App,
+              private comm: CommunicationProvider,
               public events: Events) {
-    events.subscribe('ionCancel', () => {
-      // user and time are the same arguments passed in `events.publish(user, time)`
-      console.log('Welcome');
-    });
+    this.tabs = this.app.getNavByIdOrName('myTabsNav') as Tabs;
+
+    this.comm.tabsControll.subscribe(()=>{
+      console.log('home lisner')
+    })
     this.loadJobs();
+    this.communication = this.comm.getDisplaySettings()
   }
 
+  checkJob(job) {
+    this.tabs.select(2);
+    if(!job.checked){
+      job.checked = true;
+    } else job.checked = false;
+    console.log(job)
+  }
+
+  checkAll (){
+    if (this.sentence === 'all'){
+       this.jobsArr.forEach( (job)=>{
+         job.checked = true;
+       })
+    } else {
+      this.myJobsArr.forEach( (job)=>{
+        job.checked = true;
+      })
+    }
+  }
+  switchJobsSelectorDisplay () {
+    this.comm.switchJobsSelectorDisplay();
+  }
   loadJobs() {
     this.content.getJobs().then(res => {
       if (res) {

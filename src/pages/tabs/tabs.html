@@ -1,5 +1,16 @@
-<ion-tabs  trimHistory="true">
- <div class="home"> <ion-tab [root]="tab1Root" tabTitle="Пропозиції"  tabIcon="fa-home"></ion-tab></div>
+
+<ion-footer text-center *ngIf="communication.jobsSelector">
+  <button ion-button
+          no-margin
+          color="white"
+          class="futer-button"
+          (click)="footerControll()"
+          col-12>Отправить
+  </button>
+</ion-footer>
+
+<ion-tabs  trimHistory="true" name="myTabsNav">
+  <ion-tab [root]="tab1Root" tabTitle="Пропозиції"  tabIcon="fa-home"></ion-tab>
     <ion-tab [root]="tab4Root" tabTitle="Контакти" tabIcon="fa-users"></ion-tab>
     <ion-tab [root]="tab2Root" tabTitle="Профіль" tabIcon="fa-user"></ion-tab>
     <ion-tab [root]="tab3Root" tabTitle="Інфо" tabIcon="fa-info"></ion-tab>

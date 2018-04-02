@@ -1,11 +1,15 @@
 page-home {
-  //.toolbar-background-md {
-  //  background: #081d32;
-  //}
-  //to hide searchbar clear input button
-  //.searchbar-clear-icon {
-  //  display: none !important;
-  //}
+  ion-checkbox {
+    float: right;
+    margin-right: 3px;
+
+  }
+  ion-header {
+    .button-inner {
+       color: #ffffff!important;
+     }
+  }
+
   .checks {
     fa-icon {
       float: right;
@@ -13,7 +17,7 @@ page-home {
   }
   .scroll-content {
     background: #fafafa;
-    padding-top: 0px !important;
+    padding: 0!important;
     margin-bottom: 55px;
   }
   .toolbar-title {
