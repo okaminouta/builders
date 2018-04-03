@@ -123,6 +123,7 @@ page-home {
   }
   .card {
     z-index: 70;
+    padding: 5px;
   }
   .card {
     h2 {
@@ -218,10 +219,11 @@ page-home {
   #orange_button span {
     color: #fdad2a;
     font-size: 12px;
+    text-align: center;
   }
   .left_button p {
     font-size: 12px;
-
+    text-align: center;
     //font-weight: bold;
     text-transform: none;
     margin-top: -8px;
@@ -295,6 +297,7 @@ page-home {
   }
   #left_button span {
     font-size: 12px;
+    text-align: center;
   }
   #disable_button {
     height: 28px;
@@ -302,6 +305,7 @@ page-home {
   }
   #disable_button span {
     font-size: 12px;
+    text-align: center;
   }
   ion-note {
     color: #888a8c;
