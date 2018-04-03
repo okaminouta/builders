@@ -19,6 +19,7 @@ page-home {
     background: #fafafa;
     padding: 0!important;
     margin-bottom: 55px;
+    position: absolute;
   }
   .toolbar-title {
     color: white;
@@ -95,6 +96,8 @@ page-home {
   }
   .list {
     margin-top: 10%;
+    position: absolute;
+    z-index: 70;
   }
   ion-card-content {
     color: #5d6d7d;
@@ -117,6 +120,9 @@ page-home {
     color: #182c40;
     font-weight: 540;
     margin-top: 5px;
+  }
+  .card {
+    z-index: 70;
   }
   .card {
     h2 {
@@ -157,6 +163,20 @@ page-home {
   .button-round {
     text-transform: none;
     border: 1px solid color($colors, secondary);
+  }
+  .message {
+    h6 {
+      position: relative;
+      left: 50%;
+      /* top: 41%; */
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      font-size: 13px;
+      text-align: center;
+      color: #888a8c;
+      z-index: 50;
+      margin-top: 20%;
+    }
   }
 
   [col-12] {

@@ -58,7 +58,7 @@ profile-about-me {
   .item-label-stacked .text-input, .item-label-floating .text-input {
     color: gray;
   }*/
-  .list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child{
+  .list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
     border-bottom-color: transparent;
     -webkit-box-shadow: inset 0 0px 0 0 transparent;
     box-shadow: inset 0 0px 0 0 transparent;
@@ -87,21 +87,28 @@ profile-about-me {
     color: gray;
   }
   .row {
-    background: white;
+    //background: white;
     margin-top: 3px;
+    border-bottom: 1px solid #fafafa;
 
   }
   .item-input:last-child {
     border-bottom: 1px solid transparent !important;
   }
   .first_last_name {
-    height: 100px;
+    // height: 100px;
+    margin-top: 29px;
+
   }
   .list {
     margin-top: 4px;
+    background: white;
   }
   .text-input {
     margin: 13px 14px;
+  }
+  .list-md .item-block .item-inner {
+    border-bottom: 1px solid #fafafa;
   }
 
 }

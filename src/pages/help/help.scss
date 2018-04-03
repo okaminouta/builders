@@ -1,11 +1,11 @@
 page-help {
-  .fixed-content{
+  .fixed-content {
     background: #fafafa;
   }
-  ion-textarea{
-    background:white;
+  ion-textarea {
+    background: white;
   }
-  [margin-top] .scroll-content{
+  [margin-top] .scroll-content {
     margin-top: 0;
   }
   [padding] h6:first-child{
@@ -13,5 +13,9 @@ page-help {
 }
   .scroll-content {
     margin-bottom: 0 !important;
+  }
+  textarea {
+    padding: 5px;
+    box-sizing: border-box;
   }
 }
