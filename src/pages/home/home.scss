@@ -88,6 +88,8 @@ page-home {
   }
   .list {
     margin-top: 10%;
+    position: absolute;
+    z-index: 70;
   }
   ion-card-content {
     color: #5d6d7d;
