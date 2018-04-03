@@ -8,5 +8,9 @@ page-tabs {
   .tabs-md[tabsLayout=icon-top] .has-icon .tab-button-text {
     font-size: 10px;
   }
-
+  ion-footer {
+    button {
+      height: 55px !important;
+    }
+  }
 }

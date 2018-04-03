@@ -23,16 +23,13 @@ export class AddSkillModalsPage {
 
     this.renderer.setElementClass(viewCtrl.pageRef().nativeElement, 'my-popup', true);
     console.log('item', navParams.get('item'));
-    this.skill = navParams.get('item')
-    if(!this.skill.skillLvl){
-      this.skill.skillLvl = 1;
+    this.skill = navParams.get('item');
+    if(!this.skill.lvl){
+      this.skill.lvl = 1;
     }
   }
 
-  // skilLavel = 1;
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad AddSkillModalsPage');
-  // }
+
   cancel() {
     this.viewCtrl.dismiss()
   }

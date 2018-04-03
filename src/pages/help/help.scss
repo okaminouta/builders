@@ -8,8 +8,11 @@ page-help {
   [margin-top] .scroll-content {
     margin-top: 0;
   }
-  [padding] h6:first-child {
-    margin-top: 0;
+  [padding] h6:first-child{
+  margin-top: 0;
+}
+  .scroll-content {
+    margin-bottom: 0 !important;
   }
 
   /*.myInput {

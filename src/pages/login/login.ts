@@ -35,18 +35,19 @@ export class LoginPage {
                 public util: UtilityProvider,
                 public  user: UserProvider,
                 public formBuilder: FormBuilder) {
-        this.user.getUser().then((res)=> {
-            if(res){
-                this.navCtrl.push(TabsPage);
-            }
-        });
-        this.user.firstEnter().get().then((data)=>{
-            if(!data){
-                this.navCtrl.push(SliderPage);
-                this.user.firstEnter().setTrue();
-            }
-        });
-        this.validation = this.util.validation;
+      //todo old function for controling the login
+        // this.user.getUser().then((res)=> {
+        //     if(res){
+        //         this.navCtrl.push(TabsPage);
+        //     }
+        // });
+        // this.user.firstEnter().get().then((data)=>{
+        //     if(!data){
+        //         this.navCtrl.push(SliderPage);
+        //         this.user.firstEnter().setTrue();
+        //     }
+        // });
+        // this.validation = this.util.validation;
     }
 
     // loginForm = this.formBuilder.group({
@@ -73,7 +74,8 @@ export class LoginPage {
         if (this.util.credentialsCheck(this.userData) ) {
             this.user.login(this.userData).then((res: any) => {
                 if (res) {
-                    this.navCtrl.push(ProfilePage);
+                  this.user.firstEnter().setFalse();
+                    this.navCtrl.push(TabsPage);
                 }
             });
         }
@@ -85,7 +87,6 @@ export class LoginPage {
     }
 
     forgotPass () {
-        this.navCtrl.push(TabsPage);
     }
 
 

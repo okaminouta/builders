@@ -23,6 +23,7 @@ export class UrlProvider {
   addSkills: string = this.url + 'addskill';
   deleteSkills: string = this.url + 'deleteskill';
   mySkills: string = this.url + 'myskill';
+  updateSkill: string = this.url + 'updatelevel/';
   profileCreate: string = this.url + 'about_me';
   changePass: string = this.url + 'reset_password';
   myjobs: string = this.url + 'myjobs';

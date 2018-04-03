@@ -1,9 +1,10 @@
 <ion-list padding-horizontal>
   <ion-row>
-    <div col-4 (click)="photoAddControl()" vertical-align-center text-center style="min-height: 120px">
-    <!--<fa-icon name="camera"></fa-icon>-->
-      <img [src]="defaultImg" alt="" *ngIf="!imageURI">
+    <div col-4 (click)="editProfile ? photoAddControl() : '' " vertical-align-center text-center
+         style="min-height: 120px">
+      <img [src]="defaultImg" alt="" *ngIf="!imageURI && !loadedImg">
       <img [src]="imageURI" alt="" *ngIf="imageURI">
+      <img [src]="loadedImg" alt="" *ngIf="loadedImg && !imageURI">
     </div>
     <ion-list col-8>
       <div class="first_last_name">
@@ -11,9 +12,8 @@
           <ion-input [(ngModel)]="userData.first_name" [disabled]="!editProfile" placeholder="Ім'я"
                      type="text"></ion-input>
         </ion-item>
-        <br>
         <ion-item floating>
-          <br><ion-input [(ngModel)]="userData.last_name" [disabled]="!editProfile" placeholder="Прізвище"
+          <ion-input [(ngModel)]="userData.last_name" [disabled]="!editProfile" placeholder="Прізвище"
                      type="text"></ion-input>
         </ion-item>
       </div>
@@ -25,7 +25,9 @@
     </ion-row>
   </ion-item>
   <ion-item no-padding>
-    <ion-input placeholder="E-mail" type="text" email [(ngModel)]="userData.email" [disabled]="!editProfile"></ion-input>
+    <ion-input placeholder="E-mail" type="email"
+               pattern="{{validator}}"
+               [(ngModel)]="userData.email" [disabled]="!editProfile"></ion-input>
     <ion-row class="border">
     </ion-row>
   </ion-item>
