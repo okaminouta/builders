@@ -84,9 +84,9 @@
           </div>
         </div>
       </ion-card>
-      <!--<div class="message">
+      <div class="message" *ngIf="!myJobsArr || myJobsArr.length === 0">
 <h6>Ви не подали ще жодної заявки на роботу</h6>
-</div>-->
+</div>
     </ion-list>
 
     <ion-list *ngSwitchCase="'all'">
@@ -217,7 +217,5 @@
       loadingText="Loading more data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
-  <div class="message">
-<h6 onclick="getMyJobs()">Жодної заявки на роботу не виявлено</h6>
-</div>
+
 </ion-content>
