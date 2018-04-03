@@ -1,14 +1,8 @@
 <ion-content padding>
   <ion-row align-items-center>
     <ion-col col-sm-9>
-      <!--<form [formGroup]="loginForm">-->
         <div class="input_one">
           <ion-item focus>
-            <!--<ion-input type="text"
-                       formControlName="phone"
-                       [(ngModel)]="userData.phone"
-                       placeholder="(__) ___-__-__"
-                       [brmasker]="{mask:'+000 (00) 00-00-000', len:19, type:'num'}"></ion-input>-->
             <div class="telefone_all">
               <div class="telef" ><input class="telephone"
                                         type="tel"
@@ -17,20 +11,11 @@
                                         placeholder="(xx) xxx-xx-xx">
                 <p>+380</p></div>
             </div>
-
           </ion-item>
-
-          <div class="valid">
-       <!--<span><ion-item *ngIf="validation(loginForm).phone()">-->
-          <!--{{validation(loginForm).phone()}}-->
-        <!--</ion-item></span>-->
-          </div>
         </div>
         <div class="input_bottom">
           <div class="input_two">
-            <ion-item justify-content-center
-                      >
-              <!--ngClass="{{loginForm.controls.password.errors ? invalid : ''}}"-->
+            <ion-item justify-content-center>
               <ion-input
                 [type]="isActive ? 'password' : 'text'"
                 placeholder="ПАРОЛЬ"
@@ -42,16 +27,8 @@
                 (click)="showPass()">
               </ion-icon>
             </ion-item>
-
-            <div class="valid">
-              <!--<ion-item *ngIf="validation(loginForm).password()">-->
-                <!--{{validation(loginForm).password()}}-->
-              <!--</ion-item>-->
-            </div>
           </div>
         </div>
-      <!--</form>-->
-
       <button ion-button
               round
               ngClass="{{ (userData.phone !== null &&
@@ -59,7 +36,6 @@
                userData.phone.length === 9 &&
                userData.password.length > 5) ? 'auth-active-button' : '' }}"
               (click)="login()">увійти
-        <!--ngClass="{{loginForm.valid ? 'valid-button' : ''}}"-->
       </button>
       <div class="text-cust" text-center>
         <div class="forgott">

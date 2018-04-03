@@ -8,6 +8,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import {UserProvider} from "../providers/user/user";
 import {SliderPage} from "../pages/slider/slider";
 import {TabsPage} from "../pages/tabs/tabs";
+import {ProfilePage} from "../pages/profile/profile";
 @Component({
   templateUrl: 'app.html',
   providers: [
@@ -32,6 +33,15 @@ export class MyApp {
         if(!res){
           this.user.firstEnter().setTrue();
           this.navCtrl.setRoot(SliderPage)
+        }
+        if (res === 'Unfinished'){
+          this.user.getUser().then((res)=> {
+            if(res){
+              this.navCtrl.setRoot(ProfilePage)
+            } else {
+              this.navCtrl.setRoot(LoginPage);
+            }
+          })
         }
         if (res === 'Finished'){
           this.user.getUser().then((res)=> {

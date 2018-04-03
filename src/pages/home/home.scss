@@ -19,7 +19,7 @@ page-home {
     background: #fafafa;
     padding: 0!important;
     margin-bottom: 55px;
-    position: absolute;
+
   }
   .toolbar-title {
     color: white;
@@ -93,11 +93,6 @@ page-home {
     height: 25px;
     border-radius: 0 25px 25px 0;
     font-weight: bold;
-  }
-  .list {
-    margin-top: 10%;
-    position: absolute;
-    z-index: 70;
   }
   ion-card-content {
     color: #5d6d7d;

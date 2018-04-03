@@ -19,28 +19,33 @@
       </div>
     </ion-list>
   </ion-row>
-  <ion-item no-padding>
-    <ion-input placeholder="Номер телефону" type="text" [(ngModel)]="phone" disabled></ion-input>
-    <ion-row class="border">
-    </ion-row>
-  </ion-item>
-  <ion-item no-padding>
-    <ion-input placeholder="E-mail" type="email"
-               pattern="{{validator}}"
-               [(ngModel)]="userData.email" [disabled]="!editProfile"></ion-input>
-    <ion-row class="border">
-    </ion-row>
-  </ion-item>
-  <ion-item no-padding>
-    <ion-input placeholder="Місто" type="text" [(ngModel)]="userData.city" [disabled]="!editProfile"></ion-input>
-    <ion-row class="border">
-    </ion-row>
-  </ion-item>
-  <ion-item no-padding>
-    <ion-label>У мене є закордонний паспорт</ion-label>
-    <ion-checkbox color="primary" checked="false" round item-end [(ngModel)]="userData.passport_id"
-                  [disabled]="!editProfile"></ion-checkbox>
-  </ion-item>
+
+    <ion-item no-padding>
+      <ion-input placeholder="Номер телефону" type="text" [(ngModel)]="phone" disabled></ion-input>
+      <ion-row class="border">
+      </ion-row>
+    </ion-item>
+    <ion-item no-padding>
+
+      <ion-input placeholder="E-mail" type="email"
+                 email
+                 [(ngModel)]="userData.email"
+                  [disabled]="!editProfile"></ion-input>
+
+      <ion-row class="border">
+      </ion-row>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-input placeholder="Місто" type="text" [(ngModel)]="userData.city" [disabled]="!editProfile"></ion-input>
+      <ion-row class="border">
+      </ion-row>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-label>У мене є закордонний паспорт</ion-label>
+      <ion-checkbox color="primary" checked="false" round item-end [(ngModel)]="userData.passport_id"
+                    [disabled]="!editProfile"></ion-checkbox>
+    </ion-item>
+
   <button no-padding detail-push ion-item (click)="presentContactModal()">Змінити пароль</button>
 </ion-list>
 

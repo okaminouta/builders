@@ -9,6 +9,7 @@ import {AddSkillModalsPage} from "../../pages/add-skill-modals/add-skill-modals"
 import {CameraOptions} from "@ionic-native/camera";
 import {CameraOptionsPage} from "../../pages/camera-options/camera-options";
 import {CommunicationProvider} from "../../providers/communication/communication ";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -32,10 +33,10 @@ export class ProfileAboutMeComponent implements OnChanges {
   defaultImg: string;
   loadedImg;
 
-
   constructor(public navCtrl: NavController,
               public util: UtilityProvider,
               public modalCtrl: ModalController,
+              public formBuilder: FormBuilder,
               private comm: CommunicationProvider,
               private user: UserProvider,
               private media: MediaProvider,) {
