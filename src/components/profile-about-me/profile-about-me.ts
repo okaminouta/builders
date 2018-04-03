@@ -8,6 +8,7 @@ import {MediaProvider} from "../../providers/media/media";
 import {AddSkillModalsPage} from "../../pages/add-skill-modals/add-skill-modals";
 import {CameraOptions} from "@ionic-native/camera";
 import {CameraOptionsPage} from "../../pages/camera-options/camera-options";
+import {CommunicationProvider} from "../../providers/communication/communication ";
 
 
 @Component({
@@ -35,6 +36,7 @@ export class ProfileAboutMeComponent implements OnChanges {
   constructor(public navCtrl: NavController,
               public util: UtilityProvider,
               public modalCtrl: ModalController,
+              private comm: CommunicationProvider,
               private user: UserProvider,
               private media: MediaProvider,) {
     this.initializeItems();
@@ -61,8 +63,13 @@ export class ProfileAboutMeComponent implements OnChanges {
   }
 
   leaveCheck() {
-    if (this.userData.first_name === null || this.userData.last_name === null) {
-      this.util.toast('Заповніть данні профіля', 'alert')
+    if (this.userData.first_name === null ||
+      this.userData.last_name === null ||
+      this.userData.first_name.trim() === '' ||
+      this.userData.last_name.trim() === ''
+    ) {
+      this.util.toast("Заповніть обов'язкові данні профіля", 'alert')
+      return false;
     }
   }
 
@@ -83,22 +90,24 @@ export class ProfileAboutMeComponent implements OnChanges {
 
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
-    if (!changes.editProfile.firstChange && !this.editProfile) {
-      console.log(this.userData)
-      if (this.imageURI) {
-        this.userData.photo = this.imageURI;
-      }
-      if (this.defaultImg && !this.imageURI && !this.loadedImg){
-        this.userData.photo = null;
-      }
-      this.user.setProfile(this.userData).then((res) => {
-      });
-      this.user.firstEnter().get().then((res) => {
-        if (res && res === 'Unfinished') {
-          this.util.toast('Заповніть вашы навички', 'alert');
-          this.util.changeTab('skills');
+    if (!changes.editProfile.firstChange &&
+      !this.editProfile) {
+      if (this.leaveCheck()) {
+        if (this.imageURI) {
+          this.userData.photo = this.imageURI;
         }
-      })
+        if (this.defaultImg && !this.imageURI && !this.loadedImg) {
+          this.userData.photo = null;
+        }
+        this.user.setProfile(this.userData).then((res) => {
+        });
+        this.user.firstEnter().get().then((res) => {
+          if (res && res === 'Unfinished') {
+            this.util.toast('Заповніть вашы навички', 'alert');
+            this.util.changeTab('skills');
+          }
+        })
+      }else this.comm.changeProfileEdit(true)
     }
   }
 

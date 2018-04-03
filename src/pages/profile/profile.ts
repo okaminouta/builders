@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NavController} from "ionic-angular";
 import {UserProvider} from "../../providers/user/user";
 import {UtilityProvider} from "../../providers/utility/utility";
+import {CommunicationProvider} from "../../providers/communication/communication ";
 
 @Component({
   selector: 'page-profile',
@@ -18,6 +19,7 @@ export class ProfilePage implements OnInit {
 
   constructor(public navCtrl: NavController,
               private user: UserProvider,
+              private comm: CommunicationProvider,
               private util: UtilityProvider) {
 
   }
@@ -38,6 +40,10 @@ export class ProfilePage implements OnInit {
         this.editProfile = true;
       }
     });
+    this.comm.profileEdit.subscribe(
+      (val) => {
+        setTimeout(() => this.editProfile = val, 0)
+      });
     this.user.dataChange.subscribe(this.canLeave = true);
   }
 

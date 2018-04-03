@@ -84,7 +84,7 @@ ion-header {
 }*/
 .toast-wrapper {
   margin-top: 10px !important;
-  opacity: 0.6 !important;
+  opacity: 0.6;
   border-radius: 15px;
   width: 65% !important;
   z-index: 999999;
@@ -98,8 +98,12 @@ ion-header {
 }
 
 .success {
+  .toast-wrapper {
+    opacity: 0.9;;
+  }
   > div {
     background-color: #32db64 !important;
+
   }
 }
 

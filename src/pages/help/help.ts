@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UserProvider} from "../../providers/user/user";
+import {UtilityProvider} from "../../providers/utility/utility";
 
 /**
  * Generated class for the HelpPage page.
@@ -19,6 +20,7 @@ export class HelpPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public util: UtilityProvider,
               public user: UserProvider) {
     // this.message = '';
   }
@@ -30,6 +32,11 @@ export class HelpPage {
   sendMessage() {
     this.user.contacktSupport({
       description: this.message
+    }).then((res)=> {
+      if(res){
+        this.message = '';
+        this.util.toast('Повідомлення відправлено', 'success')
+      }
     });
   }
 
