@@ -21,6 +21,7 @@
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
         <preference name="loadUrlTimeoutValue" value="700000" />
+        <preference name="android-manifest/application/activity/@android:windowSoftInputMode" value="adjustPan" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
@@ -89,5 +90,6 @@
     <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
     <plugin name="cordova-plugin-crop" spec="^0.4.0" />
     <plugin name="com-badrit-base64" spec="^0.2.0" />
-    <engine name="android" spec="~7.0.0" />
+    <plugin name="cordova-custom-config" spec="^5.0.2" />
+    <engine name="android" spec="^7.0.0" />
 </widget>

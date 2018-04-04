@@ -1,9 +1,4 @@
-/*
-  Generated class for the ComunicationcomunicationProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 import {EventEmitter, Injectable, Output} from "@angular/core";
 
 @Injectable()

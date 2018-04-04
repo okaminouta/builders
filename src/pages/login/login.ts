@@ -33,8 +33,7 @@ export class LoginPage {
                 public navParams: NavParams,
                 public alertCtrl: AlertController,
                 public util: UtilityProvider,
-                public  user: UserProvider,
-                public formBuilder: FormBuilder) {
+                public  user: UserProvider) {
       //todo old function for controling the login
         // this.user.getUser().then((res)=> {
         //     if(res){
