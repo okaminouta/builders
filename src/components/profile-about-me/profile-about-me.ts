@@ -71,7 +71,7 @@ export class ProfileAboutMeComponent implements OnChanges {
     ) {
       this.util.toast("Заповніть обов'язкові данні профіля", 'alert')
       return false;
-    }
+    } else return true;
   }
 
   photoAddControl() {

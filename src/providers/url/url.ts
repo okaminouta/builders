@@ -29,6 +29,7 @@ export class UrlProvider {
   myjobs: string = this.url + 'myjobs';
   applyForJob: string = this.url + 'addorder';
   escapeJob: string = this.url + 'deleteorder/';
+  friends: string = this.url + 'friend';
 
   constructor(public http: HttpClient) {
     console.log('Hello UrlProvider Provider');

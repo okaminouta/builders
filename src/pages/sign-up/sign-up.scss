@@ -2,6 +2,8 @@ page-sign-up {
   font-size: 12px;
 
   ion-content {
+    background: url('../assets/imgs/bg.png') no-repeat;
+    -webkit-background-size:cover;
     ion-row {
       height: calc(100% - 10%);
     }
@@ -21,10 +23,6 @@ page-sign-up {
     }
   }
 
-  ion-content {
-    background: url('../assets/imgs/bg.png');
-    background-size: 100% 100%;
-  }
 
   .item {
     border-radius: 40px;

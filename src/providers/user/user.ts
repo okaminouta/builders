@@ -167,4 +167,13 @@ export class UserProvider {
     });
   }
 
+  myFriends () {
+    return this.request.get(this.url.friends).then((res: any) => {
+      if (res) {
+        console.log(res, 'my friends res');
+        return res;
+      }
+    })
+  };
+
 }

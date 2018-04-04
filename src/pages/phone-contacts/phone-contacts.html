@@ -1,0 +1,32 @@
+<!--
+  Generated template for the PhoneContactsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>phone-contacts</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  qwe
+  <div class="container" *ngFor="let contact of contactlist">
+    <h2 class="name">{{contact.displayName}}1</h2>
+    <p class="number">{{ contact.phoneNumbers }}2</p>
+    <span> {{contact | json}}</span>
+  </div>
+  <div class="container" *ngFor="let contact of contactlist2">
+    <h2 class="name">{{contact.displayName}}1</h2>
+    <p class="number">{{ contact.phoneNumbers }}2</p>
+    <span> {{contact | json}}</span>
+  </div>
+  {{ contactlist | json }}
+  {{ contactlist  }}
+  {{ contactlist2 | json }}
+  {{ contactlist2 }}
+</ion-content>
