@@ -1,14 +1,8 @@
 <ion-content padding>
   <ion-row align-items-center>
     <ion-col col-sm-9>
-      <!--<form [formGroup]="registerForm">-->
       <div class="input_one">
         <ion-item focus>
-          <!--<ion-input type="text"-->
-          <!--formControlName="phone"-->
-          <!--[(ngModel)]="userData.phone"-->
-          <!--placeholder="(__) ___-__-__"-->
-          <!--[brmasker]="{mask:'+000 (00) 00-00-000', len:19, type:'num'}"></ion-input>-->
           <div class="telefone_all">
             <div class="telef"><input class="telephone"
                                       type="tel"
@@ -17,18 +11,10 @@
                                       placeholder="(xx) xxx-xx-xx">
               <p>+380</p></div>
           </div>
-
         </ion-item>
-
-        <!--<div class="valid">-->
-        <!--<span><ion-item *ngIf="validation(registerForm).phone()">-->
-        <!--{{validation(registerForm).phone()}}-->
-        <!--</ion-item></span>-->
-        <!--</div>-->
       </div>
       <div class="input_bottom">
         <div class="input_two">
-          <!--ngClass="{{registerForm.controls.password.errors ? invalid : ''}}"-->
           <ion-item justify-content-center>
             <ion-input
               [type]="isActive ? 'password' : 'text'"
@@ -41,16 +27,8 @@
               (click)="showPass()">
             </ion-icon>
           </ion-item>
-
-          <!--<div class="valid">-->
-          <!--<ion-item *ngIf="validation(registerForm).password()">-->
-          <!--{{validation(registerForm).password()}}-->
-          <!--</ion-item>-->
-          <!--</div>-->
         </div>
       </div>
-      <!--</form>-->
-
       <button ion-button
               round
               (click)="register()"
@@ -59,12 +37,8 @@
                userData.phone.length === 9 &&
                userData.password.length > 5) ? 'auth-active-button' : '' }}">
         Зареєструватися
-        <!--ngClass="{{registerForm.valid ? 'valid-button' : ''}}"-->
       </button>
-
-
       <div class="text-cust" text-center>
-        <!--<div margin-bottom><a>забули пароль?</a> <a (click)="goToSlider()">слайдер</a></div>-->
         <a margin-vertical>вже є акаунт?</a>
         <span><a color="primary" (click)="goToLogin()">увійти!</a></span>
       </div>

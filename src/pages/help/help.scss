@@ -14,8 +14,19 @@ page-help {
   .scroll-content {
     margin-bottom: 0 !important;
   }
-  textarea {
-    padding: 5px;
-    box-sizing: border-box;
+
+  /*.myInput {
+    width: calc(100% - 10px);
+    border: 0;
+    border-radius: 0;
+    //background: transparent;
+    margin-top: 50px;
+  }
+  .area{
+     background: white;
+    height: 100px;
+  }*/
+  textarea.text-input {
+    padding: 10px;
   }
 }
