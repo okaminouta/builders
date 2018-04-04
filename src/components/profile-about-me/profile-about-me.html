@@ -8,10 +8,12 @@
     </div>
     <ion-list col-8>
       <div class="first_last_name">
+      <div class="item_bottom">
         <ion-item floating>
           <ion-input [(ngModel)]="userData.first_name" [disabled]="!editProfile" placeholder="Ім'я"
                      type="text"></ion-input>
         </ion-item>
+        </div>
         <ion-item floating>
           <ion-input [(ngModel)]="userData.last_name" [disabled]="!editProfile" placeholder="Прізвище"
                      type="text"></ion-input>
