@@ -246,9 +246,9 @@
           </div>
         </div>
       </ion-card>
-<!--<div class="message">
-<h6>Ви не подали ще жодної заявки на роботу</h6>
-</div>-->
+<div class="message" *ngIf="!jobsArr || jobsArr.length === 0">
+<h6>У Вас немає активних пропозицій</h6>
+</div>
     </ion-list>
   </div>
 
