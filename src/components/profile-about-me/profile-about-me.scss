@@ -8,6 +8,7 @@ profile-about-me {
     max-width: 120px;
     min-width: 95px;
     border-radius: 50%;
+    opacity: 0.5;
 
   }
   .checkbox .checkbox-checked .checkbox-inner {
@@ -110,8 +111,15 @@ profile-about-me {
   .list-md .item-block .item-inner {
     border-bottom: 1px solid #fafafa;
   }
-  .item_bottom{
-    margin-bottom: 7%;
+  .item_bottom {
+    margin-bottom: 11%;
+  }
+  .fa {
+    position: relative;
+    top: 2.9em;
+    font-size: 24px;
+    color: white;
+    z-index: 99;
   }
 
 }

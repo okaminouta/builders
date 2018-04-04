@@ -1,7 +1,7 @@
 page-profile {
-.row{
-  //margin-top: 4px;
-}
+  .row {
+    //margin-top: 4px;
+  }
   //.toolbar-background-md {
   //  background: #081d32;
   //}
@@ -41,19 +41,18 @@ page-profile {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
-  img{
-    margin-top: 14px;
+  img {
+    margin-top: 0px; //було 14
   }
-  .list{
+  .list {
     margin: 0;
-    padding-left: 0px!important;
-    padding-right: 0px!important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 
   }
-  .item{
+  .item {
     margin-top: 0;
   }
-
 
   .segment .segment-button.activated, .segment .segment-button.segment-activated {
     background: #081d32 !important;
@@ -170,7 +169,7 @@ page-profile {
     bottom: 0;
     padding: 0;
     border-top: 1px solid #e6e6e6;
-    color:rgba(60, 60, 60, 0.7);
+    color: rgba(60, 60, 60, 0.7);
     font-size: 2.4rem;
     p {
       margin: 0;
