@@ -12,6 +12,7 @@ import {FormsModule} from '@angular/forms';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { Crop } from '@ionic-native/crop';
 import { Base64 } from '@ionic-native/base64';
+import { Contacts, Contact, } from '@ionic-native/contacts';
 
 import {ProfilePage} from '../pages/profile/profile';
 import {InfoPage} from '../pages/info/info';
@@ -43,6 +44,7 @@ import {CameraOptionsPage} from "../pages/camera-options/camera-options";
 import {JobCardComponent} from "../components/job-card/job-card";
 import {FocusDirective} from "../directives/focus/focus";
 import { CommunicationProvider } from '../providers/communication/communication ';
+import {PhoneContactsPage} from "../pages/phone-contacts/phone-contacts";
 
 
 @NgModule({
@@ -67,7 +69,8 @@ import { CommunicationProvider } from '../providers/communication/communication 
     ProfileAboutMeComponent,
     ProfileSkilsComponent,
     CameraOptionsPage,
-    JobCardComponent
+    JobCardComponent,
+    PhoneContactsPage
   ],
   imports: [
     BrowserModule,
@@ -101,7 +104,8 @@ import { CommunicationProvider } from '../providers/communication/communication 
     ProfileAboutMeComponent,
     ProfileSkilsComponent,
     CameraOptionsPage,
-    JobCardComponent
+    JobCardComponent,
+    PhoneContactsPage
   ],
   providers: [
     StatusBar,
@@ -120,6 +124,8 @@ import { CommunicationProvider } from '../providers/communication/communication 
     UtilityProvider,
     ContentProvider,
     MediaProvider,
+    Contacts,
+    Contact,
     CommunicationProvider,
   ],
 })
