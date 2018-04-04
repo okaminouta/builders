@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UserProvider} from "../../providers/user/user";
 import {PhoneContactsPage} from "../phone-contacts/phone-contacts";
-import {Contacts, Contact, ContactField, ContactName} from '@ionic-native/contacts';
 
 
 /**
@@ -19,9 +18,8 @@ import {Contacts, Contact, ContactField, ContactName} from '@ionic-native/contac
 })
 export class FriendsPage implements OnInit {
   showSearchbar: boolean = false;
-  sentence: string = 'friends';
   friendsArr = [];
-  private contactlist: any[];
+  friendRequestsArr = [];
 
 
   ngOnInit() {
@@ -31,9 +29,13 @@ export class FriendsPage implements OnInit {
         this.friendsArr = res;
       }
     })
-    this.contacts.find(["displayName", "phoneNumbers"], {multiple: true}).then((contacts) => {
-      this.contactlist = contacts;
-    });
+    this.user.friendRequests().then((res) => {
+      if (res) {
+        console.log(res, 'friends requests')
+        this.friendRequestsArr = res;
+      }
+    })
+
   }
 
   toContacts() {
@@ -44,13 +46,8 @@ export class FriendsPage implements OnInit {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private contacts: Contacts,
               public user: UserProvider) {
     this.imageURI = 'assets/imgs/man.png';
-    this.contacts.find(["displayName", "phoneNumbers"], {multiple: true}).then((contacts) => {
-      alert(contacts)
-      this.contactlist = contacts;
-    });
   }
 
   ionViewDidLoad() {

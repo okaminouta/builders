@@ -14,19 +14,8 @@
 
 
 <ion-content padding>
-  qwe
-  <div class="container" *ngFor="let contact of contactlist">
-    <h2 class="name">{{contact.displayName}}1</h2>
-    <p class="number">{{ contact.phoneNumbers }}2</p>
-    <span> {{contact | json}}</span>
-  </div>
   <div class="container" *ngFor="let contact of contactlist2">
-    <h2 class="name">{{contact.displayName}}1</h2>
-    <p class="number">{{ contact.phoneNumbers }}2</p>
-    <span> {{contact | json}}</span>
+    <h2 class="name">{{contact.displayName}}</h2>
+    <p class="number">{{ contact.phoneNumbers[0].value }}</p>
   </div>
-  {{ contactlist | json }}
-  {{ contactlist  }}
-  {{ contactlist2 | json }}
-  {{ contactlist2 }}
 </ion-content>

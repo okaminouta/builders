@@ -57,6 +57,13 @@
 
   <div class="contact_list">
 
+    <ion-item *ngFor=" let friend of friendRequestsArr">
+      <ion-avatar item-start>
+        <img [src]="imageURI">
+      </ion-avatar>
+      <h2>{{friend.first_name + ' ' + friend.last_name}} <br>  прислал вам заявку в друзья</h2>
+    </ion-item>
+    <hr>
     <ion-item *ngFor=" let friend of friendsArr">
       <ion-avatar item-start>
         <img [src]="imageURI">
@@ -68,6 +75,6 @@
 
   <div class="container" *ngFor="let contact of contactlist">
     <h2 class="name">{{contact.displayName}}</h2>
-    <p class="number">{{ contact.phoneNumbers }}</p>
+    <p class="number">{{ contact.phoneNumbers | json }}</p>
   </div>
 </ion-content>
