@@ -32,6 +32,13 @@ page-home {
     background: #2d2d2d !important;
     color: white !important;
   }
+  .searchbar-md .searchbar-search-icon{
+    top: 10px;
+   // background: white;
+  }
+  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon{
+    color: white;
+  }
   .searchbar .searchbar-input {
     border-radius: 65px;
     background-color: #0c2a49;

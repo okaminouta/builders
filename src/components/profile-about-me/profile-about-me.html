@@ -4,10 +4,10 @@
          style="min-height: 120px">
 
 
-<fa-icon name="camera" ngClass="{{editProfile ? '' : 'img-edit-icon' }}"></fa-icon>
-      <img [src]="defaultImg" alt="" *ngIf="!imageURI && !loadedImg" >
-      <img [src]="imageURI" alt="" *ngIf="imageURI" ngClass="{{editProfile ? 'img-edit' : ''}}">
-      <img [src]="loadedImg" alt="" *ngIf="loadedImg && !imageURI" ngClass="{{editProfile ? 'img-edit' : ''}}">
+<fa-icon name="camera"></fa-icon>
+      <img [src]="defaultImg" alt="" *ngIf="!imageURI && !loadedImg">
+      <img [src]="imageURI" alt="" *ngIf="imageURI">
+      <img [src]="loadedImg" alt="" *ngIf="loadedImg && !imageURI">
 
     </div>
     <ion-list col-8>
