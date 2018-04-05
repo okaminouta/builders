@@ -23,69 +23,39 @@
       <fa-icon name="user-plus"></fa-icon>&nbsp;&nbsp;&nbsp;Додати друга
     </h2>
   </ion-item>
-  <ion-item-sliding>
-    <ion-item>
-      <h2>
-        <fa-icon name="users"></fa-icon>&nbsp;&nbsp;&nbsp;Запросити друга
-      </h2>
-    </ion-item>
-    <ion-item-options side="left">
-      <button ion-button color="primary">
-        <ion-icon name="text"></ion-icon>
-        Text
-      </button>
-      <button ion-button color="secondary">
-        <ion-icon name="call"></ion-icon>
-        Call
-      </button>
-    </ion-item-options>
-    <ion-item-options side="right">
-      <button ion-button color="primary">
-        <ion-icon name="mail"></ion-icon>
-        Email
-      </button>
-    </ion-item-options>
-  </ion-item-sliding>
-  <ion-item-sliding>
-    <ion-item>
-      <h2>
-        <fa-icon name="suitcase"></fa-icon>&nbsp; &nbsp;&nbsp;Запропонувати пропозицію
-      </h2>
-    </ion-item>
-
-  </ion-item-sliding>
+  <ion-item>
+    <h2>
+      <fa-icon name="users"></fa-icon>&nbsp;&nbsp;&nbsp;Запросити друга
+    </h2>
+  </ion-item>
+  <ion-item>
+    <h2>
+      <fa-icon name="suitcase"></fa-icon>&nbsp; &nbsp;&nbsp;Запропонувати пропозицію
+    </h2>
+  </ion-item>
 
   <div class="contact_list">
 
-             <ion-item *ngFor=" let friend of friendsArr">
-                      <ion-avatar item-start>
-                        <img [src]="imageURI">
-                      </ion-avatar>
-                      <h3><b>{{friend.first_name + ' ' + friend.last_name}}</b>
-                      <i>прислав Вам заявку на роботу</i></h3>
-                      <div row col-6>
-                                <button ion-button round outline id="left_button">Додати</button>
-                                <button ion-button round outline id="disable_button">Відхилити </button>
-                              </div>
-                    </ion-item>
-                    <ion-item *ngFor=" let friend of friendsArr">
-                          <ion-avatar item-start>
-                            <img [src]="imageURI">
-                          </ion-avatar>
-                          <h3><b>{{friend.first_name + ' ' + friend.last_name}}</b></h3>
-                        </ion-item>
-                         <ion-item *ngFor=" let friend of friendsArr">
-                                  <ion-avatar item-start>
-                                    <img [src]="imageURI">
-                                  </ion-avatar>
-                                  <h3><b>{{friend.first_name + ' ' + friend.last_name}}</b></h3>
-                                </ion-item>
+    <ion-item *ngFor=" let friend of friendRequestsArr" no-lines>
+      <ion-avatar item-start>
+        <img [src]="imageURI">
+      </ion-avatar>
+      <h2>{{friend.first_name + ' ' + friend.last_name}} <br> прислал вам заявку в друзья</h2>
+    </ion-item>
+
+    <hr>
+
+    <ion-item *ngFor=" let friend of friendsArr" no-lines>
+      <ion-avatar item-start>
+        <img *ngIf="friend.photo_path" [src]="friend.photo_path">
+        <div *ngIf="!friend.photo_path" class="photo-placeholder" text-center>
+          <span>
+            {{(friend.first_name ? friend.first_name[0] : '') + (friend.last_name ? friend.last_name[0] : '')}}
+          </span>
+        </div>
+      </ion-avatar>
+      <h2>{{friend.first_name + ' ' + friend.last_name}}</h2>
+    </ion-item>
 
   </div>
-
-  <div class="container" *ngFor="let contact of contactlist">
-    <h2 class="name">{{contact.displayName}}</h2>
-    <p class="number">{{ contact.phoneNumbers }}</p>
-    </div>
-
 </ion-content>
