@@ -44,16 +44,16 @@ export class ProfileAboutMeComponent implements OnChanges {
     this.defaultImg = 'assets/imgs/camera.png';
     this.user.getProfile().then(res => {
       if (res) {
-        this.userData.first_name = res.profile.first_name;
-        this.userData.last_name = res.profile.last_name;
-        this.userData.email = res.profile.email;
-        this.userData.city = res.profile.city;
-        this.userData.passport_id = res.profile.passport_id;
+        this.userData.first_name = res.first_name;
+        this.userData.last_name = res.last_name;
+        this.userData.email = res.email;
+        this.userData.city = res.city;
+        this.userData.passport_id = res.passport_id;
         this.phone = '+380 ' +
-          res.profile.phone.toString().substring(0, 2) +
-          ' ' + res.profile.phone.toString().substring(2, 4) +
-          ' ' + res.profile.phone.toString().substring(4, 6) +
-          ' ' + res.profile.phone.toString().substring(6);
+          res.phone.toString().substring(0, 2) +
+          ' ' + res.phone.toString().substring(2, 4) +
+          ' ' + res.phone.toString().substring(4, 6) +
+          ' ' + res.phone.toString().substring(6);
         if (res.photo_path != null) {
           this.loadedImg = res.photo_path;
         }

@@ -8,7 +8,6 @@ profile-about-me {
     max-width: 120px;
     min-width: 95px;
     border-radius: 50%;
-    opacity: 0.5;
 
   }
   .checkbox .checkbox-checked .checkbox-inner {
@@ -121,5 +120,14 @@ profile-about-me {
     color: white;
     z-index: 99;
   }
+
+  .img-edit {
+    opacity: 0.5;
+    &-icon {
+      visibility: hidden;
+    }
+  }
+
+
 
 }
