@@ -76,7 +76,10 @@ export class LoginPage {
                   this.user.firstEnter().setFalse();
                     this.navCtrl.push(TabsPage);
                 }
-            });
+            },
+              (err) => {
+              console.log(err)
+              });
         }
     }
 

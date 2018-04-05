@@ -43,7 +43,10 @@ export class UserProvider {
         this.setUser(res.user);
         return res;
       }
-    });
+    },
+      (err) => {
+        console.log(err)
+      });
 
   }
 

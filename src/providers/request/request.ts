@@ -79,6 +79,8 @@ export class RequestProvider {
       },
       err => {
         console.log(err, 'err');
+        this.util.toast(err.error.message, 'alert')
+        // return err;
       });
   }
 
