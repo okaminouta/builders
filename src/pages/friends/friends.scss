@@ -17,8 +17,8 @@ page-friends {
     color: white;
   }
   .scroll-content {
-     margin-bottom: 55px;
-   }
+    margin-bottom: 55px;
+  }
 
   .left_button {
     border: 1px solid black;
@@ -104,6 +104,19 @@ page-friends {
     font-size: 13px;
     font-weight: bold;
     color: #515254;
+  }
+
+  .photo-placeholder {
+    background: #5d6d7d;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    span {
+      position: relative;
+      top: 13px;
+      font-weight: 700;
+      color: white;
+    }
   }
 
 }

@@ -16,8 +16,6 @@ import {Contacts, Contact, ContactField, ContactName} from '@ionic-native/contac
 })
 export class PhoneContactsPage implements OnInit {
   private contactlist: any[];
-  public contactlist2: any[];
-  test;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -29,9 +27,8 @@ export class PhoneContactsPage implements OnInit {
       multiple: true,
       hasPhoneNumber: true
     }).then((contacts) => {
-      this.contactlist2 = contacts;
+      this.contactlist = contacts;
     });
-    // this.fetchDeviceContact();
   }
 
 //   fetchDeviceContact(){

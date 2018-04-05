@@ -13,9 +13,20 @@
 </ion-header>
 
 
-<ion-content padding>
-  <div class="container" *ngFor="let contact of contactlist2">
-    <h2 class="name">{{contact.displayName}}</h2>
-    <p class="number">{{ contact.phoneNumbers[0].value }}</p>
-  </div>
+<ion-content>
+  <!--<div class="container" *ngFor="let contact of contactlist2">-->
+    <!--<h2 class="name">{{contact.displayName}}</h2>-->
+    <!--<p class="number">{{ contact.phoneNumbers[0].value }}</p>-->
+  <!--</div>-->
+
+  <ion-item *ngFor=" let contact of contactlist" no-lines>
+    <ion-avatar item-start>
+      <div class="photo-placeholder" text-center>
+          <span>
+            {{contact.displayName[0]}}
+          </span>
+      </div>
+    </ion-avatar>
+    <h2>{{contact.displayName}}</h2>
+  </ion-item>
 </ion-content>
