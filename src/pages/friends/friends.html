@@ -46,9 +46,24 @@
         </div>
       </ion-avatar>
       <h2>{{friend.first_name + ' ' + friend.last_name}} <br> прислал вам заявку в друзья</h2>
+      <div row col-6>
+                <button ion-button round outline id="left_button">Поділитися</button>
+                <button ion-button round outline id="disable_button" (click)="escapeJob(job)">Відхилити заявку</button>
+              </div>
     </ion-item>
 
-    <hr>
+<ion-item  no-lines text-wrap>
+     <ion-avatar item-start>
+        <img [src]="imageURI">
+      </ion-avatar>
+      <h3><b>Саха Питерский</b>
+       <i>прислав Вам заявку в друзі</i></h3>
+      <div row col-9>
+                <button ion-button round outline id="left_button">Додати</button>
+                <button ion-button round outline id="disable_button">Сховати</button>
+              </div>
+    </ion-item>
+
 
     <ion-item *ngFor=" let friend of friendsArr" no-lines>
       <ion-avatar item-start>
