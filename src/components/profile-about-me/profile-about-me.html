@@ -4,10 +4,10 @@
          style="min-height: 120px">
 
 
-<fa-icon name="camera"></fa-icon>
+<fa-icon name="camera" ngClass="{{editProfile ? '' : 'img-edit-icon' }}"></fa-icon>
       <img [src]="defaultImg" alt="" *ngIf="!imageURI && !loadedImg">
-      <img [src]="imageURI" alt="" *ngIf="imageURI">
-      <img [src]="loadedImg" alt="" *ngIf="loadedImg && !imageURI">
+      <img [src]="imageURI" alt="" *ngIf="imageURI" ngClass="{{editProfile ? 'img-edit' : ''}}">
+      <img [src]="loadedImg" alt="" *ngIf="loadedImg && !imageURI"  ngClass="{{editProfile ? 'img-edit' : ''}}">
 
     </div>
     <ion-list col-8>
@@ -33,16 +33,18 @@
       <ion-row class="border">
       </ion-row>
     </ion-item>
-    <ion-item no-padding>
+    <ion-item no-padding ngClass="{{validateEmail(userData.email) ? '' : 'invalid'}}">
 
       <ion-input placeholder="E-mail" type="email"
-                 email
                  [(ngModel)]="userData.email"
                   [disabled]="!editProfile"></ion-input>
 
-      <ion-row class="border">
-      </ion-row>
+      <!--<ion-row class="border">-->
+      <!--</ion-row>-->
     </ion-item>
+  <div class="alert-message"><span no-padding *ngIf="!validateEmail(userData.email)">
+Ваш email повинен виглядати як email і бути від 5-30 символів.
+  </span></div>
     <ion-item no-padding>
       <ion-input placeholder="Місто" type="text" [(ngModel)]="userData.city" [disabled]="!editProfile"></ion-input>
       <ion-row class="border">

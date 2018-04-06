@@ -19,7 +19,45 @@ profile-about-me {
   .label {
     margin-left: 15px;
   }
-
+  /*.item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: gray;
+    -webkit-box-shadow: inset 0 0px 0 0 gray;
+    box-shadow: inset 0 0px 0 0 gray;
+  }
+  .item.item-input.item-input-has-focus .item-inner, .item-.item-input.item-input-has-focus .item-inner {
+    border-bottom-color: gray;
+    -webkit-box-shadow: inset 0 0px 0 0 gray;
+    box-shadow: inset 0 0px 0 0 gray;
+  }*/
+  /*.item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: #fafafa;
+    -webkit-box-shadow: inset 0 -1px 0 0 #fafafa;
+    box-shadow: inset 0 0px 0 0 #fafafa;
+  }
+  .item.item-input.item-input-has-focus .item-inner, .item-.item-input.item-input-has-focus .item-inner {
+    border-bottom-color: gray;
+    -webkit-box-shadow: inset 0 0px 0 0 gray;
+    box-shadow: inset 0 0px 0 0 gray;
+  }
+  .list .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
+    border-bottom-color: gray;
+    -webkit-box-shadow: inset 0 0px 0 0 gray;
+    box-shadow: inset 0 0px 0 0 gray;
+  }
+  .list .item-input.item-input-has-focus:last-child, .list .item-input.input-has-focus:last-child {
+    border-bottom-color: gray;
+    -webkit-box-shadow: inset 0 0px 0 0 gray;
+    box-shadow: inset 0 0px 0 0 gray;
+  }
+  .item-input-has-focus .label[stacked], .input-has-focus .label[stacked], .item-input-has-focus .label[floating], .input-has-focus .label[floating] {
+    color: gray;
+  }
+  .item-block .item-inner {
+    border-bottom: 1px solid #fafafa!important;
+  }
+  .item-label-stacked .text-input, .item-label-floating .text-input {
+    color: gray;
+  }*/
   .list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
     border-bottom-color: transparent;
     -webkit-box-shadow: inset 0 0px 0 0 transparent;
@@ -101,6 +139,13 @@ profile-about-me {
      box-shadow: inset 0 0px 0 0 transparent!important;
    }
   }
+.invalid {
+  border-bottom: 1px solid red;
+}
 
+  .alert-message {
+    padding: 0 13px;
+    color: red;
+  }
 
 }

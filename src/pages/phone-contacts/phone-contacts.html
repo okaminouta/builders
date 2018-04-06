@@ -19,7 +19,7 @@
     <!--<p class="number">{{ contact.phoneNumbers[0].value }}</p>-->
   <!--</div>-->
 
-  <ion-item *ngFor=" let contact of contactlist" no-lines>
+  <ion-item *ngFor=" let contact of contactlist" no-lines (click)="phoneSelectPopup(contact)">
     <ion-avatar item-start>
       <div class="photo-placeholder" text-center>
           <span>
@@ -29,4 +29,5 @@
     </ion-avatar>
     <h2>{{contact.displayName}}</h2>
   </ion-item>
+  <button (click)="phoneSelectPopup()">8878798</button>
 </ion-content>

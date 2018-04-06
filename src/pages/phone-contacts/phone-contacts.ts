@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Contacts, Contact, ContactField, ContactName} from '@ionic-native/contacts';
 
 /**
@@ -19,6 +19,7 @@ export class PhoneContactsPage implements OnInit {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public alertCtrl: AlertController,
               private contacts: Contacts) {
   }
 
@@ -29,6 +30,35 @@ export class PhoneContactsPage implements OnInit {
     }).then((contacts) => {
       this.contactlist = contacts;
     });
+  }
+
+  phoneSelectPopup() {
+    let alert = this.alertCtrl.create();
+    alert.setTitle('Which planets have you visited?');
+
+
+
+    alert.addInput({
+      type: 'checkbox',
+      label: 'Takodana',
+      value: 'value6'
+    });
+
+    alert.addInput({
+      type: 'checkbox',
+      label: 'Tatooine',
+      value: 'value6'
+    });
+
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'Okay',
+      handler: (data: any) => {
+        console.log('Checkbox data:', data);
+      }
+    });
+
+    alert.present();
   }
 
 //   fetchDeviceContact(){
