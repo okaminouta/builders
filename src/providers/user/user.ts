@@ -171,7 +171,7 @@ export class UserProvider {
   }
 
   myFriends () {
-    return this.request.get(this.url.friends).then((res: any) => {
+    return this.request.get(this.url.friendsAll).then((res: any) => {
       if (res) {
         console.log(res, 'my friends res');
         return res;
@@ -180,9 +180,26 @@ export class UserProvider {
   };
 
   friendRequests () {
-    return this.request.get(this.url.friendRequests).then((res: any) => {
+    return this.request.get(this.url.friends.requests).then((res: any) => {
       if (res) {
         console.log(res, 'my friends requests res');
+        return res;
+      }
+    })
+  };
+
+  friendRequestsDecline (id) {
+    return this.request.get(this.url.friends.action + id + this.url.friends.decline).then((res: any) => {
+      if (res) {
+        console.log(res, 'friend declined');
+        return res;
+      }
+    })
+  };
+  friendRequestsAccept(id) {
+    return this.request.get(this.url.friends.action + id + this.url.friends.accept).then((res: any) => {
+      if (res) {
+        console.log(res, 'friend accepted');
         return res;
       }
     })

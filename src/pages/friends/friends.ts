@@ -62,4 +62,22 @@ export class FriendsPage implements OnInit {
     this.showSearchbar = true;
   }
 
+  declineFriend (user) {
+    this.user.friendRequestsDecline(user.id).then((res)=> {
+      if (res) {
+        this.friendRequestsArr.splice (this.friendRequestsArr.indexOf(user), 1)
+      }
+    })
+  }
+
+  acceptFriend (user) {
+    this.user.friendRequestsAccept(user.id).then((res)=> {
+      if (res) {
+        this.friendRequestsArr.splice(this.friendRequestsArr.indexOf(user), 1);
+        this.friendsArr.push(user);
+      }
+    })
+  }
+
+
 }
