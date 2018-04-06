@@ -93,6 +93,12 @@ page-friends {
   .item.item-block .item-inner {
     border-bottom: 1px solid #fafafa;
   }
+ /* .item-md[no-lines]{
+    border-bottom: 1px solid #fafafa;
+  }*/
+  [text-wrap] .label {
+    border-bottom: 1px solid #fafafa;
+  }
   .item h2 {
     font-size: 12px;
   }
@@ -131,14 +137,14 @@ page-friends {
     }
     #left_button {
       height: 21px;
-      width: 41%;
+      width: 43%;
       font-size: 11px;
       text-transform: none;
 
     }
     #disable_button {
       height: 21px;
-      width: 51%;
+      width: 48%;
       font-size: 11px;
       text-transform: none;
       border-color: #5d6d7d;
