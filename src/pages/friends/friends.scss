@@ -155,6 +155,40 @@ page-friends {
       margin: 0 16px 17px 0;
     }
   }
+
+
+    h2,b{
+      font-size: 13px;
+    }
+    i {
+      font-size: 11px;
+    }
+    .item-md .item-button {
+      padding: 0 0.6em;
+      height: 18px;
+      font-size: 9px;
+      text-transform: none;
+    }
+    #left_button {
+      height: 21px;
+      width: 43%;
+      font-size: 11px;
+      text-transform: none;
+
+    }
+    #disable_button {
+      height: 21px;
+      width: 48%;
+      font-size: 11px;
+      text-transform: none;
+      border-color: #5d6d7d;
+      color: #5d6d7d;
+
+    }
+    .item-md ion-avatar[item-start] {
+      margin: 0 16px 17px 0;
+    }
+  }
   .label {
     margin-top: 5px;
   }
