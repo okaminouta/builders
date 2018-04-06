@@ -31,16 +31,18 @@
       <ion-row class="border">
       </ion-row>
     </ion-item>
-    <ion-item no-padding>
+    <ion-item no-padding ngClass="{{validateEmail(userData.email) ? '' : 'invalid'}}">
 
       <ion-input placeholder="E-mail" type="email"
-                 email
                  [(ngModel)]="userData.email"
                   [disabled]="!editProfile"></ion-input>
 
-      <ion-row class="border">
-      </ion-row>
+      <!--<ion-row class="border">-->
+      <!--</ion-row>-->
     </ion-item>
+  <div class="alert-message"><span no-padding *ngIf="!validateEmail(userData.email)">
+Ваш email повинен виглядати як email і бути від 5-30 символів.
+  </span></div>
     <ion-item no-padding>
       <ion-input placeholder="Місто" type="text" [(ngModel)]="userData.city" [disabled]="!editProfile"></ion-input>
       <ion-row class="border">

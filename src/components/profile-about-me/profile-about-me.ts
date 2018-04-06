@@ -23,9 +23,7 @@ export class ProfileAboutMeComponent implements OnChanges {
   city: string;
   imageURI: any = null;
   phone;
-  validator = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,6})+$';
 
-  // disableFields: boolean = true;
 
   showList: boolean = false;
   searchQuery: string = '';
@@ -89,10 +87,15 @@ export class ProfileAboutMeComponent implements OnChanges {
     modal.present()
   }
 
+  validateEmail(email) {
+    let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     if (!changes.editProfile.firstChange &&
-      !this.editProfile) {
+      !this.editProfile &&
+      this.validateEmail(this.userData.email)) {
       if (this.leaveCheck()) {
         if (this.imageURI) {
           this.userData.photo = this.imageURI;

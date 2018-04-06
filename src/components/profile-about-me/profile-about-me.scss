@@ -86,12 +86,12 @@ profile-about-me {
   .item-input-has-focus .label[stacked], .input-has-focus .label[stacked], .item-input-has-focus .label[floating], .input-has-focus .label[floating] {
     color: gray;
   }
-  .row {
-    //background: white;
-    margin-top: 3px;
-    border-bottom: 1px solid #fafafa;
-
-  }
+  //.row {
+  //  //background: white;
+  //  margin-top: 3px;
+  //  border-bottom: 1px solid #fafafa;
+  //
+  //}
   .item-input:last-child {
     border-bottom: 1px solid transparent !important;
   }
@@ -131,6 +131,13 @@ profile-about-me {
     }
   }
 
+.invalid {
+  border-bottom: 1px solid red;
+}
 
+  .alert-message {
+    padding: 0 13px;
+    color: red;
+  }
 
 }
