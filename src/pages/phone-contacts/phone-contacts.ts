@@ -31,34 +31,33 @@ export class PhoneContactsPage implements OnInit {
       this.contactlist = contacts;
     });
   }
+numbers
+  phoneSelectPopup(contact) {
+    let alertPopup = this.alertCtrl.create();
+    alertPopup.setTitle('Виберіть номер для відправки запрошення');
+    alertPopup.addButton('Cancel');
+    if(contact.phoneNumbers.length > 1) {
+      for (let i = 0; i < contact.phoneNumbers.length; i++) {
+        alertPopup.addInput({
+          type: 'checkbox',
+          label: contact.phoneNumbers[i].value,
+          value: contact.phoneNumbers[i].value,
+        })
+    }
+      alertPopup.addButton({
+        text: 'Okay',
+        handler: (data: any) => {
+          this.numbers = data;
+        }
+      });
+      alertPopup.present();
+    } else {
 
-  phoneSelectPopup() {
-    let alert = this.alertCtrl.create();
-    alert.setTitle('Which planets have you visited?');
+    }
 
-
-
-    alert.addInput({
-      type: 'checkbox',
-      label: 'Takodana',
-      value: 'value6'
-    });
-
-    alert.addInput({
-      type: 'checkbox',
-      label: 'Tatooine',
-      value: 'value6'
-    });
-
-    alert.addButton('Cancel');
-    alert.addButton({
-      text: 'Okay',
-      handler: (data: any) => {
-        console.log('Checkbox data:', data);
-      }
-    });
-
-    alert.present();
+  }
+  test1 () {
+    // alert(this.test)
   }
 
 //   fetchDeviceContact(){

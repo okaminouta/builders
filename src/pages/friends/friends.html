@@ -38,7 +38,12 @@
 
     <ion-item *ngFor=" let friend of friendRequestsArr" no-lines>
       <ion-avatar item-start>
-        <img [src]="imageURI">
+        <img *ngIf="friend.photo_path" [src]="friend.photo_path">
+        <div *ngIf="!friend.photo_path" class="photo-placeholder" text-center>
+          <span>
+            {{(friend.first_name ? friend.first_name[0] : '') + (friend.last_name ? friend.last_name[0] : '')}}
+          </span>
+        </div>
       </ion-avatar>
       <h2>{{friend.first_name + ' ' + friend.last_name}} <br> прислал вам заявку в друзья</h2>
     </ion-item>
