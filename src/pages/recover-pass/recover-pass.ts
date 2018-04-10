@@ -25,4 +25,5 @@ export class RecoverPassPage {
     goBack() {
         this.navCtrl.pop();
     }
+
 }
