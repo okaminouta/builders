@@ -36,6 +36,7 @@ export class UrlProvider {
     action: this.friendsAll + '/',
     accept: '/accept',
     decline: '/deny',
+    send: this.friendsAll + '/send',
 }
 
   constructor(public http: HttpClient) {

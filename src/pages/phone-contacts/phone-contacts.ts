@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Contacts, Contact, ContactField, ContactName} from '@ionic-native/contacts';
+import {UserProvider} from "../../providers/user/user";
 
 /**
  * Generated class for the PhoneContactsPage page.
@@ -16,9 +17,10 @@ import {Contacts, Contact, ContactField, ContactName} from '@ionic-native/contac
 })
 export class PhoneContactsPage implements OnInit {
   private contactlist: any[];
-
+friends;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public user: UserProvider,
               public alertCtrl: AlertController,
               private contacts: Contacts) {
   }
@@ -30,7 +32,24 @@ export class PhoneContactsPage implements OnInit {
     }).then((contacts) => {
       this.contactlist = contacts;
     });
+    this.user.myFriends().then ((res)=> {
+      this.friends = res;
+      this.compareNumbers();
+    })
   }
+
+
+  compareNumbers () {
+    this.contactlist.forEach((item)=>{
+      if(this.friends.find((el)=> {
+        return el.phone === item.phoneNumbers[0].value;
+      })){
+        item.added = true;
+      }
+    })
+
+  }
+
 numbers
   phoneSelectPopup(contact) {
     let alertPopup = this.alertCtrl.create();
@@ -47,12 +66,14 @@ numbers
       alertPopup.addButton({
         text: 'Okay',
         handler: (data: any) => {
-          this.numbers = data;
+          this.user.friendRequestSend(data);
+          contact.added = true;
         }
       });
       alertPopup.present();
     } else {
-
+      this.user.friendRequestSend([contact.phoneNumbers[0].value]);
+      contact.added = true;
     }
 
   }

@@ -23,17 +23,37 @@ export class HomePage {
               private app: App,
               private comm: CommunicationProvider,
               public events: Events) {
-    this.tabs = this.app.getNavByIdOrName('myTabsNav') as Tabs;
 
-    this.comm.tabsControll.subscribe(()=>{
-      console.log('home lisner')
+    this.tabs = this.app.getNavByIdOrName('myTabsNav') as Tabs;
+    this.comm.tabsControll.subscribe((str)=>{
+      console.log('home lisner', str)
     })
     this.loadJobs();
     this.communication = this.comm.getDisplaySettings()
+    this.comm.tabsControll.subscribe((str)=>{
+      if (str === 'adviceJob2') {
+        this.comm.emitValue = 'adviceJobFinish';
+        let arr =[]
+        this.jobsArr.forEach((item)=> {
+          if(item.checked)  {
+            arr.push(item)
+          }
+
+        })
+        this.myJobsArr.forEach((item)=> {
+          if(item.checked)  {
+            arr.push(item)
+          }
+        })
+        this.comm.adviceJobsequence.jobs = arr;
+        console.log(this.comm.adviceJobsequence,'request advice job data')
+        this.comm.tabsControllPressed();
+        this.tabs.select(1);
+      }
+    })
   }
 
   checkJob(job) {
-    this.tabs.select(2);
     if(!job.checked){
       job.checked = true;
     } else job.checked = false;

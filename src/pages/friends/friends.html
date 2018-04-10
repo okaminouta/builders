@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header *ngIf="!selectFriends">
   <ion-navbar>
     <div class="bar bar-header bar-positive">
       <ion-title text-center *ngIf="!showSearchbar">Друзі
@@ -15,6 +15,36 @@
   </ion-navbar>
 </ion-header>
 
+<ion-header *ngIf="selectFriends">
+  <ion-navbar hideBackButton>
+    <ion-row justify-content-between align-items-center>
+      <ion-col>
+        <button color="white"
+                ion-button clear
+                text-capitalize
+                no-margin
+                no-padding
+                (click)="cancelFriendsSelection()">
+          Отмена
+        </button>
+      </ion-col>
+
+      <ion-title text-center>
+        Поделиться предложением
+      </ion-title>
+
+      <ion-col text-end no-padding>
+        <button color="white"
+                text-capitalize
+                ion-button clear
+                no-margin
+                no-padding>
+          Все
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
 
 <ion-content padding-vertical>
 
@@ -23,50 +53,37 @@
       <fa-icon name="user-plus"></fa-icon>&nbsp;&nbsp;&nbsp;Додати друга
     </h2>
   </ion-item>
-  <ion-item>
-    <h2>
-      <fa-icon name="users"></fa-icon>&nbsp;&nbsp;&nbsp;Запросити друга
-    </h2>
-  </ion-item>
-  <ion-item>
+  <!--<ion-item>-->
+  <!--<h2>-->
+  <!--<fa-icon name="users"></fa-icon>&nbsp;&nbsp;&nbsp;Запросити друга-->
+  <!--</h2>-->
+  <!--</ion-item>-->
+  <ion-item (click)="adviceJob()">
     <h2>
       <fa-icon name="suitcase"></fa-icon>&nbsp; &nbsp;&nbsp;Запропонувати пропозицію
     </h2>
   </ion-item>
 
   <div class="contact_list">
-
-    <ion-item *ngFor=" let friend of friendRequestsArr" text-wrap>
-      <ion-avatar item-start>
-        <img *ngIf="friend.photo_path" [src]="friend.photo_path">
-        <div *ngIf="!friend.photo_path" class="photo-placeholder" text-center>
+    <div *ngIf="!selectFriends">
+      <ion-item *ngFor=" let friend of friendRequestsArr" text-wrap>
+        <ion-avatar item-start>
+          <img *ngIf="friend.photo_path" [src]="friend.photo_path">
+          <div *ngIf="!friend.photo_path" class="photo-placeholder" text-center>
           <span>
             {{(friend.first_name ? friend.first_name[0] : '') + (friend.last_name ? friend.last_name[0] : '')}}
           </span>
+          </div>
+        </ion-avatar>
+        <!--<h2>{{friend.first_name + ' ' + friend.last_name}} <br> прислал вам заявку в друзья</h2>-->
+        <h3><b>{{friend.first_name + ' ' + friend.last_name}}</b>
+          <i>прислав Вам заявку в друзі</i></h3>
+        <div row col-9>
+          <button ion-button round outline id="left_button" (click)="acceptFriend(friend)">Додати</button>
+          <button ion-button round outline id="disable_button" (click)="declineFriend(friend)">Сховати</button>
         </div>
-      </ion-avatar>
-
-      <!--<h2>{{friend.first_name + ' ' + friend.last_name}} <br> прислал вам заявку в друзья</h2>-->
-      <h3><b>{{friend.first_name + ' ' + friend.last_name}}</b>
-        <i>прислав Вам заявку в друзі</i></h3>
-      <div row col-9>
-        <button ion-button round outline id="left_button" (click)="acceptFriend(friend)">Додати</button>
-        <button ion-button round outline id="disable_button" (click)="declineFriend(friend)">Сховати</button>
-      </div>
-    </ion-item>
-
-    <!--<ion-item no-lines text-wrap>-->
-      <!--<ion-avatar item-start>-->
-        <!--<img [src]="imageURI">-->
-      <!--</ion-avatar>-->
-      <!--<h3><b>Саха Питерский</b>-->
-        <!--<i>прислав Вам заявку в друзі</i></h3>-->
-      <!--<div row col-9>-->
-        <!--<button ion-button round outline id="left_button">Додати</button>-->
-        <!--<button ion-button round outline id="disable_button">Сховати</button>-->
-      <!--</div>-->
-    <!--</ion-item>-->
-
+      </ion-item>
+    </div>
 
 
     <ion-item *ngFor=" let friend of friendsArr" no-lines>
@@ -78,7 +95,12 @@
           </span>
         </div>
       </ion-avatar>
-      <h2>{{friend.first_name + ' ' + friend.last_name}}</h2>
+      <ion-label>{{friend.first_name + ' ' + friend.last_name}}</ion-label>
+      <ion-checkbox *ngIf="selectFriends"
+                    color="pimary"
+                    [checked]="friend.checked"
+                    (click)="checkFriend(friend)"
+                    item-end></ion-checkbox>
     </ion-item>
 
   </div>

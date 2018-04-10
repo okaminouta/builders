@@ -10,6 +10,7 @@ import {CameraOptions} from "@ionic-native/camera";
 import {CameraOptionsPage} from "../../pages/camera-options/camera-options";
 import {CommunicationProvider} from "../../providers/communication/communication ";
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ContentProvider} from "../../providers/content/content";
 
 
 @Component({
@@ -34,31 +35,22 @@ export class ProfileAboutMeComponent implements OnChanges {
   constructor(public navCtrl: NavController,
               public util: UtilityProvider,
               public modalCtrl: ModalController,
-              public formBuilder: FormBuilder,
+              public content: ContentProvider,
               private comm: CommunicationProvider,
               private user: UserProvider,
               private media: MediaProvider,) {
     this.initializeItems();
     this.defaultImg = 'assets/imgs/camera.png';
-    this.user.getProfile().then(res => {
+    user.getUser().then((res)=>{
       if (res) {
-        this.userData.first_name = res.first_name;
-        this.userData.last_name = res.last_name;
-        this.userData.email = res.email;
-        this.userData.city = res.city;
-        this.userData.passport_id = res.passport_id;
-        this.phone = '+380 ' +
-          res.phone.toString().substring(0, 2) +
-          ' ' + res.phone.toString().substring(2, 4) +
-          ' ' + res.phone.toString().substring(4, 6) +
-          ' ' + res.phone.toString().substring(6);
+        this.userData = res.profile;
+        this.phone = res.phone;
         if (res.photo_path != null) {
           this.loadedImg = res.photo_path;
         }
       }
       this.leaveCheck();
-    });
-
+    })
   }
 
   leaveCheck() {
@@ -88,8 +80,8 @@ export class ProfileAboutMeComponent implements OnChanges {
   }
 
   validateEmail(email) {
-    let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+    let validator = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return validator.test(email);
   }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {

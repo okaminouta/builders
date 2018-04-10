@@ -151,8 +151,10 @@ page-friends {
 
     }
     .item-md ion-avatar[item-start] {
-      margin: 0 16px 17px 0;
+      margin: 4px 16px 12px 0;
     }
+    .item .checkbox-md[item-end] {
+      margin: 5px 10px 10px 0; }
   }
   .label {
     margin-top: 5px;
