@@ -157,4 +157,46 @@ page-friends {
   .label {
     margin-top: 5px;
   }
+  .message {
+    h6 {
+      position: relative;
+      left: 50%;
+      /* top: 41%; */
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      font-size: 13px;
+      text-align: center;
+      color: #888a8c;
+      z-index: 50;
+      margin-top: 20%;
+    }
+  }
+  .searchbar .searchbar-search-icon{
+    top: 10px;
+    // background: white;
+  }
+  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon{
+    color: white;
+  }
+  .searchbar .searchbar-input {
+    border-radius: 65px;
+    background-color: #0c2a49;
+    color: white;
+    width: 88%;
+    line-height: 2.4rem;
+    font-weight: 500;
+    margin-left: 3px;
+    font-size: 12px;
+  }
+  .searchbar .searchbar-search-icon {
+    color: white !important;
+    background-size: 16px;
+    // background-color: white!important;
+  }
+  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon {
+    color: white !important;
+  }
+  .searchbar .searchbar .searchbar-animated .searchbar-show-cancel .searchbar-active{
+    color:white;
+  }
 }

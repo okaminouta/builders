@@ -80,6 +80,8 @@
       </ion-avatar>
       <h2>{{friend.first_name + ' ' + friend.last_name}}</h2>
     </ion-item>
-
+<div class="message" *ngIf="!friendRequestsArr || friendRequestsArr.length === 0">
+<h6>У Вас ще немає друзів</h6>
+</div>
   </div>
 </ion-content>

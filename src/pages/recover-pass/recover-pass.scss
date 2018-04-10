@@ -1,0 +1,44 @@
+page-recover-pass {
+  .scroll-content {
+    padding: 0px!important;
+  }
+  .content{
+  background-color: #fafafa;
+
+}
+  .confirmation_tel{
+    .number{
+      padding: 10px;
+      margin-top: 0;
+      height: 47px;
+      width: 100%;
+      border: 1px solid transparent;
+    }
+    ::placeholder {
+      margin-right: 5%;
+
+    }
+
+    h6{
+      font-size: 14px;
+      font-weight: 500;
+      padding: 17px;
+    }
+  }
+  .message {
+    h6 {
+      position: relative;
+      left: 50%;
+      /* top: 41%; */
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      font-size: 13px;
+      text-align: center;
+      color: #888a8c;
+      z-index: 50;
+      //margin-top: 20%;
+    }
+    margin-top: 16%;
+  }
+
+}

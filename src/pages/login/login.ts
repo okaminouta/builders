@@ -7,6 +7,7 @@ import {UserProvider} from "../../providers/user/user";
 import {UtilityProvider} from "../../providers/utility/utility";
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProfilePage} from "../profile/profile";
+import {RecoverPassPage} from "../recover-pass/recover-pass";
 
 
 /**
@@ -89,6 +90,7 @@ export class LoginPage {
     }
 
     forgotPass () {
+        this.navCtrl.push(RecoverPassPage);
     }
 
 

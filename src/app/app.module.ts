@@ -23,6 +23,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import {SignUpPage} from "../pages/sign-up/sign-up";
+import {RecoverPassPage} from "../pages/recover-pass/recover-pass";
 import {Mask} from "../directives/mask/mask";
 import {FriendsPage} from "../pages/friends/friends";
 import {SliderPage} from "../pages/slider/slider";
@@ -70,7 +71,8 @@ import {PhoneContactsPage} from "../pages/phone-contacts/phone-contacts";
     ProfileSkilsComponent,
     CameraOptionsPage,
     JobCardComponent,
-    PhoneContactsPage
+    PhoneContactsPage,
+      RecoverPassPage
   ],
   imports: [
     BrowserModule,
@@ -105,7 +107,8 @@ import {PhoneContactsPage} from "../pages/phone-contacts/phone-contacts";
     ProfileSkilsComponent,
     CameraOptionsPage,
     JobCardComponent,
-    PhoneContactsPage
+    PhoneContactsPage,
+      RecoverPassPage
   ],
   providers: [
     StatusBar,
