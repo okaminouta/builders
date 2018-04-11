@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {App, Events, NavController, Tabs} from 'ionic-angular';
-import {SliderPage} from "../slider/slider";
 import {ContentProvider} from "../../providers/content/content";
 import {UserProvider} from "../../providers/user/user";
 import {CommunicationProvider} from "../../providers/communication/communication ";
@@ -14,6 +13,7 @@ export class HomePage {
   showSearchbar: boolean = false;
   jobsArr = [];
   myJobsArr = [];
+  suggestedJobs = [];
   scrollLimit = 2;
   communication;
   tabs;
@@ -36,20 +36,24 @@ export class HomePage {
         let arr =[]
         this.jobsArr.forEach((item)=> {
           if(item.checked)  {
-            arr.push(item)
+            arr.push(item.id)
           }
 
         })
         this.myJobsArr.forEach((item)=> {
           if(item.checked)  {
-            arr.push(item)
+            arr.push(item.id)
           }
         })
-        this.comm.adviceJobsequence.jobs = arr;
+        this.comm.adviceJobsequence.job_id = arr;
         console.log(this.comm.adviceJobsequence,'request advice job data')
         this.comm.tabsControllPressed();
         this.tabs.select(1);
       }
+    })
+    this.content.getSuggestedJobs().then((res)=>{
+      this.suggestedJobs = (res ? res : []);
+      console.log(res,'suggested jobs' )
     })
   }
 

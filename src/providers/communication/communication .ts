@@ -11,8 +11,8 @@ export class CommunicationProvider {
   emitValue: string;
 
   adviceJobsequence = {
-    friends: null,
-    jobs: null
+    recipient_id: null,
+    job_id: null
   }
 
 

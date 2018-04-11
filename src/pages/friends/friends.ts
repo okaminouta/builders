@@ -43,11 +43,11 @@ export class FriendsPage implements OnInit {
         let arr = []
         this.friendsArr.forEach((item) => {
           if (item.checked) {
-            arr.push(item)
+            arr.push(item.id)
           }
 
         })
-        this.comm.adviceJobsequence.friends = arr;
+        this.comm.adviceJobsequence.recipient_id = arr;
         this.tabs.select(0);
       }
       if (str === 'adviceJobFinish') {
@@ -95,9 +95,6 @@ export class FriendsPage implements OnInit {
     this.tabs = this.app.getNavByIdOrName('myTabsNav') as Tabs;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FriendsPage');
-  }
 
   hideSBar() {
     this.showSearchbar = false;

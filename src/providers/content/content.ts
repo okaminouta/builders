@@ -37,6 +37,22 @@ export class ContentProvider {
     });
   }
 
+  getSuggestedJobs() {
+    return this.request.get(this.url.jobSuggestions).then((res: any) => {
+      if (res) {
+        return res;
+      }
+    });
+  }
+
+  suggestJobs() {
+    return this.request.get(this.url.suggestJobs).then((res: any) => {
+      if (res) {
+        return res;
+      }
+    });
+  }
+
   counter(id) {
     return this.request.get(this.url.counter + id);
   }
