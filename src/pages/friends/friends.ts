@@ -59,14 +59,17 @@ export class FriendsPage implements OnInit {
   }
 
   checkFriend(friend) {
-    friend.checked = (friend.checked ? false : true);
+    friend.checked = friend.checked ? false : true;
     console.log(friend)
-    // if(!friend.checked) friend.checked = true;
-    // else friend.checked = false;
+  }
+
+  checkAllFriends () {
+    this.friendsArr.forEach((item) => item.checked = true)
   }
 
   cancelFriendsSelection() {
     this.selectFriends = false;
+    this.comm.data.jobsSelector = false;
     this.friendsArr.forEach((item) => item.checked = false)
   }
 

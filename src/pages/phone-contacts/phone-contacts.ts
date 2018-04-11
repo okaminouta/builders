@@ -34,16 +34,16 @@ friends;
     });
     this.user.myFriends().then ((res)=> {
       this.friends = res;
-      this.compareNumbers();
+      if(this.contactlist && this.contactlist.length > 0 && this.friends.length >0 ){
+        this.compareNumbers();
+      }
     })
   }
 
 
   compareNumbers () {
     this.contactlist.forEach((item)=>{
-      if(this.friends.find((el)=> {
-        return el.phone === item.phoneNumbers[0].value;
-      })){
+      if(this.friends.find((el)=> {return el.phone === item.phoneNumbers[0].value;})){
         item.added = true;
       }
     })

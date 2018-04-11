@@ -38,7 +38,8 @@
                 text-capitalize
                 ion-button clear
                 no-margin
-                no-padding>
+                no-padding
+        (click)="checkAllFriends()">
           Все
         </button>
       </ion-col>
@@ -47,7 +48,7 @@
 </ion-header>
 
 <ion-content padding-vertical>
-
+<div *ngIf="!selectFriends">
   <ion-item (click)="toContacts ()">
     <h2>
       <fa-icon name="user-plus"></fa-icon>&nbsp;&nbsp;&nbsp;Додати друга
@@ -63,7 +64,7 @@
       <fa-icon name="suitcase"></fa-icon>&nbsp; &nbsp;&nbsp;Запропонувати пропозицію
     </h2>
   </ion-item>
-
+</div>
   <div class="contact_list">
     <div *ngIf="!selectFriends">
       <ion-item *ngFor=" let friend of friendRequestsArr" text-wrap>
