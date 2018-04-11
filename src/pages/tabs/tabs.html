@@ -8,13 +8,12 @@
   </button>
 </ion-footer>
 
-<!--Заменить 0 на ''-->
 <ion-tabs trimHistory="true" name="myTabsNav">
   <ion-tab [root]="tab1Root" tabTitle="Пропозиції" tabIcon="fa-home"></ion-tab>
   <ion-tab [root]="tab4Root"
            tabTitle="Контакти"
            tabIcon="fa-users"
-           tabBadge="{{friendRequestsArr && !friendRequestsArr.length ? friendRequestsArr.length : 0}}"
+           tabBadge="{{friendRequest && friendRequest.length ? friendRequest.length : ''}}"
            tabBadgeStyle="danger"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Профіль" tabIcon="fa-user"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="Інфо" tabIcon="fa-info"></ion-tab>

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UserProvider} from "../../providers/user/user";
 import {PhoneContactsPage} from "../phone-contacts/phone-contacts";
-
+import {CommunicationProvider} from "../../providers/communication/communication ";
 
 /**
  * Generated class for the FriendsPage page.
@@ -23,19 +23,8 @@ export class FriendsPage implements OnInit {
 
 
   ngOnInit() {
-    this.user.myFriends().then((res) => {
-      if (res) {
-        console.log(res, 'friends')
-        this.friendsArr = res;
-      }
-    })
-    this.user.friendRequests().then((res) => {
-      if (res) {
-        console.log(res, 'friends requests')
-        this.friendRequestsArr = res;
-      }
-    })
-
+    this.friendsArr = this.comm.myFriend;
+    this.friendRequestsArr = this.comm.friendRequest;
   }
 
   toContacts() {
@@ -46,12 +35,9 @@ export class FriendsPage implements OnInit {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public user: UserProvider) {
+              public user: UserProvider,
+              public comm: CommunicationProvider) {
     this.imageURI = 'assets/imgs/man.png';
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FriendsPage');
   }
 
   hideSBar() {
@@ -78,6 +64,4 @@ export class FriendsPage implements OnInit {
       }
     })
   }
-
-
 }
