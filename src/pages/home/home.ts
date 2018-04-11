@@ -74,6 +74,12 @@ export class HomePage {
   switchJobsSelectorDisplay () {
     this.comm.switchJobsSelectorDisplay();
   }
+
+  goToFriendsSelection (){
+    this.comm.emitValue = 'adviceJob1';
+    this.tabs.select(1);
+  }
+
   loadJobs() {
     this.content.getJobs().then(res => {
       if (res) {
