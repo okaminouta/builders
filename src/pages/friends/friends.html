@@ -103,6 +103,8 @@
                     (click)="checkFriend(friend)"
                     item-end></ion-checkbox>
     </ion-item>
-
+<div class="message" *ngIf="!friendRequestsArr || friendRequestsArr.length === 0">
+<h6>У Вас ще немає друзів</h6>
+</div>
   </div>
 </ion-content>
