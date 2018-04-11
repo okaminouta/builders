@@ -17,6 +17,7 @@ import {UserProvider} from "../../providers/user/user";
 })
 export class PhoneContactsPage implements OnInit {
   private contactlist: any[];
+    showSearchbar: boolean = false;
 friends;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -77,6 +78,16 @@ numbers
     }
 
   }
+    goBack() {
+        this.navCtrl.pop();
+    }
+    hideSBar() {
+        this.showSearchbar = false;
+    }
+
+    showSBar() {
+        this.showSearchbar = true;
+    }
   test1 () {
     // alert(this.test)
   }

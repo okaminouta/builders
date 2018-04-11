@@ -16,5 +16,45 @@ page-phone-contacts {
       text-transform: none !important;
       padding: 10px 20px !important;
     }
+    /*.icon-right {
+      float: right;
+      font-size: 0.9em;
+    }*/
   }
+  .icon{
+    color: white;
+    //width: 30%;
+    margin-right: 2%;
+    font-size: 1.4em;
+  }
+  .searchbar-md .searchbar-search-icon{
+    top: 10px;
+    // background: white;
+  }
+  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon{
+    color: white;
+  }
+  .searchbar .searchbar-input {
+    border-radius: 65px;
+    background-color: #0c2a49;
+    color: white;
+    width: 88%;
+    line-height: 2.4rem;
+    font-weight: 500;
+    margin-left: 3px;
+    font-size: 12px;
+  }
+
+  .searchbar .searchbar-search-icon {
+    color: white !important;
+    background-size: 16px;
+
+  }
+  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon {
+    color: white !important;
+  }
+
+
+
+
 }
