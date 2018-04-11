@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {UrlProvider} from "../url/url";
 import {RequestProvider} from "../request/request";
 import {UserProvider} from "../user/user";
+import {CommunicationProvider} from "../communication/communication ";
 
 /*
   Generated class for the ContentProvider provider.
@@ -16,6 +17,7 @@ export class ContentProvider {
 
   constructor(public http: HttpClient,
               public url: UrlProvider,
+              public comm: CommunicationProvider,
               public user: UserProvider,
               public request: RequestProvider) {
     console.log('Hello ContentProvider Provider');
@@ -46,10 +48,8 @@ export class ContentProvider {
   }
 
   suggestJobs() {
-    return this.request.get(this.url.suggestJobs).then((res: any) => {
-      if (res) {
-        return res;
-      }
+    return this.request.post(this.url.suggestJobs, this.comm.adviceJobsequence ).then((res: any) => {
+     console.log(res,'suggest jobs res')
     });
   }
 

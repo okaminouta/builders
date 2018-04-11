@@ -135,9 +135,14 @@
       <ion-card *ngFor="let suggestedJob of suggestedJobs">
         <ion-item text-wrap>
           <ion-avatar item-start>
-            <img src="../assets/imgs/man.png">
+            <img *ngIf="suggestedJob.photo_path" [src]="suggestedJob.photo_path">
+            <div *ngIf="!suggestedJob.photo_path" class="photo-placeholder" text-center>
+          <span>
+            {{(suggestedJob.first_name ? suggestedJob.first_name[0] : '') + (suggestedJob.last_name ? suggestedJob.last_name[0] : '')}}
+          </span>
+            </div>
           </ion-avatar>
-          <h3><b>Михайло Андрієвський</b>
+          <h3><b>{{suggestedJob.first_name + ' ' + suggestedJob.last_name}}</b>
             <i>прислав Вам заявку на роботу</i></h3>
         </ion-item>
 
