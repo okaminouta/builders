@@ -16,8 +16,9 @@ import {UserProvider} from "../../providers/user/user";
   templateUrl: 'phone-contacts.html',
 })
 export class PhoneContactsPage implements OnInit {
-  private contactlist: any[];
     showSearchbar: boolean = false;
+  private contactlist: any[];
+
 friends;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -25,6 +26,7 @@ friends;
               public alertCtrl: AlertController,
               private contacts: Contacts) {
   }
+
 
   ngOnInit() {
     this.contacts.find(["displayName", "phoneNumbers"], {
