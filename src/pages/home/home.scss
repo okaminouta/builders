@@ -4,6 +4,17 @@ page-home {
     margin-right: 3px;
 
   }
+
+  .photo-placeholder {
+    background-color: #928c8c;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    padding-top: 13px;
+    font-weight: 600;
+  }
+
   ion-header {
     .button-inner {
        color: #ffffff!important;

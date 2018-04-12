@@ -4,6 +4,8 @@ import {EventEmitter, Injectable, Output} from "@angular/core";
 @Injectable()
 
 export class CommunicationProvider {
+  public friendRequest;
+  public myFriend;
   data = {
     jobsSelector: false,
     editProfile: false,
@@ -11,8 +13,8 @@ export class CommunicationProvider {
   emitValue: string;
 
   adviceJobsequence = {
-    friends: null,
-    jobs: null
+    recipient_id: null,
+    job_id: null
   }
 
 
@@ -21,6 +23,13 @@ export class CommunicationProvider {
 
   getDisplaySettings() {
     return this.data;
+  }
+
+  getFriendRequest(data){
+    this.friendRequest = data;
+  }
+  getMyFriend(data){
+    this.myFriend = data;
   }
 
   switchJobsSelectorDisplay() {

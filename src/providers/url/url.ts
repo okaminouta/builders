@@ -29,7 +29,6 @@ export class UrlProvider {
   myjobs: string = this.url + 'myjobs';
   applyForJob: string = this.url + 'addorder';
   escapeJob: string = this.url + 'deleteorder/';
-
   friendsAll = this.url + 'friend'
   friends = {
     requests: this.friendsAll + '/incoming',
@@ -38,6 +37,8 @@ export class UrlProvider {
     decline: '/deny',
     send: this.friendsAll + '/send',
 }
+  jobSuggestions: string = this.url + 'orderjobs';
+  suggestJobs: string = this.url + 'share';
 
   constructor(public http: HttpClient) {
     console.log('Hello UrlProvider Provider');

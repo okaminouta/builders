@@ -25,29 +25,19 @@ export class FriendsPage implements OnInit {
 
 
   ngOnInit() {
-    this.user.myFriends().then((res) => {
-      if (res) {
-        console.log(res, 'friends')
-        this.friendsArr = res;
-      }
-    })
-    this.user.friendRequests().then((res) => {
-      if (res) {
-        console.log(res, 'friends requests')
-        this.friendRequestsArr = res;
-      }
-    })
+    this.friendsArr = this.comm.myFriend;
+    this.friendRequestsArr = this.comm.friendRequest;
     this.comm.tabsControll.subscribe((str) => {
       if (str === 'adviceJob1') {
         this.comm.emitValue = 'adviceJob2';
         let arr = []
         this.friendsArr.forEach((item) => {
           if (item.checked) {
-            arr.push(item)
+            arr.push(item.id)
           }
 
         })
-        this.comm.adviceJobsequence.friends = arr;
+        this.comm.adviceJobsequence.recipient_id = arr;
         this.tabs.select(0);
       }
       if (str === 'adviceJobFinish') {
@@ -88,15 +78,11 @@ export class FriendsPage implements OnInit {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public user: UserProvider,
               private app: App,
-              public comm: CommunicationProvider,
-              public user: UserProvider) {
+              public comm: CommunicationProvider) {
     // this.imageURI = 'assets/imgs/man.png';
     this.tabs = this.app.getNavByIdOrName('myTabsNav') as Tabs;
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FriendsPage');
   }
 
   hideSBar() {
