@@ -46,6 +46,7 @@ import {JobCardComponent} from "../components/job-card/job-card";
 import {FocusDirective} from "../directives/focus/focus";
 import { CommunicationProvider } from '../providers/communication/communication ';
 import {PhoneContactsPage} from "../pages/phone-contacts/phone-contacts";
+import {OrderPipe} from "../pipes/oreder-by/order-by";
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import {PhoneContactsPage} from "../pages/phone-contacts/phone-contacts";
     CameraOptionsPage,
     JobCardComponent,
     PhoneContactsPage,
-      RecoverPassPage
+      RecoverPassPage,
+    OrderPipe,
   ],
   imports: [
     BrowserModule,
@@ -108,7 +110,7 @@ import {PhoneContactsPage} from "../pages/phone-contacts/phone-contacts";
     CameraOptionsPage,
     JobCardComponent,
     PhoneContactsPage,
-      RecoverPassPage
+      RecoverPassPage,
   ],
   providers: [
     StatusBar,
@@ -130,6 +132,7 @@ import {PhoneContactsPage} from "../pages/phone-contacts/phone-contacts";
     Contacts,
     Contact,
     CommunicationProvider,
+    OrderPipe,
   ],
 })
 export class AppModule {

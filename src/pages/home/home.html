@@ -1,4 +1,4 @@
-<ion-header *ngIf="!communication.jobsSelector">
+<ion-header *ngIf="!communication.tabsControllButton">
   <ion-navbar>
     <div class="bar bar-header bar-positive">
       <ion-title text-center *ngIf="!showSearchbar">Пропозиції
@@ -17,7 +17,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-header *ngIf="communication.jobsSelector">
+<ion-header *ngIf="communication.tabsControllButton">
   <ion-navbar hideBackButton>
     <ion-row justify-content-between align-items-center>
       <ion-col>
@@ -56,11 +56,11 @@
         <ion-col col-6>
           <ion-segment [(ngModel)]="sentence">
             <ion-segment-button class="left_button" value="all"
-                                (click)="( communication.jobsSelector ? '' : loadJobs ())">
+                                (click)="( communication.tabsControllButton ? '' : loadJobs ())">
               <p>Всі</p>
             </ion-segment-button>
             <ion-segment-button class="right_button" value="my"
-                                (click)="( communication.jobsSelector ? '' : getMyJobs())">
+                                (click)="( communication.tabsControllButton ? '' : getMyJobs())">
               <p>Мої</p>
             </ion-segment-button>
           </ion-segment>
@@ -112,15 +112,15 @@
               Розміщено <span *ngIf="!job.createdRecently">{{job.created_at | date:"dd.MM.yy"}}</span>
               <span *ngIf="job.createdRecently">{{job.createdRecently}}</span> · &nbsp; перегляди: {{job.job.count}}
               <ion-checkbox color="pimary"
-                            *ngIf="communication.jobsSelector"
+                            *ngIf="communication.tabsControllButton"
                             [checked]="job.checked"
                             (click)="checkJob(job)"
                             item-end></ion-checkbox>
             </ion-note>
           </ion-col>
         </ion-row>
-        <div row col-12 *ngIf="!communication.jobsSelector">
-          <button ion-button round outline id="left_button">Поділитися</button>
+        <div row col-12 *ngIf="!communication.tabsControllButton">
+          <button ion-button round outline id="left_button" (click)="shareJob(job)">Поділитися</button>
           <button ion-button round outline id="disable_button" (click)="escapeJob(job)">Відхилити заявку</button>
         </div>
         <!--</div>-->
@@ -181,15 +181,15 @@
               <span *ngIf="suggestedJob.job.createdRecently">{{suggestedJob.job.createdRecently}}</span> · &nbsp;
               перегляди: {{suggestedJob.job.count}}
               <ion-checkbox color="pimary"
-                            *ngIf="communication.jobsSelector"
+                            *ngIf="communication.tabsControllButton"
                             [checked]="suggestedJob.job.checked"
                             (click)="checkJob(suggestedJob.job)"
                             item-end></ion-checkbox>
             </ion-note>
           </ion-col>
         </ion-row>
-        <div row col-12 *ngIf="!communication.jobsSelector">
-          <button ion-button round outline id="left_button">Поділитися</button>
+        <div row col-12 *ngIf="!communication.tabsControllButton">
+          <button ion-button round outline id="left_button" (click)="shareJob(suggestedJob.job)">Поділитися</button>
           <button ion-button round outline id="orange_button" (click)="toMyJobs(suggestedJob.job)">Подати заявку
           </button>
         </div>
@@ -231,15 +231,15 @@
                 Розміщено <span *ngIf="!job.createdRecently">{{job.created_at | date:"dd.MM.yy"}}</span>
                 <span *ngIf="job.createdRecently">{{job.createdRecently}}</span> · &nbsp; перегляди: {{job.count}}
                 <ion-checkbox color="pimary"
-                              *ngIf="communication.jobsSelector"
+                              *ngIf="communication.tabsControllButton"
                               [checked]="job.checked"
                               (click)="checkJob(job)"
                               item-end></ion-checkbox>
               </ion-note>
             </ion-col>
           </ion-row>
-          <div row col-12 *ngIf="!communication.jobsSelector">
-            <button ion-button round outline id="left_button">Поділитися</button>
+          <div row col-12 *ngIf="!communication.tabsControllButton">
+            <button ion-button round outline id="left_button" (click)="shareJob(job)">Поділитися</button>
             <button ion-button round outline id="orange_button" (click)="toMyJobs(job)">Подати заявку</button>
           </div>
         </div>

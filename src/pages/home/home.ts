@@ -37,8 +37,8 @@ export class HomePage {
         this.comm.adviceJobsequence.job_id = this.getCheckedElements();
         console.log(this.comm.adviceJobsequence, 'request advice job data')
         this.content.suggestJobs().then((res) => {
-            this.comm.tabsControllPressed();
-            this.tabs.select(1);
+          this.comm.tabsControllPressed();
+          this.tabs.select(1);
 
         })
 
@@ -53,13 +53,13 @@ export class HomePage {
   getCheckedElements() {
     let arr = [];
     this.jobsArr.forEach((item) => {
-      if (item.checked){
+      if (item.checked) {
         arr.push(item.id);
         item.checked = false;
       }
     });
     this.myJobsArr.forEach((item) => {
-      if (item.checked){
+      if (item.checked) {
         arr.push(item.id);
         item.checked = false;
       }
@@ -118,7 +118,9 @@ export class HomePage {
 
   toMyJobs(job) {
     this.user.applyForJob(job.id);
-    this.jobsArr.splice(this.jobsArr.indexOf(job), 1);
+    if (this.jobsArr.indexOf(job) !== -1) {
+      this.jobsArr.splice(this.jobsArr.indexOf(job), 1);
+    } else this.suggestedJobs.splice(this.suggestedJobs.indexOf(job), 1);
   }
 
   escapeJob(job) {
@@ -159,5 +161,13 @@ export class HomePage {
     if (this.scrollLimit < this.jobsArr.length) {
       this.scrollLimit += 5;
     }
+  }
+
+  shareJob (job) {
+    this.comm.adviceJobsequence.job_id = [job.id];
+    this.comm.emitValue = 'selectFriends';
+    this.comm.tabsControllPressed();
+    this.tabs.select(1);
+    this.comm.data.tabsControllButton = true;
   }
 }

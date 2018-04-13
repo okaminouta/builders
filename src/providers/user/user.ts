@@ -57,6 +57,7 @@ export class UserProvider {
   }
 
   setUser(data) {
+    this.storage.set('phone', data.phone);
     data.phone =  '+380 ' +
       data.phone.toString().substring(0, 2) +
       ' ' + data.phone.toString().substring(2, 4) +
@@ -69,7 +70,10 @@ export class UserProvider {
     data.profile.city = data.city;
     data.profile.passport_id = data.passport_id;
     this.storage.set('user', data);
+  }
 
+  getPhone () {
+    return this.storage.get('phone')
   }
 
   getUser() {

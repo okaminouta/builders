@@ -16,9 +16,14 @@ import {UserProvider} from "../../providers/user/user";
   templateUrl: 'phone-contacts.html',
 })
 export class PhoneContactsPage implements OnInit {
-    showSearchbar: boolean = false;
-  private contactlist: any[];
+  private contactlist: any;
+  displayContactlist;
 
+    test(){
+    this.displayContactlist =  this.contactlist;
+    }
+
+    showSearchbar: boolean = false;
 friends;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -26,7 +31,6 @@ friends;
               public alertCtrl: AlertController,
               private contacts: Contacts) {
   }
-
 
   ngOnInit() {
     this.contacts.find(["displayName", "phoneNumbers"], {
@@ -51,6 +55,16 @@ friends;
       }
     })
 
+  }
+
+  getContacts (){
+    this.contacts.find(["displayName", "phoneNumbers"], {
+      multiple: true,
+      hasPhoneNumber: true
+    }).then((contacts) => {
+      this.contactlist = contacts;
+      this.test();
+    });
   }
 
 numbers
@@ -84,12 +98,26 @@ numbers
         this.navCtrl.pop();
     }
     hideSBar() {
+      this.test();
         this.showSearchbar = false;
     }
 
     showSBar() {
         this.showSearchbar = true;
     }
+
+  filterItems(ev: any) {
+    // this.getContacts();
+    this.test();
+    let val = ev.target.value;
+
+    if (val && val.trim() !== '') {
+      this.displayContactlist = this.displayContactlist.filter(function(item) {
+        return item.displayName.toLowerCase().includes(val.toLowerCase());
+      });
+    }
+  }
+
   test1 () {
     // alert(this.test)
   }

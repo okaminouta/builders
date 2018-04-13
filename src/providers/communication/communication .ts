@@ -7,7 +7,7 @@ export class CommunicationProvider {
   public friendRequest;
   public myFriend;
   data = {
-    jobsSelector: false,
+    tabsControllButton: false,
     editProfile: false,
   };
   emitValue: string;
@@ -33,7 +33,7 @@ export class CommunicationProvider {
   }
 
   switchJobsSelectorDisplay() {
-    this.data.jobsSelector = !this.data.jobsSelector;
+    this.data.tabsControllButton = !this.data.tabsControllButton;
   }
 
   tabsControllPressed() {
