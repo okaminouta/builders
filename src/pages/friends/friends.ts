@@ -3,6 +3,7 @@ import {App, IonicPage, NavController, NavParams, Tabs} from 'ionic-angular';
 import {UserProvider} from "../../providers/user/user";
 import {PhoneContactsPage} from "../phone-contacts/phone-contacts";
 import {CommunicationProvider} from "../../providers/communication/communication ";
+import {ContentProvider} from "../../providers/content/content";
 
 
 /**
@@ -30,22 +31,34 @@ export class FriendsPage implements OnInit {
     this.comm.tabsControll.subscribe((str) => {
       if (str === 'adviceJob1') {
         this.comm.emitValue = 'adviceJob2';
-        let arr = []
-        this.friendsArr.forEach((item) => {
-          if (item.checked) {
-            arr.push(item.id)
-          }
-
-        })
-        this.comm.adviceJobsequence.recipient_id = arr;
+        this.comm.adviceJobsequence.recipient_id = this.getSelectedFriends ();
         this.tabs.select(0);
       }
       if (str === 'adviceJobFinish') {
-        this.comm.data.jobsSelector = false;
         this.cancelFriendsSelection();
+      }
+      if (str === 'selectFriends') {
+        this.comm.emitValue = 'selectFriendsFinish';
+        this.selectFriends = true;
+      }
+      if (str === 'selectFriendsFinish') {
+        this.comm.adviceJobsequence.recipient_id = this.getSelectedFriends ();
+        this.content.suggestJobs();
+        this.cancelFriendsSelection();
+        this.tabs.select(0);
       }
     })
 
+  }
+
+  getSelectedFriends () {
+    let arr = [];
+    this.friendsArr.forEach((item) => {
+      if (item.checked) {
+        arr.push(item.id)
+      }
+    });
+    return arr;
   }
 
   checkFriend(friend) {
@@ -59,14 +72,14 @@ export class FriendsPage implements OnInit {
 
   cancelFriendsSelection() {
     this.selectFriends = false;
-    this.comm.data.jobsSelector = false;
+    this.comm.data.tabsControllButton = false;
     this.friendsArr.forEach((item) => item.checked = false)
   }
 
   adviceJob() {
     this.selectFriends = true;
     this.comm.emitValue = 'adviceJob1';
-    this.comm.data.jobsSelector = true;
+    this.comm.data.tabsControllButton = true;
   }
 
   toContacts() {
@@ -79,6 +92,7 @@ export class FriendsPage implements OnInit {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public user: UserProvider,
+              public content: ContentProvider,
               private app: App,
               public comm: CommunicationProvider) {
     // this.imageURI = 'assets/imgs/man.png';

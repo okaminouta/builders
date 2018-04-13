@@ -14,11 +14,13 @@
           </button>
         </ion-buttons>
       </ion-col>
-      <ion-title text-center ion-col>
+      <ion-title text-center ion-col (click)="test()">
         Відновлення паролю
       </ion-title>
       <ion-buttons ion-col text-end>
-        <button ion-button text-capitalize  (click)="nextStep()">
+        <button ion-button text-capitalize
+                [disabled]="disableForwardButton()"
+                (click)="nextStep()">
           Далі
         </button>
       </ion-buttons>
@@ -31,7 +33,11 @@
   <div class="input_number" *ngIf="passRecoveryStep === 1">
     <div class="confirmation_tel">
       <h6>Введіть номер телефону, на котрий зарєєстровано акаунт</h6>
-      <input class="number" type="tel" placeholder="+38 -___-___-__-__" maxlength="11">
+      <span>+380</span><input class="number"
+                                type="tel"
+                                placeholder="___-___-__-__"
+                                maxlength="9"
+                                [(ngModel)]="phone">
     </div>
     <div class="message">
       <h6>На цей номер прийде СМС із кодом підтвердження</h6>
@@ -40,18 +46,24 @@
 
   <div class="sms_code" *ngIf="passRecoveryStep === 2">
     <div class="confirmation_tel">
-      <h6 text-center>+380668737963</h6>
-      <input class="number" type="tel" placeholder="__-__" maxlength="4">
+      <h6 text-center>+380{{phone}}</h6>
+      <input class="number" type="tel" placeholder="__-__" maxlength="4"
+             [(ngModel)]="code">
     </div>
     <div class="message">
-      <h6>Ми відправили Вам смс з кодом підтвердження <br>Відправити повторно через (timer)</h6>
+      <h6>Ми відправили Вам смс з кодом підтвердження <br>
+        <span
+          ngClass="{{timer===0 ? 'active':''}}"
+          (click)="(timer===0 ? sendAgain() :'')">
+          Відправити повторно</span>
+        <span [hidden]="timer===0"> через {{timer}}</span></h6>
     </div>
   </div>
 
   <div class="enter_pass" *ngIf="passRecoveryStep === 3">
     <div class="confirmation_tel">
       <h6>Введіть новий пароль</h6>
-      <input class="number" type="password" placeholder=" " maxlength="16">
+      <input class="number" type="password" placeholder=" " maxlength="16" [(ngModel)]="password">
     </div>
     <div class="message">
       <h6>Для завершення відновлення доступу до акаунту необхідно ввести новий пароль</h6>
