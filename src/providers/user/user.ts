@@ -57,14 +57,26 @@ export class UserProvider {
   }
 
   setUser(data) {
+    data.phone =  '+380 ' +
+      data.phone.toString().substring(0, 2) +
+      ' ' + data.phone.toString().substring(2, 4) +
+      ' ' + data.phone.toString().substring(4, 6) +
+      ' ' + data.phone.toString().substring(6);
+    data.profile = {};
+    data.profile.first_name = data.first_name;
+    data.profile.last_name = data.last_name;
+    data.profile.email = data.email;
+    data.profile.city = data.city;
+    data.profile.passport_id = data.passport_id;
     this.storage.set('user', data);
 
   }
 
   getUser() {
-    return this.storage.get('user').then((data) => {
-      return data;
-    });
+    return this.storage.get('user')
+    //   .then((data) => {
+    //   return data;
+    // });
   }
 
   contacktSupport(data) {
@@ -179,6 +191,18 @@ export class UserProvider {
     })
   };
 
+  deleteMyFriends(id: any) {
+    return this.request.post(this.url.friends.deleteMyFriends, {
+      user_id: id
+    }).then((res: any) => {
+      if (res) {
+        console.log(res, 'delete myFriend');
+        return res;
+      }
+    })
+  }
+
+
   friendRequests () {
     return this.request.get(this.url.friends.requests).then((res: any) => {
       if (res) {
@@ -196,6 +220,7 @@ export class UserProvider {
       }
     })
   };
+
   friendRequestsAccept(id) {
     return this.request.get(this.url.friends.action + id + this.url.friends.accept).then((res: any) => {
       if (res) {
@@ -204,5 +229,17 @@ export class UserProvider {
       }
     })
   };
+
+  friendRequestSend (numbers) {
+    return this.request.post(this.url.friends.send, {
+      phone: numbers
+    }).then((res: any) => {
+      if (res) {
+        console.log(res, 'friends requested');
+        return res;
+      }
+    })
+  };
+
 
 }

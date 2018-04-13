@@ -1,4 +1,3 @@
-
 import {EventEmitter, Injectable, Output} from "@angular/core";
 
 @Injectable()
@@ -8,9 +7,19 @@ export class CommunicationProvider {
   public myFriend;
   data = {
     jobsSelector: false,
-    editProfile: false
+    editProfile: false,
+    deleteFriends: false,
   };
-  @Output() tabsControll = new EventEmitter<void>();
+  emitValue: string;
+
+
+  adviceJobsequence = {
+    recipient_id: null,
+    job_id: null
+  }
+
+
+  @Output() tabsControll = new EventEmitter<string>();
   @Output() profileEdit = new EventEmitter<boolean>();
 
   getDisplaySettings() {
@@ -28,9 +37,10 @@ export class CommunicationProvider {
     this.data.jobsSelector = !this.data.jobsSelector;
   }
 
+
   tabsControllPressed() {
     console.log('controll button presd');
-    this.tabsControll.emit();
+    this.tabsControll.emit(this.emitValue);
   }
 
   changeProfileEdit(val) {
@@ -39,5 +49,7 @@ export class CommunicationProvider {
 
   constructor() {
   }
-
+  popupControllConfirm(){
+    console.log(this.myFriend)
+  }
 }

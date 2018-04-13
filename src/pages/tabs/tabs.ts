@@ -5,6 +5,7 @@ import {InfoPage} from '../info/info';
 import {HomePage} from '../home/home';
 import {FriendsPage} from "../friends/friends";
 import {CommunicationProvider} from "../../providers/communication/communication ";
+import {AlertController} from "ionic-angular";
 
 @Component({
   selector: 'page-tabs',
@@ -20,7 +21,8 @@ export class TabsPage implements OnInit {
   friendRequest = [];
 
   constructor(private comm: CommunicationProvider,
-              private user: UserProvider,) {
+              private user: UserProvider,
+              public  alertCtrl: AlertController) {
 
     this.communication = this.comm.getDisplaySettings();
 
@@ -28,6 +30,29 @@ export class TabsPage implements OnInit {
 
   footerControll() {
     this.comm.tabsControllPressed();
+  }
+
+  showConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: 'Видалити з контактів?',
+      buttons: [
+        {
+          text: 'Ні',
+          handler: () => {
+            console.log('Не треба');
+          }
+        },
+        {
+          text: 'Так',
+          handler: () => {
+            let deleteMyFriend = [];
+            this.comm.myFriend.map(item => item.checked === true ? deleteMyFriend.push(item.id) : item)
+            this.user.deleteMyFriends(deleteMyFriend)
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 

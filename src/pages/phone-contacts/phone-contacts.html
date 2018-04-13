@@ -28,7 +28,21 @@
       </div>
     </ion-avatar>
     <h2>{{contact.displayName}}</h2>
+    <button ion-button item-end round outline
+            *ngIf="!contact.added"
+            (click)="test1()">Додати</button>
   </ion-item>
+  <!--<ion-item >-->
+    <!--<ion-avatar item-start>-->
+      <!--<div class="photo-placeholder" text-center>-->
+          <!--<span>-->
+            <!--A-->
+          <!--</span>-->
+      <!--</div>-->
+    <!--</ion-avatar>-->
+    <!--<h2>aaaaaaa</h2>-->
+    <!--<button ion-button item-end round outline >Додати</button>-->
+  <!--</ion-item>-->
 
-  <button (click)="test1()">8878798</button>
+  <!--<button (click)="test1()">8878798</button>-->
 </ion-content>
