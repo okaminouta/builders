@@ -1,7 +1,7 @@
 <ion-header *ngIf="!selectFriends">
   <ion-navbar>
     <div class="bar bar-header bar-positive">
-      <ion-title text-center *ngIf="!showSearchbar">Друзі
+      <ion-title text-center *ngIf="!showSearchbar">Контакти
         <ion-icon ios="ios-search" md="md-search" (click)="showSBar()"></ion-icon>
       </ion-title>
       <div *ngIf="showSearchbar">
@@ -51,12 +51,12 @@
 <div *ngIf="!selectFriends">
   <ion-item (click)="toContacts ()">
     <h2>
-      <fa-icon name="user-plus"></fa-icon>&nbsp;&nbsp;&nbsp;Додати друга
+      <fa-icon name="user-plus"></fa-icon>&nbsp;&nbsp;&nbsp;Додати контакт
     </h2>
   </ion-item>
   <!--<ion-item>-->
   <!--<h2>-->
-  <!--<fa-icon name="users"></fa-icon>&nbsp;&nbsp;&nbsp;Запросити друга-->
+  <!--<fa-icon name="users"></fa-icon>&nbsp;&nbsp;&nbsp;Запросити контакт-->
   <!--</h2>-->
   <!--</ion-item>-->
   <ion-item (click)="adviceJob()">
@@ -76,9 +76,9 @@
           </span>
           </div>
         </ion-avatar>
-        <!--<h2>{{friend.first_name + ' ' + friend.last_name}} <br> прислал вам заявку в друзья</h2>-->
+        <!--<h2>{{friend.first_name + ' ' + friend.last_name}} <br> прислал вам заявку в контакти</h2>-->
         <h3><b>{{friend.first_name + ' ' + friend.last_name}}</b>
-          <i>прислав Вам заявку в друзі</i></h3>
+          <i>прислав Вам заявку в контакти</i></h3>
         <div row col-9>
           <button ion-button round outline id="left_button" (click)="acceptFriend(friend)">Додати</button>
           <button ion-button round outline id="disable_button" (click)="declineFriend(friend)">Сховати</button>
@@ -104,7 +104,7 @@
                     item-end></ion-checkbox>
     </ion-item>
 <div class="message" *ngIf="!friendsArr || friendsArr.length === 0">
-<h6>У Вас ще немає друзів</h6>
+<h6>У Вас ще немає контактів</h6>
 </div>
   </div>
 </ion-content>

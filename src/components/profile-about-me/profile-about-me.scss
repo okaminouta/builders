@@ -93,7 +93,7 @@ profile-about-me {
 
   }
   .item-input:last-child {
-    border-bottom: 1px solid transparent !important;
+    border-bottom: 1px solid white !important;
   }
   .first_last_name {
     // height: 100px;
@@ -132,11 +132,18 @@ profile-about-me {
   }
  .prof_last
  {
+    /*.item-inner{
+        border-bottom: 1px solid white!important;
+      }
+*/
+   .list-md .item-block .item-inner{
+     border-bottom: 1px solid white!important;
+   }
 
    .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
-     border-bottom-color: transparent!important;
-     -webkit-box-shadow: inset 0 0px 0 0 transparent!important;
-     box-shadow: inset 0 0px 0 0 transparent!important;
+     border-bottom-color: white!important;
+     -webkit-box-shadow: inset 0 0px 0 0 white!important;
+     box-shadow: inset 0 0px 0 0 white!important;
    }
   }
 .invalid {
