@@ -36,7 +36,7 @@ export class HomePage {
         this.comm.emitValue = 'adviceJobFinish';
         this.comm.adviceJobsequence.job_id = this.getCheckedElements();
         console.log(this.comm.adviceJobsequence, 'request advice job data')
-        this.content.suggestJobs().then((res) => {
+        this.content.suggestJobs().subscribe((res) => {
           this.comm.tabsControllPressed();
           this.tabs.select(1);
 
@@ -44,7 +44,7 @@ export class HomePage {
 
       }
     })
-    this.content.getSuggestedJobs().then((res) => {
+    this.content.getSuggestedJobs().subscribe((res: any[]) => {
       this.suggestedJobs = (res ? res : []);
       console.log(res, 'suggested jobs')
     })
@@ -101,7 +101,7 @@ export class HomePage {
   }
 
   loadJobs() {
-    this.content.getJobs().then(res => {
+    this.content.getJobs().subscribe((res:any[]) => {
       if (res) {
         console.log('jobs', res)
         this.jobsArr = res;
@@ -111,7 +111,7 @@ export class HomePage {
 
   getMyJobs() {
     console.log('my jobs');
-    this.user.myJobs().then((res) => {
+    this.user.myJobs().subscribe((res:any[]) => {
       this.myJobsArr = res;
     })
   }

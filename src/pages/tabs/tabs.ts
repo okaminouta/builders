@@ -32,14 +32,14 @@ export class TabsPage implements OnInit {
 
 
   ngOnInit() {
-    this.user.myFriends().then((res) => {
+    this.user.myFriends().subscribe((res) => {
       if (res) {
         console.log(res, 'friends')
         // this.friendsArr = res;
         this.comm.getMyFriend(res);
       }
     })
-    this.user.friendRequests().then((res) => {
+    this.user.friendRequests().subscribe((res) => {
       if (res) {
         console.log(res, 'friends requests')
         // this.friendRequestsArr = res;

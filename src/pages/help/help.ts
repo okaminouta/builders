@@ -32,7 +32,7 @@ export class HelpPage {
   sendMessage() {
     this.user.contacktSupport({
       description: this.message
-    }).then((res)=> {
+    }).subscribe((res)=> {
       if(res){
         this.message = '';
         this.util.toast('Повідомлення відправлено', 'success')

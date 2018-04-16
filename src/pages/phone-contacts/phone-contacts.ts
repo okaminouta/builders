@@ -34,7 +34,7 @@ friends;
 
   ngOnInit() {
     this.getContacts ();
-    this.user.myFriends().then ((res)=> {
+    this.user.myFriends().subscribe ((res)=> {
       this.friends = res;
       if(this.contactlist && this.contactlist.length > 0 && this.friends.length >0 ){
         this.compareNumbers();

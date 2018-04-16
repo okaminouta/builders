@@ -30,7 +30,7 @@ export class ChangePassPage {
     this.user.changePass({
       old_password: this.userData.oldPass,
       new_password: this.userData.newPass
-    }).then((res)=> {
+    }).subscribe((res)=> {
       if(res){
         this.navCtrl.pop();
       }

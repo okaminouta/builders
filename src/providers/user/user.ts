@@ -2,11 +2,14 @@ import {EventEmitter, Injectable, Output} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {UrlProvider} from "../url/url";
 import {HttpClientModule} from '@angular/common/http';
-import {RequestProvider} from "../request/request";
+
 import 'rxjs/add/operator/toPromise';
 import {Storage} from "@ionic/storage";
 
 import {TabsPage} from "../../pages/tabs/tabs";
+import {RequestProvider} from "../request.service";
+import {tap} from "rxjs/operators";
+import {UtilityProvider} from "../utility/utility";
 
 
 /*
@@ -21,6 +24,7 @@ export class UserProvider {
   constructor(private http: HttpClient,
               private request: RequestProvider,
               private url: UrlProvider,
+              public util: UtilityProvider,
               public storage: Storage) {
     console.log('Hello UserProvider Provider');
   }
@@ -28,26 +32,31 @@ export class UserProvider {
   @Output() dataChange = new EventEmitter<boolean>();
 
   register(data: any) {
-    return this.request.post(this.url.signUp, data).then((res: any) => {
-      if (res) {
-        this.setUser(res.data);
-        return res;
-      }
-    });
-
+    return this.request.post(this.url.signUp, data)
+      .pipe(
+        tap(
+          (res) => {
+            this.setUser(res.data);
+          },
+          (err) => {
+            this.util.toast('error', 'error');
+            console.log(err)
+          })
+      )
   }
 
   login(data: any) {
-    return this.request.post(this.url.signIn, data).then((res: any) => {
-      if (res) {
-        this.setUser(res.user);
-        return res;
-      }
-    },
-      (err) => {
-        console.log(err)
-      });
-
+    return this.request.post(this.url.signIn, data)
+      .pipe(
+        tap(
+          (res) => {
+            this.setUser(res.user);
+          },
+          (err) => {
+            this.util.toast('error', 'error');
+            console.log(err)
+          })
+      )
   }
 
   logout() {
@@ -58,7 +67,7 @@ export class UserProvider {
 
   setUser(data) {
     this.storage.set('phone', data.phone);
-    data.phone =  '+380 ' +
+    data.phone = '+380 ' +
       data.phone.toString().substring(0, 2) +
       ' ' + data.phone.toString().substring(2, 4) +
       ' ' + data.phone.toString().substring(4, 6) +
@@ -72,7 +81,7 @@ export class UserProvider {
     this.storage.set('user', data);
   }
 
-  getPhone () {
+  getPhone() {
     return this.storage.get('phone')
   }
 
@@ -86,9 +95,10 @@ export class UserProvider {
   contacktSupport(data) {
     return this.request.post(this.url.support, data);
   }
-    changePass(data) {
-        return this.request.post(this.url.changePass, data);
-    }
+
+  changePass(data) {
+    return this.request.post(this.url.changePass, data);
+  }
 
   firstEnter() {
     return {
@@ -108,129 +118,180 @@ export class UserProvider {
   }
 
   getProfile() {
-    return this.request.get(this.url.profile).then((res: any) => {
-      if (res) {
-        console.log(res, 'getProfile res');
-        return res;
-      }
-    });
-
-
+    return this.request.get(this.url.profile)
+      .pipe(
+        tap(
+          () => {
+          },
+          (err) => {
+            this.util.toast('error', 'error');
+            console.log(err)
+          })
+      )
   }
 
   setProfile(data: any) {
-    return this.request.post(this.url.setProfile, data).then((res: any) => {
-      if (res) {
-        console.log(res, 'setProfile res')
-      }
-    });
+    return this.request.post(this.url.setProfile, data)
+      .pipe(
+        tap(
+          () => {
+          },
+          (err) => {
+            this.util.toast('error', 'error');
+            console.log(err)
+          })
+      )
   }
 
   addSkills(data: any) {
-    return this.request.post(this.url.addSkills, data).then((res: any) => {
-      if (res) {
-        console.log(res, 'setSkills res')
-      }
-    });
+    return this.request.post(this.url.addSkills, data)
+      .pipe(
+        tap(
+          () => {
+          },
+          (err) => {
+            this.util.toast('error', 'error');
+            console.log(err)
+          })
+      )
   }
 
   deleteSkills(data: any) {
-    return this.request.post(this.url.deleteSkills, data).then((res: any) => {
-      if (res) {
-        console.log(res, 'deleteSkills res')
-      }
-    });
+    return this.request.post(this.url.deleteSkills, data)
+      .pipe(
+        tap(
+          () => {
+          },
+          (err) => {
+            this.util.toast('error', 'error');
+            console.log(err)
+          })
+      )
+
   }
 
   updateSkill(id: number, data: any) {
-    return this.request.post(this.url.updateSkill + id, data).then((res: any) => {
-      if (res) {
-        console.log(res, 'update skill res')
-      }
-    });
+    return this.request.post(this.url.updateSkill + id, data).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('error', 'error');
+          console.log(err)
+        })
+    )
   }
 
   userSkills() {
-    return this.request.get(this.url.mySkills).then((res: any) => {
-      if (res) {
-        console.log(res, 'setSkills res');
-        return res;
-      }
-    })
+    return this.request.get(this.url.mySkills).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('error', 'error');
+          console.log(err)
+        })
+    )
   };
 
-  myJobs () {
-    return this.request.get(this.url.myjobs).then((res: any) => {
-      if (res) {
-        console.log(res, 'my jobs res');
-        return res;
-      }
-    })
+  myJobs() {
+    return this.request.get(this.url.myjobs).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('error', 'error');
+          console.log(err)
+        })
+    )
   };
 
-  applyForJob (id: any) {
+  applyForJob(id: any) {
     return this.request.post(this.url.applyForJob, {
       job_id: id
-    }).then((res: any) => {
-      if (res) {
-        console.log(res, 'applyForJob res')
-      }
-    });
+    }).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('error', 'error');
+          console.log(err)
+        })
+    )
   }
 
-  escapeJob (id: any) {
-    return this.request.get(this.url.escapeJob + id).then((res: any) => {
-      if (res) {
-        console.log(res, 'escape job res')
-      }
-    });
+  escapeJob(id: any) {
+    return this.request.get(this.url.escapeJob + id).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('error', 'error');
+          console.log(err)
+        })
+    )
   }
 
-  myFriends () {
-    return this.request.get(this.url.friendsAll).then((res: any) => {
-      if (res) {
-        console.log(res, 'my friends res');
-        return res;
-      }
-    })
+  myFriends() {
+    return this.request.get(this.url.friendsAll).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('error', 'error');
+          console.log(err)
+        })
+    )
   };
 
-  friendRequests () {
-    return this.request.get(this.url.friends.requests).then((res: any) => {
-      if (res) {
-        console.log(res, 'my friends requests res');
-        return res;
-      }
-    })
+  friendRequests() {
+    return this.request.get(this.url.friends.requests).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('error', 'error');
+          console.log(err)
+        })
+    )
   };
 
-  friendRequestsDecline (id) {
-    return this.request.get(this.url.friends.action + id + this.url.friends.decline).then((res: any) => {
-      if (res) {
-        console.log(res, 'friend declined');
-        return res;
-      }
-    })
+  friendRequestsDecline(id) {
+    return this.request.get(this.url.friends.action + id + this.url.friends.decline).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('error', 'error');
+          console.log(err)
+        })
+    )
   };
 
   friendRequestsAccept(id) {
-    return this.request.get(this.url.friends.action + id + this.url.friends.accept).then((res: any) => {
-      if (res) {
-        console.log(res, 'friend accepted');
-        return res;
-      }
-    })
+    return this.request.get(this.url.friends.action + id + this.url.friends.accept).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('error', 'error');
+          console.log(err)
+        })
+    )
   };
 
-  friendRequestSend (numbers) {
+  friendRequestSend(numbers) {
     return this.request.post(this.url.friends.send, {
       phone: numbers
-    }).then((res: any) => {
-      if (res) {
-        console.log(res, 'friends requested');
-        return res;
-      }
-    })
+    }).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('error', 'error');
+          console.log(err)
+        })
+    )
   };
 
 

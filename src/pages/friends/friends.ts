@@ -108,7 +108,7 @@ export class FriendsPage implements OnInit {
   }
 
   declineFriend(user) {
-    this.user.friendRequestsDecline(user.id).then((res) => {
+    this.user.friendRequestsDecline(user.id).subscribe((res) => {
       if (res) {
         this.friendRequestsArr.splice(this.friendRequestsArr.indexOf(user), 1)
       }
@@ -116,7 +116,7 @@ export class FriendsPage implements OnInit {
   }
 
   acceptFriend(user) {
-    this.user.friendRequestsAccept(user.id).then((res) => {
+    this.user.friendRequestsAccept(user.id).subscribe((res) => {
       if (res) {
         this.friendRequestsArr.splice(this.friendRequestsArr.indexOf(user), 1);
         this.friendsArr.push(user);

@@ -30,11 +30,7 @@ export class ProfileSkilsComponent implements OnChanges {
               public user: UserProvider) {
     this.loadSkills();
     this.user.firstEnter().get().then((data) => {
-      if (data === 'Unfinished') {
-        this.registrationIsFinished = false;
-      } else {
-        this.registrationIsFinished = true;
-      }
+      this.registrationIsFinished = data !== 'Unfinished';
     });
     this.util.userSkills.subscribe(
       () => {
@@ -44,13 +40,13 @@ export class ProfileSkilsComponent implements OnChanges {
   }
 
   changeSkill(skill) {
-    let skillPreserver =  Object.assign({},skill);
+    let skillPreserver = Object.assign({}, skill);
     let modal = this.modalCtrl.create(AddSkillModalsPage, {item: skillPreserver});
     modal.onDidDismiss(data => {
       console.log(data, 'modal data');
       if (data) {
         data.item.checked = false;
-        this.skillsArr[this.skillsArr.indexOf(skill)]=data.item;
+        this.skillsArr[this.skillsArr.indexOf(skill)] = data.item;
         this.user.updateSkill(data.item.id, {
           lvl: data.item.lvl
         });
@@ -60,20 +56,9 @@ export class ProfileSkilsComponent implements OnChanges {
   }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
-    console.log(changes)
-      if (this.allSkills ) {
-        console.log(this.skillsArr , '123')
-        this.skillsArr.forEach((skill) => {
-          skill.checked = true;
-        });
-      }
-      if (!this.editSkills){
-        this.skillsArr.forEach((skill) => {
-          skill.checked = false;
-        });
-      }
+    if (this.allSkills) this.skillsArr.forEach(skill => skill.checked = true);
+    if (!this.editSkills) this.skillsArr.forEach((skill) => skill.checked = false);
   }
-
 
 
   goToAddSkill() {
@@ -88,10 +73,8 @@ export class ProfileSkilsComponent implements OnChanges {
         delete this.skillsArr[index];
       }
     });
-    console.log({
-      skill_id: skillsToDelete
-    });
     this.util.quitEdit(false);
+    debugger
     this.user.deleteSkills({
       skill_id: skillsToDelete
     })
@@ -99,19 +82,15 @@ export class ProfileSkilsComponent implements OnChanges {
   }
 
   checkSkill(skill) {
-    if (skill.checked) {
-      skill.checked = !skill.checked;
-    } else {
-      skill.checked = true;
-    }
-    console.log(this.skillsArr, 'skills arr')
+    skill.checked = !skill.checked;
+    console.log(skill)
   }
 
   loadSkills() {
-    this.user.userSkills().then((res => {
+    this.user.userSkills().subscribe((res: any[]) => {
       console.log(res, 'user skills');
       this.skillsArr = res;
-    }))
+    })
   }
 
 }

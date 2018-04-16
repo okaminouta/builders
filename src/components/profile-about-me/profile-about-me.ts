@@ -95,7 +95,7 @@ export class ProfileAboutMeComponent implements OnChanges {
         if (this.defaultImg && !this.imageURI && !this.loadedImg) {
           this.userData.photo = null;
         }
-        this.user.setProfile(this.userData).then((res) => {
+        this.user.setProfile(this.userData).subscribe((res) => {
         });
         this.user.firstEnter().get().then((res) => {
           if (res && res === 'Unfinished') {
