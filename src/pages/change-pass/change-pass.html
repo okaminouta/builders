@@ -38,9 +38,11 @@
   <ion-item>
      <ion-input placeholder="Підтвердіть пароль" type="password" [(ngModel)]="userData.confPass"></ion-input>
   </ion-item>
-  <ion-item *ngIf="userData.newPass !== userData.confPass">
-    <p>Поля "Новий пароль" та "Підтвердіть пароль" не співпадають </p>
-  </ion-item>
+  <div class="no_border">
+  <ion-item *ngIf="userData.newPass !== userData.confPass" text-wrap>
+    <div class="alert-message"><p>Поля "Новий пароль" та "Підтвердіть пароль" не співпадають </p></div>
+  </ion-item></div>
+
 
 
   <!--<ion-item>-->
