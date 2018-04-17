@@ -134,7 +134,8 @@ export class UserProvider {
     return this.request.post(this.url.setProfile, data)
       .pipe(
         tap(
-          () => {
+          (res) => {
+            this.setUser(res.user);
           },
           (err) => {
             this.util.toast('error', 'error');
