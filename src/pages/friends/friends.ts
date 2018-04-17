@@ -67,7 +67,6 @@ export class FriendsPage implements OnInit {
     this.friendsArr.forEach(item => item.checked = false)
     this.comm.data.deleteFriends = false;
     this.changesFriends = false;
-    console.log(this.friendsArr)
   }
 
   cancelFriendsSelection() {

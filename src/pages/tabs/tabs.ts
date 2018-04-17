@@ -32,29 +32,9 @@ export class TabsPage implements OnInit {
     this.comm.tabsControllPressed();
   }
 
-  showConfirm() {
-    let confirm = this.alertCtrl.create({
-      title: 'Видалити з контактів?',
-      buttons: [
-        {
-          text: 'Ні',
-          handler: () => {
-            console.log('Не треба');
-          }
-        },
-        {
-          text: 'Так',
-          handler: () => {
-            let deleteMyFriend = [];
-            this.comm.myFriend.map(item => item.checked === true ? deleteMyFriend.push(item.id) : item)
-            this.user.deleteMyFriends(deleteMyFriend)
-          }
-        }
-      ]
-    });
-    confirm.present();
+  showPopUp(){
+    this.comm.showConfirm();
   }
-
 
   ngOnInit() {
     this.user.myFriends().then((res) => {

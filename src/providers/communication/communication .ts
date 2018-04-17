@@ -1,4 +1,6 @@
 import {EventEmitter, Injectable, Output} from "@angular/core";
+import {AlertController} from "ionic-angular";
+import {UserProvider} from "../user/user";
 
 @Injectable()
 
@@ -47,9 +49,29 @@ export class CommunicationProvider {
     this.profileEdit.emit(val);
   }
 
-  constructor() {
+  constructor(private alertCtrl: AlertController,
+              private user: UserProvider) {
   }
-  popupControllConfirm(){
-    console.log(this.myFriend)
+  showConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: 'Видалити з контактів?',
+      buttons: [
+        {
+          text: 'Ні',
+          handler: () => {
+            console.log('Не треба');
+          }
+        },
+        {
+          text: 'Так',
+          handler: () => {
+            let deleteMyFriend = [];
+            this.myFriend.map(item => item.checked === true ? deleteMyFriend.push(item.id) : item)
+            this.user.deleteMyFriends(deleteMyFriend)
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 }
