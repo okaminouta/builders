@@ -144,13 +144,14 @@ job-card {
   .button-outline {
     border-color: #5d6d7d;
   }
-  #orange_button {
+  .orange_button {
     border-color: #fdad2a;
 
+    span {
+      color: #fdad2a;
+    }
   }
-  #orange_button span {
-    color: #fdad2a;
-  }
+
   .left_button p {
     font-size: 14px;
 

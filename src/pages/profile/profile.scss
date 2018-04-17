@@ -61,7 +61,21 @@ page-profile {
     text-align: center;
 
   }
-  #one {
+  .segment .segment-button.segment-activated {
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    text-transform: none;
+    color: #081d32;
+    height: 25px;
+    border-radius: 25px 0 0 25px;
+    p {
+      font-size: 12px;
+      margin-top: -8px;
+      //font-weight: bold;
+    }
+  }
+  .segment-md-secondary .segment-button{
     justify-content: center;
     align-items: center;
     border: 1px solid black;
