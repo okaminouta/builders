@@ -250,7 +250,7 @@ job-card {
   }
   @media screen and (max-width: 335px) {
     .checks fa-icon {
-      margin-left: 45%;
+      margin-left: 40%;
 
     }
     .button-outline {
@@ -260,6 +260,10 @@ job-card {
   @media screen and (max-width: 327px) {
     .button-round {
       padding: 0px 1.6rem;
+    }
+    .checks fa-icon {
+      margin-left: 35%;
+
     }
   }
 

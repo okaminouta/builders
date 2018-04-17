@@ -53,6 +53,18 @@ page-phone-contacts {
   .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon {
     color: white !important;
   }
+  @media screen and (max-width: 270px) {
+    .toolbar-title{
+      font-size: 13px;
+    }
+     .icon{
+       margin-right: 0;
+       font-size: 15px;
+     }
+    .bar-button:first-child{
+      font-size: 11px;
+    }
+    }
 
 
 

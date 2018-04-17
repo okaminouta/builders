@@ -48,6 +48,8 @@ import {PhoneContactsPage} from "../pages/phone-contacts/phone-contacts";
 import {OrderPipe} from "../pipes/oreder-by/order-by";
 import {AuthenticationInterceptor} from "../providers/authentication.interceptor";
 import {RequestProvider} from "../providers/request.service";
+import { AuthProvider } from '../providers/auth/auth';
+import {Keyboard} from "@ionic-native/keyboard";
 
 
 @NgModule({
@@ -123,6 +125,7 @@ import {RequestProvider} from "../providers/request.service";
     Camera,
     Crop,
     Base64,
+    Keyboard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthenticationInterceptor,
@@ -139,6 +142,7 @@ import {RequestProvider} from "../providers/request.service";
     Contact,
     CommunicationProvider,
     OrderPipe,
+    AuthProvider,
   ],
 })
 export class AppModule {

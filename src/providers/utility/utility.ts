@@ -31,10 +31,11 @@ export class UtilityProvider {
     this.quitEditing.emit(val);
   }
 
-  toast(type, msg: string, position: string = 'top') {
+  toast( msg: string,cssClass: string = 'error', position: string = 'top', ) {
     let toast = this.toastCtrl.create({
       message: msg,
       position: position,
+      cssClass: cssClass,
       duration: 3000,
       dismissOnPageChange: false
     });
@@ -44,15 +45,15 @@ export class UtilityProvider {
   credentialsCheck(data: any) {
 
     if (!data.phone || !data.password) {
-      this.toast('Заповніть всі поля', 'alert');
+      this.toast('Заповніть всі поля', 'error');
       return false;
     }
     if (data.phone.length != 9) {
-      this.toast('Номер телефону має бути 12 цифр', 'alert');
+      this.toast('Номер телефону має бути 12 цифр', 'error');
       return false;
     }
     if (data.password.length < 6 || data.password.length > 15) {
-      this.toast('Пароль має бути 6-15 символів', 'alert');
+      this.toast('Пароль має бути 6-15 символів', 'error');
       return false;
     }
     return true;

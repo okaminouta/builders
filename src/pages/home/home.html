@@ -74,8 +74,9 @@
 
   <div [ngSwitch]="sentence">
     <ion-list *ngSwitchCase="'my'">
-      <ion-card *ngFor=" let job of myJobsArr; index as i;" (click)="showMyJobDetails(job)">
+      <ion-card *ngFor=" let job of myJobsArr; index as i;" >
         <!--<div *ngIf="i<scrollLimit">-->
+        <div (click)="showMyJobDetails(job)">
         <ion-card-content text-wrap>
           <h2> {{job.job.title}}
             <p>
@@ -119,6 +120,7 @@
             </ion-note>
           </ion-col>
         </ion-row>
+        </div>
         <div row col-12 *ngIf="!communication.tabsControllButton">
           <button ion-button round outline id="left_button" (click)="shareJob(job)">Поділитися</button>
           <button ion-button round outline id="disable_button" (click)="escapeJob(job)">Відхилити заявку</button>

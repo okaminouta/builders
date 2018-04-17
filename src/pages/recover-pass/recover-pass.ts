@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UserProvider} from "../../providers/user/user";
+import {AuthProvider} from "../../providers/auth/auth";
+import {LoginPage} from "../login/login";
 
 /**
  * Generated class for the RecoverPassPage page.
@@ -14,21 +16,23 @@ import {UserProvider} from "../../providers/user/user";
   selector: 'page-recover-pass',
   templateUrl: 'recover-pass.html',
 })
-export class RecoverPassPage implements OnInit{
+export class RecoverPassPage implements OnInit {
   passRecoveryStep = 1;
   timer = 60;
   phone: string;
-  code='';
+  code = '';
   password = '';
+  id: number;
 
-  ngOnInit (){
-    this.user.getPhone().then((res)=>{
-      this.phone=res+'';
+  ngOnInit() {
+    this.user.getPhone().then((res) => {
+      this.phone = res + '';
     })
   }
 
   constructor(public navCtrl: NavController,
               public user: UserProvider,
+              public auth: AuthProvider,
               public navParams: NavParams) {
   }
 
@@ -50,22 +54,35 @@ export class RecoverPassPage implements OnInit{
   }
 
   nextStep() {
+    if (this.passRecoveryStep === 1) {
+      this.auth.recoverPassword().stepOne(this.phone).subscribe(()=>{
+        this.passRecoveryStep++;
+      })
+    }
+    if (this.passRecoveryStep === 2) {
+      this.auth.recoverPassword().stepTwo(this.code).subscribe((res)=>{
+        this.id = res;
+        this.passRecoveryStep++;
+      })
+    }
     if (this.passRecoveryStep === 3) {
-      console.log('succ')
-    } else this.passRecoveryStep++;
+      this.auth.recoverPassword().stepTree(this.id, this.password).subscribe(()=>{
+        this.navCtrl.push(LoginPage);
+      })
+    }
   }
 
-  sendAgain () {
-    this.timer=60;
+  sendAgain() {
+    this.timer = 60;
   }
 
-  disableForwardButton (){
-    if (this.phone !== undefined && this.passRecoveryStep === 1)return this.phone.length < 9;
-    if (this.passRecoveryStep === 2)return this.code.length < 4;
-    if (this.passRecoveryStep === 3)return this.password.length < 6;
+  disableForwardButton() {
+    if (this.phone !== undefined && this.passRecoveryStep === 1) return this.phone.length < 9;
+    if (this.passRecoveryStep === 2) return this.code.length < 4;
+    if (this.passRecoveryStep === 3) return this.password.length < 6;
   }
 
-  test(){
+  test() {
     console.log(typeof(this.phone))
   }
 

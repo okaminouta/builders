@@ -5,7 +5,8 @@ import {InfoPage} from '../info/info';
 import {HomePage} from '../home/home';
 import {FriendsPage} from "../friends/friends";
 import {CommunicationProvider} from "../../providers/communication/communication ";
-import {AlertController} from "ionic-angular";
+import {Keyboard} from "@ionic-native/keyboard";
+
 
 @Component({
   selector: 'page-tabs',
@@ -19,12 +20,38 @@ export class TabsPage implements OnInit {
   tab4Root = FriendsPage;
   communication;
   friendRequest = [];
+  showTabs;
 
   constructor(private comm: CommunicationProvider,
               private user: UserProvider,
-              public  alertCtrl: AlertController) {
+              Keyboard:Keyboard) {
 
     this.communication = this.comm.getDisplaySettings();
+    //todo remake when keyboard plugin begins to work properly
+    window.addEventListener('keyboardDidShow', (ev) => {
+      let elements = document.querySelectorAll(".tabbar");
+      let content = document.querySelectorAll(".fixed-content");
+      if (elements != null) {
+        Object.keys(elements).map((key) => {
+          elements[key].style.display = 'none';
+        });
+        Object.keys(content).map((key) => {
+          content[key].style.margin = '0';
+        });
+      }
+    });
+    window.addEventListener('keyboardDidHide', () => {
+      let elements = document.querySelectorAll(".tabbar");
+      let content = document.querySelectorAll(".fixed-content");
+      if (elements != null) {
+        Object.keys(elements).map((key) => {
+          elements[key].style.display = 'flex';
+        });
+        Object.keys(content).map((key) => {
+          content[key].style.marginBottom = '56px';
+        });
+      }
+    });
 
   }
 
