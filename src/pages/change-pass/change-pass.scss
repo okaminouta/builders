@@ -47,5 +47,12 @@ page-change-pass {
       margin-left: 15px;
       color: red;
     }
+
+
+  }
+  .no_border{
+    .item-inner {
+      border-bottom: 1px solid #ffffff!important;
+    }
   }
 }
