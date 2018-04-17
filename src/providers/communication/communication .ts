@@ -1,14 +1,16 @@
 import {EventEmitter, Injectable, Output} from "@angular/core";
 import {AlertController} from "ionic-angular";
 import {UserProvider} from "../user/user";
+import {FriendsPage} from "../../pages/friends/friends";
 
 @Injectable()
 
 export class CommunicationProvider {
   public friendRequest;
   public myFriend;
+
   data = {
-    jobsSelector: false,
+    tabsControllButton: false,
     editProfile: false,
     deleteFriends: false,
   };
@@ -36,7 +38,7 @@ export class CommunicationProvider {
   }
 
   switchJobsSelectorDisplay() {
-    this.data.jobsSelector = !this.data.jobsSelector;
+    this.data.tabsControllButton = !this.data.tabsControllButton;
   }
 
 
@@ -49,10 +51,7 @@ export class CommunicationProvider {
     this.profileEdit.emit(val);
   }
 
-  constructor(private alertCtrl: AlertController,
-              private user: UserProvider) {
-  }
-  showConfirm() {
+  showConfirmPopUp() {
     let confirm = this.alertCtrl.create({
       title: 'Видалити з контактів?',
       buttons: [
@@ -66,12 +65,23 @@ export class CommunicationProvider {
           text: 'Так',
           handler: () => {
             let deleteMyFriend = [];
-            this.myFriend.map(item => item.checked === true ? deleteMyFriend.push(item.id) : item)
-            this.user.deleteMyFriends(deleteMyFriend)
+            this.myFriend.map(item => item.checked ? deleteMyFriend.push(item.id) : item)
+            this.user.deleteMyFriends(deleteMyFriend).subscribe((res) => {
+                if(res){
+                  this.myFriend.forEach((item, index) => item.checked == true ? this.myFriend.splice(index, 1) : item)
+                  console.log(this.myFriend)
+                  this.data.deleteFriends = false;
+                }
+            })
           }
         }
       ]
     });
     confirm.present();
   }
+
+  constructor(private alertCtrl: AlertController,
+              private user: UserProvider) {
+  }
+
 }

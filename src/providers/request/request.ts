@@ -6,7 +6,7 @@ import {Storage} from "@ionic/storage";
 import {RequestOptions} from "@angular/http";
 
 @Injectable()
-export class RequestProvider {
+export class RequestProvider1 {
   authKey: string;
   options: any;
 

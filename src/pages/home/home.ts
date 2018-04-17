@@ -36,15 +36,15 @@ export class HomePage {
         this.comm.emitValue = 'adviceJobFinish';
         this.comm.adviceJobsequence.job_id = this.getCheckedElements();
         console.log(this.comm.adviceJobsequence, 'request advice job data')
-        this.content.suggestJobs().then((res) => {
-            this.comm.tabsControllPressed();
-            this.tabs.select(1);
+        this.content.suggestJobs().subscribe((res) => {
+          this.comm.tabsControllPressed();
+          this.tabs.select(1);
 
         })
 
       }
     })
-    this.content.getSuggestedJobs().then((res) => {
+    this.content.getSuggestedJobs().subscribe((res: any[]) => {
       this.suggestedJobs = (res ? res : []);
       console.log(res, 'suggested jobs')
     })
@@ -53,13 +53,13 @@ export class HomePage {
   getCheckedElements() {
     let arr = [];
     this.jobsArr.forEach((item) => {
-      if (item.checked){
+      if (item.checked) {
         arr.push(item.id);
         item.checked = false;
       }
     });
     this.myJobsArr.forEach((item) => {
-      if (item.checked){
+      if (item.checked) {
         arr.push(item.id);
         item.checked = false;
       }
@@ -101,7 +101,7 @@ export class HomePage {
   }
 
   loadJobs() {
-    this.content.getJobs().then(res => {
+    this.content.getJobs().subscribe((res:any[]) => {
       if (res) {
         console.log('jobs', res)
         this.jobsArr = res;
@@ -111,14 +111,16 @@ export class HomePage {
 
   getMyJobs() {
     console.log('my jobs');
-    this.user.myJobs().then((res) => {
+    this.user.myJobs().subscribe((res:any[]) => {
       this.myJobsArr = res;
     })
   }
 
   toMyJobs(job) {
     this.user.applyForJob(job.id);
-    this.jobsArr.splice(this.jobsArr.indexOf(job), 1);
+    if (this.jobsArr.indexOf(job) !== -1) {
+      this.jobsArr.splice(this.jobsArr.indexOf(job), 1);
+    } else this.suggestedJobs.splice(this.suggestedJobs.indexOf(job), 1);
   }
 
   escapeJob(job) {
@@ -159,5 +161,13 @@ export class HomePage {
     if (this.scrollLimit < this.jobsArr.length) {
       this.scrollLimit += 5;
     }
+  }
+
+  shareJob (job) {
+    this.comm.adviceJobsequence.job_id = [job.id];
+    this.comm.emitValue = 'selectFriends';
+    this.comm.tabsControllPressed();
+    this.tabs.select(1);
+    this.comm.data.tabsControllButton = true;
   }
 }

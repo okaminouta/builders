@@ -30,7 +30,7 @@ export class AddSkillPage {
                 public alertCtrl: AlertController,
                 public contentProvider: ContentProvider,
                 public modalCtrl: ModalController) {
-      this.contentProvider.getSkills().then((res) => {
+      this.contentProvider.getSkills().subscribe((res:any[]) => {
         console.log(res, 'res skills');
         this.skillsArr=res;
       })
@@ -71,7 +71,7 @@ export class AddSkillPage {
         }
       });
       console.log(idsArr);
-      this.user.addSkills(idsArr).then( (res) => {
+      this.user.addSkills(idsArr).subscribe( (res) => {
         this.util.updateUserSkills();
         if (this.unfinioshedReg) {
           this.user.firstEnter().setFalse();

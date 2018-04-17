@@ -55,7 +55,7 @@ export class SignUpPage {
 
   register() {
     if (this.util.credentialsCheck(this.userData)) {
-      this.userProvider.register(this.userData).then((res: any) => {
+      this.userProvider.register(this.userData).subscribe((res: any) => {
         if (res) {
           console.log(res, 'res sight')
           this.navCtrl.push(ProfilePage);

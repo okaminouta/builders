@@ -31,12 +31,11 @@ export class UtilityProvider {
     this.quitEditing.emit(val);
   }
 
-  toast(msg: string, cssClass: string, position: string = 'top') {
+  toast(type, msg: string, position: string = 'top') {
     let toast = this.toastCtrl.create({
       message: msg,
       position: position,
       duration: 3000,
-      cssClass: cssClass,
       dismissOnPageChange: false
     });
     toast.present();

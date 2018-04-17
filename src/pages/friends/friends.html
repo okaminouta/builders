@@ -52,7 +52,7 @@
                 no-margin
                 no-padding
                 (click)="checkAllFriends()">
-          Все
+          Всі
         </button>
       </ion-col>
     </ion-row>
@@ -69,12 +69,12 @@
                 no-margin
                 no-padding
                 (click)="cancelFriendsSelection()">
-          Отмена
+          Відміна
         </button>
       </ion-col>
 
       <ion-title text-center>
-        Поделиться предложением
+        Запропонувати пропозицією
       </ion-title>
 
       <ion-col text-end no-padding>
@@ -84,7 +84,7 @@
                 no-margin
                 no-padding
                 (click)="checkAllFriends()">
-          Все
+          Всі
         </button>
       </ion-col>
     </ion-row>
@@ -120,7 +120,7 @@
           </span>
           </div>
         </ion-avatar>
-        <!--<h2>{{friend.first_name + ' ' + friend.last_name}} <br> прислал вам заявку в друзья</h2>-->
+        <!--<h2>{{friend.first_name + ' ' + friend.last_name}} <br> прислал вам заявку в контакти</h2>-->
         <h3><b>{{friend.first_name + ' ' + friend.last_name}}</b>
           <i>прислав Вам заявку в друзі</i></h3>
         <div row col-9>
@@ -147,8 +147,8 @@
                     (click)="checkFriend(friend)"
                     item-end></ion-checkbox>
     </ion-item>
-    <div class="message" *ngIf="!friendRequestsArr || friendRequestsArr.length === 0">
-      <h6>У Вас ще немає друзів</h6>
-    </div>
+<div class="message" *ngIf="!friendsArr || friendsArr.length === 0">
+<h6>У Вас ще немає контактів</h6>
+</div>
   </div>
 </ion-content>
