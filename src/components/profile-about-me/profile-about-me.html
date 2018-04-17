@@ -42,7 +42,7 @@
       <!--<ion-row class="border">-->
       <!--</ion-row>-->
     </ion-item>
-  <div class="alert-message"><span no-padding *ngIf="!validateEmail(userData.email)">
+  <div class="alert-message"><span no-padding *ngIf="!validateEmail(userData.email) && editProfile">
 Ваш email повинен виглядати як email і бути від 5-30 символів.
   </span></div>
     <ion-item no-padding>

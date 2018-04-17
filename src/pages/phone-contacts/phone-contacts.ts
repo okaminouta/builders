@@ -3,13 +3,6 @@ import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angula
 import {Contacts, Contact, ContactField, ContactName} from '@ionic-native/contacts';
 import {UserProvider} from "../../providers/user/user";
 
-/**
- * Generated class for the PhoneContactsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-phone-contacts',
@@ -19,12 +12,13 @@ export class PhoneContactsPage implements OnInit {
   private contactlist: any;
   displayContactlist;
 
-    test(){
-    this.displayContactlist =  this.contactlist;
-    }
+  test() {
+    this.displayContactlist = this.contactlist;
+  }
 
-    showSearchbar: boolean = false;
-friends;
+  showSearchbar: boolean = false;
+  friends;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public user: UserProvider,
@@ -33,26 +27,28 @@ friends;
   }
 
   ngOnInit() {
-    this.getContacts ();
-    this.user.myFriends().subscribe ((res)=> {
+    this.getContacts();
+    this.user.myFriends().subscribe((res) => {
       this.friends = res;
-      if(this.contactlist && this.contactlist.length > 0 && this.friends.length >0 ){
+      if (this.contactlist && this.contactlist.length > 0 && this.friends.length > 0) {
         this.compareNumbers();
       }
     })
   }
 
 
-  compareNumbers () {
-    this.contactlist.forEach((item)=>{
-      if(this.friends.find((el)=> {return el.phone === item.phoneNumbers[0].value;})){
+  compareNumbers() {
+    this.contactlist.forEach((item) => {
+      if (this.friends.find((el) => {
+          return el.phone === item.phoneNumbers[0].value;
+        })) {
         item.added = true;
       }
     })
 
   }
 
-  getContacts (){
+  getContacts() {
     this.contacts.find(["displayName", "phoneNumbers"], {
       multiple: true,
       hasPhoneNumber: true
@@ -62,19 +58,20 @@ friends;
     });
   }
 
-numbers
+  numbers;
+
   phoneSelectPopup(contact) {
     let alertPopup = this.alertCtrl.create();
     alertPopup.setTitle('Виберіть номер для відправки запрошення');
     alertPopup.addButton('Cancel');
-    if(contact.phoneNumbers.length > 1) {
+    if (contact.phoneNumbers.length > 1) {
       for (let i = 0; i < contact.phoneNumbers.length; i++) {
         alertPopup.addInput({
           type: 'checkbox',
           label: contact.phoneNumbers[i].value,
           value: contact.phoneNumbers[i].value,
         })
-    }
+      }
       alertPopup.addButton({
         text: 'Okay',
         handler: (data: any) => {
@@ -89,17 +86,19 @@ numbers
     }
 
   }
-    goBack() {
-        this.navCtrl.pop();
-    }
-    hideSBar() {
-      this.test();
-        this.showSearchbar = false;
-    }
 
-    showSBar() {
-        this.showSearchbar = true;
-    }
+  goBack() {
+    this.navCtrl.pop();
+  }
+
+  hideSBar() {
+    this.test();
+    this.showSearchbar = false;
+  }
+
+  showSBar() {
+    this.showSearchbar = true;
+  }
 
   filterItems(ev: any) {
     // this.getContacts();
@@ -107,13 +106,13 @@ numbers
     let val = ev.target.value;
 
     if (val && val.trim() !== '') {
-      this.displayContactlist = this.displayContactlist.filter(function(item) {
+      this.displayContactlist = this.displayContactlist.filter(function (item) {
         return item.displayName.toLowerCase().includes(val.toLowerCase());
       });
     }
   }
 
-  test1 () {
+  test1() {
     // alert(this.test)
   }
 

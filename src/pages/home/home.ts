@@ -117,16 +117,19 @@ export class HomePage {
   }
 
   toMyJobs(job) {
-    this.user.applyForJob(job.id);
-    if (this.jobsArr.indexOf(job) !== -1) {
-      this.jobsArr.splice(this.jobsArr.indexOf(job), 1);
-    } else this.suggestedJobs.splice(this.suggestedJobs.indexOf(job), 1);
+    this.user.applyForJob(job.id).subscribe(()=>{
+      if (this.jobsArr.indexOf(job) !== -1) {
+        this.jobsArr.splice(this.jobsArr.indexOf(job), 1);
+      } else this.suggestedJobs.splice(this.suggestedJobs.indexOf(job), 1);
+    });
+
   }
 
   escapeJob(job) {
     console.log(this.myJobsArr.indexOf(job), 'job')
-    this.myJobsArr.splice(this.myJobsArr.indexOf(job), 1);
-    this.user.escapeJob(job.id);
+    this.user.escapeJob(job.id).subscribe(()=>{
+      this.myJobsArr.splice(this.myJobsArr.indexOf(job), 1);
+    })
   }
 
   hideSBar() {

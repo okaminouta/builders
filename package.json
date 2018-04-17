@@ -27,6 +27,7 @@
     "@ionic-native/crop": "^4.5.3",
     "@ionic-native/file": "^4.5.3",
     "@ionic-native/file-transfer": "^4.5.3",
+    "@ionic-native/keyboard": "^4.7.0",
     "@ionic-native/screen-orientation": "^4.5.3",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/status-bar": "4.4.0",
@@ -80,13 +81,13 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-screen-orientation": {},
       "cordova-plugin-crop": {},
       "com-badrit-base64": {},
       "cordova-custom-config": {},
       "cordova-plugin-contacts": {},
-      "info.protonet.imageresizer": {}
+      "info.protonet.imageresizer": {},
+      "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
       "android",

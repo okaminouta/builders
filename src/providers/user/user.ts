@@ -134,8 +134,8 @@ export class UserProvider {
     return this.request.post(this.url.setProfile, data)
       .pipe(
         tap(
-          (res) => {
-            this.setUser(res.user);
+          (res: any) => {
+            this.setUser(res);
           },
           (err) => {
             this.util.toast('error', 'error');
@@ -213,6 +213,7 @@ export class UserProvider {
     }).pipe(
       tap(
         () => {
+          this.util.toast('Вашу заявку щодо даної пропозиції подано', 'success');
         },
         (err) => {
           this.util.toast('error', 'error');
@@ -225,6 +226,7 @@ export class UserProvider {
     return this.request.get(this.url.escapeJob + id).pipe(
       tap(
         () => {
+          this.util.toast('Вашу заявку щодо даної пропозиції відхилено', 'success');
         },
         (err) => {
           this.util.toast('error', 'error');
@@ -261,6 +263,7 @@ export class UserProvider {
     return this.request.get(this.url.friends.action + id + this.url.friends.decline).pipe(
       tap(
         () => {
+          this.util.toast('Заявку відхилено', 'success');
         },
         (err) => {
           this.util.toast('error', 'error');
@@ -273,6 +276,7 @@ export class UserProvider {
     return this.request.get(this.url.friends.action + id + this.url.friends.accept).pipe(
       tap(
         () => {
+          this.util.toast('Заявку підтверджено', 'success');
         },
         (err) => {
           this.util.toast('error', 'error');

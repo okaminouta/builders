@@ -38,11 +38,11 @@
   <ion-item>
     <ion-input placeholder="Підтвердіть пароль" type="password" [(ngModel)]="userData.confPass"></ion-input>
   </ion-item>
-  <ion-item *ngIf=" userData.newPass.length > 0 &&
+  <span *ngIf=" userData.newPass.length > 0 &&
   userData.confPass.length > 0 &&
   userData.newPass !== userData.confPass">
     <p>Поля "Новий пароль" та "Підтвердіть пароль" не співпадають </p>
-  </ion-item>
+  </span>
 
 
   <!--<ion-item>-->

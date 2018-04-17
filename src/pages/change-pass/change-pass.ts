@@ -10,8 +10,8 @@ import {UserProvider} from "../../providers/user/user";
 export class ChangePassPage {
   userData = {
     oldPass: null,
-    newPass: null,
-    confPass: null
+    newPass: '',
+    confPass: ''
   }
 
 
