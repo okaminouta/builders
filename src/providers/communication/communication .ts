@@ -64,13 +64,17 @@ export class CommunicationProvider {
         {
           text: 'Так',
           handler: () => {
+
             let deleteMyFriend = [];
-            this.myFriend.map(item => item.checked ? deleteMyFriend.push(item.id) : item)
+            this.myFriend.forEach(item => {
+              if(item.checked){
+                deleteMyFriend.push(item.id)
+              }
+            })
             this.user.deleteMyFriends(deleteMyFriend).subscribe((res) => {
                 if(res){
-                  this.myFriend.forEach((item, index) => item.checked == true ? this.myFriend.splice(index, 1) : item)
+                  // this.myFriend.map(item => item.checked ? this.myFriend.splice() : item)
                   console.log(this.myFriend)
-                  this.data.deleteFriends = false;
                 }
             })
           }
