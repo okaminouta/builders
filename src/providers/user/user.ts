@@ -264,6 +264,7 @@ export class UserProvider {
     }).pipe(
       tap(
         (res) => {
+          this.util.toast('Контакт видалено', 'success')
         },
         (err) => {
           this.util.toast('error', 'error');
