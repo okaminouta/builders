@@ -30,10 +30,11 @@ export class CommunicationProvider {
     return this.data;
   }
 
-  getFriendRequest(data){
+  getFriendRequest(data) {
     this.friendRequest = data;
   }
-  getMyFriend(data){
+
+  getMyFriend(data) {
     this.myFriend = data;
   }
 
@@ -65,13 +66,13 @@ export class CommunicationProvider {
           text: 'Так',
           handler: () => {
             let deleteMyFriend = [];
-            this.myFriend.map(item => item.checked ? deleteMyFriend.push(item.id) : item)
-            this.user.deleteMyFriends(deleteMyFriend).subscribe(() => {
-              // todo gonna cause bugs. remake
-                  this.myFriend.forEach((item, index) => item.checked ? this.myFriend.splice(index, 1) : item)
-                  console.log(this.myFriend)
-                  this.data.deleteFriends = false;
-
+            this.myFriend.forEach(item => {
+              if (item.checked) deleteMyFriend.push(item.id)
+            });
+            this.user.deleteMyFriends(deleteMyFriend).subscribe((res) => {
+              // this.myFriend.map(item => item.checked ? this.myFriend.splice() : item)
+              console.log(this.myFriend)
+              this.data.deleteFriends = false;
             })
           }
         }
