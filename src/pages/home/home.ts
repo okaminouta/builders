@@ -110,8 +110,9 @@ export class HomePage {
   }
 
   getMyJobs() {
-    console.log('my jobs');
+
     this.user.myJobs().subscribe((res:any[]) => {
+      console.log('my jobs', res);
       this.myJobsArr = res;
     })
   }

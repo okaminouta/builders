@@ -1,27 +1,51 @@
+<ion-card>
+  <!--<div *ngIf="i<scrollLimit">-->
 
-<ion-card (click)="showDetails(job)" >
+  <ion-item text-wrap *ngIf="job.first_name">
+    <ion-avatar item-start>
+      <img *ngIf="job.photo_path" [src]="job.photo_path">
+      <div *ngIf="!job.photo_path" class="photo-placeholder" text-center>
+          <span>
+            {{(job.first_name ? job.first_name[0] : '') + (job.last_name ? job.last_name[0] : '')}}
+          </span>
+      </div>
+    </ion-avatar>
+    <h3><b>{{job.first_name + ' ' + job.last_name}}</b>
+      <i>прислав Вам заявку на роботу</i></h3>
+  </ion-item>
 
-    <ion-card-content text-wrap >
-      <h2> {{job.title | async}}</h2>
+
+  <div (click)="showMyJobDetails(job)">
+    <ion-card-content text-wrap>
+      <h2> {{job.title}}
+        <p>
+          <wbr>
+          <i [ngSwitch]="job.status_id">
+            <span *ngSwitchCase="0">Ваша заявка розглядається</span>
+            <span *ngSwitchCase="1">Вітаю,Вас прийнято</span>
+            <span *ngSwitchCase="2">Нажаль,вашу заявку відхилено</span>
+          </i></p>
+      </h2>
       <div class="data">
         <fa-icon name="building"></fa-icon>
-        <wbr>&nbsp;ФОП Фортуна
+        <wbr>&nbsp;{{job.employer }}
         <br>
         <fa-icon name="calendar"></fa-icon>&nbsp; {{job.start_date | date:"dd.MM.yy"}} -
         {{job.end_date | date:"dd.MM.yy"}}
-        <span><br><fa-icon name="money"></fa-icon>&nbsp; {{job.price | currency}}
+        <span><br><fa-icon name="money"></fa-icon>&nbsp; {{job.price }}$
                             &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;{{job.city}}</span>
       </div>
-      <div>
+      <div *ngIf="job.details">
         <p margin-vertical>{{job.description}}</p>
         <div col-xs-auto>
           <div class="checks">
             <h4>Проживання
-              <fa-icon name="check" icon-end></fa-icon>
+              <fa-icon name="{{job.food ? 'check' : 'times'}}" icon-end></fa-icon>
             </h4>
-            <h4>Харчування&nbsp;<fa-icon name="check" icon-end></fa-icon>
+            <h4>Харчування&nbsp;<fa-icon name="{{job.residence ? 'check' : 'times'}}" icon-end></fa-icon>
             </h4>
-            <h4>Перевезення&nbsp;<fa-icon name="times" icon-end></fa-icon>
+            <h4>Перевезення&nbsp;<fa-icon name="{{job.transportation ? 'check' : 'times'}}"
+                                          icon-end></fa-icon>
             </h4>
           </div>
         </div>
@@ -30,13 +54,21 @@
     <ion-row>
       <ion-col left text-left>
         <ion-note>
-          Розміщено {{job.created_at | date:"dd.MM.yy"}} · &nbsp; перегляди: {{job.count}}
+          Розміщено <span *ngIf="!job.createdRecently">{{job.created_at | date:"dd.MM.yy"}}</span>
+          <span *ngIf="job.createdRecently">{{job.createdRecently}}</span> · &nbsp; перегляди: {{job.count}}
+          <ion-checkbox color="pimary"
+                        *ngIf="communication.tabsControllButton"
+                        [checked]="job.checked"
+                        (click)="checkJob(job)"
+                        item-end></ion-checkbox>
         </ion-note>
       </ion-col>
     </ion-row>
-    <div row col-12>
-      <button ion-button round outline>Поділитися</button>
-      <button ion-button round outline class="orange_button">Подати заявку</button>
-    </div>
-
+  </div>
+  <div row col-12 *ngIf="!communication.tabsControllButton">
+    <button ion-button round outline id="left_button" (click)="shareJob(job)">Поділитися</button>
+    <button ion-button round outline id="disable_button" (click)="escapeJob(job)">Відхилити заявку</button>
+    <button ion-button round outline id="orange_button" (click)="toMyJobs(job)" *ngIf="">Подати заявку</button>
+  </div>
+  <!--</div>-->
 </ion-card>

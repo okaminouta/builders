@@ -12,7 +12,7 @@ export class PhoneContactsPage implements OnInit {
   private contactlist: any;
   displayContactlist;
 
-  test() {
+  restoreContacts() {
     this.displayContactlist = this.contactlist;
   }
 
@@ -54,7 +54,7 @@ export class PhoneContactsPage implements OnInit {
       hasPhoneNumber: true
     }).then((contacts) => {
       this.contactlist = contacts;
-      this.test();
+      this.restoreContacts();
     });
   }
 
@@ -92,7 +92,7 @@ export class PhoneContactsPage implements OnInit {
   }
 
   hideSBar() {
-    this.test();
+    this.restoreContacts();
     this.showSearchbar = false;
   }
 
@@ -102,7 +102,7 @@ export class PhoneContactsPage implements OnInit {
 
   filterItems(ev: any) {
     // this.getContacts();
-    this.test();
+    this.restoreContacts();
     let val = ev.target.value;
 
     if (val && val.trim() !== '') {

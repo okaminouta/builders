@@ -1,6 +1,6 @@
-<ion-header *ngIf="!communication.tabsControllButton">
+<ion-header>
   <ion-navbar>
-    <div class="bar bar-header bar-positive">
+    <div *ngIf="!communication.tabsControllButton">
       <ion-title text-center *ngIf="!showSearchbar">Пропозиції
         <div class="icon-right">
           <ion-icon ios="ios-search" md="md-search" (click)="showSBar()"></ion-icon>
@@ -14,12 +14,7 @@
         </ion-searchbar>
       </div>
     </div>
-  </ion-navbar>
-</ion-header>
-
-<ion-header *ngIf="communication.tabsControllButton">
-  <ion-navbar hideBackButton>
-    <ion-row justify-content-between align-items-center>
+    <ion-row justify-content-between align-items-center *ngIf="communication.tabsControllButton">
       <ion-col>
         <button color="white"
                 ion-button clear
@@ -30,11 +25,9 @@
           Назад
         </button>
       </ion-col>
-
       <ion-title text-center>
         Поделиться предложением
       </ion-title>
-
       <ion-col text-end no-padding>
         <button color="white"
                 text-capitalize
@@ -65,74 +58,82 @@
             </ion-segment-button>
           </ion-segment>
         </ion-col>
-
       </ion-row>
-
-
     </ion-grid>
   </div>
 
   <div [ngSwitch]="sentence">
     <ion-list *ngSwitchCase="'my'">
-      <ion-card *ngFor=" let job of myJobsArr; index as i;" >
-        <!--<div *ngIf="i<scrollLimit">-->
-        <div (click)="showMyJobDetails(job)">
-        <ion-card-content text-wrap>
-          <h2> {{job.job.title}}
-            <p>
-              <wbr>
-              <i>{{job.status}}</i></p>
-          </h2>
-          <div class="data">
-            <fa-icon name="building"></fa-icon>
-            <wbr>&nbsp;{{job.job.employer }}
-            <br>
-            <fa-icon name="calendar"></fa-icon>&nbsp; {{job.job.start_date | date:"dd.MM.yy"}} -
-            {{job.job.end_date | date:"dd.MM.yy"}}
-            <span><br><fa-icon name="money"></fa-icon>&nbsp; {{job.job.price }}$
-                            &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;{{job.job.city}}</span>
-          </div>
-          <div *ngIf="job.details">
-            <p margin-vertical>{{job.description}}</p>
-            <div col-xs-auto>
-              <div class="checks">
-                <h4>Проживання
-                  <fa-icon name="{{job.job.food ? 'check' : 'times'}}" icon-end></fa-icon>
-                </h4>
-                <h4>Харчування&nbsp;<fa-icon name="{{job.job.residence ? 'check' : 'times'}}" icon-end></fa-icon>
-                </h4>
-                <h4>Перевезення&nbsp;<fa-icon name="{{job.job.transportation ? 'check' : 'times'}}" icon-end></fa-icon>
-                </h4>
-              </div>
-            </div>
-          </div>
-        </ion-card-content>
-        <ion-row>
-          <ion-col left text-left>
-            <ion-note>
-              Розміщено <span *ngIf="!job.createdRecently">{{job.created_at | date:"dd.MM.yy"}}</span>
-              <span *ngIf="job.createdRecently">{{job.createdRecently}}</span> · &nbsp; перегляди: {{job.job.count}}
-              <ion-checkbox color="pimary"
-                            *ngIf="communication.tabsControllButton"
-                            [checked]="job.checked"
-                            (click)="checkJob(job)"
-                            item-end></ion-checkbox>
-            </ion-note>
-          </ion-col>
-        </ion-row>
-        </div>
-        <div row col-12 *ngIf="!communication.tabsControllButton">
-          <button ion-button round outline id="left_button" (click)="shareJob(job)">Поділитися</button>
-          <button ion-button round outline id="disable_button" (click)="escapeJob(job)">Відхилити заявку</button>
-        </div>
-        <!--</div>-->
-      </ion-card>
+      <job-card *ngFor=" let job of myJobsArr; index as i;"
+                [job]="job"
+                [jobsArr]="myJobsArr"></job-card>
+
+      <!--todo refactoring-->
+      <!--<hr>-->
+      <!--<ion-card *ngFor=" let job of myJobsArr; index as i;">-->
+      <!--&lt;!&ndash;<div *ngIf="i<scrollLimit">&ndash;&gt;-->
+      <!--<div (click)="showMyJobDetails(job)">-->
+      <!--<ion-card-content text-wrap>-->
+      <!--<h2> {{job.job.title}}-->
+      <!--<p>-->
+      <!--<wbr>-->
+      <!--<i>{{job.status}}</i></p>-->
+      <!--</h2>-->
+      <!--<div class="data">-->
+      <!--<fa-icon name="building"></fa-icon>-->
+      <!--<wbr>&nbsp;{{job.job.employer }}-->
+      <!--<br>-->
+      <!--<fa-icon name="calendar"></fa-icon>&nbsp; {{job.job.start_date | date:"dd.MM.yy"}} - -->
+      <!--{{job.job.end_date | date:"dd.MM.yy"}}-->
+      <!--<span><br><fa-icon name="money"></fa-icon>&nbsp; {{job.job.price }}$-->
+      <!--&nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;{{job.job.city}}</span>-->
+      <!--</div>-->
+      <!--<div *ngIf="job.details">-->
+      <!--<p margin-vertical>{{job.description}}</p>-->
+      <!--<div col-xs-auto>-->
+      <!--<div class="checks">-->
+      <!--<h4>Проживання-->
+      <!--<fa-icon name="{{job.job.food ? 'check' : 'times'}}" icon-end></fa-icon>-->
+      <!--</h4>-->
+      <!--<h4>Харчування&nbsp;<fa-icon name="{{job.job.residence ? 'check' : 'times'}}" icon-end></fa-icon>-->
+      <!--</h4>-->
+      <!--<h4>Перевезення&nbsp;<fa-icon name="{{job.job.transportation ? 'check' : 'times'}}"-->
+      <!--icon-end></fa-icon>-->
+      <!--</h4>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</ion-card-content>-->
+      <!--<ion-row>-->
+      <!--<ion-col left text-left>-->
+      <!--<ion-note>-->
+      <!--Розміщено <span *ngIf="!job.createdRecently">{{job.created_at | date:"dd.MM.yy"}}</span>-->
+      <!--<span *ngIf="job.createdRecently">{{job.createdRecently}}</span> · &nbsp; перегляди: {{job.job.count}}-->
+      <!--<ion-checkbox color="pimary"-->
+      <!--*ngIf="communication.tabsControllButton"-->
+      <!--[checked]="job.checked"-->
+      <!--(click)="checkJob(job)"-->
+      <!--item-end></ion-checkbox>-->
+      <!--</ion-note>-->
+      <!--</ion-col>-->
+      <!--</ion-row>-->
+      <!--</div>-->
+      <!--<div row col-12 *ngIf="!communication.tabsControllButton">-->
+      <!--<button ion-button round outline id="left_button" (click)="shareJob(job)">Поділитися</button>-->
+      <!--<button ion-button round outline id="disable_button" (click)="escapeJob(job)">Відхилити заявку</button>-->
+      <!--</div>-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--</ion-card>-->
       <div class="message" *ngIf="!myJobsArr || myJobsArr.length === 0">
         <h6>Ви не подали ще жодної заявки на роботу</h6>
       </div>
     </ion-list>
 
     <ion-list *ngSwitchCase="'all'">
+
+      <!--<job-card *ngFor=" let job of suggestedJobs; index as i;"-->
+      <!--[job]="job"-->
+      <!--[jobsArr]="suggestedJobs"></job-card>-->
 
       <ion-card *ngFor="let suggestedJob of suggestedJobs">
         <ion-item text-wrap>
@@ -198,54 +199,59 @@
       </ion-card>
 
       <!--todo remake it if doesnt work-->
-      <ion-card *ngFor=" let job of jobsArr; index as i;">
-        <div *ngIf="i<scrollLimit">
-          <ion-card-content text-wrap (click)="showDetails(job)">
-            <h2> {{job.title}}</h2>
-            <div class="data">
-              <fa-icon name="building"></fa-icon>
-              <wbr>&nbsp;{{job.employer }}
-              <br>
-              <fa-icon name="calendar"></fa-icon>&nbsp; {{job.start_date | date:"dd.MM.yy"}} -
-              {{job.end_date | date:"dd.MM.yy"}}
-              <span><br><fa-icon name="money"></fa-icon>&nbsp; {{job.price }}$
-                            &nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;{{job.city}}</span>
-            </div>
-            <div *ngIf="job.details">
-              <p margin-vertical>{{job.description}}</p>
-              <div col-xs-auto>
-                <div class="checks">
-                  <h4>Проживання
-                    <fa-icon name="{{job.food ? 'check' : 'times'}}" icon-end></fa-icon>
-                  </h4>
-                  <h4>Харчування&nbsp;<fa-icon name="{{job.residence ? 'check' : 'times'}}" icon-end></fa-icon>
-                  </h4>
-                  <h4>Перевезення&nbsp;&nbsp;<fa-icon name="{{job.transportation ? 'check' : 'times'}}"
-                                                      icon-end></fa-icon>
-                  </h4>
-                </div>
-              </div>
-            </div>
-          </ion-card-content>
-          <ion-row>
-            <ion-col left text-left>
-              <ion-note>
-                Розміщено <span *ngIf="!job.createdRecently">{{job.created_at | date:"dd.MM.yy"}}</span>
-                <span *ngIf="job.createdRecently">{{job.createdRecently}}</span> · &nbsp; перегляди: {{job.count}}
-                <ion-checkbox color="pimary"
-                              *ngIf="communication.tabsControllButton"
-                              [checked]="job.checked"
-                              (click)="checkJob(job)"
-                              item-end></ion-checkbox>
-              </ion-note>
-            </ion-col>
-          </ion-row>
-          <div row col-12 *ngIf="!communication.tabsControllButton">
-            <button ion-button round outline id="left_button" (click)="shareJob(job)">Поділитися</button>
-            <button ion-button round outline id="orange_button" (click)="toMyJobs(job)">Подати заявку</button>
-          </div>
-        </div>
-      </ion-card>
+
+      <job-card *ngFor=" let job of jobsArr; index as i;"
+                [job]="job"
+                [jobsArr]="jobsArr"></job-card>
+
+      <!--<ion-card *ngFor=" let job of jobsArr; index as i;">-->
+      <!--<div *ngIf="i<scrollLimit">-->
+      <!--<ion-card-content text-wrap (click)="showDetails(job)">-->
+      <!--<h2> {{job.title}}</h2>-->
+      <!--<div class="data">-->
+      <!--<fa-icon name="building"></fa-icon>-->
+      <!--<wbr>&nbsp;{{job.employer }}-->
+      <!--<br>-->
+      <!--<fa-icon name="calendar"></fa-icon>&nbsp; {{job.start_date | date:"dd.MM.yy"}} - -->
+      <!--{{job.end_date | date:"dd.MM.yy"}}-->
+      <!--<span><br><fa-icon name="money"></fa-icon>&nbsp; {{job.price }}$-->
+      <!--&nbsp;<fa-icon name="map-marker"></fa-icon> &nbsp;{{job.city}}</span>-->
+      <!--</div>-->
+      <!--<div *ngIf="job.details">-->
+      <!--<p margin-vertical>{{job.description}}</p>-->
+      <!--<div col-xs-auto>-->
+      <!--<div class="checks">-->
+      <!--<h4>Проживання-->
+      <!--<fa-icon name="{{job.food ? 'check' : 'times'}}" icon-end></fa-icon>-->
+      <!--</h4>-->
+      <!--<h4>Харчування&nbsp;<fa-icon name="{{job.residence ? 'check' : 'times'}}" icon-end></fa-icon>-->
+      <!--</h4>-->
+      <!--<h4>Перевезення&nbsp;&nbsp;<fa-icon name="{{job.transportation ? 'check' : 'times'}}"-->
+      <!--icon-end></fa-icon>-->
+      <!--</h4>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</ion-card-content>-->
+      <!--<ion-row>-->
+      <!--<ion-col left text-left>-->
+      <!--<ion-note>-->
+      <!--Розміщено <span *ngIf="!job.createdRecently">{{job.created_at | date:"dd.MM.yy"}}</span>-->
+      <!--<span *ngIf="job.createdRecently">{{job.createdRecently}}</span> · &nbsp; перегляди: {{job.count}}-->
+      <!--<ion-checkbox color="pimary"-->
+      <!--*ngIf="communication.tabsControllButton"-->
+      <!--[checked]="job.checked"-->
+      <!--(click)="checkJob(job)"-->
+      <!--item-end></ion-checkbox>-->
+      <!--</ion-note>-->
+      <!--</ion-col>-->
+      <!--</ion-row>-->
+      <!--<div row col-12 *ngIf="!communication.tabsControllButton">-->
+      <!--<button ion-button round outline id="left_button" (click)="shareJob(job)">Поділитися</button>-->
+      <!--<button ion-button round outline id="orange_button" (click)="toMyJobs(job)">Подати заявку</button>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</ion-card>-->
       <div class="message" *ngIf="!jobsArr || jobsArr.length === 0">
         <h6>У Вас немає активних пропозицій</h6>
       </div>

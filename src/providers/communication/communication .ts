@@ -66,12 +66,12 @@ export class CommunicationProvider {
           handler: () => {
             let deleteMyFriend = [];
             this.myFriend.map(item => item.checked ? deleteMyFriend.push(item.id) : item)
-            this.user.deleteMyFriends(deleteMyFriend).subscribe((res) => {
-                if(res){
-                  this.myFriend.forEach((item, index) => item.checked == true ? this.myFriend.splice(index, 1) : item)
+            this.user.deleteMyFriends(deleteMyFriend).subscribe(() => {
+              // todo gonna cause bugs. remake
+                  this.myFriend.forEach((item, index) => item.checked ? this.myFriend.splice(index, 1) : item)
                   console.log(this.myFriend)
                   this.data.deleteFriends = false;
-                }
+
             })
           }
         }
