@@ -74,7 +74,7 @@ export class FriendsPage implements OnInit {
       this.comm.data.deleteFriends = false
       this.comm.data.tabsControllButton = false
     }
-    console.log(friend)
+    console.log(this.friendsArr)
   }
 
   checkAllFriends() {
