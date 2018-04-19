@@ -79,7 +79,10 @@ export class FriendsPage implements OnInit {
 
   checkAllFriends() {
     this.friendsArr.forEach(item => item.checked = true)
-    this.comm.data.deleteFriends = true
+    if (this.changesFriends) {
+      this.comm.data.deleteFriends = true
+    }
+
     console.log(this.friendsArr)
   }
 
@@ -98,6 +101,7 @@ export class FriendsPage implements OnInit {
   adviceJob() {
     this.selectFriends = true;
     this.comm.emitValue = 'adviceJob1';
+    this.comm.data.tabsControllButton = true;
   }
 
   toContacts() {
