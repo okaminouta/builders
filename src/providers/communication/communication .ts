@@ -1,7 +1,6 @@
 import {EventEmitter, Injectable, Output} from "@angular/core";
 import {AlertController} from "ionic-angular";
 import {UserProvider} from "../user/user";
-import {FriendsPage} from "../../pages/friends/friends";
 
 @Injectable()
 
@@ -30,10 +29,11 @@ export class CommunicationProvider {
     return this.data;
   }
 
-  getFriendRequest(data){
+  getFriendRequest(data) {
     this.friendRequest = data;
   }
-  getMyFriend(data){
+
+  getMyFriend(data) {
     this.myFriend = data;
   }
 
@@ -66,16 +66,20 @@ export class CommunicationProvider {
           handler: () => {
 
             let deleteMyFriend = [];
-            this.myFriend.forEach(item => {
-              if(item.checked){
+            this.myFriend.filter(item => {
+              if (item.checked) {
                 deleteMyFriend.push(item.id)
               }
             })
             this.user.deleteMyFriends(deleteMyFriend).subscribe((res) => {
-                if(res){
-                  // this.myFriend.map(item => item.checked ? this.myFriend.splice() : item)
-                  console.log(this.myFriend)
-                }
+              // for (let i = 0; i < this.myFriend.length; i++) {
+              //   this.myFriend[i].checked ? this.myFriend.splice(i, 1) : this.myFriend[i];
+              // }
+              if (res) {
+                this.myFriend.forEach((item, index) => {
+                  item.checked ? this.myFriend.splice(index, 1) : index
+                })
+              }
             })
           }
         }
