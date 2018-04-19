@@ -8,23 +8,40 @@ import {FriendsPage} from "../../pages/friends/friends";
 export class CommunicationProvider {
   public friendRequest;
   public myFriend;
+  emitValue: string;
+
+  constructor(private alertCtrl: AlertController,
+              private user: UserProvider) {
+  }
 
   data = {
     tabsControllButton: false,
     editProfile: false,
     deleteFriends: false,
   };
-  emitValue: string;
-
-
   adviceJobsequence = {
     recipient_id: null,
     job_id: null
-  }
+  };
 
-
+  @Output() changeTabs = new EventEmitter<string>();
+  @Output() quitEditing = new EventEmitter<boolean>();
+  @Output() userSkills = new EventEmitter<void>();
   @Output() tabsControll = new EventEmitter<string>();
   @Output() profileEdit = new EventEmitter<boolean>();
+
+
+  changeTab(str) {
+    this.changeTabs.emit(str);
+  }
+
+  updateUserSkills() {
+    this.userSkills.emit();
+  }
+
+  quitEdit(val) {
+    this.quitEditing.emit(val);
+  }
 
   getDisplaySettings() {
     return this.data;
@@ -44,7 +61,6 @@ export class CommunicationProvider {
 
 
   tabsControllPressed() {
-    console.log('controll button presd');
     this.tabsControll.emit(this.emitValue);
   }
 
@@ -66,13 +82,15 @@ export class CommunicationProvider {
           text: 'Так',
           handler: () => {
             let deleteMyFriend = [];
-            this.myFriend.forEach(item => {
-              if (item.checked) deleteMyFriend.push(item.id)
+            this.myFriend.filter(item => {
+              if (item.checked) deleteMyFriend.push(item.id);
             });
             this.user.deleteMyFriends(deleteMyFriend).subscribe((res) => {
-              // this.myFriend.map(item => item.checked ? this.myFriend.splice() : item)
-              console.log(this.myFriend)
-              this.data.deleteFriends = false;
+              if (res) {
+                this.myFriend.forEach((item, index) => {
+                  item.checked ? delete this.myFriend[index] : index
+                })
+              }
             })
           }
         }
@@ -80,9 +98,4 @@ export class CommunicationProvider {
     });
     confirm.present();
   }
-
-  constructor(private alertCtrl: AlertController,
-              private user: UserProvider) {
-  }
-
 }

@@ -1,10 +1,9 @@
 import {Component} from '@angular/core';
 import {App, NavController} from 'ionic-angular';
 import {AboutPage} from "../about/about";
-import {SliderPage} from "../slider/slider";
 import {LoginPage} from "../login/login";
 import {HelpPage} from "../help/help";
-import {UserProvider} from "../../providers/user/user";
+import {AuthProvider} from "../../providers/auth/auth";
 
 @Component({
   selector: 'page-info',
@@ -12,9 +11,8 @@ import {UserProvider} from "../../providers/user/user";
 })
 export class InfoPage {
 
-
   constructor(public navCtrl: NavController,
-              public user: UserProvider,
+              public auth: AuthProvider,
               public app: App) {
 
   }
@@ -28,12 +26,6 @@ export class InfoPage {
   }
 
   logout() {
-    this.app.getRootNavs()[0].setRoot(LoginPage) && this.user.logout();
-    // let elements = document.querySelectorAll(".tabbar");
-    // if (elements != null) {
-    //   Object.keys(elements).map((key) => {
-    //     elements[key].style.display = 'none';
-    //   });
-    //   this.navCtrl.push(LoginPage);
+    this.app.getRootNavs()[0].setRoot(LoginPage) && this.auth.logout();
   }
 }

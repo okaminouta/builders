@@ -5,6 +5,7 @@ import {ContentProvider} from "../../providers/content/content";
 import {UserProvider} from "../../providers/user/user";
 import {UtilityProvider} from "../../providers/utility/utility";
 import {AddSkillModalsPage} from "../../pages/add-skill-modals/add-skill-modals";
+import {CommunicationProvider} from "../../providers/communication/communication ";
 
 /**
  * Generated class for the ProfileSkilsComponent component.
@@ -25,14 +26,14 @@ export class ProfileSkilsComponent implements OnChanges {
 
   constructor(public navCtrl: NavController,
               private util: UtilityProvider,
-              private ref: ChangeDetectorRef,
+              private comm: CommunicationProvider,
               public modalCtrl: ModalController,
               public user: UserProvider) {
     this.loadSkills();
     this.user.firstEnter().get().then((data) => {
       this.registrationIsFinished = data !== 'Unfinished';
     });
-    this.util.userSkills.subscribe(
+    this.comm.userSkills.subscribe(
       () => {
         this.loadSkills();
       });
@@ -73,7 +74,7 @@ export class ProfileSkilsComponent implements OnChanges {
         delete this.skillsArr[index];
       }
     });
-    this.util.quitEdit(false);
+    this.comm.quitEdit(false);
     debugger
     this.user.deleteSkills({
       skill_id: skillsToDelete

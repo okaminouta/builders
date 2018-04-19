@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {LoadingController, Platform} from 'ionic-angular';
-import {Camera, CameraOptions} from "@ionic-native/camera";
+import {Camera,} from "@ionic-native/camera";
 import {Crop} from '@ionic-native/crop';
 import {Base64} from '@ionic-native/base64';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -26,11 +26,9 @@ export class MediaProvider {
 
 
   getMedia(options: string): Promise<any> {
-    if (options === 'camera') {
-      this.options.sourceType = this.Camera.PictureSourceType.CAMERA;
-    }else {
-      this.options.sourceType = this.Camera.PictureSourceType.PHOTOLIBRARY;
-    }
+    if (options === 'camera') this.options.sourceType = this.Camera.PictureSourceType.CAMERA;
+    else this.options.sourceType = this.Camera.PictureSourceType.PHOTOLIBRARY;
+
     let loader = this.loadingCtrl.create({
       content: "Uploading..."
     });
@@ -38,9 +36,8 @@ export class MediaProvider {
       .then((fileUri) => {
         loader.present();
         // Only giving an android example as ios-native camera has built in cropping ability
-        if (this.platform.is('ios')) {
-          return fileUri
-        } else if (this.platform.is('android')) {
+        if (this.platform.is('ios')) return fileUri;
+         else if (this.platform.is('android')) {
           return this.Crop.crop(fileUri, {quality: 100, targetHeight: 50, targetWidth: 50});
         }
       })

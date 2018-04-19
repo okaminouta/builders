@@ -6,6 +6,7 @@ import {UserProvider} from "../../providers/user/user";
 import {SliderPage} from "../slider/slider";
 import {UtilityProvider} from "../../providers/utility/utility";
 import {TabsPage} from "../tabs/tabs";
+import {CommunicationProvider} from "../../providers/communication/communication ";
 
 /**
  * Generated class for the AddSkillPage page.
@@ -27,6 +28,7 @@ export class AddSkillPage {
                 public navParams: NavParams,
                 public util: UtilityProvider,
                 public user: UserProvider,
+                public comm: CommunicationProvider,
                 public alertCtrl: AlertController,
                 public contentProvider: ContentProvider,
                 public modalCtrl: ModalController) {
@@ -72,7 +74,7 @@ export class AddSkillPage {
       });
       console.log(idsArr);
       this.user.addSkills(idsArr).subscribe( (res) => {
-        this.util.updateUserSkills();
+        this.comm.updateUserSkills();
         if (this.unfinioshedReg) {
           this.user.firstEnter().setFalse();
           this.navCtrl.push(TabsPage);

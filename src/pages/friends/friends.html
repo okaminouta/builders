@@ -130,25 +130,26 @@
       </ion-item>
     </div>
 
-
-    <ion-item *ngFor=" let friend of friendsArr " no-lines>
-      <ion-avatar item-start>
-        <img *ngIf="friend.photo_path" [src]="friend.photo_path">
-        <div *ngIf="!friend.photo_path" class="photo-placeholder" text-center>
+    <div *ngFor=" let friend of friendsArr ">
+      <ion-item *ngIf="friend" no-lines>
+        <ion-avatar item-start>
+          <img *ngIf="friend.photo_path" [src]="friend.photo_path">
+          <div *ngIf="!friend.photo_path" class="photo-placeholder" text-center>
           <span>
             {{(friend.first_name ? friend.first_name[0] : '') + (friend.last_name ? friend.last_name[0] : '')}}
           </span>
-        </div>
-      </ion-avatar>
-      <ion-label>{{friend.first_name + ' ' + friend.last_name}}</ion-label>
-      <ion-checkbox *ngIf="selectFriends || changesFriends"
-                    color="pimary"
-                    [checked]="friend.checked"
-                    (click)="checkFriend(friend)"
-                    item-end></ion-checkbox>
-    </ion-item>
-<div class="message" *ngIf="!friendsArr || friendsArr.length === 0">
-<h6>У Вас ще немає контактів</h6>
-</div>
+          </div>
+        </ion-avatar>
+        <ion-label>{{friend.first_name + ' ' + friend.last_name}}</ion-label>
+        <ion-checkbox *ngIf="selectFriends || changesFriends"
+                      color="pimary"
+                      [checked]="friend.checked"
+                      (click)="checkFriend(friend)"
+                      item-end></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="message" *ngIf="!friendsArr || friendsArr.length === 0">
+      <h6>У Вас ще немає контактів</h6>
+    </div>
   </div>
 </ion-content>

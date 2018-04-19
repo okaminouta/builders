@@ -1,7 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavController} from "ionic-angular";
 import {UserProvider} from "../../providers/user/user";
-import {UtilityProvider} from "../../providers/utility/utility";
 import {CommunicationProvider} from "../../providers/communication/communication ";
 
 @Component({
@@ -9,30 +8,26 @@ import {CommunicationProvider} from "../../providers/communication/communication
   templateUrl: 'profile.html'
 })
 export class ProfilePage implements OnInit {
-
-
-  editSkills: boolean = false;
-  editProfile: boolean = false;
-  allSkills: boolean = false;
+  editSkills  = false;
+  editProfile  = false;
+  allSkills = false;
   canLeave = true;
   segmentValue = 'about_me';
 
   constructor(public navCtrl: NavController,
               private user: UserProvider,
-              private comm: CommunicationProvider,
-              private util: UtilityProvider) {
+              private comm: CommunicationProvider) {
 
   }
 
   ngOnInit() {
-    this.util.changeTabs.subscribe(
+    this.comm.changeTabs.subscribe(
       (str) => {
         this.segmentValue = str
       });
-    this.util.quitEditing.subscribe(
+    this.comm.quitEditing.subscribe(
       (val) => {
         this.editSkills = val;
-        // this.editSkillsFunc()
       });
     this.user.firstEnter().get().then((res) => {
       if (res && res === 'Unfinished') {
@@ -51,12 +46,6 @@ export class ProfilePage implements OnInit {
     this.allSkills = true;
   }
 
-  ionViewWillLeave() {
-    console.log("Looks like I'm about to leave :(");
-
-  }
-
-
   editSkillsFunc() {
     this.allSkills = false;
     this.editSkills = !this.editSkills;
@@ -64,8 +53,6 @@ export class ProfilePage implements OnInit {
 
   editProfileFunc() {
     this.editProfile = !this.editProfile;
-    // this.onEditing.emit(this.editProfile);
   }
 
-  // @Output() onEditing = new EventEmitter<boolean>();
 }

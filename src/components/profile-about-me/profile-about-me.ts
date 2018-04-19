@@ -100,7 +100,7 @@ export class ProfileAboutMeComponent implements OnChanges {
         this.user.firstEnter().get().then((res) => {
           if (res && res === 'Unfinished') {
             this.util.toast('Заповніть вашы навички', 'alert');
-            this.util.changeTab('skills');
+            this.comm.changeTab('skills');
           }
         })
       }else this.comm.changeProfileEdit(true)

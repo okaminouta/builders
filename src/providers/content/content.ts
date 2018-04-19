@@ -7,12 +7,6 @@ import {RequestProvider} from "../request.service";
 import {tap} from "rxjs/operators";
 import {UtilityProvider} from "../utility/utility";
 
-/*
-  Generated class for the ContentProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ContentProvider {
 
@@ -23,7 +17,6 @@ export class ContentProvider {
               public user: UserProvider,
               public util: UtilityProvider,
               public request: RequestProvider) {
-    console.log('Hello ContentProvider Provider');
   }
 
   getSkills() {

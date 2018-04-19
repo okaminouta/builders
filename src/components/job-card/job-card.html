@@ -67,8 +67,8 @@
   </div>
   <div row col-12 *ngIf="!communication.tabsControllButton">
     <button ion-button round outline id="left_button" (click)="shareJob(job)">Поділитися</button>
-    <button ion-button round outline id="disable_button" (click)="escapeJob(job)">Відхилити заявку</button>
-    <button ion-button round outline id="orange_button" (click)="toMyJobs(job)" *ngIf="">Подати заявку</button>
+    <button ion-button round outline id="disable_button" (click)="escapeJob(job)" *ngIf="job.user_id">Відхилити заявку</button>
+    <button ion-button round outline id="orange_button" (click)="toMyJobs(job)" *ngIf="!job.user_id">Подати заявку</button>
   </div>
   <!--</div>-->
 </ion-card>

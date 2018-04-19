@@ -5,6 +5,7 @@ import {SignUpPage} from "../sign-up/sign-up";
 import {UserProvider} from "../../providers/user/user";
 import {UtilityProvider} from "../../providers/utility/utility";
 import {RecoverPassPage} from "../recover-pass/recover-pass";
+import {AuthProvider} from "../../providers/auth/auth";
 
 @IonicPage()
 @Component({
@@ -21,12 +22,13 @@ export class LoginPage {
               public navParams: NavParams,
               public alertCtrl: AlertController,
               public util: UtilityProvider,
-              public  user: UserProvider) {
+              public user: UserProvider,
+              public  auth: AuthProvider) {
   }
 
   login() {
     if (this.util.credentialsCheck(this.userData)) {
-      this.user.login(this.userData).subscribe((res: any) => {
+      this.auth.login(this.userData).subscribe((res: any) => {
         localStorage.token = res['user']['api_token'];
         this.user.firstEnter().setFalse();
         this.navCtrl.push(TabsPage);

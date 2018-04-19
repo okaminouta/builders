@@ -13,12 +13,8 @@ export class RequestProvider implements ApiService {
 
 
     constructor(public http: HttpClient) {
-
     }
 
-    public errorHandler(error: HttpErrorResponse) {
-
-    }
 
 
     /**
@@ -48,11 +44,9 @@ export class RequestProvider implements ApiService {
             }
         }
         return this.http.get(url)
-            .do(() => {
-                },
-                error => {
-                    this.errorHandler(error);
-                })
+          .pipe(
+            catchError(this.handleError)
+          )
     }
 
     /**
@@ -64,11 +58,9 @@ export class RequestProvider implements ApiService {
      */
     public put(url: string, credentials: any):Observable<any> {
         return this.http.put(url, credentials)
-            .do(() => {
-                },
-                error => {
-                    this.errorHandler(error);
-                })
+          .pipe(
+            catchError(this.handleError)
+          )
     }
 
     /**
@@ -79,14 +71,12 @@ export class RequestProvider implements ApiService {
      */
     public destroy(url: string) {
         return this.http.delete(url)
-            .do(() => {
-                },
-                error => {
-                    this.errorHandler(error);
-                })
+          .pipe(
+            catchError(this.handleError)
+          )
     }
 
-  private handleError(error: HttpErrorResponse) {
+  public handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);

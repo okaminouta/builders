@@ -11,13 +11,6 @@ import {RequestProvider} from "../request.service";
 import {tap} from "rxjs/operators";
 import {UtilityProvider} from "../utility/utility";
 
-
-/*
-  Generated class for the UserProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class UserProvider {
 
@@ -26,44 +19,9 @@ export class UserProvider {
               private url: UrlProvider,
               public util: UtilityProvider,
               public storage: Storage) {
-    console.log('Hello UserProvider Provider');
   }
 
   @Output() dataChange = new EventEmitter<boolean>();
-
-  register(data: any) {
-    return this.request.post(this.url.signUp, data)
-      .pipe(
-        tap(
-          (res) => {
-            this.setUser(res.data);
-          },
-          (err) => {
-            this.util.toast('error', 'error');
-            console.log(err)
-          })
-      )
-  }
-
-  login(data: any) {
-    return this.request.post(this.url.signIn, data)
-      .pipe(
-        tap(
-          (res) => {
-            this.setUser(res.user);
-          },
-          (err) => {
-            this.util.toast('error', 'error');
-            console.log(err)
-          })
-      )
-  }
-
-  logout() {
-    return this.storage.remove('user').then(() => {
-      return this.request.post(this.url.logOut, {});
-    })
-  }
 
   setUser(data) {
     this.storage.set('phone', data.phone);
@@ -87,17 +45,30 @@ export class UserProvider {
 
   getUser() {
     return this.storage.get('user')
-    //   .then((data) => {
-    //   return data;
-    // });
   }
 
   contacktSupport(data) {
-    return this.request.post(this.url.support, data);
+    return this.request.post(this.url.support, data).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('Помілка, повідомлення не відправлено', 'error');
+          console.log(err)
+        })
+    )
   }
 
   changePass(data) {
-    return this.request.post(this.url.changePass, data);
+    return this.request.post(this.url.changePass, data).pipe(
+      tap(
+        () => {
+        },
+        (err) => {
+          this.util.toast('Помілка, пароль не змінено', 'error');
+          console.log(err)
+        })
+    )
   }
 
   firstEnter() {
