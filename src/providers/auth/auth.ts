@@ -54,7 +54,7 @@ export class AuthProvider {
 
   recoverPassword() {
     return {
-      stepOne: (phone) => {
+      stepOne: (phone:string) => {
         return this.request.post(this.url.passRecovery.stepOne, {
           phone: phone
         }).pipe(
@@ -67,9 +67,10 @@ export class AuthProvider {
             })
         )
       },
-      stepTwo: (code) => {
+      stepTwo: (code:string, phone:string) => {
         return this.request.post(this.url.passRecovery.stepTwo, {
-          code: code
+          code: code,
+          phone: phone
         }).pipe(
           tap(
             () => {
@@ -80,10 +81,11 @@ export class AuthProvider {
             })
         )
       },
-      stepTree: (id, password) => {
+      stepTree: (code: string, password: string, phone:string) => {
         return this.request.post(this.url.passRecovery.stepTree, {
-          id: id,
-          password: password
+          code: code,
+          password: password,
+          phone: phone
         }).pipe(
           tap(
             () => {

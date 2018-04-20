@@ -60,13 +60,13 @@ export class RecoverPassPage implements OnInit {
       })
     }
     if (this.passRecoveryStep === 2) {
-      this.auth.recoverPassword().stepTwo(this.code).subscribe((res)=>{
+      this.auth.recoverPassword().stepTwo(this.code, this.phone).subscribe((res)=>{
         this.id = res;
         this.passRecoveryStep++;
       })
     }
     if (this.passRecoveryStep === 3) {
-      this.auth.recoverPassword().stepTree(this.id, this.password).subscribe(()=>{
+      this.auth.recoverPassword().stepTree(this.code, this.password, this.phone).subscribe(()=>{
         this.navCtrl.push(LoginPage);
       })
     }
