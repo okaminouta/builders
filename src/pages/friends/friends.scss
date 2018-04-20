@@ -1,9 +1,11 @@
 page-friends {
   ion-title {
-    ion-icon {
-      float: right;
-      font-size: 1.4em;
-    }
+
+  }
+  ion-icon {
+    float: right;
+    font-size: 1.4em;
+    color: white;
   }
   .friends-chages-search{
     color: white;
@@ -19,7 +21,11 @@ page-friends {
     margin-left: 3px;
   }
   .searchbar .searchbar-search-icon {
-    color: white;
+    color: white !important;
+    background-size: 16px;
+  }
+  .searchbar .searchbar-has-focus .searchbar-show-cancel .searchbar-search-icon {
+    color: white !important;
   }
   .scroll-content {
      margin-bottom: 55px;

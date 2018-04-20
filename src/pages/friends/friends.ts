@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnChanges} from '@angular/core';
 import {AlertController, App, IonicPage, NavController, NavParams, Tabs} from 'ionic-angular';
 import {UserProvider} from "../../providers/user/user";
 import {PhoneContactsPage} from "../phone-contacts/phone-contacts";
@@ -10,7 +10,8 @@ import {ContentProvider} from "../../providers/content/content";
   selector: 'page-friends',
   templateUrl: 'friends.html',
 })
-export class FriendsPage implements OnInit {
+export class FriendsPage implements OnInit, OnChanges {
+
   showSearchbar: boolean = false;
   friendsArr = [];
   checked = false;
@@ -19,13 +20,17 @@ export class FriendsPage implements OnInit {
   changesFriends = false;
   deleteFriends = false;
 
+  ngOnChanges() {
+
+  }
+
   ngOnInit() {
     this.friendsArr = this.comm.myFriend;
     this.friendRequestsArr = this.comm.friendRequest;
     this.comm.tabsControll.subscribe((str) => {
       if (str === 'adviceJob1') {
         this.comm.emitValue = 'adviceJob2';
-        this.comm.adviceJobsequence.recipient_id = this.getSelectedFriends ();
+        this.comm.adviceJobsequence.recipient_id = this.getSelectedFriends();
         this.tabs.select(0);
       }
       if (str === 'adviceJobFinish') {
@@ -36,16 +41,15 @@ export class FriendsPage implements OnInit {
         this.selectFriends = true;
       }
       if (str === 'selectFriendsFinish') {
-        this.comm.adviceJobsequence.recipient_id = this.getSelectedFriends ();
+        this.comm.adviceJobsequence.recipient_id = this.getSelectedFriends();
         this.content.suggestJobs();
         this.cancelFriendsSelection();
         this.tabs.select(0);
       }
     })
-
   }
 
-  getSelectedFriends () {
+  getSelectedFriends() {
     let arr = [];
     this.friendsArr.forEach((item) => {
       if (item.checked) {
@@ -66,24 +70,22 @@ export class FriendsPage implements OnInit {
       count += key.checked ? 1 : 0;
       return count
     });
-    if(count >=1 && this.changesFriends == true){
+    if (count >= 1 && this.changesFriends == true) {
       this.comm.data.deleteFriends = true
-    }else if(count >=1 && this.selectFriends == true){
+    } else if (count >= 1 && this.selectFriends == true) {
       this.comm.data.tabsControllButton = true
-    }else{
+    } else {
       this.comm.data.deleteFriends = false
       this.comm.data.tabsControllButton = false
     }
-    console.log(this.friendsArr)
   }
 
   checkAllFriends() {
     this.friendsArr.forEach(item => item.checked = true)
     this.comm.data.deleteFriends = true
-    console.log(this.friendsArr)
   }
 
-  cancelFriendsChecked(){
+  cancelFriendsChecked() {
     this.friendsArr.forEach(item => item.checked = false)
     this.comm.data.deleteFriends = false;
     this.changesFriends = false;
