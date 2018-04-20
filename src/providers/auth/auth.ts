@@ -60,6 +60,7 @@ export class AuthProvider {
         }).pipe(
           tap(
             () => {
+              this.util.toast('Повідомлення відправлено', 'success');
             },
             (err) => {
               this.util.toast('error', 'error');
@@ -67,10 +68,9 @@ export class AuthProvider {
             })
         )
       },
-      stepTwo: (code:string, phone:string) => {
+      stepTwo: (code:string) => {
         return this.request.post(this.url.passRecovery.stepTwo, {
           code: code,
-          phone: phone
         }).pipe(
           tap(
             () => {
@@ -81,17 +81,17 @@ export class AuthProvider {
             })
         )
       },
-      stepTree: (code: string, password: string, phone:string) => {
+      stepTree: (code: string, password: string) => {
         return this.request.post(this.url.passRecovery.stepTree, {
           code: code,
           password: password,
-          phone: phone
         }).pipe(
           tap(
-            () => {
+            (res) => {
+              this.util.toast(res, 'success');
             },
             (err) => {
-              this.util.toast('error', 'error');
+              this.util.toast(err.error, 'error');
               console.log(err)
             })
         )
