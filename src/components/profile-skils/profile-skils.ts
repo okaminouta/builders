@@ -75,10 +75,9 @@ export class ProfileSkilsComponent implements OnChanges {
       }
     });
     this.comm.quitEdit(false);
-    debugger
     this.user.deleteSkills({
       skill_id: skillsToDelete
-    })
+    }).subscribe();
 
   }
 
