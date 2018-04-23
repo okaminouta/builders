@@ -1,9 +1,10 @@
-import {Component, OnInit, OnChanges} from '@angular/core';
+import {Component, OnInit, OnChanges, Input} from '@angular/core';
 import {AlertController, App, IonicPage, NavController, NavParams, Tabs} from 'ionic-angular';
 import {UserProvider} from "../../providers/user/user";
 import {PhoneContactsPage} from "../phone-contacts/phone-contacts";
 import {CommunicationProvider} from "../../providers/communication/communication ";
 import {ContentProvider} from "../../providers/content/content";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @IonicPage()
 @Component({
@@ -13,7 +14,7 @@ import {ContentProvider} from "../../providers/content/content";
 export class FriendsPage implements OnInit, OnChanges {
 
   showSearchbar: boolean = false;
-  friendsArr = [];
+  friendsArr: any;
   checked = false;
   friendRequestsArr = [];
   selectFriends = false;
@@ -25,8 +26,11 @@ export class FriendsPage implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.friendsArr = this.comm.myFriend;
+    this.friendsArr = this.comm.friends.value;
     this.friendRequestsArr = this.comm.friendRequest;
+    this.comm.friends.subscribe((value) => {
+      this.friendsArr = value;
+    })
     this.comm.tabsControll.subscribe((str) => {
       if (str === 'adviceJob1') {
         this.comm.emitValue = 'adviceJob2';
@@ -83,6 +87,7 @@ export class FriendsPage implements OnInit, OnChanges {
   checkAllFriends() {
     this.friendsArr.forEach(item => item.checked = true)
     this.comm.data.deleteFriends = true
+    console.log(this.friendsArr)
   }
 
   cancelFriendsChecked() {

@@ -1,19 +1,20 @@
 import {EventEmitter, Injectable, Output} from "@angular/core";
 import {AlertController} from "ionic-angular";
 import {UserProvider} from "../user/user";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Injectable()
 
 export class CommunicationProvider {
   public friendRequest;
-  public myFriend;
-
+  friends = new BehaviorSubject(null);
   data = {
     tabsControllButton: false,
     editProfile: false,
     deleteFriends: false,
   };
   emitValue: string;
+
 
 
   adviceJobsequence = {
@@ -34,7 +35,7 @@ export class CommunicationProvider {
   }
 
   getMyFriend(data) {
-    this.myFriend = data;
+    return this.friends.next(data);
   }
 
   switchJobsSelectorDisplay() {
@@ -64,22 +65,9 @@ export class CommunicationProvider {
         {
           text: 'Так',
           handler: () => {
-
-            let deleteMyFriend = [];
-            this.myFriend.filter(item => {
-              if (item.checked) {
-                deleteMyFriend.push(item.id)
-              }
-            })
-            this.user.deleteMyFriends(deleteMyFriend).subscribe((res) => {
-              // for (let i = 0; i < this.myFriend.length; i++) {
-              //   this.myFriend[i].checked ? this.myFriend.splice(i, 1) : this.myFriend[i];
-              // }
-              if (res) {
-                this.myFriend.forEach((item, index) => {
-                  item.checked ? this.myFriend.splice(index, 1) : index
-                })
-              }
+            const deleteMyFriend = this.friends.value.filter(e => e.checked).map(e => e.id);
+            this.user.deleteMyFriends(deleteMyFriend).subscribe(() => {
+              this.friends.next(this.friends.value.filter(e => !e.checked));
             })
           }
         }
