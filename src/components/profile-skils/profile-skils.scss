@@ -35,7 +35,7 @@ profile-skills {
     font-size: 12px;
   }
   .futer-button {
-    color: red;
+    color: #f3444d;
     text-transform: none;
   }
   .checkbox-md .checkbox-icon {
@@ -57,5 +57,50 @@ profile-skills {
   .card-content {
     //margin-left: 15px;
   }
+   /*.above-tabs {
+
+     height: 9%;
+     bottom: 45px;
+  }*/
+  @media screen and (max-width: 768px) {
+    .above-tabs {
+
+      height: 6%;
+      bottom: 46px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .futer-button {
+      span {
+        margin-top: -3%;
+      }
+    }
+    .above-tabs {
+
+      height: 8%;
+      bottom: 34px;
+    }
+  }
+  @media screen and (max-width: 360px) {
+    .futer-button {
+      span {
+        margin-top: -3%;
+      }
+    }
+    .above-tabs {
+      height: 6%;
+      bottom: 61px;
+    }
+  }
+    @media screen and (max-width: 320px) {
+      .above-tabs {
+        height: 4%;
+        bottom: 77px;
+      }
+    }
+
+
+
+
 
 }

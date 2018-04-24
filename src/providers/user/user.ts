@@ -65,7 +65,7 @@ export class UserProvider {
         () => {
         },
         (err) => {
-          this.util.toast('Помілка, пароль не змінено', 'error');
+          this.util.toast('Помилка, пароль не змінено', 'error');
           console.log(err)
         })
     )

@@ -178,6 +178,11 @@ page-profile {
   .segment .segment-button.segment-activate {
     font-weight: bold;
   }
+  .non_camelcase{
+    span {
+      text-transform: none;
+    }
+  }
 
   .custom-tabs {
     position: absolute;

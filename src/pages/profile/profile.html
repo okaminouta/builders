@@ -18,6 +18,7 @@
       </ion-title>
 
       <ion-col text-end>
+        <div class="non_camelcase">
         <button color="white"
                 ion-button clear
                 text-capitalize
@@ -27,6 +28,7 @@
                 (click)="editSkills ? selectedAllSkills() : editSkillsFunc()">
           {{editSkills ? 'Вибрати все' : 'Вибрати'}}
         </button>
+        </div>
         <button color="white"
                 ion-button clear
                 text-capitalize

@@ -59,7 +59,7 @@ export class ProfileAboutMeComponent implements OnChanges {
       this.userData.first_name.trim() === '' ||
       this.userData.last_name.trim() === ''
     ) {
-      this.util.toast("Заповніть обов'язкові данні профіля", 'alert')
+      this.util.toast("Заповніть обов'язкові дані профіля", 'alert')
       return false;
     } else return true;
   }
@@ -99,7 +99,7 @@ export class ProfileAboutMeComponent implements OnChanges {
         });
         this.user.firstEnter().get().then((res) => {
           if (res && res === 'Unfinished') {
-            this.util.toast('Заповніть вашы навички', 'alert');
+            this.util.toast('Заповніть ваші навички', 'alert');
             this.comm.changeTab('skills');
           }
         })
